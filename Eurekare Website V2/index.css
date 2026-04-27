@@ -21,7 +21,7 @@
    * colors
    */
 
-  --russian-violet: hsl(269, 36%, 22%);
+  --russian-violet: hsl(216, 100%, 60%);
   --dark-purple: hsl(268, 22%, 15%);
   --eerie-black: hsl(240, 4%, 10%);
   --davys-gray: hsl(0, 0%, 34%);
@@ -32,7 +32,7 @@
   --gainsboro: hsl(0, 1%, 85%);
   --black_10: hsla(0, 0%, 0%, 0.1);
   --black_5: hsla(0, 0%, 0%, 0.05);
-  --pumpkin: hsl(22, 90%, 56%);
+  --pumpkin: hsl(244, 98%, 54%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
 
