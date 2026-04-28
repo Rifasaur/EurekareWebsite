@@ -113,24 +113,25 @@ body {
     padding: 50px;
     text-align: center;
 }
+/*-----------------------------------*\
+  #Styles for carousel, slider, and partner cards and logos
+\*-----------------------------------*/
 
-/* Partners Carousel Styles */
-.partners-section {
-    padding: 80px 0;
-    background-color: #fff;
-    text-align: center;
+
+.features-card {
+  height: 120px;              /* adjust if needed */
+  justify-content: center;
+  display: flex;
 }
 
-.section-title {
-    color: #333;
-    margin-bottom: 40px;
-    font-size: 28px;
+.TDF {
+  max-width: 150%;
+  max-height: 150%;
+  object-fit: contain;   /* VERY important */
 }
 
-.carousel-container {
-    overflow: hidden;
-    width: 100%;
-    position: center;
+.partners-slider {
+  padding: 20px 0;
 }
 
 .carousel-track {
@@ -378,3 +379,7 @@ body {
 }
 
 /*-----------------------------------------------*/
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
