@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthway Navbar Replication</title>
     <link rel="stylesheet" href="stylesheet.css">
+      <!-- Carousel Styles link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
@@ -60,7 +61,11 @@
             <p>The blue top bar will hide as you scroll, and the white navbar will stick to the top.</p>
         </section>
 
-         <section class="section features" id="features" aria-label="features">
+
+        <!-- 
+        - #Partners
+        -->
+        <section class="section features" id="features" aria-label="features">
         <div class="container">
 
           <h2 class="h2 section-title">Our Trusted Health Partners</h2>
@@ -100,6 +105,8 @@
     </main>
 
     <script src="reactive.js"></script>
+    
+      <!-- Swiper scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
 const swiper = new Swiper('.partners-slider', {
