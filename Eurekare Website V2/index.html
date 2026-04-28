@@ -7,6 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prototype   Eurekare Corporation - We Care</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <!-- 
+    - carousel swiper link
+  -->
+
+  <link rel="stylesheet" href="./index.css">
 
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
@@ -33,7 +39,7 @@
   <header class="header" data-header>
     <div class="container">
 
-      <a href="#"><img src="./images/Eurekare_logo_V1.gif" class="img-logo"></a>
+      <a href="#"><img src="./images/Eurekare_logo_V1.gif" class="img"></a>
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list container">
@@ -59,7 +65,7 @@
           </li>
 
           <li>
-            <a href="#blog" class="navbar-link" data-nav-link>What's going on?</a>
+            <a href="#blog" class="navbar-link" data-nav-link>What's goin on</a>
           </li>
 
           <li>
@@ -102,7 +108,7 @@
               aliqua. Ut enim ad minim veniamquis nostrud
             </p>
 
-            <!-- <ul class="btn-list">
+            <ul class="btn-list">
 
               <li>
                 <a href="#" class="btn-item-link" aria-label="Download from app store">
@@ -116,7 +122,7 @@
                 </a>
               </li>
 
-            </ul> -->
+            </ul>
 
           </div>
 
@@ -140,50 +146,35 @@
 
           <h2 class="h2 section-title">Our Trusted Health Partners</h2>
 
-          <ul class="features-list">
-            
-            <li class="features-item">
+          <div class="swiper partners-slider">
+
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
               <div class="features-card">
-                
-                  <img src="images/TDF2.png" alt="TDF">
-
+                <img src="images/TDF3.png" alt="TDF" class="TDF">
               </div>
-            </li>
+            </div>
 
-            <li class="features-item">
+            <div class="swiper-slide">
               <div class="features-card">
-                
-                  <img src="images/TDF2.png" alt="TDF">
-
+                <img src="images/TDF3.png" alt="TDF" class="TDF">
               </div>
-            </li>
+            </div>
 
-          </ul>
-            <li class="features-item">
+            <div class="swiper-slide">
               <div class="features-card">
-                
-                  <img src="images/TDF2.png" alt="TDF">
-
+                <img src="images/TDF3.png" alt="TDF" class="TDF">
               </div>
-            </li>
+            </div>
 
-            <li class="features-item">
+            <div class="swiper-slide">
               <div class="features-card">
-                
-                  <img src="images/TDF2.png" alt="TDF">
-
+                <img src="images/TDF3.png" alt="TDF" class="TDF">
               </div>
-            </li>
+            </div>
 
-            <li class="features-item">
-              <div class="features-card">
-                
-                  <img src="images/TDF.png" alt="TDF">
-
-              </div>
-            </li>
-
-          
+          </div>
 
         </div>
       </section>
@@ -278,22 +269,22 @@
 
           <div class="about-content">
 
-            <p class="section-subtitle">eCare Solution</p>
+            <p class="section-subtitle">Cool & Amazing Design</p>
 
-            <h2 class="h2 section-title">eCARE EMR (Central Hub)</h2>
+            <h2 class="h2 section-title">We Develop Amazing App For Startups</h2>
 
             <p class="section-text">
-              "The beating heart of the system, eCARE EMR serves as the unified electronic medical record 
-              platform that orchestrates data flow across all modules. It ensures seamless interoperability, 
-              real-time access to patient information, and compliance with national health standards—empowering 
-              clinicians, administrators, and patients alike."
+              Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Ut elit tellus, luc tus nec ullamcorper mattis,
+              pulvinar
+              dapibus leo. Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Ut elit tellus, luc tus nec ullam
+              corper.
             </p>
 
-            <!-- <p class="section-text">
+            <p class="section-text">
               Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Ut elit tellus, luc tus nec ullamcorper mattis,
               pulvinar
               dapibus leo. Lorem ipsum dolor.
-            </p> -->
+            </p>
 
             <a href="#" class="btn btn-secondary">Discover More</a>
 
@@ -324,22 +315,17 @@
 
           <div class="app-content">
 
-            <p class="section-subtitle">Meet the Team</p>
+            <p class="section-subtitle">Download Our App</p>
 
-            <h2 class="h2 section-title">Join our dynamic team!</h2>
-
-            <p class="section-text">
-              At the heart of our organization is a team of passionate, driven, and talented individuals who 
-              believe in doing meaningful work. We are always looking for people who are eager to learn, 
-              collaborate, and grow with us.
-              
-            </p>
+            <h2 class="h2 section-title">Get The App For Free And Start Now</h2>
 
             <p class="section-text">
-              If you’re seeking a workplace where your ideas matter, your skills are valued, and your growth is supported, you’re in the right place. Joining our team means becoming part of a culture that values integrity, creativity, and continuous improvement.
+              Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Ut elit tellus, luc tus nec ullamcorper mattis,
+              pulvinar
+              dapibus leo. Lorem ipsum dolor sit amet con Lorem ipsum dolor
             </p>
 
-            <!-- <ul class="btn-list">
+            <ul class="btn-list">
 
               <li>
                 <a href="#" class="btn-item-link" aria-label="Download from app store">
@@ -353,7 +339,7 @@
                 </a>
               </li>
 
-            </ul> -->
+            </ul>
 
           </div>
 
@@ -371,9 +357,9 @@
       <section class="section blog" id="blog" aria-label="blog">
         <div class="container">
 
-          <p class="section-subtitle">What's going on? </p>
+          <p class="section-subtitle">Recent Blogs</p>
 
-          <h2 class="h2 section-title">Latest News and Patches</h2>
+          <h2 class="h2 section-title">Our Tips And Latest News</h2>
 
           <ul class="blog-list">
 
@@ -519,7 +505,7 @@
             id rutrum lore imperdiet ut sem vitae risus tristique posuere
           </p>
 
-          <!-- <ul class="social-list">
+          <ul class="social-list">
 
             <li>
               <a href="#" class="social-link">
@@ -545,7 +531,7 @@
               </a>
             </li>
 
-          </ul> -->
+          </ul>
 
         </div>
 
@@ -677,6 +663,26 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+const swiper = new Swiper('.partners-slider', {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+
+  breakpoints: {
+    0: { slidesPerView: 1 },
+    600: { slidesPerView: 2 },
+    900: { slidesPerView: 3 },
+    1200: { slidesPerView: 4 }
+  }
+});
+</script>
 
 </body>
 
