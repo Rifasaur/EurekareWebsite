@@ -114,7 +114,7 @@ span,
 button,
 ion-icon { display: block; }
 
-img { height: auto; }
+img-logo {max-height: 10px;}
 
 button {
   background: none;
@@ -232,7 +232,7 @@ body {
 .section-title { margin-block: 10px 20px; }
 
 :is(.features, .blog) :is(.section-subtitle, .section-title) {
-  text-align: center;
+  text-align: justify;
 }
 
 .img-holder {
@@ -311,7 +311,7 @@ body {
 }
 
 .navbar.active {
-  max-height: 340px;
+  max-height: 380px;
   visibility: visible;
   transition-duration: 0.5s;
 }
