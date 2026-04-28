@@ -1,0 +1,105 @@
+:root {
+    --healthway-blue: #0072bc;
+    --top-bar-height: 40px;
+    --nav-height: 80px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+}
+
+/* Header Container */
+#header {
+    position: sticky;
+    top: calc(var(--top-bar-height) * -1); /* This hides the blue bar on scroll */
+    z-index: 1000;
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+#header.scrolled {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+/* Blue Top Bar */
+.top-bar {
+    background-color: var(--healthway-blue);
+    color: white;
+    height: var(--top-bar-height);
+    font-size: 11px;
+}
+
+.contact-info span {
+    margin-right: 20px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+/* White Main Nav */
+.main-nav {
+    background-color: white;
+    height: var(--nav-height);
+    border-bottom: 1px solid #eee;
+}
+
+.logo-placeholder {
+    line-height: 1.1;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--healthway-blue);
+}
+
+/* Content for scrolling */
+.hero {
+    height: 60vh;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-style: italic;
+}
+
+.content-spacer {
+    height: 1500px;
+    padding: 50px;
+    text-align: center;
+}
