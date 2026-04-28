@@ -232,7 +232,7 @@ body {
 .section-title { margin-block: 10px 20px; }
 
 :is(.features, .blog) :is(.section-subtitle, .section-title) {
-  text-align: center;
+  text-align: justify;
 }
 
 .img-holder {
@@ -1014,9 +1014,4 @@ body {
 
   .back-top-btn.active { transform: translateX(-80px); }
 
-}
-
-#PhilHealth{
-  width: 300px;
-  height: 200px;
 }
