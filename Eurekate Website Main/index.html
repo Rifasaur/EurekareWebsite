@@ -11,7 +11,7 @@
     <header id="header">
         <!-- Top Blue Bar -->
         <div class="top-bar">
-            <div class="container">
+            <div class="container-header">
                 <div class="contact-info">
                     <span><i class="phone-icon"></i> (02) 7777-2273 (CARE)</span>
                     <span><i class="mobile-icon"></i> 0917-466-2273 (HMN CARE)</span>
@@ -29,15 +29,15 @@
 
         <!-- Main White Navbar -->
         <nav class="main-nav">
-            <div class="container">
+            <div class="container-header">
                 <div class="logo">
                     <div class="logo-placeholder">
-                        <span style="color: #0076be; font-weight: bold; font-size: 24px;">Healthway</span><br>
-                        <span style="color: #666; font-size: 10px; letter-spacing: 1px;">MEDICAL NETWORK</span>
+                        <a href="#"><img src="./images/Eurekare_logo_V1.gif" class="img-logo"></a>
                     </div>
                 </div>
                 <ul class="nav-links">
                     <li><a href="#">Find Care ▾</a></li>
+
                     <li><a href="#">Meet Our Doctors</a></li>
                     <li><a href="#">Patient Guide</a></li>
                     <li><a href="#">Resources ▾</a></li>
@@ -49,15 +49,70 @@
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero"> <!--Introduction Section -->
             <div class="hero-content">
-                <h1>Care Beyond Cure</h1>
+                <h1>Eurekare - We Care</h1>
             </div>
         </section>
-        <section class="content-spacer">
-            <h2>Scroll down to see the sticky effect</h2>
-            <p>The blue top bar will hide as you scroll, and the white navbar will stick to the top.</p>
+
+        <section class="partners-section">
+            <h2 class="section-title">Our Partners</h2>
+            <div class="container-section">    
+                <div class="carousel-wrapper">
+                    <div class="carousel-container">
+                        <!-- Navigation Buttons -->
+                        <button class="nav-btn prev" onclick="prevPage()">&#10094;</button>
+                        <button class="nav-btn next" onclick="nextPage()">&#10095;</button>
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- Page 1 (2x2) -->
+                            <div class="carousel-page">
+                                <div class="logo-grid">
+                                    <div class="partner-logo">Partner 1</div>
+                                    <div class="partner-logo">Partner 2</div>
+                                    <div class="partner-logo">Partner 3</div>
+                                    <div class="partner-logo">Partner 4</div>
+                                </div>
+                            </div>
+                            <!-- Page 2 (2x2) -->
+                            <div class="carousel-page">
+                                <div class="logo-grid">
+                                    <div class="partner-logo">Partner 5</div>
+                                    <div class="partner-logo">Partner 6</div>
+                                    <div class="partner-logo">Partner 7</div>
+                                    <div class="partner-logo">Partner 8</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots">
+                <span class="dot active" onclick="goToPage(0)"></span>
+                <span class="dot" onclick="goToPage(1)"></span>
+            </div>
         </section>
+
+        <section class="content-spacer">
+            <div class="about-content">
+
+                <p class="section-subtitle">About Us</p>
+
+                <h2 class="h2 section-title">Eurekare Corporation</h2>
+
+                    <p class="section-text">
+                        EUREKARE CORP., a Healthcare Information System Service Provider 
+                        based in the Philippines with investors from Taiwan and Philippines, 
+                        brings to the table the eCARE EMR Yakap/Konsulta Project, which provides 
+                        an Electronic Medical Record (EMR) System integrated with Yakap/Konsulta 
+                        Module in accordance with the requirements of the Universal Healthcare Act 
+                        for the City of Valenzuela as an UNSOLICITED PROPOSAL, a new technology WITH 
+                        MINIMUM INITIAL INVESTMENT from the government.
+                    </p>
+
+                <a href="#" class="btn btn-secondary">Discover More</a>
+            </div>
+        </section>
+
     </main>
 
     <script src="reactive.js"></script>
