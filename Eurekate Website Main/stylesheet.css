@@ -247,3 +247,134 @@ body {
 .carousel-track {
     width: 200%; /* Adjusted for 2 pages */
 }
+
+
+/* Footer Styles -----------------------------------------------*/
+.main-footer {
+    background-color: #0072bc; /* Deep blue from the image */
+    color: white;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    position: relative;
+    margin-top: 100px; /* Space for the floating button */
+}
+
+/* Floating Pill Button */
+.footer-cta-wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
+.footer-cta {
+    background-color: #00b4b4; /* Teal color */
+    color: white;
+    text-decoration: none;
+    padding: 20px 60px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.footer-cta:hover {
+    transform: scale(1.05);
+}
+
+/* Footer Grid */
+.footer-content {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    position:relative;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: baseline;
+    height: 100%;
+    width: 80%;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.brand-info {
+    flex: 2;
+    justify-content: center;
+    position: center;
+    align-content: center;
+}
+
+.brand-info p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+.footer-col h3 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+}
+
+.contact-col p {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/*-----------------------------------------------*/
