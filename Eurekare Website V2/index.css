@@ -114,7 +114,7 @@ span,
 button,
 ion-icon { display: block; }
 
-img { height: auto; }
+img-logo {max-height: 10px;}
 
 button {
   background: none;
@@ -311,7 +311,7 @@ body {
 }
 
 .navbar.active {
-  max-height: 340px;
+  max-height: 380px;
   visibility: visible;
   transition-duration: 0.5s;
 }
