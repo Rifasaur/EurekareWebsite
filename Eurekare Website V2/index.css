@@ -1015,3 +1015,8 @@ body {
   .back-top-btn.active { transform: translateX(-80px); }
 
 }
+
+#PhilHealth{
+  width: 300px;
+  height: 200px;
+}
