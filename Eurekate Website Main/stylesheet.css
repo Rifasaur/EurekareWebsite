@@ -23,12 +23,22 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.container {
+.container-header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.container-section {
+    position: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
     align-items: center;
     height: 100%;
 }
