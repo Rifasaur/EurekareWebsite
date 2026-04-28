@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthway Navbar Replication</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
 
@@ -58,8 +59,65 @@
             <h2>Scroll down to see the sticky effect</h2>
             <p>The blue top bar will hide as you scroll, and the white navbar will stick to the top.</p>
         </section>
+
+         <section class="section features" id="features" aria-label="features">
+        <div class="container">
+
+          <h2 class="h2 section-title">Our Trusted Health Partners</h2>
+
+          <div class="swiper partners-slider">
+
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="features-card">
+                <img src="images/TDF3.png" alt="TDF" class="TDF">
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="features-card">
+                <img src="images/TDF3.png" alt="TDF" class="TDF">
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="features-card">
+                <img src="images/TDF3.png" alt="TDF" class="TDF">
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="features-card">
+                <img src="images/TDF3.png" alt="TDF" class="TDF">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
     </main>
 
     <script src="reactive.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+const swiper = new Swiper('.partners-slider', {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+
+  breakpoints: {
+    0: { slidesPerView: 1 },
+    600: { slidesPerView: 2 },
+    900: { slidesPerView: 3 },
+    1200: { slidesPerView: 4 }
+  }
+});
+</script>
 </body>
 </html>

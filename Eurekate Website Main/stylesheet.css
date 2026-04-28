@@ -103,3 +103,24 @@ body {
     padding: 50px;
     text-align: center;
 }
+
+.features-card {
+  height: 120px;              /* adjust if needed */
+  justify-content: center;
+  display: flex;
+}
+
+.TDF {
+  max-width: 150%;
+  max-height: 150%;
+  object-fit: contain;   /* VERY important */
+}
+
+.partners-slider {
+  padding: 20px 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
