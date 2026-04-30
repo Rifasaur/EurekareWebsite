@@ -169,6 +169,251 @@ body {
   padding: 20px 0;
 }
 
+.carousel-track {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    width: 300%; /* Number of pages * 100% */
+}
+
+.carousel-page {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 10px;
+}
+
+.partner-logo {
+    height: 100px;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.partner-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.carousel-dots {
+    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: var(--healthway-blue);
+}
+
+/* Updated Carousel Layout */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(2, 200px);   /* 2 rows with fixed height */
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+.partner-logo {
+    height: 100%; /* Fill the grid cell */
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Nav Buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--healthway-blue);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+}
+
+.nav-btn:hover {
+    opacity: 0.8;
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+.carousel-track {
+    width: 200%; /* Adjusted for 2 pages */
+}
+
+
+/* Footer Styles -----------------------------------------------*/
+.main-footer {
+    background-color: #0072bc; /* Deep blue from the image */
+    color: white;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    position: relative;
+    margin-top: 100px; /* Space for the floating button */
+}
+
+/* Floating Pill Button */
+.footer-cta-wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
+.footer-cta {
+    background-color: #00b4b4; /* Teal color */
+    color: white;
+    text-decoration: none;
+    padding: 20px 60px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.footer-cta:hover {
+    transform: scale(1.05);
+}
+
+/* Footer Grid */
+.footer-content {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    position:relative;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: baseline;
+    height: 100%;
+    width: 80%;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.brand-info {
+    flex: 2;
+    justify-content: center;
+    position: center;
+    align-content: center;
+}
+
+.brand-info p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+.footer-col h3 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+}
+
+.contact-col p {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/*-----------------------------------------------*/
 .swiper-slide {
   display: flex;
   justify-content: center;
