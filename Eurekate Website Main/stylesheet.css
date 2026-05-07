@@ -1,5 +1,5 @@
 :root {
-    --healthway-blue: #0072bc;
+    --eurekare-blue: #022658;
     --top-bar-height: 40px;
     --nav-height: 80px;
 }
@@ -45,7 +45,7 @@ body {
 
 /* Blue Top Bar */
 .top-bar {
-    background-color: var(--healthway-blue);
+    background-color: var(--eurekare-blue);
     color: white;
     height: var(--top-bar-height);
     font-size: 11px;
@@ -90,7 +90,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--healthway-blue);
+    color: var(--eurekare-blue);
 }
 
 /* Content for scrolling */
@@ -109,7 +109,9 @@ body {
 }
 
 .content-spacer {
-    height: 1500px;
+    background-color: #f4f7f9;
+    margin-top: 100px;
+    margin-bottom: 100px;
     padding: 50px;
     text-align: center;
 }
@@ -222,7 +224,7 @@ body {
 }
 
 .dot.active {
-    background-color: var(--healthway-blue);
+    background-color: var(--eurekare-blue);
 }
 
 /* Updated Carousel Layout */
@@ -258,7 +260,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--healthway-blue);
+    background: var(--eurekare-blue);
     color: white;
     border: none;
     width: 40px;
@@ -290,7 +292,6 @@ body {
     background-color: #0072bc; /* Deep blue from the image */
     color: white;
     padding-top: 80px;
-    padding-bottom: 40px;
     position: relative;
     margin-top: 100px; /* Space for the floating button */
 }
@@ -406,11 +407,12 @@ body {
 
 .footer-bottom {
     text-align: center;
-    margin-top: 60px;
-    padding-top: 20px;
+    margin-top: 10px;
+    align-content: center;
+    padding: auto;
+    background-color: var(--eurekare-blue);
     border-top: 1px solid rgba(255,255,255,0.1);
     font-size: 0.8rem;
-    opacity: 0.7;
 }
 
 /*Swiper no Swiping------------------------------------*/
