@@ -106,24 +106,6 @@ body {
     transform: scale(1.1);
 }
 
-/* .top-bar {
-    background-color: var(--healthway-blue);
-    color: white;
-    height: var(--top-bar-height);
-    font-size: 11px;
-}
-
-.contact-info span {
-    margin-right: 20px;
-}
-
-.social-links a {
-    color: white;
-    text-decoration: none;
-    margin-left: 15px;
-    font-weight: bold;
-} */
-
 /* White Main Nav */
 .main-nav {
     background-color: white;
@@ -224,20 +206,12 @@ body {
 .features .section-title {
     text-align: center;
     font-size: 2.2rem;
-    color: #333333;
     font-weight: bold;
     margin-bottom: 40px;
     margin-top: 20px;
     margin-block-end: 40px; 
 }
 
-/* .features .section-title { 
-  margin-block-end: 30px; 
-}
-
-.features .section-title { 
-  margin-block-end: 40px; 
-} */
 
 .features-list {
   display: grid;
@@ -255,7 +229,6 @@ body {
   content: "";
   position: absolute;
   inset: 0 0 40% 0;
-  background-color: var(--cultured-2);
   border-radius: var(--radius-10);
   z-index: -1;
 }
@@ -268,6 +241,16 @@ body {
   height: 120px;              /* adjust if needed */
   justify-content: center;
   display: flex;
+}
+
+.features-card img {
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.features {
+  padding: 80px 0;
 }
 
 .TDF {
@@ -610,15 +593,27 @@ body {
     color: white;
 }
 
-.content-spacer{
+.about-background{
     position: relative;
     background-image: url("images/AIC\ Burgundy\ Tower.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     padding: 100px 80px;
     z-index: 1;
+    background-color: #f4f7f9;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 50px;
+    text-align: center;
+}
+
+.about-background::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5); /* dark overlay */
+    z-index: -1;
 }
 
 .content-spacer::before{
@@ -658,7 +653,6 @@ ion-icon {
 
 img-holder {
   aspect-ratio: var(--width) / var(--height);
-  background-color: var(--light-gray);
 }
 
 img-cover {
@@ -678,19 +672,6 @@ img-cover {
   font-weight: 700;  /* optional: makes it bold */
   margin-bottom: 40px;
 }
-
-
-
-.features-card img {
-  max-width: 200px;
-  height: auto;
-  object-fit: contain;
-}
-
-.features {
-  padding: 80px 0;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
