@@ -1,58 +1,63 @@
-// Updated Carousel Logic for 2 pages and manual buttons
-let currentPage = 0;
-const totalPages = 2; // Updated to 2 pages (2x2 grid)
-const track = document.getElementById('carouselTrack');
-const dots = document.querySelectorAll('.dot');
+document.addEventListener("DOMContentLoaded", function () {
 
-function goToPage(pageIndex) {
-    currentPage = pageIndex;
-    updateCarousel();
-    resetTimer();
-}
+    // Updated Carousel Logic for 2 pages and manual buttons
+    let currentPage = 0;
+    const totalPages = 2;
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.dot');
 
-function prevPage() {
-    currentPage = (currentPage - 1 + totalPages) % totalPages;
-    updateCarousel();
-    resetTimer();
-}
+    function goToPage(pageIndex) {
+        currentPage = pageIndex;
+        updateCarousel();
+        resetTimer();
+    }
 
-function nextPage() {
-    currentPage = (currentPage + 1) % totalPages;
-    updateCarousel();
-    resetTimer();
-}
+    function prevPage() {
+        currentPage = (currentPage - 1 + totalPages) % totalPages;
+        updateCarousel();
+        resetTimer();
+    }
 
-function updateCarousel() {
-    track.style.transform = `translateX(-${currentPage * (100 / totalPages)}%)`;
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentPage);
+    function nextPage() {
+        currentPage = (currentPage + 1) % totalPages;
+        updateCarousel();
+        resetTimer();
+    }
+
+    function updateCarousel() {
+        if (track) {
+            track.style.transform = `translateX(-${currentPage * (100 / totalPages)}%)`;
+        }
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentPage);
+        });
+    }
+
+    let autoScroll = setInterval(nextPage, 8000);
+
+    function resetTimer() {
+        clearInterval(autoScroll);
+        autoScroll = setInterval(nextPage, 8000);
+    }
+
+    // Swiper JS
+    const swiper = new Swiper('.partners-slider', {
+        slidesPerView: 4,
+        spaceBetween: 50,
+        loop: true,
+
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+
+        breakpoints: {
+            0: { slidesPerView: 1 },
+            600: { slidesPerView: 2 },
+            900: { slidesPerView: 3 },
+            1200: { slidesPerView: 4 }
+        }
     });
-}
 
-let autoScroll = setInterval(nextPage, 8000);
-
-function resetTimer() {
-    clearInterval(autoScroll);
-    autoScroll = setInterval(nextPage, 8000);
-}
-
-
-src="reactive.js"
-src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
-
-const swiper = new Swiper('.partners-slider', {
-  slidesPerView: 4,
-  spaceBetween: 50,
-  loop: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-
-  breakpoints: {
-    0: { slidesPerView: 1 },
-    600: { slidesPerView: 2 },
-    900: { slidesPerView: 3 },
-    1200: { slidesPerView: 4 }
-  }
 });
