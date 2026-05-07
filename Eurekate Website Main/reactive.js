@@ -41,6 +41,30 @@ document.addEventListener("DOMContentLoaded", function () {
         autoScroll = setInterval(nextPage, 8000);
     }
 
+    // ---- Hero Carousel ----
+    let heroCurrent = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero .dot');
+
+    let heroAutoPlay = setInterval(() => heroMoveSlide(1), 4000);
+
+    window.heroMoveSlide = function(dir) {
+        heroGoToSlide((heroCurrent + dir + heroSlides.length) % heroSlides.length);
+    }
+
+    window.heroGoToSlide = function(index) {
+        heroSlides[heroCurrent].classList.remove('active');
+        heroDots[heroCurrent].classList.remove('active');
+
+        heroCurrent = index;
+
+        heroSlides[heroCurrent].classList.add('active');
+        heroDots[heroCurrent].classList.add('active');
+
+        clearInterval(heroAutoPlay);
+        heroAutoPlay = setInterval(() => heroMoveSlide(1), 4000);
+    }
+
     // Swiper JS
     const swiper = new Swiper('.partners-slider', {
         slidesPerView: 4,

@@ -43,9 +43,36 @@
     </header>
 
     <main>
-        <section class="hero"> <!--Introduction Section -->
-            <div class="hero-content">
-                <h1>Eurekare - We Care</h1>
+        <section class="hero">
+            <div class="hero-carousel">
+
+                <div class="hero-slide active">
+                    <div class="hero-content">
+                        <h1>Eurekare - We Care</h1>
+                    </div>
+                </div>
+
+                <div class="hero-slide">
+                    <div class="hero-content">
+                        <h1>Your Health, Our Priority</h1>
+                    </div>
+                </div>
+
+                <div class="hero-slide">
+                    <div class="hero-content">
+                        <h1>Trusted Care, Every Step</h1>
+                    </div>
+                </div>
+
+                <button class="nav-btn prev" onclick="heroMoveSlide(-1)">&#10094;</button>
+                <button class="nav-btn next" onclick="heroMoveSlide(1)">&#10095;</button>
+
+                <div class="hero-nav">
+                    <span class="dot active" onclick="heroGoToSlide(0)"></span>
+                    <span class="dot" onclick="heroGoToSlide(1)"></span>
+                    <span class="dot" onclick="heroGoToSlide(2)"></span>
+                </div>
+
             </div>
         </section>
 
@@ -124,15 +151,40 @@
 
                 <a href="#" class="btn btn-secondary">Discover More</a>
             </div>
-        </section>
+=======
 
-        <section class="content-spacer">
-            <div id="about-us" class="about-content">
-
-                <p class="section-subtitle">How Can we Help?</p>
-            </div>
+          </div>
+>>>>>>> 1631605c56a1000c27fe3b68dc5fa7e73649558a
         </section>
-        
+       <section class="content-spacer">
+
+    <div class="about-container">
+
+        <!-- LEFT COLUMN -->
+        <div id="about-us" class="about-content">
+
+            <p class="section-subtitle">About Us</p>
+
+            <h2 class="h2 section-title">Eurekare Corporation</h2>
+
+            <p class="section-text">
+                EUREKARE CORP., a Healthcare Information System Service Provider 
+                based in the Philippines with investors from Taiwan and Philippines, 
+                brings to the table the eCARE EMR Yakap/Konsulta Project...
+            </p>
+
+            <a href="#" class="btn btn-secondary">Discover More</a>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="about-image">
+            <img src="images/AIC Burgundy Tower.jpg" alt="About Us Image">
+        </div>
+
+    </div>
+
+</section>
         <footer class="main-footer">
         <div class="footer-cta-wrapper">
             <a href="tel:09174662273" class="footer-cta">
