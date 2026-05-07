@@ -576,6 +576,68 @@ body {
     background-color: #003d82;
 }
 
+.about-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.about-content{
+    flex: 1;
+}
+
+.about-image{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img{
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.about-content{
+    flex: 1;
+    color: white;
+}
+
+.about-content .section-subtitle,
+.about-content .section-title,
+.about-content .section-text{
+    color: white;
+}
+
+.content-spacer{
+    position: relative;
+    background-image: url("images/AIC\ Burgundy\ Tower.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 100px 80px;
+    z-index: 1;
+}
+
+.content-spacer::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5); /* dark overlay */
+    z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+
+    .about-container{
+        flex-direction: column;
+    }
+
+}
+
 .h2 { 
     font-family: var(--ff-roboto);
     font-size: var(--fs-1);
