@@ -425,7 +425,80 @@ body {
     width: 200%; /* Adjusted for 2 pages */
 }
 
+/* Hub Section Styles -----------------------------------------------*/
+.hub-section {
+    display: flex;
+    height: 80vh; /* Adjust height as needed */
+    background-color: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+}
 
+/* Collapsible Sidebar */
+.hub-sidebar {
+    width: 350px;
+    background-color: #f9fbfd;
+    border-right: 1px solid #e0e6ed;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 40px 20px;
+    flex-shrink: 0;
+}
+
+/* When sidebar is collapsed */
+.hub-sidebar.collapsed {
+    width: 60px;
+    padding: 40px 10px;
+}
+
+.hub-sidebar.collapsed .sidebar-content {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--healthway-blue);
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.sidebar-content h2 {
+    color: var(--healthway-blue);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.hub-description {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Diagram Viewport - Adjusts to remaining screen */
+.diagram-viewport {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 40px;
+}
+
+.responsive-diagram {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Keeps the diagram fully visible and proportional */
+}
 /* Footer Styles -----------------------------------------------*/
 .main-footer {
     background-color: #0072bc; /* Deep blue from the image */
