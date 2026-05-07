@@ -35,3 +35,24 @@ function resetTimer() {
     clearInterval(autoScroll);
     autoScroll = setInterval(nextPage, 8000);
 }
+
+
+src="reactive.js"
+src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+
+const swiper = new Swiper('.partners-slider', {
+  slidesPerView: 4,
+  spaceBetween: 50,
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+
+  breakpoints: {
+    0: { slidesPerView: 1 },
+    600: { slidesPerView: 2 },
+    900: { slidesPerView: 3 },
+    1200: { slidesPerView: 4 }
+  }
+});
