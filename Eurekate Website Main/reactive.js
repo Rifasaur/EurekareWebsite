@@ -85,3 +85,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+function toggleSidebar() {
+    const sidebar = document.getElementById('hubSidebar');
+    sidebar.classList.toggle('collapsed');
+    
+    // Optional: Log to console to verify
+    console.log("Sidebar toggled");
+}
+
+// Logic to automatically collapse on smaller screens
+window.addEventListener('load', () => {
+    if (window.innerWidth < 768) {
+        document.getElementById('hubSidebar').classList.add('collapsed');
+    }
+});

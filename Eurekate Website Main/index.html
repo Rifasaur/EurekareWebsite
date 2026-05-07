@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthway Navbar Replication</title>
+    <title>Eurekare Corporation</title>
     <link rel="stylesheet" href="stylesheet.css">
       <!-- Carousel Styles link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -11,7 +11,7 @@
 <body>
 
     <header id="header">
-        <!-- Top Blue Bar -->
+        <!-- Top Blue Bar ------>
         <div class="top-bar">
             <div class="container-header">
                 <div class="contact-info">
@@ -29,24 +29,28 @@
             <div class="container-header">
                 <div class="logo">
                     <div class="logo-placeholder">
-                        <a href="#"><img src="./images/Eurekare_logo_V1.gif" class="img-logo"></a>
+                        <a href="./index.html"><img src="./images/Eurekare_logo_V1.gif" class="img-logo"></a>
                     </div>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="#">Find Care ▾</a></li>
 
-                    <li><a href="#">Meet Our Doctors</a></li>
-                    <li><a href="#">Patient Guide</a></li>
-                    <li><a href="#">Resources ▾</a></li>
-                    <li><a href="#">Explore Locations</a></li>
-                    <li><a href="#">Contact</a></li>
+                <button class="nav-toggle" aria-label="Open navigation" type="button">
+                    ☰
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="#our-services">Our Services</a></li>
+                    <li><a href="#about-us-section">About Us</a></li>
+                    <li><a href="#contact-us-section">Contact Us</a></li>
                 </ul>
+
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <!-- Introduction Index-->
+        <section class="hero" id="introduction">
+
             <div class="hero-carousel">
 
                 <div class="hero-slide active">
@@ -79,7 +83,9 @@
             </div>
         </section>
 
-        <section class="section features" id="features" aria-label="features">
+        <!-- Trusted Health Partners-->
+        <section class="section features" id="our-trusted-partners" aria-label="trusted health partners">
+
             <div class="container">
 
                 <h2 class="h2 section-title">Our Trusted Health Partners</h2>
@@ -118,9 +124,14 @@
             </div>
         </section>
 
-          </div>
+        <!-- Our Services -->
+        <section class="background-services" id="our-services">
+
         </section>
-       <section class="content-spacer">
+
+        <!-- About us -->
+       <section class="about-background" id="about-us-section">
+
 
     <div class="about-container">
 
@@ -143,12 +154,75 @@
 
         <!-- RIGHT COLUMN -->
         <div class="about-image">
-            <img src="images/AIC Burgundy Tower.jpg" alt="About Us Image">
+            <img src="images/AIC.png" alt="About Us Image">
         </div>
+
+        
 
     </div>
 
-</section>
+        </section>
+
+        <!-- eCare EMR Central Hub -->
+        <section class="hub-section" id="ecare-hub">
+
+            <aside class="hub-sidebar" id="hubSidebar">
+                <button class="toggle-btn" onclick="toggleSidebar()">☰ Details</button>
+                <div class="sidebar-content">
+                    <h2>eCARE EMR (Central Hub)</h2>
+                    <p class="hub-description">
+                        "The beating heart of the system, eCARE EMR serves as the unified electronic medical record platform that orchestrates data flow across all modules."
+                    </p>
+                    <ul class="hub-features">
+                        <li>Seamless Interoperability</li>
+                        <li>Real-time Patient Info</li>
+                        <li>National Health Standards</li>
+                        <li>Empowering Clinicians</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="diagram-viewport">
+                <img src="./images/Diagram-Temporary-Placeholde.png" alt="Eurekare Hub Diagram" class="responsive-diagram">
+            </div>
+        </section>
+
+        <!-- News and Updates -->
+        <section class="blogs-news" id="news">
+
+            <h1>Blogs & News</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+            <div class="card-container">
+            <div class="card">
+                <img src="images/AIC Burgundy Tower.jpg" alt="News Image 1">
+                <div class="card-content">
+                <h2>Blog 1</h2>
+                <p>May 7, 2026</p>
+                <a href="#">READ MORE ></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/AIC Burgundy Tower.jpg" alt="News Image 2">
+                <div class="card-content">
+                <h2>Blog 2</h2>
+                <p>May 7, 2026</p>
+                <a href="#">READ MORE ></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/AIC Burgundy Tower.jpg" alt="News Image 3">
+                <div class="card-content">
+                <h2>Blog 3</h2>
+                <p>May 7, 2026</p>
+                <a href="#">READ MORE ></a>
+                </div>
+            </div>
+            </div>
+        </section>
+        
         <footer class="main-footer">
         <div class="footer-cta-wrapper">
             <a href="tel:09174662273" class="footer-cta">
@@ -211,9 +285,11 @@
     </main>
 
     <script src="reactive.js"></script>
+    <script src="mobile-nav.js"></script>
 
       <!-- Swiper scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
 </body>
 </html>
+
