@@ -32,19 +32,25 @@
                         <a href="./index.html"><img src="./images/Eurekare_logo_V1.gif" class="img-logo"></a>
                     </div>
                 </div>
+
+                <button class="nav-toggle" aria-label="Open navigation" type="button">
+                    ☰
+                </button>
+
                 <ul class="nav-links">
-                    <li><a href="#AboutUs">About Us</a></li>
-                    <li><a href="#OurTrustedPartners">Trusted Health Partners</a></li>
-                    <li><a href="#">eCARE Solution</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#our-services">Our Services</a></li>
+                    <li><a href="#about-us-section">About Us</a></li>
+                    <li><a href="#contact-us-section">Contact Us</a></li>
                 </ul>
+
             </div>
         </nav>
     </header>
 
     <main>
         <!-- Introduction Index-->
-        <section class="hero">
+        <section class="hero" id="introduction">
+
             <div class="hero-carousel">
 
                 <div class="hero-slide active">
@@ -78,8 +84,8 @@
         </section>
 
         <!-- Trusted Health Partners-->
-        <a id="#OurTrustedPartners"></a>
-        <section class="section features" id="features" aria-label="features">
+        <section class="section features" id="our-trusted-partners" aria-label="trusted health partners">
+
             <div class="container">
 
                 <h2 class="h2 section-title">Our Trusted Health Partners</h2>
@@ -119,11 +125,13 @@
         </section>
 
         <!-- Our Services -->
-        <section class="background-services">
+        <section class="background-services" id="our-services">
+
         </section>
 
         <!-- About us -->
-       <section class="about-background">
+       <section class="about-background" id="about-us-section">
+
 
     <div class="about-container">
 
@@ -156,7 +164,8 @@
         </section>
 
         <!-- eCare EMR Central Hub -->
-        <section class="hub-section">
+        <section class="hub-section" id="ecare-hub">
+
             <aside class="hub-sidebar" id="hubSidebar">
                 <button class="toggle-btn" onclick="toggleSidebar()">☰ Details</button>
                 <div class="sidebar-content">
@@ -174,12 +183,13 @@
             </aside>
 
             <div class="diagram-viewport">
-                <img src="your-diagram-placeholder.png" alt="Eurekare Hub Diagram" class="responsive-diagram">
+                <img src="./images/Diagram-Temporary-Placeholde.png" alt="Eurekare Hub Diagram" class="responsive-diagram">
             </div>
         </section>
 
         <!-- News and Updates -->
-        <section class="blogs-news">
+        <section class="blogs-news" id="news">
+
             <h1>Blogs & News</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
@@ -275,9 +285,11 @@
     </main>
 
     <script src="reactive.js"></script>
+    <script src="mobile-nav.js"></script>
 
       <!-- Swiper scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
 </body>
 </html>
+
