@@ -46,9 +46,36 @@
     </header>
 
     <main>
-        <section class="hero"> <!--Introduction Section -->
-            <div class="hero-content">
-                <h1>Eurekare - We Care</h1>
+        <section class="hero">
+            <div class="hero-carousel">
+
+                <div class="hero-slide active">
+                    <div class="hero-content">
+                        <h1>Eurekare - We Care</h1>
+                    </div>
+                </div>
+
+                <div class="hero-slide">
+                    <div class="hero-content">
+                        <h1>Your Health, Our Priority</h1>
+                    </div>
+                </div>
+
+                <div class="hero-slide">
+                    <div class="hero-content">
+                        <h1>Trusted Care, Every Step</h1>
+                    </div>
+                </div>
+
+                <button class="nav-btn prev" onclick="heroMoveSlide(-1)">&#10094;</button>
+                <button class="nav-btn next" onclick="heroMoveSlide(1)">&#10095;</button>
+
+                <div class="hero-nav">
+                    <span class="dot active" onclick="heroGoToSlide(0)"></span>
+                    <span class="dot" onclick="heroGoToSlide(1)"></span>
+                    <span class="dot" onclick="heroGoToSlide(2)"></span>
+                </div>
+
             </div>
         </section>
 
