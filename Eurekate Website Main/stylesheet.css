@@ -494,6 +494,9 @@ body {
   justify-content: center;
 }
 
+.swiper-wrapper {
+    align-items: center;
+}
 
 
 /* About Us Styles ----------------------------------*/
