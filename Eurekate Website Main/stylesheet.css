@@ -17,7 +17,7 @@ body {
 /* Header Container */
 #header {
     position: sticky;
-    top: calc(var(--top-bar-height) * -1); /* This hides the blue bar on scroll */
+    top: calc(var(--top-bar-height) * -1); /* hides the blue bar on scroll */
     z-index: 1000;
     width: 100%;
     transition: box-shadow 0.3s ease;
@@ -46,8 +46,6 @@ body {
     align-items: center;
     height: 100%;
 }
-
-
 
 /* Blue Top Bar */
 .top-bar {
@@ -258,6 +256,7 @@ body {
 .features .section-title {
     text-align: center;
     font-size: 2.2rem;
+    color: var(--eurekare-blue);
     font-weight: bold;
     margin-bottom: 40px;
     margin-top: 20px;
@@ -310,8 +309,6 @@ body {
   max-height: 150%;
   object-fit: contain;   /* VERY important */
 }
-
-
 
 .partners-slider {
   padding: 10px 0;
@@ -880,6 +877,116 @@ img-cover {
     opacity: 0.7; 
 } 
 
+/* Data Privacy Page -------------------------------------------*/
+.data-privacy-hero {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    background-color: #e8eef5;
+}
+
+.data-privacy-hero-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+}
+
+.data-privacy-hero-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(to right, #e8eef5, transparent);
+}
+
+.data-privacy-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.data-privacy-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, #e8eef5 40%, transparent 100%);
+    z-index: 1;
+}
+
+.data-privacy-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #3587ca;
+}
+
+.data-privacy-hero-breadcrumb {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40px;
+    z-index: 2;
+    font-size: 0.9rem;
+    color: #0072bc;
+}
+
+.data-privacy-hero-breadcrumb a {
+    color: #0072bc;
+    text-decoration: none;
+}
+
+.data-privacy-hero-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.data-privacy-content {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.data-privacy-main-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+}
+
+.data-privacy-title-highlight {
+    color: #3587ca;
+    font-weight: 700;
+}
+
+.data-privacy-title-dark {
+    color: var(--eurekare-blue);
+    font-weight: 700;
+}
+
+.data-privacy-section {
+    margin-bottom: 40px;
+}
+
+.data-privacy-section h2 {
+    color: var(--eurekare-blue);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.data-privacy-section p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
 /* Blogs and News Section ----------------------------------*/
 
 body {
