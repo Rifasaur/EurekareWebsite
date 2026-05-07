@@ -4,6 +4,10 @@
     --nav-height: 80px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,7 +17,7 @@ body {
 /* Header Container */
 #header {
     position: sticky;
-    top: calc(var(--top-bar-height) * -1); /* This hides the blue bar on scroll */
+    top: calc(var(--top-bar-height) * -1); /* hides the blue bar on scroll */
     z-index: 1000;
     width: 100%;
     transition: box-shadow 0.3s ease;
@@ -42,8 +46,6 @@ body {
     align-items: center;
     height: 100%;
 }
-
-
 
 /* Blue Top Bar */
 .top-bar {
@@ -112,6 +114,54 @@ body {
     height: var(--nav-height);
     border-bottom: 1px solid #eee;
 }
+
+/* Mobile (hamburger) navigation */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        height: auto;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(var(--top-bar-height) + var(--nav-height));
+        background: #ffffff;
+        border-bottom: 1px solid #eee;
+        padding: 12px 20px;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 1001;
+    }
+
+.nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 8px 0;
+    }
+
+
+    .container-header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
 
 .logo-placeholder {
     line-height: 1.1;
@@ -206,6 +256,7 @@ body {
 .features .section-title {
     text-align: center;
     font-size: 2.2rem;
+    color: var(--eurekare-blue);
     font-weight: bold;
     margin-bottom: 40px;
     margin-top: 20px;
@@ -258,8 +309,6 @@ body {
   max-height: 150%;
   object-fit: contain;   /* VERY important */
 }
-
-
 
 .partners-slider {
   padding: 10px 0;
@@ -380,7 +429,144 @@ body {
     width: 200%; /* Adjusted for 2 pages */
 }
 
+/* Our Services -----------------------------------------------*/
+.services-section {
+    padding: 80px 0;
+    background-color: #f4f7f9;
+}
 
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-subtitle {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 114, 188, 0.1);
+    border-color: var(--healthway-blue);
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.service-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.service-link {
+    color: var(--healthway-blue);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Hub Section Styles -----------------------------------------------*/
+.hub-section {
+    display: flex;
+    height: 80vh; /* Adjust height as needed */
+    background-color: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+}
+
+/* Collapsible Sidebar */
+.hub-sidebar {
+    width: 350px;
+    background-color: #f9fbfd;
+    border-right: 1px solid #e0e6ed;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 40px 20px;
+    flex-shrink: 0;
+}
+
+/* When sidebar is collapsed */
+.hub-sidebar.collapsed {
+    width: 60px;
+    padding: 40px 10px;
+}
+
+.hub-sidebar.collapsed .sidebar-content {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--healthway-blue);
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.sidebar-content h2 {
+    color: var(--healthway-blue);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.hub-description {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Diagram Viewport - Adjusts to remaining screen */
+.diagram-viewport {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 40px;
+}
+
+.responsive-diagram {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Keeps the diagram fully visible and proportional */
+}
 /* Footer Styles -----------------------------------------------*/
 .main-footer {
     background-color: #0072bc; /* Deep blue from the image */
@@ -603,8 +789,6 @@ body {
     padding: 100px 80px;
     z-index: 1;
     background-color: #f4f7f9;
-    margin-top: 100px;
-    margin-bottom: 100px;
     padding: 50px;
     text-align: center;
 }
@@ -694,6 +878,116 @@ img-cover {
     opacity: 0.7; 
 } 
 
+/* Data Privacy Page -------------------------------------------*/
+.data-privacy-hero {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    background-color: #e8eef5;
+}
+
+.data-privacy-hero-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+}
+
+.data-privacy-hero-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(to right, #e8eef5, transparent);
+}
+
+.data-privacy-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.data-privacy-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, #e8eef5 40%, transparent 100%);
+    z-index: 1;
+}
+
+.data-privacy-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #3587ca;
+}
+
+.data-privacy-hero-breadcrumb {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40px;
+    z-index: 2;
+    font-size: 0.9rem;
+    color: #0072bc;
+}
+
+.data-privacy-hero-breadcrumb a {
+    color: #0072bc;
+    text-decoration: none;
+}
+
+.data-privacy-hero-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.data-privacy-content {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.data-privacy-main-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+}
+
+.data-privacy-title-highlight {
+    color: #3587ca;
+    font-weight: 700;
+}
+
+.data-privacy-title-dark {
+    color: var(--eurekare-blue);
+    font-weight: 700;
+}
+
+.data-privacy-section {
+    margin-bottom: 40px;
+}
+
+.data-privacy-section h2 {
+    color: var(--eurekare-blue);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.data-privacy-section p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
 /* Blogs and News Section ----------------------------------*/
 
 body {
