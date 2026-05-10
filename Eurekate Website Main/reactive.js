@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerView: 4,
         spaceBetween: 50,
         loop: true,
+        display: 'center',
 
         autoplay: {
             delay: 2500,
