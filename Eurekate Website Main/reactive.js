@@ -101,3 +101,15 @@ window.addEventListener('load', () => {
         document.getElementById('hubSidebar').classList.add('collapsed');
     }
 });
+
+// Contact Us
+
+function openContactUsModal() {
+    document.getElementById('contactUsOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden'; // prevents background scroll
+}
+
+function closeContactUsModal() {
+    document.getElementById('contactUsOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
