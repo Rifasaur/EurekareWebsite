@@ -165,12 +165,14 @@
             <h2 class="h2 section-title">Eurekare Corporation</h2>
 
             <p class="section-text">
-                EUREKARE CORP., a Healthcare Information System Service Provider 
-                based in the Philippines with investors from Taiwan and Philippines, 
-                brings to the table the eCARE EMR Yakap/Konsulta Project...
+                EUREKARE CORP., a Healthcare Information System Service Provider based in the Philippines with investors from 
+                Taiwan and Philippines, brings to the table the eCARE EMR Yakap/Konsulta Project, which provides an Electronic 
+                Medical Record (EMR) System integrated with Yakap/Konsulta Module in accordance with the requirements of the Universal 
+                Healthcare Act for the City of Valenzuela as an UNSOLICITED PROPOSAL, a new technology WITH MINIMUM INITIAL INVESTMENT 
+                from the government.
             </p>
 
-            <a href="#" class="btn btn-secondary">Discover More</a>
+            <button id="aboutUsDiscoverBtn" class="hero-btn" onclick="openAboutUsModal()">Discover More</button>
 
         </div>
 
@@ -228,6 +230,40 @@
 
       <!-- Swiper scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+        <div id="aboutUsModal" class="about-us-modal-overlay">
+                <div class="about-us-modal-close-wrapper">
+                    <span class="about-us-modal-close" onclick="closeAboutUsModal()">&times;</span>
+                </div>
+                
+                <div class="about-us-modal-container">
+                    <div class="about-us-modal-wrapper">
+                        <div class="about-us-modal-text">
+                            <h1 class="about-us-modal-title">About Us</h1>
+                            <div class="about-us-modal-description">
+                                <p> As the pioneer in providing Health Care Information Exchange Cloud Platform and Smartcard Technology to the 
+                                    Philippine Healthcare Industry, our vision is to bring IT solutions that can enhance the delivery of healthcare services.</p>
+
+                                <p> Eurekare was established in 2012 at the center of Ortigas Center Business District in Pasig City. We aim to fulfill our 
+                                    vision by increasing our affiliations in the healthcare industry and extend our reach not only within the Philippines but 
+                                    all throughout the world. Through years of serving the healthcare industry, our company has grown and expanded our services 
+                                    to also cater the Smartcard ID/Membership System needs of other member- based organizations. Now, we also offer the first 
+                                    Identification, Loyalty Program, and other Benefit Policy Information Exchange Cloud Platform in the country. </p>
+
+                                <p> Our passion to excel never stops. That is why we make sure that we develop together with our clients and meet the growing 
+                                    demands in the IT market. Our system constantly evolves to offer only the latest technology that will tailor fit to every 
+                                    need of our clients.</p>
+                            </div>
+                        </div>
+                        <div class="about-us-modal-images">
+                            <img src="images/AIC Burgundy Tower.jpg" class="about-us-modal-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="reactive.js"></script>
+
     <script>
         fetch('nav.html')
             .then(response => response.text())

@@ -211,3 +211,38 @@ function closeContactUsModal() {
     document.getElementById('contactUsOverlay').classList.remove('active');
     document.body.style.overflow = '';
 }
+
+// About Us Modal
+
+function openAboutUsModal() {
+    const modal = document.getElementById('aboutUsModal');
+    if (modal) {
+        modal.style.display = 'block'; // Make it exist
+        setTimeout(() => {
+            modal.classList.add('is-visible');
+        }, 10);
+        document.body.style.overflow = 'hidden'; 
+    }
+}
+
+function closeAboutUsModal() {
+    const modal = document.getElementById('aboutUsModal');
+    if (modal) {
+        modal.classList.remove('is-visible');
+        
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }, 500); 
+    }
+}
+
+
+
+// Optional: Close modal when clicking on the white background outside the content
+// window.addEventListener('click', function(event) {
+//     const aboutModal = document.getElementById('aboutUsModal');
+//     if (event.target === aboutModal) {
+//         closeAboutUsModal();
+//     }
+// });
