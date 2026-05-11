@@ -22,7 +22,6 @@ body {
     width: 100%;
     transition: box-shadow 0.3s ease;
 }
- 
 
 #header.scrolled {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -476,7 +475,7 @@ body {
 
 .features-card {
   background: #ffffff;
-  padding: 40px 80px;        /* increases space inside the card */
+  padding: 40px;        /* increases space inside the card */
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   display: flex;
@@ -502,10 +501,6 @@ body {
   max-width: 150%;
   max-height: 150%;
   object-fit: contain;   /* VERY important */
-}
-
-.partners-slider {
-  padding: 10px 0;
 }
 
 .carousel-track {
@@ -569,7 +564,7 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0 50px;
+    padding: 30px;
 }
 
 .logo-grid {
