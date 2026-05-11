@@ -166,7 +166,19 @@
 
                     <div class="swiper-slide">
                     <div class="features-card">
-                        <img src="images/DOH-logo.png" alt="TDF" class="TDF">
+                        <img src="images/DOH.png" alt="TDF" class="TDF">
+                    </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                    <div class="features-card">
+                        <img src="images/Philhealth-logo.png" alt="TDF" class="TDF">
+                    </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                    <div class="features-card">
+                        <img src="images/DOH.png" alt="TDF" class="TDF">
                     </div>
                     </div>
 
@@ -188,49 +200,54 @@
             </div>
         </section>
 
-        <!-- Our Services -->
-        <section class="services-section">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Our Services</h2>
-                        <p class="section-subtitle">Comprehensive healthcare solutions tailored to your needs.</p>
-                    </div>
-                    
-                    <div class="services-grid">
-                        <!-- Service 1 -->
-                        <div class="service-card">
-                            <div class="service-icon">🏥</div>
-                            <h3>Seamless Record Tracking</h3>
-                            <p>Primary and specialty care consultations with our board-certified physicians.</p>
-                            <a href="#" class="service-link">Learn More →</a>
-                        </div>
-                        
-                        <!-- Service 2 -->
-                        <div class="service-card">
-                            <div class="service-icon">🧪</div>
-                            <h3>Data Analytics</h3>
-                            <p>Accurate and timely diagnostic tests using state-of-the-art medical equipment.</p>
-                            <a href="#" class="service-link">Learn More →</a>
-                        </div>
-                        
-                        <!-- Service 3 -->
-                        <div class="service-card">
-                            <div class="service-icon">📸</div>
-                            <h3>Report Handling</h3>
-                            <p>X-ray, Ultrasound, and CT Scan services for detailed internal diagnostics.</p>
-                            <a href="#" class="service-link">Learn More →</a>
-                        </div>
-                        
-                        <!-- Service 4 -->
-                        <div class="service-card">
-                            <div class="service-icon">💊</div>
-                            <h3>Inventory Management</h3>
-                            <p>Access to essential medicines and health supplies within our network facilities.</p>
-                            <a href="#" class="service-link">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-        </section>
+        <!-- eCare EMR Central Hub -->
+<section class="hub-section">
+    <!-- Collapsible Sidebar -->
+    <aside class="hub-sidebar" id="hubSidebar">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar-content" id="sidebarContent">
+            <h2 id="sideTitle">eCARE EMR (Central Hub)</h2>
+            <p id="sideDesc">Select a module from the diagram to view details.</p>
+            <div id="sideMobileImage"></div>
+        </div>
+    </aside>
+
+    <!-- Main Diagram Area -->
+    <div class="diagram-viewport">
+        <div class="diagram-container" id="tiltContainer">
+            <!-- Replace 'main-diagram-bg.png' with your cloud image -->
+            <img src="./images/Cloud-Diagram.png" class="main-bg" alt="Hub Diagram">
+
+            <!-- Clickable Icons in a Horizontal Line -->
+            <div class="hub-icon" id="icon1" onclick="selectModule(1)">
+                <img src="./images/icon_placeholder.jpg" alt="Module 1">
+            </div>
+            <div class="hub-icon" id="icon2" onclick="selectModule(2)">
+                <img src="./images/icon_placeholder.jpg" alt="Module 2">
+            </div>
+            <div class="hub-icon" id="icon3" onclick="selectModule(3)">
+                <img src="./images/icon_placeholder.jpg" alt="Module 3">
+            </div>
+            <div class="hub-icon" id="icon4" onclick="selectModule(4)">
+                <img src="./images/icon_placeholder.jpg" alt="Module 4">
+            </div>
+            <div class="hub-icon" id="icon5" onclick="selectModule(5)">
+                <img src="./images/icon_placeholder.jpg" alt="Module 5">
+            </div>
+            <div class="hub-icon" id="icon6" onclick="selectModule(6)">
+                <img src="./images/icon_placeholder.jpg"    alt="Module 6">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mobile Modal -->
+<div id="mobileModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modalBody"></div>
+    </div>
+</div>
 
         <!-- About us -->
        <section class="about-background" id="about-us-section">
@@ -264,29 +281,6 @@
 
     </div>
 
-        </section>
-
-        <!-- eCare EMR Central Hub -->
-        <section class="hub-section">
-            <aside class="hub-sidebar" id="hubSidebar">
-                <button class="toggle-btn" onclick="toggleSidebar()">☰ Details</button>
-                <div class="sidebar-content">
-                    <h2>eCARE EMR (Central Hub)</h2>
-                    <p class="hub-description">
-                        "The beating heart of the system, eCARE EMR serves as the unified electronic medical record platform that orchestrates data flow across all modules."
-                    </p>
-                    <ul class="hub-features">
-                        <li>Seamless Interoperability</li>
-                        <li>Real-time Patient Info</li>
-                        <li>National Health Standards</li>
-                        <li>Empowering Clinicians</li>
-                    </ul>
-                </div>
-            </aside>
-
-            <div class="diagram-viewport">
-                <img src="./images/Diagram-Temporary-Placeholde.png" alt="Eurekare Hub Diagram" class="responsive-diagram">
-            </div>
         </section>
 
         <!-- News and Updates -->
