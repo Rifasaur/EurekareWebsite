@@ -929,13 +929,21 @@ body {
     width: 100%;
 }
 
-#about-us .btn {
+#aboutUsDiscoverBtn {
     text-decoration: none;
     padding: 12px 24px;
-    background-color: #0056b3;
+    background-color: #0056b3; 
     color: white;
     border-radius: 5px;
+    border: none; 
+    cursor: pointer;
     transition: 0.3s ease;
+    display: inline-block; 
+}
+
+#aboutUsDiscoverBtn:hover {
+    background-color: #004494; 
+    transform: translateY(-2px); 
 }
 
 #about-us .btn:hover {
@@ -1281,4 +1289,103 @@ body {
 .features .partner-logos {
   position: relative;
   z-index: 1;
+}
+
+/* --- About Us Modal --- */
+.about-us-modal-overlay {
+    display: none; /* Controlled by JS */
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    background: #ffffff;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(210,225,240,1) 100%);
+    
+    /* Transition for both opening and closing */
+    opacity: 0;
+    transform: scale(1.05);
+    filter: blur(5px);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+/* State when active (Opening) */
+.about-us-modal-overlay.is-visible {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+@keyframes smoothTakeover {
+    0% { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.about-us-modal-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px; /* Increased top padding to give X room */
+    position: relative;
+}
+
+.about-us-modal-close-wrapper {
+    position: fixed; /* Keep X visible even if you scroll the modal */
+    top: 20px;
+    right: 40px;
+    z-index: 100000; /* Highest z-index */
+}
+
+.about-us-modal-close {
+    font-size: 60px;
+    font-weight: 300;
+    cursor: pointer;
+    color: var(--eurekare-blue);
+    background: none;
+    border: none;
+    line-height: 1;
+}
+
+.about-us-modal-close:hover {
+    color: #ff4d4d;
+    transform: scale(1.1);
+}
+
+.about-us-modal-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.about-us-modal-text {
+    flex: 1.2;
+    text-align: left; 
+}
+
+.about-us-modal-title {
+    font-size: 4rem;
+    color: var(--eurekare-blue);
+    margin-bottom: 30px;
+    font-weight: 800;
+    text-align: left; /* Explicitly left aligned */
+}
+
+.about-us-modal-description p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: justify; /* Justified as requested */
+}
+
+.about-us-modal-images {
+    flex: 0.8;
+}
+
+.about-us-modal-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
 }
