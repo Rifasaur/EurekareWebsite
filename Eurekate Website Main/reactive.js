@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerView: 4,
         spaceBetween: 50,
         loop: true,
+        display: 'center',
 
         autoplay: {
             delay: 2500,
@@ -199,3 +200,14 @@ section.addEventListener('mousemove', (e) => {
 section.addEventListener('mouseleave', () => {
     container.style.transform = `translate(0px, 0px)`;
 });
+// Contact Us
+
+function openContactUsModal() {
+    document.getElementById('contactUsOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden'; // prevents background scroll
+}
+
+function closeContactUsModal() {
+    document.getElementById('contactUsOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
