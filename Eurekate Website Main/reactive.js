@@ -67,10 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Swiper JS
     const swiper = new Swiper('.partners-slider', {
-        slidesPerView: 4,
-        spaceBetween: 50,
+        slidesPerView: "auto",
+        spaceBetween: 40,
+        centeredSlides: false,
         loop: true,
-        display: 'center',
 
         autoplay: {
             delay: 2500,
