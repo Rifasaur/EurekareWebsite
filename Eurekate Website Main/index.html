@@ -103,53 +103,53 @@
         </section>
 
         <!-- eCare EMR Central Hub -->
-<section class="hub-section">
-    <!-- Collapsible Sidebar -->
-    <aside class="hub-sidebar" id="hubSidebar">
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-        <div class="sidebar-content" id="sidebarContent">
-            <h2 id="sideTitle">eCARE EMR (Central Hub)</h2>
-            <p id="sideDesc">Select a module from the diagram to view details.</p>
-            <div id="sideMobileImage"></div>
+        <section class="hub-section">
+            <!-- Collapsible Sidebar -->
+            <aside class="hub-sidebar" id="hubSidebar">
+                <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+                <div class="sidebar-content" id="sidebarContent">
+                    <h2 id="sideTitle">eCARE EMR (Central Hub)</h2>
+                    <p id="sideDesc">Select a module from the diagram to view details.</p>
+                    <div id="sideMobileImage"></div>
+                </div>
+            </aside>
+
+            <!-- Main Diagram Area -->
+            <div class="diagram-viewport">
+                <div class="diagram-container" id="tiltContainer">
+                    <!-- Replace 'main-diagram-bg.png' with your cloud image -->
+                    <img src="./images/Cloud-Diagram.png" class="main-bg" alt="Hub Diagram">
+
+                    <!-- Clickable Icons in a Horizontal Line -->
+                    <div class="hub-icon" id="icon1" onclick="selectModule(1)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 1">
+                    </div>
+                    <div class="hub-icon" id="icon2" onclick="selectModule(2)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 2">
+                    </div>
+                    <div class="hub-icon" id="icon3" onclick="selectModule(3)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 3">
+                    </div>
+                    <div class="hub-icon" id="icon4" onclick="selectModule(4)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 4">
+                    </div>
+                    <div class="hub-icon" id="icon5" onclick="selectModule(5)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 5">
+                    </div>
+                    <div class="hub-icon" id="icon6" onclick="selectModule(6)">
+                        <img src="./images/icon_placeholder.jpg"    alt="Module 6">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Modal -->
+        <div id="mobileModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <div id="modalBody"></div>
+            </div>
         </div>
-    </aside>
-
-    <!-- Main Diagram Area -->
-    <div class="diagram-viewport">
-        <div class="diagram-container" id="tiltContainer">
-            <!-- Replace 'main-diagram-bg.png' with your cloud image -->
-            <img src="./images/Cloud-Diagram.png" class="main-bg" alt="Hub Diagram">
-
-            <!-- Clickable Icons in a Horizontal Line -->
-            <div class="hub-icon" id="icon1" onclick="selectModule(1)">
-                <img src="./images/icon_placeholder.jpg" alt="Module 1">
-            </div>
-            <div class="hub-icon" id="icon2" onclick="selectModule(2)">
-                <img src="./images/icon_placeholder.jpg" alt="Module 2">
-            </div>
-            <div class="hub-icon" id="icon3" onclick="selectModule(3)">
-                <img src="./images/icon_placeholder.jpg" alt="Module 3">
-            </div>
-            <div class="hub-icon" id="icon4" onclick="selectModule(4)">
-                <img src="./images/icon_placeholder.jpg" alt="Module 4">
-            </div>
-            <div class="hub-icon" id="icon5" onclick="selectModule(5)">
-                <img src="./images/icon_placeholder.jpg" alt="Module 5">
-            </div>
-            <div class="hub-icon" id="icon6" onclick="selectModule(6)">
-                <img src="./images/icon_placeholder.jpg"    alt="Module 6">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Mobile Modal -->
-<div id="mobileModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div id="modalBody"></div>
-    </div>
-</div>
 
         <!-- About us -->
        <section class="about-background" id="about-us-section">
@@ -240,7 +240,7 @@
             .then(data => {
             document.getElementById('contactUsOverlay').innerHTML = data;
             });
-            
+
         fetch('footer.html')
             .then(response => response.text())
             .then(data => {
@@ -250,4 +250,3 @@
     </script>
 </body>
 </html>
-
