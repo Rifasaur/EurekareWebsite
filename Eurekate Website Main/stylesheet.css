@@ -290,7 +290,7 @@ body {
 
 .features-card {
   background: #ffffff;
-  padding: 40px ;        /* increases space inside the card */
+  padding: 40px 80px;        /* increases space inside the card */
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 
@@ -709,11 +709,17 @@ body {
 .swiper-slide {
   display: flex;
   justify-content: center;
+  width: 280px;
+  
 }
 
 .swiper-wrapper {
     align-items: center;
     justify-content: center;
+}
+
+.swiper {
+  padding: 10px 20px;
 }
 
 
@@ -1068,6 +1074,8 @@ body {
   padding: 3rem 2rem;
   position: relative;
   overflow: hidden;
+  padding: 100px 40px;
+
 }
 
 .features::before {
