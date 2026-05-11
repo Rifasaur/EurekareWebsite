@@ -1,6 +1,5 @@
 :root {
     --eurekare-blue: #022658;
-    --top-bar-height: 40px;
     --nav-height: 80px;
 }
 
@@ -17,11 +16,12 @@ body {
 /* Header Container */
 #header {
     position: sticky;
-    top: calc(var(--top-bar-height) * -1); /* hides the blue bar on scroll */
+    top: 0; /* sticky white navbar */
     z-index: 1000;
     width: 100%;
     transition: box-shadow 0.3s ease;
 }
+
  
 
 #header.scrolled {
