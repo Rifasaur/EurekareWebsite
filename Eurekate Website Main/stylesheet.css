@@ -871,29 +871,6 @@ body {
     opacity: 1;
 }
 
-.contact-col p {
-    font-size: 0.85rem;
-    margin-bottom: 15px;
-}
-
-.social-icons {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.social-icons a {
-    width: 35px;
-    height: 35px;
-    background: rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    color: white;
-    text-decoration: none;
-}
-
 .footer-bottom {
     text-align: center;
     margin-top: 10px;
@@ -1213,6 +1190,7 @@ img-cover {
     color: #333;
     text-align: justify;
 }
+
 /* Blogs and News Section ----------------------------------*/
 
 body {
@@ -1407,6 +1385,27 @@ body {
     box-shadow: 0 30px 60px rgba(0,0,0,0.12);
 }
 
+/* --- White Footer Logo --- */
+
+.white-logo-footer-img {
+    max-width: 280px; 
+    height: auto;
+    display: block;
+    margin-bottom: 12px;
+    object-fit: contain; 
+    margin-left: -30px;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-left: 0; 
+    margin-left: 0;
+}
+
 /* --- Footer Map  --- */
 
 .footer-map-column {
@@ -1444,4 +1443,43 @@ body {
     .footer-map-iframe {
         height: 250px; 
     }
+}
+
+/* --- Footer Icons --- */
+
+.ek-footer-contact-icon {
+    color: #ffffff; 
+    width: 28px;    
+    font-size: 1.1rem;
+    margin-right: 12px;
+    text-align: center;
+    flex-shrink: 0; 
+}
+
+.contact-col p {
+    display: flex;
+    align-items: flex-start; 
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #ffffff;
+    opacity: 0.8;
+    font-size: 0.85rem;
+}
+
+/* Styles for your preserved social icons (namespaced) */
+.ek-footer-contact-social {
+    margin-top: 20px;
+}
+
+.ek-footer-contact-social a {
+    color: white;
+    margin-right: 18px;
+    font-size: 1.3rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.ek-footer-contact-social a:hover {
+    opacity: 0.8;
+    transform: translateY(-3px);
 }
