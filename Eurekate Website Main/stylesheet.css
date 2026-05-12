@@ -136,7 +136,7 @@ body {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .main-nav {
         height: auto;
     }
@@ -158,15 +158,6 @@ body {
         gap: 12px;
         z-index: 1001;
     }
-
-.nav-links.open {
-        display: flex;
-    }
-
-    .nav-links a {
-        padding: 8px 0;
-    }
-
 
     .container-header {
         flex-wrap: wrap;
@@ -191,14 +182,41 @@ body {
     text-decoration: none;
     color: #444;
     font-size: 14px;
-    font-weight: 500;
-    transition: color 0.2s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* Looks more professional for navs */
+    letter-spacing: 1px;
+    /* The "Embedded" Magic */
+    text-shadow: 
+        inset 0px 1px 1px rgba(0,0,0,0.2), 
+        0px 1px 0px rgba(255,255,255,0.8);
 }
 
 .nav-links a:hover {
-    color: var(--eurekare-blue);
+    color: #0072bc; /* Your logo blue */
+    text-shadow: 0px 0px 1px rgba(0,114,188,0.2); /* Soft blue glow */
+    transform: translateY(-1px); /* Slight lift */
 }
 
+/* Suggested: Animated underline on hover */
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #0072bc;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
 /* Contact Us Modal -------------------------------------------*/
 .contact-us-overlay {
     display: none;
