@@ -114,18 +114,12 @@ body {
 
 /* White Main Nav */
 .main-nav {
-    background-color: white;
+    background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
     height: var(--nav-height);
     border-bottom: 1px solid #eee;
     display: flex;
     align-items: center;
 }
-
-/* .img-logo {
-    max-height: 60px;
-    width: auto;
-    display: block;
-} */
 
 /* Mobile (hamburger) navigation */
 .nav-toggle {
