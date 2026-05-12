@@ -774,7 +774,7 @@ body {
     color: white;
     padding-top: 80px;
     position: relative;
-    margin-top: 100px; /* Space for the floating button */
+    margin-top: 60px; /* Space for the floating button */
 }
 
 /* Floating Pill Button */
@@ -806,7 +806,6 @@ body {
 /* Footer Grid */
 .footer-content {
     display: flex;
-    /* gap: 10px; */
     flex-wrap: wrap;
     position:relative;
     margin: 0 auto;
@@ -820,13 +819,14 @@ body {
 .footer-col {
     flex: 1;
     min-width: 200px;
+    justify-content: top;
 }
 
 .brand-info {
     flex: 2;
     justify-content: center;
     position: center;
-    align-content: center;
+    align-content: top;
 }
 
 .brand-info p {
@@ -875,6 +875,83 @@ body {
     font-size: 0.8rem;
 }
 
+/* --- Footer Map  --- */
+
+.footer-map-column {
+    flex: 1.2; 
+    min-width: 280px;
+}
+
+.footer-map-wrapper {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px; 
+    overflow: hidden;    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    line-height: 0;     
+}
+
+.footer-map-iframe {
+    width: 100%;
+    height: 280px;
+    filter: grayscale(0.1) contrast(1.1); 
+    transition: filter 0.3s ease;
+}
+
+.footer-map-iframe:hover {
+    filter: grayscale(0) contrast(1); 
+}
+
+@media (max-width: 992px) {
+    .footer-map-column {
+        flex: 1 1 100%; 
+        margin-top: 30px;
+    }
+    
+    .footer-map-iframe {
+        height: 250px; 
+    }
+}
+
+/* --- Footer Icons --- */
+
+.ek-footer-contact-icon {
+    color: #ffffff; 
+    width: 28px;    
+    font-size: 1.1rem;
+    margin-right: 12px;
+    text-align: center;
+    flex-shrink: 0; 
+}
+
+.contact-col p {
+    display: flex;
+    align-items: flex-start; 
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #ffffff;
+    opacity: 0.8;
+    font-size: 0.85rem;
+}
+
+/* Styles for your preserved social icons (namespaced) */
+.ek-footer-contact-social {
+    margin-top: 20px;
+}
+
+.ek-footer-contact-social a {
+    color: white;
+    margin-right: 18px;
+    font-size: 1.3rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.ek-footer-contact-social a:hover {
+    opacity: 0.8;
+    transform: translateY(-3px);
+}
 /*Swiper no Swiping------------------------------------*/
 .swiper-slide {
   display: flex;
@@ -1398,82 +1475,4 @@ body {
     margin-bottom: 20px;
     padding-left: 0; 
     margin-left: 0;
-}
-
-/* --- Footer Map  --- */
-
-.footer-map-column {
-    flex: 1.2; 
-    min-width: 280px;
-}
-
-.footer-map-wrapper {
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    border-radius: 12px; 
-    overflow: hidden;    
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    line-height: 0;     
-}
-
-.footer-map-iframe {
-    width: 100%;
-    height: 280px;
-    filter: grayscale(0.1) contrast(1.1); 
-    transition: filter 0.3s ease;
-}
-
-.footer-map-iframe:hover {
-    filter: grayscale(0) contrast(1); 
-}
-
-@media (max-width: 992px) {
-    .footer-map-column {
-        flex: 1 1 100%; 
-        margin-top: 30px;
-    }
-    
-    .footer-map-iframe {
-        height: 250px; 
-    }
-}
-
-/* --- Footer Icons --- */
-
-.ek-footer-contact-icon {
-    color: #ffffff; 
-    width: 28px;    
-    font-size: 1.1rem;
-    margin-right: 12px;
-    text-align: center;
-    flex-shrink: 0; 
-}
-
-.contact-col p {
-    display: flex;
-    align-items: flex-start; 
-    margin-bottom: 15px;
-    line-height: 1.5;
-    color: #ffffff;
-    opacity: 0.8;
-    font-size: 0.85rem;
-}
-
-/* Styles for your preserved social icons (namespaced) */
-.ek-footer-contact-social {
-    margin-top: 20px;
-}
-
-.ek-footer-contact-social a {
-    color: white;
-    margin-right: 18px;
-    font-size: 1.3rem;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-}
-
-.ek-footer-contact-social a:hover {
-    opacity: 0.8;
-    transform: translateY(-3px);
 }
