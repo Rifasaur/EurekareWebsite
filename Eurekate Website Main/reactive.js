@@ -5,6 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalPages = 2;
     const track = document.getElementById('carouselTrack');
     const dots = document.querySelectorAll('.dot');
+     // Swiper JS
+   const swiper = new Swiper('.partners-slider', {
+    loop: true,
+    centeredSlides: false,
+    slidesPerView: 4,
+    spaceBetween: 30,
+    // Add autoplay if you want
+    autoplay: {
+        delay: 500,
+        disableOnInteraction: false,
+        }
+    });
 
     function goToPage(pageIndex) {
         currentPage = pageIndex;
@@ -64,27 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(heroAutoPlay);
         heroAutoPlay = setInterval(() => heroMoveSlide(1), 4000);
     }
-
-    // Swiper JS
-    const swiper = new Swiper('.partners-slider', {
-        slidesPerView: "auto",
-        spaceBetween: 40,
-        centeredSlides: false,
-        loop: true,
-
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-
-        breakpoints: {
-            0: { slidesPerView: 1 },
-            600: { slidesPerView: 2 },
-            900: { slidesPerView: 3 },
-            1200: { slidesPerView: 4 }
-        }
-    });
-
 });
 
 function toggleSidebar() {

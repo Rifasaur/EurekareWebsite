@@ -422,10 +422,16 @@ body {
     transform: none;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+@keyframes slideIn {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
 }
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 5)); } /* Adjust '5' to the number of original logos you have */
+}
+
 
 .content-spacer {
     background-color: #f4f7f9;
@@ -435,76 +441,17 @@ body {
     text-align: center;
 }
 /*-----------------------------------*\
-  #Styles for carousel, slider, and partner cards and logos
+  #Styles for carousel, and slider
 \*-----------------------------------*/
 
 
-.features .section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    color: var(--eurekare-blue);
-    font-weight: bold;
-    margin-bottom: 40px;
-    margin-top: 20px;
-    margin-block-end: 40px; 
-}
 
 
-.features-list {
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
-  gap: 25px;
-  justify-content: center;
-}
-
-.features-item {
-  position: relative;
-  transition: var(--transition-2);
-}
-
-.features-item::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 40% 0;
-  border-radius: var(--radius-10);
-  z-index: -1;
-}
-
-.features-item:hover {
-  transform: translateY(-10px);
-}
-
-.features-card {
-  background: #ffffff;
-  padding: 20px;                   /* increases space inside the card */
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  height: 100px;              /* adjust if needed */
-  justify-content: center;
-  display: flex;
-}
 
 .main-nav{
   height: 120px;              /* adjust if needed */
   justify-content: center;
   display: flex;
-}
-
-.features-card img {
-  max-width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: center;
-}
-
-.features {
-  padding: 80px 0;
-}
-
-.TDF {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;   /* VERY important */
 }
 
 .carousel-track {
@@ -892,12 +839,6 @@ body {
 }
 
 /*Swiper no Swiping------------------------------------*/
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  width: 280px;
-  
-}
 
 .swiper-wrapper {
     align-items: center;
@@ -1062,7 +1003,7 @@ img-cover {
   margin-bottom: 40px;
 }
 .container {
-    max-width: 100%;
+    width: 1200px;
     margin: auto;
     height: 100%;
     gap: 10px;
@@ -1282,7 +1223,105 @@ body {
   z-index: 1;
 }
 
+/* Container that hides the overflow */
 .features .partner-logos {
+  overflow: hidden;
+  width: 100%;
+  padding: 40px 0;
   position: relative;
   z-index: 1;
+}
+
+/* The actual moving track */
+.partnerSwiper .swiper-wrapper {
+  display: flex;
+  width: calc(250px * 10); /* Total width: (Width of one logo * total logos including duplicates) */
+  animation: scroll 20s linear infinite; /* Pure CSS movement */
+  transition-timing-function: linear !important;
+}
+
+/* Features and Logo */
+
+/* SECTION TITLE */
+.features .section-title {
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* SWIPER CONTAINER */
+.swiper {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* EACH SLIDE */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  width: 260px;
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 25px;
+  justify-content: center;
+}
+
+.features-item {
+  position: relative;
+  transition: var(--transition-2);
+}
+
+.features-item::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 40% 0;
+  background-color: var(--cultured-2);
+  border-radius: var(--radius-10);
+  z-index: -1;
+}
+
+/* Individual Logo Cards */
+.features-card {
+  height: 120px;
+  justify-content: center;
+  display: flex;
+}
+
+.TDF {
+  max-width: 150%;
+  max-height: 150%;
+  object-fit: contain;
+}
+
+/* CARD HOVER EFFECT */
+.features-card:hover {
+  transform: translateY(-6px); /* Keeps the hover effect from index.css */
+}
+
+.features-item:hover {
+  transform: translateY(-10px);
+}
+
+/* LOGO IMAGE */
+.features-card img {
+  max-width: 200px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.partners-slider {
+  padding: 20px 0;
+}
+
+@media (min-width: 992px) {
+  .features .section-title { 
+    margin-block-end: 40px; 
+  }
 }

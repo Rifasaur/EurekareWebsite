@@ -16,6 +16,18 @@ const addEventOnElem = function (elem, type, callback) {
   }
 }
 
+ const swiper = new Swiper('.partners-slider', {
+    loop: true,
+    watchSlidesProgress: true,
+    slidesPerView: 4,
+    spaceBetween: 30,
+    // Add autoplay if you want
+    autoplay: {
+        delay: 500,
+        disableOnInteraction: false,
+        }
+    });
+
 
 
 /**
