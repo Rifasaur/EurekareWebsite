@@ -237,8 +237,6 @@ function closeAboutUsModal() {
     }
 }
 
-
-
 // Optional: Close modal when clicking on the white background outside the content
 // window.addEventListener('click', function(event) {
 //     const aboutModal = document.getElementById('aboutUsModal');
@@ -246,3 +244,31 @@ function closeAboutUsModal() {
 //         closeAboutUsModal();
 //     }
 // });
+
+function toggleDrawer(id) {
+    const drawer = document.getElementById(id);
+    drawer.classList.toggle('active');
+    
+    // Update the button arrow direction
+    const btn = drawer.querySelector('.drawer-toggle');
+    if (drawer.classList.contains('active')) {
+        btn.innerText = drawer.classList.contains('left') ? '❮' : '❯';
+    } else {
+        btn.innerText = drawer.classList.contains('left') ? '❯' : '❮';
+    }
+}
+
+// Optional: Auto-slide in when scrolling into view
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Auto-open the drawer when the section is visible
+            const overlay = entry.target.querySelector('.sliding-overlay');
+            if (overlay) overlay.classList.add('active');
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.service-section').forEach(section => {
+    observer.observe(section);
+});

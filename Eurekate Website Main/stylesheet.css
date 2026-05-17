@@ -1,5 +1,9 @@
 :root {
-    --eurekare-blue: #022658;
+    --eurekare-blue: #0055a4;
+    --eurekare-white: #f0f7ff;
+    --eurekare-dark: #0A1D2E;
+    --eurekare-steel: #9BA9B5;
+    --eurekare-teal: #43B9B7;
     --nav-height: 80px;
 }
 
@@ -16,10 +20,14 @@ body {
 /* Header Container */
 #header {
     position: sticky;
-    top: 0; /* sticky white navbar */
+    top: 0;
     z-index: 1000;
     width: 100%;
     transition: box-shadow 0.3s ease;
+}
+
+.header-placeholder{
+    max-height: 0;
 }
 
 #header.scrolled {
@@ -385,7 +393,7 @@ body {
 
 /* Content for scrolling */
 .hero {
-    height: 810px;
+    height: 975px;
     background: linear-gradient(135deg, #00b4db, #0083b0);
     display: flex;
     align-items: center;
@@ -629,7 +637,67 @@ body {
     width: 200%; /* Adjusted for 2 pages */
 }
 
-/* Hub Section Styles -----------------------------------------------*/
+/* Hub Section Styles ------------ Service Section -----------------------------------*/
+
+.service-section {
+    position: relative;
+    width: 100%;
+    height: 600px; /* You can set this height freely */
+    overflow: hidden;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid #eee;
+}
+
+/* The Sliding Drawer Overlay */
+.sliding-overlay {
+    position: absolute;
+    top: 0;
+    width: 400px; /* Width of the sliding part */
+    height: 100%;
+    background: rgba(10, 29, 46, 0.95); /* Deep Midnight with transparency */
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 500;
+}
+
+/* Positioning for Left and Right slides */
+.sliding-overlay.left { left: 0; transform: translateX(-100%); }
+.sliding-overlay.right { right: 0; transform: translateX(100%); }
+
+/* When the "active" class is added via JS */
+.sliding-overlay.active { transform: translateX(0); }
+
+/* The small tab that sticks out to click */
+.drawer-toggle {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 80px;
+    background: var(--eurekare-blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.left .drawer-toggle { right: -40px; border-radius: 0 10px 10px 0; }
+.right .drawer-toggle { left: -40px; border-radius: 10px 0 0 10px; }
+
+/* Content inside the drawer */
+.overlay-content { padding: 40px; }
+.service-tag { color: var(--eurekare-dark); font-weight: bold; font-size: 12px; text-transform: uppercase; }
+.cta-pill {
+    background: var(--eurekare-dark);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
 /* Hub Section Container */
 .hub-section {
     display: flex;
@@ -772,7 +840,7 @@ body {
 .main-footer {
     background-color: #0072bc; /* Deep blue from the image */
     color: white;
-    padding-top: 80px;
+    padding-top: 55px;
     position: relative;
     margin-top: 60px; /* Space for the floating button */
 }

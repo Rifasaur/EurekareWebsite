@@ -11,12 +11,12 @@
 </head>
 <body>
 
-    <header id="header"></header>
+    <header id="header" class="header-placeholder"></header>
     <div class="contact-us-overlay" id="contactUsOverlay"></div>
 
     <main>
         <!-- Introduction Index-->
-        <section class="hero" id="introduction">
+        <section class="hero hero-top" id="introduction">
 
             <div class="hero-carousel">
 
@@ -102,7 +102,44 @@
                 </div>
             </div>
         </section>
+        <section class="services-wireframe">
+            <div class="wireframe-container">
+                <span class="wireframe-label">Services Offered:</span>
+                
+                <button class="partner-btn">Partner with Us</button>
 
+                <div class="services-grid">
+                    <div class="service-box item-ekonsulta">
+                        <div class="box-icon">☒</div>
+                        <span>eKonsulta</span>
+                    </div>
+
+                    <div class="service-box item-mobile">
+                        <div class="box-icon">☒</div>
+                        <span>Mobile App</span>
+                    </div>
+
+                    <div class="service-box item-eclaims">
+                        <div class="box-icon">☒</div>
+                        <span>eCLAIMS</span>
+                    </div>
+                    
+                    <div class="line line-1"></div>
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
+                </div>
+
+                <button class="hub-trigger-btn" onclick="openHubModal()">Explore Center Hub</button>
+            </div>
+        </section>
+
+<div id="hubModal" class="modal-overlay">
+    <div class="modal-content-large">
+        <span class="close-modal" onclick="closeHubModal()">&times;</span>
+        <div id="hub-container-placeholder">
+            </div>
+    </div>
+</div>
         <!-- eCare EMR Central Hub -->
         <section class="hub-section">
             <!-- Collapsible Sidebar -->
