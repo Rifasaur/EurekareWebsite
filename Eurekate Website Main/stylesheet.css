@@ -1196,18 +1196,19 @@ body {
       text-decoration: none;
     }
 
-/* Special Features background */
+/*-----------------------------------*\
+  #HEALTH PARTNERS
+\*-----------------------------------*/
 
-.features {
+.health-partners {
   background: #fafbfc;
   padding: 3rem 2rem;
   position: relative;
   overflow: hidden;
-  padding: 100px 40px;
-
 }
 
-.features::before {
+/* Hexagon pattern background */
+.health-partners::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -1216,112 +1217,99 @@ body {
   opacity: 0.04;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hexagons" x="0" y="0" width="80" height="70" patternUnits="userSpaceOnUse"><polygon points="40,0 60,17.5 60,52.5 40,70 20,52.5 20,17.5" fill="none" stroke="%23003d82" stroke-width="1.5"/></pattern></defs><rect width="100%" height="100%" fill="url(%23hexagons)"/></svg>');
   pointer-events: none;
+  z-index: 0;
 }
 
-.features h2 {
+.health-partners .section-title {
   position: relative;
   z-index: 1;
-}
-
-/* Container that hides the overflow */
-.features .partner-logos {
-  overflow: hidden;
-  width: 100%;
-  padding: 40px 0;
-  position: relative;
-  z-index: 1;
-}
-
-/* The actual moving track */
-.partnerSwiper .swiper-wrapper {
-  display: flex;
-  width: calc(250px * 10); /* Total width: (Width of one logo * total logos including duplicates) */
-  animation: scroll 20s linear infinite; /* Pure CSS movement */
-  transition-timing-function: linear !important;
-}
-
-/* Features and Logo */
-
-/* SECTION TITLE */
-.features .section-title {
-  margin-bottom: 40px;
   text-align: center;
-  font-size: 40px;
-  font-weight: 700;
+  margin-block-end: 40px;
+  color: var(--eerie-black);
 }
 
-/* SWIPER CONTAINER */
-.swiper {
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 40px;
-}
-
-/* EACH SLIDE */
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  width: 260px;
-}
-
-.features-list {
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
-  gap: 25px;
-  justify-content: center;
-}
-
-.features-item {
+.health-partners-carousel {
   position: relative;
-  transition: var(--transition-2);
+  z-index: 1;
+  padding: 20px 0;
+  overflow: visible;
 }
 
-.features-item::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 40% 0;
-  background-color: var(--cultured-2);
-  border-radius: var(--radius-10);
-  z-index: -1;
-}
-
-/* Individual Logo Cards */
-.features-card {
-  height: 120px;
-  justify-content: center;
+.health-partners .swiper-wrapper {
   display: flex;
+  align-items: center;
 }
 
-.TDF {
-  max-width: 150%;
-  max-height: 150%;
-  object-fit: contain;
+.health-partners .swiper-slide {
+  width: 240px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* CARD HOVER EFFECT */
-.features-card:hover {
-  transform: translateY(-6px); /* Keeps the hover effect from index.css */
+.partner-card {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
 }
 
-.features-item:hover {
-  transform: translateY(-10px);
+.partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* LOGO IMAGE */
-.features-card img {
-  max-width: 200px;
-  max-height: 80px;
+.partner-logo {
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
 }
 
-.partners-slider {
-  padding: 20px 0;
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .health-partners {
+    padding: 4rem 2rem;
+  }
+  
+  .health-partners .section-title {
+    margin-block-end: 50px;
+  }
 }
 
 @media (min-width: 992px) {
-  .features .section-title { 
-    margin-block-end: 40px; 
+  .health-partners {
+    padding: 5rem 2rem;
+  }
+  
+  .health-partners .section-title {
+    margin-block-end: 60px;
+  }
+  
+  .health-partners .swiper-slide {
+    width: 260px;
+  }
+  
+  .partner-card {
+    height: 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .health-partners .swiper-slide {
+    width: 280px;
+  }
+  
+  .partner-card {
+    height: 160px;
+    padding: 25px;
   }
 }

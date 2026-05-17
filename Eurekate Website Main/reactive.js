@@ -1,22 +1,64 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Updated Carousel Logic for 2 pages and manual buttons
-    let currentPage = 0;
-    const totalPages = 2;
-    const track = document.getElementById('carouselTrack');
-    const dots = document.querySelectorAll('.dot');
-     // Swiper JS
-   const swiper = new Swiper('.partners-slider', {
+// Health Partners Carousel
+document.addEventListener('DOMContentLoaded', function() {
+  const healthPartnersSwiper = new Swiper('.health-partners-carousel', {
+    // Loop settings
     loop: true,
-    centeredSlides: false,
-    slidesPerView: 4,
+    loopedSlides: 7,  // Total number of unique slides
+    loopAdditionalSlides: 3,  // Extra slides for smooth looping
+    
+    // Slide settings
+    slidesPerView: 'auto',  // Use auto for responsive width
     spaceBetween: 30,
-    // Add autoplay if you want
+    centeredSlides: false,
+    
+    // Autoplay
     autoplay: {
-        delay: 500,
-        disableOnInteraction: false,
-        }
-    });
+      delay: 2500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    
+    // Speed
+    speed: 800,
+    
+    // Responsive breakpoints
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 25
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 30
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 35
+      }
+    },
+    
+    // Fix for fullscreen issue
+    observer: true,
+    observeParents: true,
+    
+    // Recalculate on resize
+    on: {
+      resize: function () {
+        this.update();
+      },
+      init: function () {
+        this.update();
+      }
+    }
+  });
 
     function goToPage(pageIndex) {
         currentPage = pageIndex;
