@@ -237,6 +237,23 @@ function closeAboutUsModal() {
     }
 }
 
+// Join the Team Modal 
+function openJoinModal() {
+    const modal = document.getElementById('joinTeamOverlay');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevents background body scrolling
+    }
+}
+
+function closeJoinModal() {
+    const modal = document.getElementById('joinTeamOverlay');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restores background window viewport scroll
+    }
+}
+
 
 
 // Optional: Close modal when clicking on the white background outside the content

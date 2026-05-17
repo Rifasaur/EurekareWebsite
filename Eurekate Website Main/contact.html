@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurekare Corporation - Contact</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header id="header">
+        <nav class="main-nav">
+            <div class="container-header">
+                <div class="logo">
+                    <div class="logo-placeholder">
+                        <a href="./index.html">
+                            <img src="./images/Eurekare_logo_V1.gif" class="img-logo" alt="Eurekare Logo">
+                        </a>
+                    </div>
+                </div>
+
+                <button class="nav-toggle" aria-label="Open navigation" type="button">
+                    ☰
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="contact-us-overlay" id="contactUsOverlay"></div>
+    <div class="contact-us-overlay" id="joinTeamOverlay"></div>
+
+    <main class="contact-split-container">
+        <section class="split-side join-team">
+            <div class="split-content">
+                <i class="fa-solid fa-users-gear split-icon"></i>
+                <h2>Join the Team</h2>
+                <p>Build your career with Eurekare. We are looking for passionate individuals to join our growing IT and healthcare support teams.</p>
+                <button class="split-btn" onclick="openJoinModal()">View Openings</button>
+            </div>
+        </section>
+
+        <section class="split-side partner-us">
+            <div class="split-content">
+                <i class="fa-solid fa-handshake split-icon"></i>
+                <h2>Partner with Us</h2>
+                <p>Collaborate with us to provide innovative healthcare solutions. Let's work together to simplify healthcare delivery.</p>
+                <button class="split-btn" onclick="openContactUsModal()">Inquire Now</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" id="footer-content">
+        <div class="footer-cta-wrapper">
+            <a href="tel:09174662273" class="footer-cta">
+                <span class="phone-icon"> 📧 / 📞 GOT QUESTIONS? &nbsp;</span> 
+            </a>
+        </div>
+
+        <div class="container footer-content">
+            <div class="footer-col brand-info">
+                <div class="footer-logo">
+                    <img src="./images/Logo-White-Transparent.png" class="white-logo-footer-img" alt="Eurekare Footer Logo">
+                    <span style="font-size: 10px; letter-spacing: 1px; display: block; margin-top: 5px;">WEB BASED DOCUMENTATION AND REPORTING</span>
+                </div>
+                <p>Eurekare Corp. is a healthcare solution provider that offers innovative 
+                    and simplified solutions for healthcare providers such as hospitals, clinics, and 
+                    small town healthcare centers. Committed to delivering on time with a smile.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>   
+                    <li><a href="data privacy.html">Data Privacy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3>Get In Touch</h3>
+                <p><i class="fa-solid fa-location-dot ek-footer-contact-icon"></i> Unit 2716 AIC Burgundy Empire Tower, ADB Ave., Ortigas Center, Pasig City. Metro Manila, Philippines</p>
+                <p><i class="fa-solid fa-phone ek-footer-contact-icon"></i> (02) 7777-2273</p>
+                <p><i class="fa-solid fa-mobile-screen-button ek-footer-contact-icon"></i> 0917-466-2273</p>
+                <p><i class="fa-solid fa-envelope ek-footer-contact-icon"></i> info@eurekarecorp.com</p>
+            </div>
+
+            <div class="footer-col footer-map-column">
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="footer-map-link-wrapper">
+                    <div class="footer-map-wrapper">
+                        <iframe 
+                            class="footer-map-iframe"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.3323880456845!2d121.05949437590124!3d14.580133477432857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c815ec1161cb%3A0x868d400494490f84!2sAIC%20Burgundy%20Empire%20Tower!5e0!3m2!1sen!2sph!4v1710000000000" 
+                            width="100%" 
+                            height="200" 
+                            style="border:0; pointer-events: none;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2026 Eurekare Corporation. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="reactive.js"></script>
+    <script>
+        
+        fetch('contact-modal.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('contactUsOverlay').innerHTML = data;
+            });
+
+        fetch('join-modal.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('joinTeamOverlay').innerHTML = data;
+            });
+
+    </script>
+
+</body>
+</html>
