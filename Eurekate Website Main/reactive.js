@@ -1,64 +1,4 @@
-// Health Partners Carousel
-document.addEventListener('DOMContentLoaded', function() {
-  const healthPartnersSwiper = new Swiper('.health-partners-carousel', {
-    // Loop settings
-    loop: true,
-    loopedSlides: 7,  // Total number of unique slides
-    loopAdditionalSlides: 3,  // Extra slides for smooth looping
-    
-    // Slide settings
-    slidesPerView: 'auto',  // Use auto for responsive width
-    spaceBetween: 30,
-    centeredSlides: false,
-    
-    // Autoplay
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    },
-    
-    // Speed
-    speed: 800,
-    
-    // Responsive breakpoints
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-      576: {
-        slidesPerView: 2,
-        spaceBetween: 25
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 30
-      },
-      992: {
-        slidesPerView: 4,
-        spaceBetween: 30
-      },
-      1200: {
-        slidesPerView: 4,
-        spaceBetween: 35
-      }
-    },
-    
-    // Fix for fullscreen issue
-    observer: true,
-    observeParents: true,
-    
-    // Recalculate on resize
-    on: {
-      resize: function () {
-        this.update();
-      },
-      init: function () {
-        this.update();
-      }
-    }
-  });
+
 
     function goToPage(pageIndex) {
         currentPage = pageIndex;
@@ -118,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
         clearInterval(heroAutoPlay);
         heroAutoPlay = setInterval(() => heroMoveSlide(1), 4000);
     }
-});
 
 function toggleSidebar() {
     const sidebar = document.getElementById('hubSidebar');
@@ -244,3 +183,16 @@ function closeContactUsModal() {
     document.getElementById('contactUsOverlay').classList.remove('active');
     document.body.style.overflow = '';
 }
+
+
+
+// Partners Track Hover Effect, Pause on Hover
+const partnersTrack = document.querySelector(".partners-track");
+
+partnersTrack.addEventListener("mouseenter", () => {
+  partnersTrack.style.animationPlayState = "paused";
+});
+
+partnersTrack.addEventListener("mouseleave", () => {
+  partnersTrack.style.animationPlayState = "running";
+});
