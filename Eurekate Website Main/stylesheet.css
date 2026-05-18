@@ -585,6 +585,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative; 
 }
 
 .hero-content h1 {
@@ -633,6 +634,27 @@ body {
     .hero-indicators-container { bottom: 30px; }
 }
 
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps video from stretching */
+    z-index: 1;
+}
+
+/* Optional: Add a dark overlay so text is easier to read over video */
+.hero-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
 /*-----------------------------------*\
   #Styles for carousel, slider, and partner cards and logos
 \*-----------------------------------*/

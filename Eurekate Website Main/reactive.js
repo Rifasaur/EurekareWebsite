@@ -233,6 +233,27 @@ function closeJoinModal() {
                             INTRO CAROUSEL
    ========================================================================== */
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Start the first video on load
+    const initialVideo = document.querySelector('.hero-slide.active .hero-video');
+    if (initialVideo) initialVideo.play();
+    
+    setupVideoListeners();
+});
+
+function setupVideoListeners() {
+    const videos = document.querySelectorAll('.hero-video');
+    const slides = document.querySelectorAll('.hero-slide');
+
+    videos.forEach((video, index) => {
+        video.onended = () => {
+            // Calculate next slide index (looping 1-2-3-1)
+            let nextIndex = (index + 1) % slides.length;
+            switchHeroSlide(nextIndex);
+        };
+    });
+}
+
 function switchHeroSlide(targetIndex) {
     const slides = document.querySelectorAll('#introduction .hero-slide');
     const dots = document.querySelectorAll('#introduction .hero-dot');
@@ -242,12 +263,25 @@ function switchHeroSlide(targetIndex) {
     slides.forEach((slide, idx) => {
         slide.classList.remove('active');
         dots[idx].classList.remove('active');
+        
+        // Stop and reset other videos
+        const video = slide.querySelector('.hero-video');
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
     });
 
+    // Activate target slide
     slides[targetIndex].classList.add('active');
     dots[targetIndex].classList.add('active');
-}
 
+    // Play the video in the now-active slide
+    const activeVideo = slides[targetIndex].querySelector('.hero-video');
+    if (activeVideo) {
+        activeVideo.play();
+    }
+}
 
 // Optional: Close modal when clicking on the white background outside the content
 // window.addEventListener('click', function(event) {
