@@ -10,30 +10,7 @@
 </head>
 <body>
 
-    <header id="header">
-        <nav class="main-nav">
-            <div class="container-header">
-                <div class="logo">
-                    <div class="logo-placeholder">
-                        <a href="./index.html">
-                            <img src="./images/Eurekare_logo_V1.gif" class="img-logo" alt="Eurekare Logo">
-                        </a>
-                    </div>
-                </div>
-
-                <button class="nav-toggle" aria-label="Open navigation" type="button">
-                    ☰
-                </button>
-
-                <ul class="nav-links">
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
+    <header id="header" class="header-placeholder"></header>
     <div class="contact-us-overlay" id="contactUsOverlay"></div>
     <div class="contact-us-overlay" id="joinTeamOverlay"></div>
 
@@ -140,6 +117,12 @@
     <script src="reactive.js"></script>
     <script>
         
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('header').innerHTML = data;
+            });
+
         fetch('contact-modal.html')
             .then(response => response.text())
             .then(data => {
@@ -150,6 +133,12 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('joinTeamOverlay').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('footer-content').innerHTML = data;
             });
 
     </script>

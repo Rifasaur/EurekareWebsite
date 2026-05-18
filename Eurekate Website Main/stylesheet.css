@@ -1,5 +1,9 @@
 :root {
-    --eurekare-blue: #022658;
+    --eurekare-blue: #0055a4;
+    --eurekare-white: #f0f7ff;
+    --eurekare-dark: #0A1D2E;
+    --eurekare-steel: #9BA9B5;
+    --eurekare-teal: #43B9B7;
     --nav-height: 80px;
 }
 
@@ -12,18 +16,19 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f9;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 /* Header Container */
 #header {
     position: sticky;
-    top: 0; /* sticky white navbar */
+    top: 0;
     z-index: 1000;
     width: 100%;
     transition: box-shadow 0.3s ease;
+}
+
+.header-placeholder{
+    max-height: 0;
 }
 
 #header.scrolled {
@@ -113,7 +118,7 @@ body {
 
 /* White Main Nav */
 .main-nav {
-    background: rgba(255, 255, 255, 0.8); 
+    background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
     height: var(--nav-height);
     border-bottom: 1px solid #eee;
     display: flex;
@@ -210,7 +215,6 @@ body {
 .nav-links a:hover::after {
     width: 100%;
 }
-
 
 /* ==========================================================================
                             CONTACT US MODAL
@@ -524,7 +528,7 @@ body {
 #introduction {
     position: relative;
     width: 100%;
-    height: calc(100vh - var(--nav-height)); 
+    height: calc(92vh + var(--nav-height)); 
     min-height: 500px;
     background-color: #011129;
     overflow: hidden;
@@ -1731,7 +1735,7 @@ body {
 /* Split Contact Page Layout */
 .contact-split-container {
     display: flex;
-    min-height: calc(100vh - var(--nav-height)); 
+    min-height: calc(100vh + var(--nav-height)); 
     width: 100%;
     flex-grow: 1;
 }
