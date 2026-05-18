@@ -1,0 +1,71 @@
+<div class="contact-modal-card join-modal-card">
+    
+    <div class="contact-modal-header join-modal-header">
+        <h2 class="contact-modal-title">Application Form</h2>
+        <p class="contact-modal-subtitle">Join our team and help simplify healthcare delivery.</p>
+    </div>
+
+    <div class="contact-modal-body">
+        
+        <div class="contact-modal-columns">
+            
+            <div class="contact-modal-col">
+                <h3 class="form-section-heading"><i class="fa-solid fa-user-tie"></i> Personal Details</h3>
+                
+                <div class="contact-us-field">
+                    <label class="contact-us-label">Full Name</label>
+                    <input type="text" class="contact-us-input" placeholder="Enter your full name">
+                </div>
+                
+                <div class="contact-us-field">
+                    <label class="contact-us-label">Email Address</label>
+                    <input type="email" class="contact-us-input" placeholder="username@example.com">
+                </div>
+                
+                <div class="contact-us-field">
+                    <label class="contact-us-label">Contact Number</label>
+                    <input type="text" class="contact-us-input" placeholder="e.g. 09171234567">
+                </div>
+            </div>
+
+            <div class="contact-modal-col">
+                <h3 class="form-section-heading"><i class="fa-solid fa-briefcase"></i> Position & Profile</h3>
+                
+                <div class="contact-us-field">
+                    <label class="contact-us-label">Position Applying For</label>
+                    <input type="text" class="contact-us-input" placeholder="e.g. IT Intern, Support Staff">
+                </div>
+                
+                <div class="contact-us-field">
+                    <label class="contact-us-label">Upload Resume / CV</label>
+                    <div class="join-file-upload-wrapper">
+                        <input type="file" id="joinResumeInput" class="join-file-input" accept=".pdf,.doc,.docx">
+                        <label for="joinResumeInput" class="join-file-label">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Choose a file (PDF, DOCX)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contact-form-section-bottom">
+            <h3 class="form-section-heading"><i class="fa-solid fa-pen-to-square"></i> Message / Cover Letter</h3>
+            <div class="contact-us-textarea-group">
+                <label class="contact-us-textarea-label">Introduce yourself or leave a brief message for our HR team</label>
+                <textarea class="contact-us-textarea" placeholder="Write your message here..."></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="contact-us-actions">
+        <button class="contact-us-btn-back" onclick="closeJoinModal()">
+            <i class="fa-solid fa-chevron-left"></i> Back
+        </button>
+        <button class="contact-us-btn-submit join-btn-submit">
+            Submit Application <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
