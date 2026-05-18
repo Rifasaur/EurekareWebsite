@@ -16,10 +16,9 @@
 
     <main>
         <!-- Introduction Index-->
-        <section class="hero hero-top" id="introduction">
-
-            <div class="hero-carousel">
-
+        <section class="hero" id="introduction">
+            <div class="hero-carousel-wrapper">
+                
                 <div class="hero-slide active">
                     <div class="hero-content">
                         <h1>Eurekare - We Care</h1>
@@ -38,15 +37,12 @@
                     </div>
                 </div>
 
-                <button class="nav-btn prev" onclick="heroMoveSlide(-1)">&#10094;</button>
-                <button class="nav-btn next" onclick="heroMoveSlide(1)">&#10095;</button>
+            </div>
 
-                <div class="hero-nav">
-                    <span class="dot active" onclick="heroGoToSlide(0)"></span>
-                    <span class="dot" onclick="heroGoToSlide(1)"></span>
-                    <span class="dot" onclick="heroGoToSlide(2)"></span>
-                </div>
-
+            <div class="hero-indicators-container">
+                <span class="hero-dot active" onclick="switchHeroSlide(0)" aria-label="Go to slide 1"></span>
+                <span class="hero-dot" onclick="switchHeroSlide(1)" aria-label="Go to slide 2"></span>
+                <span class="hero-dot" onclick="switchHeroSlide(2)" aria-label="Go to slide 3"></span>
             </div>
         </section>
 
@@ -84,19 +80,6 @@
                         <img src="images/DOH.png" alt="TDF" class="TDF">
                     </div>
                     </div>
-
-                    <!---- <div class="swiper-slide">
-                    <div class="features-card">
-                        <img src="images/TDF3.png" alt="TDF" class="TDF">
-                    </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                    <div class="features-card">
-                        <img src="images/TDF3.png" alt="TDF" class="TDF">
-                    </div>
-                    </div> ---->
-
                 </div>
 
                 </div>

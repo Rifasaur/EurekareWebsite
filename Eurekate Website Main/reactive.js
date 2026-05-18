@@ -41,30 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
         autoScroll = setInterval(nextPage, 8000);
     }
 
-    // ---- Hero Carousel ----
-    let heroCurrent = 0;
-    const heroSlides = document.querySelectorAll('.hero-slide');
-    const heroDots = document.querySelectorAll('.hero .dot');
-
-    let heroAutoPlay = setInterval(() => heroMoveSlide(1), 4000);
-
-    window.heroMoveSlide = function(dir) {
-        heroGoToSlide((heroCurrent + dir + heroSlides.length) % heroSlides.length);
-    }
-
-    window.heroGoToSlide = function(index) {
-        heroSlides[heroCurrent].classList.remove('active');
-        heroDots[heroCurrent].classList.remove('active');
-
-        heroCurrent = index;
-
-        heroSlides[heroCurrent].classList.add('active');
-        heroDots[heroCurrent].classList.add('active');
-
-        clearInterval(heroAutoPlay);
-        heroAutoPlay = setInterval(() => heroMoveSlide(1), 4000);
-    }
-
     // Swiper JS
     const swiper = new Swiper('.partners-slider', {
         slidesPerView: "auto",
@@ -212,16 +188,15 @@ function closeContactUsModal() {
     document.body.style.overflow = '';
 }
 
-// About Us Modal
-
+// About Us Modal Functions
 function openAboutUsModal() {
     const modal = document.getElementById('aboutUsModal');
     if (modal) {
         modal.style.display = 'block'; // Make it exist
+        document.body.style.overflow = 'hidden'; // Lock scrolling
         setTimeout(() => {
             modal.classList.add('is-visible');
         }, 10);
-        document.body.style.overflow = 'hidden'; 
     }
 }
 
@@ -229,13 +204,50 @@ function closeAboutUsModal() {
     const modal = document.getElementById('aboutUsModal');
     if (modal) {
         modal.classList.remove('is-visible');
+        document.body.style.overflow = ''; // Instantly restore browser default scroll rules
         
         setTimeout(() => {
             modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; 
         }, 500); 
     }
 }
+
+// Join the Team Modal 
+function openJoinModal() {
+    const modal = document.getElementById('joinTeamOverlay');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevents background body scrolling
+    }
+}
+
+function closeJoinModal() {
+    const modal = document.getElementById('joinTeamOverlay');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restores background window viewport scroll
+    }
+}
+
+/* ==========================================================================
+                            INTRO CAROUSEL
+   ========================================================================== */
+
+function switchHeroSlide(targetIndex) {
+    const slides = document.querySelectorAll('#introduction .hero-slide');
+    const dots = document.querySelectorAll('#introduction .hero-dot');
+    
+    if (slides.length === 0 || dots.length === 0) return;
+
+    slides.forEach((slide, idx) => {
+        slide.classList.remove('active');
+        dots[idx].classList.remove('active');
+    });
+
+    slides[targetIndex].classList.add('active');
+    dots[targetIndex].classList.add('active');
+}
+
 
 // Optional: Close modal when clicking on the white background outside the content
 // window.addEventListener('click', function(event) {
