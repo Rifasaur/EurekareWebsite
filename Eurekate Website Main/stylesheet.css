@@ -1829,3 +1829,186 @@ body {
         min-height: 50vh;
     }
 }
+
+/*-----------------------------------*\
+  #PREMIUM BLOG MODAL OVERLAY
+\*-----------------------------------*/
+
+.blog-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 29, 46, 0.6); /* Deep blue tint overlay */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 5000; /* Ensures visibility above sticky menus */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  padding: 20px;
+}
+
+.blog-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.blog-modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 950px;
+  height: 80vh;
+  max-height: 600px;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px -15px rgba(2, 38, 88, 0.25);
+  position: relative;
+  overflow: hidden;
+  transform: translateY(40px) scale(0.96);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.blog-modal-overlay.active .blog-modal-container {
+  transform: translateY(0) scale(1);
+}
+
+/* Close Button Mechanics */
+.blog-modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--eurekare-dark);
+  font-size: 32px;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.blog-modal-close-btn:hover {
+  background: var(--eurekare-blue);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+/* Main Split View Layout */
+.blog-modal-body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.blog-modal-image-side {
+  flex: 1.1;
+  height: 100%;
+  position: relative;
+  background-color: var(--eurekare-dark);
+}
+
+.blog-modal-image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content Area Configuration */
+.blog-modal-content-side {
+  flex: 1;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.blog-modal-badge {
+  background-color: rgba(67, 185, 183, 0.15); /* Soft teal overlay tint */
+  color: var(--eurekare-teal);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  width: max-content;
+  margin-bottom: 20px;
+}
+
+.blog-modal-content-side h2 {
+  font-size: 2rem;
+  color: var(--eurekare-dark);
+  line-height: 1.25;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+}
+
+.blog-modal-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 15px;
+  margin-right: -10px;
+}
+
+.blog-modal-scroll-area p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #526374;
+  margin: 0;
+}
+
+/* Clean UI Scrollbar Design */
+.blog-modal-scroll-area::-webkit-scrollbar {
+  width: 5px;
+}
+.blog-modal-scroll-area::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+.blog-modal-scroll-area::-webkit-scrollbar-thumb {
+  background: var(--eurekare-steel);
+  border-radius: 10px;
+}
+.blog-modal-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: var(--eurekare-blue);
+}
+
+/* Responsive Adaptive Interface Rules */
+@media (max-width: 868px) {
+  .blog-modal-container {
+    height: 85vh;
+    max-height: unset;
+  }
+  .blog-modal-body {
+    flex-direction: column;
+  }
+  .blog-modal-image-side {
+    flex: 0.6;
+    width: 100%;
+  }
+  .blog-modal-content-side {
+    flex: 1;
+    padding: 30px 25px;
+  }
+  .blog-modal-content-side h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .blog-modal-close-btn {
+    top: 15px;
+    right: 15px;
+    background: #ffffff;
+  }
+}

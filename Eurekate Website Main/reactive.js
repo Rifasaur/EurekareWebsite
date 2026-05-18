@@ -256,3 +256,4 @@ function switchHeroSlide(targetIndex) {
 //         closeAboutUsModal();
 //     }
 // });
+
