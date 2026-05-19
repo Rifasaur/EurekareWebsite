@@ -7,14 +7,67 @@
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Fading Animation Configuration */
+        .fade-in-container {
+            animation: fadeInPage 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInPage {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Back Button Styling */
+        .back-to-home-btn {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            z-index: 1010;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #022658; /* Using Eurekare deep blue */
+            padding: 10px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home-btn:hover {
+            background-color: #022658;
+            color: #ffffff;
+            transform: translateX(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Fix positioning since header is removed */
+        .contact-split-container {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
 
-    <header id="header" class="header-placeholder"></header>
+    <a href="index.html" class="back-to-home-btn">
+        <i class="fa-solid fa-chevron-left"></i> Back to Home
+    </a>
+
     <div class="contact-us-overlay" id="contactUsOverlay"></div>
     <div class="contact-us-overlay" id="joinTeamOverlay"></div>
 
-    <main class="contact-split-container">
+    <main class="contact-split-container fade-in-container">
         <section class="split-side join-team">
             <div class="split-content">
                 <i class="fa-solid fa-users-gear split-icon"></i>
@@ -59,7 +112,7 @@
             <ul class="footer-links-list">
                 <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
                 <li><a href="#"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>   
-                <li><a href="data privacy.html"><i class="fa-solid fa-chevron-right"></i> Data Privacy</a></li>
+                <li><a href="data-privacy.html"><i class="fa-solid fa-chevron-right"></i> Data Privacy</a></li>
             </ul>
         </div>
 
@@ -116,13 +169,7 @@
 
     <script src="reactive.js"></script>
     <script>
-        
-        fetch('nav.html')
-            .then(response => response.text())
-            .then(data => {
-            document.getElementById('header').innerHTML = data;
-            });
-
+        // Modal asset rendering triggers
         fetch('contact-modal.html')
             .then(response => response.text())
             .then(data => {
@@ -138,10 +185,9 @@
         fetch('footer.html')
             .then(response => response.text())
             .then(data => {
-            document.getElementById('footer-content').innerHTML = data;
+                document.getElementById('footer-content').innerHTML = data;
             });
-
     </script>
 
 </body>
-</html> 
+</html>
