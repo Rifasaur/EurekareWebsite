@@ -1,68 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Updated Carousel Logic for 2 pages and manual buttons
-    let currentPage = 0;
-    const totalPages = 2;
-    const track = document.getElementById('carouselTrack');
-    const dots = document.querySelectorAll('.dot');
-
-    function goToPage(pageIndex) {
-        currentPage = pageIndex;
-        updateCarousel();
-        resetTimer();
-    }
-
-    function prevPage() {
-        currentPage = (currentPage - 1 + totalPages) % totalPages;
-        updateCarousel();
-        resetTimer();
-    }
-
-    function nextPage() {
-        currentPage = (currentPage + 1) % totalPages;
-        updateCarousel();
-        resetTimer();
-    }
-
-    function updateCarousel() {
-        if (track) {
-            track.style.transform = `translateX(-${currentPage * (100 / totalPages)}%)`;
-        }
-
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentPage);
-        });
-    }
-
-    let autoScroll = setInterval(nextPage, 8000);
-
-    function resetTimer() {
-        clearInterval(autoScroll);
-        autoScroll = setInterval(nextPage, 8000);
-    }
-
-    // Swiper JS
-    const swiper = new Swiper('.partners-slider', {
-        slidesPerView: "auto",
-        spaceBetween: 40,
-        centeredSlides: false,
-        loop: true,
-
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-
-        breakpoints: {
-            0: { slidesPerView: 1 },
-            600: { slidesPerView: 2 },
-            900: { slidesPerView: 3 },
-            1200: { slidesPerView: 4 }
-        }
-    });
-
-});
-
 function toggleSidebar() {
     const sidebar = document.getElementById('hubSidebar');
     sidebar.classList.toggle('collapsed');
@@ -76,6 +11,17 @@ window.addEventListener('load', () => {
     if (window.innerWidth < 768) {
         document.getElementById('hubSidebar').classList.add('collapsed');
     }
+});
+
+// Partners Track Hover Effect, Pause on Hover
+const partnersTrack = document.querySelector(".partners-track");
+
+partnersTrack.addEventListener("mouseenter", () => {
+  partnersTrack.style.animationPlayState = "paused";
+});
+
+partnersTrack.addEventListener("mouseleave", () => {
+  partnersTrack.style.animationPlayState = "running";
 });
 
 const moduleData = {
