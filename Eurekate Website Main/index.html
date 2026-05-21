@@ -124,52 +124,70 @@
         </button>
 
         <section class="services-section" id="services">
-            <div class="services-container">
-                <div class="services-header">
-                    <h2>How We Help You</h2>
-                    <p>Our team of experts is dedicated to helping you achieve your healthcare goals through innovative technology.</p>
-                </div>
+    <div class="services-container">
+        <div class="services-header">
+            <h2>How We Help You</h2>
+            <p>Our team of experts is dedicated to helping you achieve your healthcare goals through innovative technology.</p>
+        </div>
 
-                <div class="service-row">
-                    <div class="service-image-wrapper">
-                        <div class="pill-mask">
-                            <img src="./images/About.jpg" alt="Property Valuation">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>E-Konsulta Integration</h3>
-                        <p>Our expert team provides detailed property valuations and market analysis to help you accurately price your property and understand the local real estate market.</p>
-                        <a href="#" class="service-btn">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="service-row row-reverse">
-                    <div class="service-image-wrapper">
-                        <div class="pill-mask">
-                            <img src="./images/Diagram-Temporary-Placeholde.png" alt="Listing and Advertising">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>E-Claims</h3>
-                        <p>We use our extensive network and marketing expertise to list and advertise your property to a wide audience. From professional photography to targeted online and offline advertising.</p>
-                        <a href="#" class="service-btn">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="service-row">
-                    <div class="service-image-wrapper">
-                        <div class="pill-mask">
-                            <img src="./images/Mobile.jpg" alt="Potential Buyers">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>Mobile Accessibility</h3>
-                        <p>Our team is available to schedule and conduct property showings for interested buyers. We work with your schedule to ensure showings are convenient for you.</p>
-                        <a href="#" class="service-btn">Learn More</a>
-                    </div>
+        <div class="service-row">
+            <div class="service-image-wrapper">
+                <div class="pill-mask">
+                    <img src="./images/About.jpg" alt="E-Konsulta Integration">
                 </div>
             </div>
-        </section>
+            <div class="service-text">
+                <h3>E-Konsulta Integration</h3>
+                <p>Our expert team provides detailed property valuations and market analysis to help you accurately price your property and understand the local real estate market.</p>
+                <a href="javascript:void(0)" onclick="openServicesModal('e-konsulta')" class="service-btn">Learn More</a>            </div>
+        </div>
+
+        <div class="service-row row-reverse">
+            <div class="service-image-wrapper">
+                <div class="pill-mask">
+                    <img src="./images/Diagram-Temporary-Placeholde.png" alt="E-Claims">
+                </div>
+            </div>
+            <div class="service-text">
+                <h3>E-Claims</h3>
+                <p>We use our extensive network and marketing expertise to list and advertise your property to a wide audience. From professional photography to targeted online and offline advertising.</p>
+                <a href="javascript:void(0)" onclick="openServicesModal('e-claims')" class="service-btn">Learn More</a>
+            </div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-image-wrapper">
+                <div class="pill-mask">
+                    <img src="./images/Mobile.jpg" alt="Mobile Accessibility">
+                </div>
+            </div>
+            <div class="service-text">
+                <h3>Mobile Accessibility</h3>
+                <p>Our team is available to schedule and conduct property showings for interested buyers. We work with your schedule to ensure showings are convenient for you.</p>
+                <a href="javascript:void(0)" onclick="openServicesModal('mobile')" class="service-btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Modal -->
+<div id="servicesModalOverlay" class="contact-us-overlay" onclick="closeServicesModal(event)">
+    <div class="contact-modal-card">
+        <div class="contact-modal-header">
+            <h2 class="contact-modal-title" id="servicesModalTitle">Service Details</h2>
+            <p class="contact-modal-subtitle">Eurekare Corporation Services Portfolio</p>
+        </div>
+        <div class="contact-modal-body">
+            <div id="servicesModalContent" style="color: #4a5568; line-height: 1.8; font-size: 1.05rem;">
+                </div>
+        </div>
+        <div class="contact-us-actions" style="justify-content: flex-end;">
+            <button type="button" class="contact-us-btn-back" onclick="closeServicesModal(force=true)">
+                <i class="fa-solid fa-xmark"></i> Close
+            </button>
+        </div>
+    </div>
+</div>
 
         <!-- Mobile Modal -->
         <div id="mobileModal" class="modal">
@@ -308,6 +326,26 @@
                                 </div>
                             </div>
                         </section>
+            </div>
+
+            <!-- Services Modal -->
+            <div id="servicesModal" class="about-us-modal-overlay">
+                <div class="about-us-modal-close-wrapper">
+                    <span class="about-us-modal-close" onclick="closeServicesModal()">&times;</span>
+                </div>
+                
+                <div class="about-us-modal-container">
+                    <div class="about-us-modal-wrapper">
+                        <div class="about-us-modal-text">
+                            <h1 class="about-us-modal-title" id="servicesModalTitle">Service Details</h1>
+                            <div class="about-us-modal-description" id="servicesModalDescription">
+                                </div>
+                        </div>
+                        <div class="about-us-modal-images">
+                            <img src="images/About.jpg" class="about-us-modal-img" id="servicesModalImage" alt="Service Feature">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <script src="reactive.js"></script>

@@ -279,3 +279,68 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(servicesSection);
     }
 });
+
+// Services Modal Functions
+function openServicesModal(serviceType) {
+    const modal = document.getElementById('servicesModal');
+    const titleEl = document.getElementById('servicesModalTitle');
+    const descEl = document.getElementById('servicesModalDescription');
+    const imgEl = document.getElementById('servicesModalImage');
+
+    // Content mapping using boilerplate lorem ipsum aligned with current context
+    const serviceData = {
+        'e-konsulta': {
+            title: "E-Konsulta Integration",
+            img: "./images/About.jpg",
+            desc: `
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            `
+        },
+        'e-claims': {
+            title: "E-Claims System",
+            img: "./images/Diagram-Temporary-Placeholde.png",
+            desc: `
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            `
+        },
+        'mobile': {
+            title: "Mobile Accessibility",
+            img: "./images/Mobile.jpg",
+            desc: `
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+            `
+        }
+    };
+
+    const targetData = serviceData[serviceType] || serviceData['e-konsulta'];
+
+    // Inject data into properties safely
+    titleEl.innerText = targetData.title;
+    imgEl.src = targetData.img;
+    descEl.innerHTML = targetData.desc;
+
+    if (modal) {
+        modal.style.display = 'block'; 
+        document.body.style.overflow = 'hidden'; // Lock background scrolling
+        setTimeout(() => {
+            modal.classList.add('is-visible');
+        }, 10);
+    }
+}
+
+function closeServicesModal() {
+    const modal = document.getElementById('servicesModal');
+    if (modal) {
+        modal.classList.remove('is-visible');
+        document.body.style.overflow = ''; // Restore browser scroll behavior
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 500); // Wait for the stylesheet transitions to complete
+    }
+}

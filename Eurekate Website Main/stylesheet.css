@@ -739,11 +739,11 @@ body {
 
 
 .partners-section .section-title{
-  font-size: 38px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  color: #0f2a44;
-  margin-bottom: 60px;
+  font-size: 2.8rem;
+  color: #0A1D2E;
+  font-weight: 800;
+  margin-bottom: 15px;
+  margin-bottom: 50px;
 
 }
 
@@ -2071,3 +2071,4 @@ body {
         font-size: 14px;
     }
 }
+
