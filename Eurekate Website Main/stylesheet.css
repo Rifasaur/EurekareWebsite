@@ -547,6 +547,7 @@ body {
     width: 100%;
     height: calc(92vh + var(--nav-height)); 
     min-height: 500px;
+    background-color: #011129;
     overflow: hidden;
 }
 
@@ -558,6 +559,8 @@ body {
 
 .hero-slide {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -574,14 +577,10 @@ body {
     background-repeat: no-repeat;
 }
 
-.hero-slide:nth-child(1){
-    background-image: linear-gradient(135deg, #009688 0%, var(--eurekare-blue) 100%); 
-}
-.hero-slide:nth-child(2){
-    background-image: linear-gradient(135deg, #009688 0%, var(--eurekare-blue) 100%); 
-}
+.hero-slide:nth-child(1),
+.hero-slide:nth-child(2),
 .hero-slide:nth-child(3) { 
-    background: #0c1b26;
+    background-image: linear-gradient(135deg, #009688 0%, var(--eurekare-blue) 100%); 
 }
 
 .hero-slide.active {
@@ -649,37 +648,24 @@ body {
 
 .hero-video {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100%;
-    object-fit: cover; 
-    transform: translate(-50%, -50%);
+    height: 100%;
+    object-fit: cover; /* Keeps video from stretching */
     z-index: 1;
 }
 
-/* Add this to the parent to prevent the video from leaking out */
-.hero-slide {
+/* Optional: Add a dark overlay so text is easier to read over video */
+.hero-slide::after {
+    content: '';
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow:auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@media (max-width: 768px) {
-    #introduction {
-        /* Use 100vh or a fixed minimum to keep the video contained */
-        height: 100vh; 
-        min-height: 400px;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem; /* Reduce font size so it doesn't push the layout out */
-        padding: 0 15px;
-        width: 100%;
-    }
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 /*-----------------------------------*\
   #PARTNERS Section
@@ -800,7 +786,133 @@ body {
 /*-----------------------------------*\
   #End of PARTNERS Section
 \*-----------------------------------*/
-/* Hub Section Styles -----------------------------------------------*/
+/* ==========================================================================
+                          SERVICES SECTION 
+   ========================================================================== */
+
+.services-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.services-header h2 {
+    font-size: 2.8rem;
+    color: #0A1D2E; /* Deep Midnight */
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.services-header p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Row Logic */
+.service-row {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 120px;
+}
+
+.service-row.row-reverse {
+    flex-direction: row-reverse;
+}
+
+/* Image Pill Masking */
+.service-image-wrapper {
+    flex: 1;
+}
+
+.pill-mask {
+    width: 100%;
+    aspect-ratio: 1.1 / 1;
+    overflow: hidden;
+    align-items: center;
+    align-content: center;
+    border-radius: 200px 200px 0 200px; 
+    background: #f0f7ff; 
+}
+
+/* Reverse the radius for even rows */
+.row-reverse .pill-mask {
+    border-radius: 200px 200px 200px 0;
+}
+
+.pill-mask img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.pill-mask:hover img {
+    transform: scale(1.08);
+}
+
+/* Text Content */
+.service-text {
+    flex: 1;
+}
+
+.service-text h3 {
+    font-size: 1.85rem;
+    color: #0055A4; /* Primary Eurekare Blue */
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.service-text p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    font-size: 1.05rem;
+}
+
+/* The Service Button */
+.service-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: var(--eurekare-blue); /* Using the purple-blue from your reference */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(18, 101, 255, 0.3);
+}
+
+.service-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 74, 244, 0.4);
+}
+
+/* Mobile Fixes */
+@media (max-width: 992px) {
+    .service-row, .service-row.row-reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .pill-mask {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}
 /* Hub Section Container */
 .hub-section {
     display: flex;
@@ -1241,24 +1353,18 @@ body {
     /* Set the height of the section */
     height: 100vh;
     min-height: 600px;
-    
-    /* The Background Window Effect */
-    background-image: url('./images/AIC\ Burgundy\ Tower.jpg');
+    background-image: url('./images/commercial.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* THIS IS THE MAGIC LINE */
     background-attachment: fixed; 
-    
-    /* Center the floating box */
     display: flex;
     align-items: center;
     padding-left: 10%; /* Matches your wireframe's left alignment */
 }
 
 .floating-about-box {
-    background-color: rgba(0, 0, 0, 0.85); /* Dark transparent window */
+    background-color: rgba(0, 0, 0, 0.85); 
     color: #ffffff;
     padding: 60px;
     max-width: 450px;
@@ -1918,4 +2024,50 @@ body {
     right: 15px;
     background: #ffffff;
   }
+}
+
+/* ==========================================================================
+                          FLOATING CONTACT PILL 
+   ========================================================================== */
+
+.floating-pill {
+    position: fixed;
+    right: 30px;
+    top: -100px; /* Hidden above the screen initially */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: #E2231A; /* Eurekare Action Red */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Perfect pill shape */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(226, 35, 26, 0.4);
+    z-index: 9999;
+    transition: top 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.3s ease;
+}
+
+/* Class to trigger the slide-down effect */
+.floating-pill.is-visible {
+    top: 40px; /* Slides down 40px from the top */
+}
+
+.floating-pill:hover {
+    transform: scale(1.05);
+    background-color: #b31b15;
+}
+
+.pill-icon {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .floating-pill {
+        right: 20px;
+        padding: 10px 18px;
+        font-size: 14px;
+    }
 }

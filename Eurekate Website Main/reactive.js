@@ -228,7 +228,28 @@ function switchHeroSlide(targetIndex) {
         activeVideo.play();
     }
 }
+const observerOptions = { threshold: 0.15 };
 
+const serviceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.service-row').forEach(row => {
+    // Set initial hidden state
+    row.style.opacity = "0";
+    row.style.transform = "translateY(50px)";
+    row.style.transition = "all 0.8s ease-out";
+    
+    // Create a visibility class
+    serviceObserver.observe(row);
+});
+
+// Update the visibility logic
+document.styleSheets[0].insertRule('.service-row.visible { opacity: 1 !important; transform: translateY(0) !important; }', 0);
 // Optional: Close modal when clicking on the white background outside the content
 // window.addEventListener('click', function(event) {
 //     const aboutModal = document.getElementById('aboutUsModal');
@@ -236,4 +257,25 @@ function switchHeroSlide(targetIndex) {
 //         closeAboutUsModal();
 //     }
 // });
+document.addEventListener('DOMContentLoaded', () => {
+    const pill = document.getElementById('floatingContactPill');
+    const servicesSection = document.querySelector('.services-section');
 
+    const observerOptions = {
+        threshold: 0.1 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                pill.classList.add('is-visible');
+            } else {
+                pill.classList.remove('is-visible');
+            }
+        });
+    }, observerOptions);
+
+    if (servicesSection) {
+        observer.observe(servicesSection);
+    }
+});
