@@ -69,14 +69,6 @@
             </div>
 
             <div class="partner-card">
-                <img src="images/TDF3.png" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/HeroesHealth.jpg" alt="DOH">
-            </div>
-
-            <div class="partner-card">
                 <img src="images/images (3).jpg" alt="PhilHealth">
             </div>
 
@@ -93,15 +85,7 @@
             </div>
 
             <div class="partner-card">
-                <img src="images/DOH-logo.png" alt="DOH">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/TDF3.png" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/HeroesHealth.jpg" alt="DOH">
+                <img src="images/DOH.png" alt="DOH">
             </div>
 
             <div class="partner-card">
@@ -116,6 +100,46 @@
                 <img src="images/Foongtone.png" alt="PhilHealth">
             </div>
         </div>
+        </section>
+
+        <section class="central-hub-section-or-class" style="display:flex;align-items:flex-start;">
+        <!-- Collapsible Sidebar -->
+            <aside class="hub-sidebar" id="hubSidebar">
+                <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+                <div class="sidebar-content" id="sidebarContent">
+                    <h2 id="sideTitle">eCARE EMR (Central Hub)</h2>
+                    <p id="sideDesc">Select a module from the diagram to view details.</p>
+                    <div id="sideMobileImage"></div>
+                </div>
+            </aside>
+
+            <!-- Main Diagram Area -->
+            <div class="diagram-viewport" style="flex:1;">
+                <div class="diagram-container" id="tiltContainer">
+                    <!-- Replace 'main-diagram-bg.png' with your cloud image -->
+                    <img src="./images/Cloud-Diagram.png" class="main-bg" alt="Hub Diagram">
+
+                    <!-- Clickable Icons in a Horizontal Line -->
+                    <div class="hub-icon" id="icon1" onclick="selectModule(1)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 1">
+                    </div>
+                    <div class="hub-icon" id="icon2" onclick="selectModule(2)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 2">
+                    </div>
+                    <div class="hub-icon" id="icon3" onclick="selectModule(3)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 3">
+                    </div>
+                    <div class="hub-icon" id="icon4" onclick="selectModule(4)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 4">
+                    </div>
+                    <div class="hub-icon" id="icon5" onclick="selectModule(5)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 5">
+                    </div>
+                    <div class="hub-icon" id="icon6" onclick="selectModule(6)">
+                        <img src="./images/icon_placeholder.jpg" alt="Module 6">
+                    </div>
+                </div>
+            </div>
         </section>
 
         <button id="floatingContactPill" class="floating-pill" onclick="openContactUsModal()">
@@ -287,45 +311,6 @@
                         </div>
                     </div>
                 </div>
-                        <section class="central-hub-section-or-class" style="display:flex;align-items:flex-start;">
-            <!-- Collapsible Sidebar -->
-                            <aside class="hub-sidebar" id="hubSidebar">
-                                <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-                                <div class="sidebar-content" id="sidebarContent">
-                                    <h2 id="sideTitle">eCARE EMR (Central Hub)</h2>
-                                    <p id="sideDesc">Select a module from the diagram to view details.</p>
-                                    <div id="sideMobileImage"></div>
-                                </div>
-                            </aside>
-
-                            <!-- Main Diagram Area -->
-                            <div class="diagram-viewport" style="flex:1;">
-                                <div class="diagram-container" id="tiltContainer">
-                                    <!-- Replace 'main-diagram-bg.png' with your cloud image -->
-                                    <img src="./images/Cloud-Diagram.png" class="main-bg" alt="Hub Diagram">
-
-                                    <!-- Clickable Icons in a Horizontal Line -->
-                                    <div class="hub-icon" id="icon1" onclick="selectModule(1)">
-                                        <img src="./images/icon_placeholder.jpg" alt="Module 1">
-                                    </div>
-                                    <div class="hub-icon" id="icon2" onclick="selectModule(2)">
-                                        <img src="./images/icon_placeholder.jpg" alt="Module 2">
-                                    </div>
-                                    <div class="hub-icon" id="icon3" onclick="selectModule(3)">
-                                        <img src="./images/icon_placeholder.jpg" alt="Module 3">
-                                    </div>
-                                    <div class="hub-icon" id="icon4" onclick="selectModule(4)">
-                                        <img src="./images/icon_placeholder.jpg" alt="Module 4">
-                                    </div>
-                                    <div class="hub-icon" id="icon5" onclick="selectModule(5)">
-                                        <img src="./images/icon_placeholder.jpg" alt="Module 5">
-                                    </div>
-                                    <div class="hub-icon" id="icon6" onclick="selectModule(6)">
-                                        <img src="./images/icon_placeholder.jpg" alt="Module 6">
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
             </div>
 
             <!-- Services Modal -->
