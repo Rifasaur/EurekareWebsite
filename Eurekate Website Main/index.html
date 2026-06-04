@@ -19,10 +19,11 @@
                 
                 <div class="hero-slide active">
                     <video class="hero-video" muted playsinline>
-                        <source src="video1.mp4" type="video/mp4">
+                        <source src="./images/Hero_1.mp4" type="video/mp4">
                     </video>
                     <div class="hero-content">
-                        <h1>Eurekare - We Care</h1>
+                        <h1>Next Steps Toward Better Care</h1>
+                        <p>Modernizing healthcare through connected, intelligent, and patient-centered solutions.</p>
                     </div>
                 </div>
 
@@ -51,7 +52,7 @@
 
         <!-- Trusted Health Partners-->
         <section class="partners-section">
-        <h2 class="section-title">Our Trusted Health Partners</h2>
+        <h2 class="h2 section-title">Our Trusted Health Partners</h2>
 
         <div class="partners-slider">
 
@@ -99,97 +100,60 @@
         </div>
         </section>
 
-        <section class="central-hub-section-or-class" style="display:flex;align-items:flex-start;">
-        <!-- Collapsible Sidebar -->
-            <aside class="hub-sidebar" id="hubSidebar">
-                <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-                <div class="sidebar-content" id="sidebarContent">
-                    <h2 id="sideTitle">eCARE EMR (Central Hub)</h2>
-                    <p id="sideDesc">Select a module from the diagram to view details.</p>
-                    <div id="sideMobileImage"></div>
-                </div>
-            </aside>
-
-            <!-- Main Diagram Area -->
-            <div class="diagram-viewport" style="flex:1;">
-                <div class="diagram-container" id="tiltContainer">
-                    <!-- Replace 'main-diagram-bg.png' with your cloud image -->
-                    <img src="./images/Cloud-Diagram.png" class="main-bg" alt="Hub Diagram">
-
-                    <!-- Clickable Icons in a Horizontal Line -->
-                    <div class="hub-icon" id="icon1" onclick="selectModule(1)">
-                        <img src="./images/icon_placeholder.jpg" alt="Module 1">
-                    </div>
-                    <div class="hub-icon" id="icon2" onclick="selectModule(2)">
-                        <img src="./images/icon_placeholder.jpg" alt="Module 2">
-                    </div>
-                    <div class="hub-icon" id="icon3" onclick="selectModule(3)">
-                        <img src="./images/icon_placeholder.jpg" alt="Module 3">
-                    </div>
-                    <div class="hub-icon" id="icon4" onclick="selectModule(4)">
-                        <img src="./images/icon_placeholder.jpg" alt="Module 4">
-                    </div>
-                    <div class="hub-icon" id="icon5" onclick="selectModule(5)">
-                        <img src="./images/icon_placeholder.jpg" alt="Module 5">
-                    </div>
-                    <div class="hub-icon" id="icon6" onclick="selectModule(6)">
-                        <img src="./images/icon_placeholder.jpg" alt="Module 6">
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <button id="floatingContactPill" class="floating-pill" onclick="openContactUsModal()">
             <span class="pill-icon">✉</span>
             <span class="pill-text">Get in Touch</span>
         </button>
 
+        <section class="services-section h" id="services">
+            <div class="services-container">
+                <div class="services-header">
+                    <h2>How We Help You</h2>
+                    <p>Our team of experts is dedicated to helping you achieve your healthcare goals through innovative technology.</p>
+                </div>
+            </div>
+        </section>
         <section class="services-section" id="services">
-    <div class="services-container">
-        <div class="services-header">
-            <h2>How We Help You</h2>
-            <p>Our team of experts is dedicated to helping you achieve your healthcare goals through innovative technology.</p>
-        </div>
+            <div class="services-container">
+                <div class="service-row SmartCard">
+                    <div class="service-image-wrapper">
+                        <div class="pill-mask">
+                            <img src="./images/About.jpg" alt="E-Konsulta Integration">
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>SMART CARD</h3>
+                        <p>Our expert team provides detailed property valuations and market analysis to help you accurately price your property and understand the local real estate market.</p>
+                        <a href="javascript:void(0)" onclick="openServicesModal('e-konsulta')" class="service-btn">Learn More</a>            </div>
+                </div>
 
-        <div class="service-row">
-            <div class="service-image-wrapper">
-                <div class="pill-mask">
-                    <img src="./images/About.jpg" alt="E-Konsulta Integration">
+                <div class="service-row YAKAP">
+                    <div class="service-image-wrapper">
+                        <div class="pill-mask">
+                            <img src="./images/Diagram-Temporary-Placeholde.png" alt="E-Claims">
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>YAKAP Accredited Service</h3>
+                        <p>We use our extensive network and marketing expertise to list and advertise your property to a wide audience. From professional photography to targeted online and offline advertising.</p>
+                        <a href="javascript:void(0)" onclick="openServicesModal('e-claims')" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-row EMRCutomizable">
+                    <div class="service-image-wrapper">
+                        <div class="pill-mask">
+                            <img src="./images/Mobile.jpg" alt="Mobile Accessibility">
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Mobile Accessibility</h3>
+                        <p>Our team is available to schedule and conduct property showings for interested buyers. We work with your schedule to ensure showings are convenient for you.</p>
+                        <a href="javascript:void(0)" onclick="openServicesModal('mobile')" class="service-btn">Learn More</a>
+                    </div>
                 </div>
             </div>
-            <div class="service-text">
-                <h3>E-Konsulta Integration</h3>
-                <p>Our expert team provides detailed property valuations and market analysis to help you accurately price your property and understand the local real estate market.</p>
-                <a href="javascript:void(0)" onclick="openServicesModal('e-konsulta')" class="service-btn">Learn More</a>            </div>
-        </div>
-
-        <div class="service-row row-reverse">
-            <div class="service-image-wrapper">
-                <div class="pill-mask">
-                    <img src="./images/Diagram-Temporary-Placeholde.png" alt="E-Claims">
-                </div>
-            </div>
-            <div class="service-text">
-                <h3>E-Claims</h3>
-                <p>We use our extensive network and marketing expertise to list and advertise your property to a wide audience. From professional photography to targeted online and offline advertising.</p>
-                <a href="javascript:void(0)" onclick="openServicesModal('e-claims')" class="service-btn">Learn More</a>
-            </div>
-        </div>
-
-        <div class="service-row">
-            <div class="service-image-wrapper">
-                <div class="pill-mask">
-                    <img src="./images/Mobile.jpg" alt="Mobile Accessibility">
-                </div>
-            </div>
-            <div class="service-text">
-                <h3>Mobile Accessibility</h3>
-                <p>Our team is available to schedule and conduct property showings for interested buyers. We work with your schedule to ensure showings are convenient for you.</p>
-                <a href="javascript:void(0)" onclick="openServicesModal('mobile')" class="service-btn">Learn More</a>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
 <!-- Services Modal -->
 <div id="servicesModalOverlay" class="contact-us-overlay" onclick="closeServicesModal(event)">
