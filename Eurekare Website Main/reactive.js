@@ -370,3 +370,80 @@ function closeServicesModal() {
         }, 500); // Wait for the stylesheet transitions to complete
     }
 }
+
+/* ==========================================================================
+                           NAV DROPDOWN (Our Services)
+   ========================================================================== */
+
+function setDropdownOpen(dropdownEl, isOpen) {
+    if (!dropdownEl) return;
+    dropdownEl.classList.toggle('open', isOpen);
+
+    const toggleBtn = dropdownEl.querySelector('.nav-dropdown-toggle');
+    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', String(isOpen));
+}
+
+function initNavDropdown() {
+    const dropdown = document.getElementById('servicesDropdown');
+    if (!dropdown) return;
+
+    const toggleBtn = dropdown.querySelector('.nav-dropdown-toggle');
+    const menu = dropdown.querySelector('.nav-dropdown-menu');
+    if (!toggleBtn || !menu) return;
+
+    // Prevent double-binding on re-init
+    if (dropdown.dataset.dropdownBound === 'true') return;
+    dropdown.dataset.dropdownBound = 'true';
+
+    // Click to toggle (works on desktop + mobile)
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.contains('open');
+        setDropdownOpen(dropdown, !isOpen);
+    });
+
+    // Prevent outside-click handler from immediately closing on toggle click
+    toggleBtn.addEventListener('mousedown', (e) => {
+        e.stopPropagation();
+    });
+
+    // Handle dropdown item click => open modal (and close menu)
+    menu.addEventListener('click', (e) => {
+        const link = e.target.closest('a[data-services-modal]');
+        if (!link) return;
+
+        const serviceType = link.getAttribute('data-services-modal');
+        if (serviceType && typeof openServicesModal === 'function') {
+            e.preventDefault();
+            setDropdownOpen(dropdown, false);
+            openServicesModal(serviceType);
+        }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+            setDropdownOpen(dropdown, false);
+        }
+    });
+
+    // Close when resizing to desktop/mobile thresholds
+    window.addEventListener('resize', () => {
+        setDropdownOpen(dropdown, false);
+    });
+}
+
+// Nav is injected into #header via fetch in each page, so we must init after injection.
+// `DOMContentLoaded` is not enough.
+document.addEventListener('DOMContentLoaded', () => {
+    // Try init right away
+    initNavDropdown();
+
+    // Also try again shortly (covers cases where nav injection finishes after DOMContentLoaded)
+    setTimeout(initNavDropdown, 50);
+    setTimeout(initNavDropdown, 250);
+    setTimeout(initNavDropdown, 1000);
+});
+
+
+
