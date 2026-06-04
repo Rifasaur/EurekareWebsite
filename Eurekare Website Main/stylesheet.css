@@ -1560,13 +1560,38 @@ body {
     display: flex;
     align-items: center;
     padding-left: 10%; /* Matches your wireframe's left alignment */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates 3 equal columns */
+    gap: 20px;                             /* Spacing between columns */
 }
+
+.about-us-bg{
+    position: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 195px;
+    animation-name: slideInRight;
+    animation-duration: 3s;
+    display:flex;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 
 .floating-about-box {
     background-color: rgba(0, 0, 0, 0.85); 
     color: #ffffff;
     padding: 60px;
-    max-width: 450px;
+    max-width: 500px;
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     backdrop-filter: blur(5px); /* Adds a "glass" frost effect */
@@ -1581,17 +1606,19 @@ body {
 }
 
 .about-us-paragraph{
-    text-align: justify; 
-    text-justify: inter-word; 
-    hyphens: auto;
-    margin-right: 20px;
+    text-align: justify;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 50px;
+    font-size: 1.05rem;
+    line-height: 1.5; 
 }
 
 .floating-about-box h2 {
     font-size: 2rem;
     margin-bottom: 30px;
     line-height: 1.3;
+    text-align: justify;
 }
 
 .read-more-btn {
