@@ -1800,6 +1800,125 @@ body {
     text-align: justify;
 }
 
+.privacy-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px 0 35px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.privacy-card-item {
+    background: #ffffff;
+    border-left: 4px solid var(--eurekare-blue);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.privacy-card-item strong {
+    color: var(--eurekare-dark);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+}
+
+.privacy-standard-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 35px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.privacy-standard-list li {
+    position: relative;
+    padding-left: 28px;
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.privacy-standard-list li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--eurekare-teal);
+    font-size: 0.95rem;
+}
+
+.dpo-infobox {
+    background: #f0f7ff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.dpo-text {
+    flex: 1;
+    max-width: 550px;
+}
+
+.dpo-text h3 {
+    margin: 0 0 6px 0;
+    color: var(--eurekare-dark);
+    font-size: 1.25rem;
+}
+
+.dpo-text p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.dpo-contacts {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-shrink: 0;
+    font-weight: 600;
+}
+
+.dpo-link {
+    color: var(--eurekare-blue);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.dpo-link:hover {
+    color: var(--eurekare-dark);
+}
+
+@media (max-width: 768px) {
+    .dpo-infobox {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .dpo-contacts {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 /* Blogs and News Section ----------------------------------*/
 
 body {
