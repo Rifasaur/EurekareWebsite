@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurekare Corporation</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header id="header" class="header-placeholder"></header>
+
+    <main class="fade-in-page">
+        <!-- Introduction Index-->
+        <section class="hero" id="introduction">
+            <div class="hero-carousel-wrapper">
+                
+                <div class="hero-slide active">
+                    <video class="hero-video" muted playsinline>
+                        <source src="./images/Hero_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-content">
+                        <h1>Next Steps Toward Better Care</h1>
+                        <p>Modernizing healthcare through connected, intelligent, and patient-centered solutions.</p>
+                    </div>
+                </div>
+
+                <div class="hero-slide">
+                    <video class="hero-video" muted playsinline>
+                        <source src="./images/Simply Eurekare.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="hero-slide">
+                    <video class="hero-video" muted playsinline>
+                        <source src="./images/Hero_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-content">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="hero-indicators-container">
+                <span class="hero-dot active" onclick="switchHeroSlide(0)" aria-label="Go to slide 1"></span>
+                <span class="hero-dot" onclick="switchHeroSlide(1)" aria-label="Go to slide 2"></span>
+                <span class="hero-dot" onclick="switchHeroSlide(2)" aria-label="Go to slide 3"></span>
+            </div>
+        </section>
+
+        <!-- Trusted Health Partners-->
+        <section class="partners-section">
+        <h2 class="h2 section-title">Our Trusted Health Partners</h2>
+
+        <div class="partners-slider">
+
+            <div class="partners-track">
+
+            <div class="partner-card active">
+                <img src="images/Philhealth-logo.png" alt="PhilHealth">
+            </div>
+
+            <div class="partner-card">
+                <img src="images/DOH.png" alt="DOH">
+            </div>
+
+            <div class="partner-card">
+                <img src="images/images (3).jpg" alt="PhilHealth">
+            </div>
+
+            <div class="partner-card">
+                <img src="images/FortuneLife.png" alt="DOH">
+            </div>
+
+            <div class="partner-card">
+                <img src="images/Foongtone.png" alt="PhilHealth">
+            </div>
+
+            <div class="partner-card">
+                <img src="images/Philhealth-logo.png" alt="PhilHealth">
+            </div>
+
+            <div class="partner-card">
+                <img src="images/DOH.png" alt="DOH">
+            </div>
+
+            <div class="partner-card">
+                <img src="images/images (3).jpg" alt="PhilHealth">
+            </div>
+
+            <div class="partner-card">
+                <img src="images/FortuneLife.png" alt="DOH">
+            </div>
+
+            <div class="partner-card">
+                <img src="images/Foongtone.png" alt="PhilHealth">
+            </div>
+        </div>
+        </section>
+
+        <button id="floatingContactPill" class="floating-pill" onclick="openContactUsModal()">
+            <span class="pill-icon">✉</span>
+            <span class="pill-text">Get in Touch</span>
+        </button>
+
+        <section class="services-section h" id="services">
+            <div class="services-container">
+                <div class="services-header">
+                    <h2>How We Help You</h2>
+                    <p>Our team of experts is dedicated to helping you achieve your healthcare goals through innovative technology.</p>
+                </div>
+            </div>
+        </section>
+        <section class="services-section" id="services">
+            <div class="services-container">
+                <div class="service-row SmartCard">
+                    <div class="service-image-wrapper">
+                        <div class="pill-mask">
+                            <img src="./images/About.jpg" alt="E-Konsulta Integration">
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>SMART CARD</h3>
+                        <p>Our expert team provides detailed property valuations and market analysis to help you accurately price your property and understand the local real estate market.</p>
+                        <a href="javascript:void(0)" onclick="openServicesModal('e-konsulta')" class="service-btn">Learn More</a>            </div>
+                </div>
+
+                <div class="service-row YAKAP">
+                    <div class="service-image-wrapper">
+                        <div class="pill-mask">
+                            <img src="./images/Diagram-Temporary-Placeholde.png" alt="E-Claims">
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>YAKAP Accredited Service</h3>
+                        <p>We use our extensive network and marketing expertise to list and advertise your property to a wide audience. From professional photography to targeted online and offline advertising.</p>
+                        <a href="javascript:void(0)" onclick="openServicesModal('e-claims')" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-row EMRCutomizable">
+                    <div class="service-image-wrapper">
+                        <div class="pill-mask">
+                            <img src="./images/Mobile.jpg" alt="Mobile Accessibility">
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>Mobile Accessibility</h3>
+                        <p>Our team is available to schedule and conduct property showings for interested buyers. We work with your schedule to ensure showings are convenient for you.</p>
+                        <a href="javascript:void(0)" onclick="openServicesModal('mobile')" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Modal -->
+        <div id="servicesModalOverlay" class="contact-us-overlay" onclick="closeServicesModal(event)">
+            <div class="contact-modal-card">
+                <div class="contact-modal-header">
+                    <h2 class="contact-modal-title" id="servicesModalTitle">Service Details</h2>
+                    <p class="contact-modal-subtitle">Eurekare Corporation Services Portfolio</p>
+                </div>
+                <div class="contact-modal-body">
+                    <div id="servicesModalContent" style="color: #4a5568; line-height: 1.8; font-size: 1.05rem;">
+                        </div>
+                </div>
+                <div class="contact-us-actions" style="justify-content: flex-end;">
+                    <button type="button" class="contact-us-btn-back" onclick="closeServicesModal(force=true)">
+                        <i class="fa-solid fa-xmark"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Modal -->
+        <div id="mobileModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+
+        <!-- About us -->
+        <section  id="about-us-section"  class="about-us-parallax" >
+            <div class="floating-about-box">
+                <span class="eyebrow">ABOUT US</span>
+                <h2>Innovative E-care, simplified for you.</h2>
+                <p class="about-us-paragraph">
+                        EUREKARE CORP., a Healthcare Information System Service Provider based in the Philippines with investors from 
+                        Taiwan and Philippines, brings to the table the eCARE EMR Yakap/Konsulta Project, which provides an Electronic 
+                        Medical Record (EMR) System integrated with Yakap/Konsulta Module in accordance with the requirements of the Universal 
+                        Healthcare Act for the City of Valenzuela as an UNSOLICITED PROPOSAL, a new technology WITH MINIMUM INITIAL INVESTMENT 
+                        from the government.
+                </p>
+                <button id="aboutUsDiscoverBtn" class="read-more-btn" onclick="openAboutUsModal()">Read More<span class="arrow">→</span></button>
+            </div>
+            <div class="about-us-bg-wrapper">
+                <img src="images/DoctorPlaceholder.png" alt="About Us Background" class="about-us-bg">
+            </div>
+        </section>
+
+        <!-- News and Updates -->
+        <section class="blogs-news" id="blogs-news">
+        <div class="container">
+            <h2 class="h2 section-title">News and Updates</h2>
+            <p class="section-text">Stay updated with the latest news, updates, and articles from Eurekare Corporation.</p>
+            
+            <div class="card-container">
+            <div class="card">
+                <img src="images/Training_1.jpg" alt="News 1">
+                <div class="card-content">
+                <h2>Training Programs</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat...</p>
+                <a href="article.html?id=1" class="read-more-btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/Training_2.jpg" alt="News 2">
+                <div class="card-content">
+                <h2>YAKAP Registration</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat...</p>
+                <a href="article.html?id=2" class="read-more-btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/Training_3.jpg" alt="News 3">
+                <div class="card-content">
+                <h2>Patches</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat...</p>
+                <a href="article.html?id=3" class="read-more-btn">Read More</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+        
+        <footer class="main-footer" id="footer-content"></footer>
+    </main>
+
+    <script src="reactive.js"></script>
+
+      <!-- Swiper scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+        <div id="aboutUsModal" class="about-us-modal-overlay">
+                <div class="about-us-modal-close-wrapper">
+                    <span class="about-us-modal-close" onclick="closeAboutUsModal()">&times;</span>
+                </div>
+                
+                <div class="about-us-modal-container">
+                    <div class="about-us-modal-wrapper">
+                        <div class="about-us-modal-text">
+                            <h1 class="about-us-modal-title">About Us</h1>
+                            <div class="about-us-modal-description">
+                                <p> As the pioneer in providing Health Care Information Exchange Cloud Platform and Smartcard Technology to the 
+                                    Philippine Healthcare Industry, our vision is to bring IT solutions that can enhance the delivery of healthcare services.</p>
+
+                                <p> Eurekare was established in 2012 at the center of Ortigas Center Business District in Pasig City. We aim to fulfill our 
+                                    vision by increasing our affiliations in the healthcare industry and extend our reach not only within the Philippines but 
+                                    all throughout the world. Through years of serving the healthcare industry, our company has grown and expanded our services 
+                                    to also cater the Smartcard ID/Membership System needs of other member- based organizations. Now, we also offer the first 
+                                    Identification, Loyalty Program, and other Benefit Policy Information Exchange Cloud Platform in the country. </p>
+
+                                <p> Our passion to excel never stops. That is why we make sure that we develop together with our clients and meet the growing 
+                                    demands in the IT market. Our system constantly evolves to offer only the latest technology that will tailor fit to every 
+                                    need of our clients.</p>
+
+
+                                <h1 class="about-us-modal-title">Mission</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat...
+                                    In id cursus mi, pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus 
+                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent
+                                    taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+                                
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat...
+                                    In id cursus mi, pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus
+                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent
+                                    taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+
+                            </div>
+                        </div>
+                        <div class="about-us-modal-images">
+                            <img src="images/AIC Burgundy Tower.jpg" class="about-us-modal-img">
+                            <img src="images/AIC Burgundy Tower.jpg" class="about-us-modal-img">
+                            <img src="images/AIC Burgundy Tower.jpg" class="about-us-modal-img">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Modal -->
+            <div id="servicesModal" class="about-us-modal-overlay">
+                <div class="about-us-modal-close-wrapper">
+                    <span class="about-us-modal-close" onclick="closeServicesModal()">&times;</span>
+                </div>
+                
+                <div class="about-us-modal-container">
+                    <div class="about-us-modal-wrapper">
+                        <div class="about-us-modal-text">
+                            <h1 class="about-us-modal-title" id="servicesModalTitle">Service Details</h1>
+                            <div class="about-us-modal-description" id="servicesModalDescription">
+                                </div>
+                        </div>
+                        <div class="about-us-modal-images">
+                            <img src="images/About.jpg" class="about-us-modal-img" id="servicesModalImage" alt="Service Feature">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="reactive.js"></script>
+
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('header').innerHTML = data;
+            });
+
+        fetch('contact-modal.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('contactUsOverlay').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('footer-content').innerHTML = data;
+            });
+
+    </script>
+</body>
+</html>
