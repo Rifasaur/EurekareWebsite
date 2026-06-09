@@ -988,15 +988,16 @@ body {
     margin-bottom: 120px;
 }
 
-.service-row.SmartCard {
-}
+/*.service-row.SmartCard {
+}*/
 
 .service-row.YAKAP{
     flex-direction: row-reverse;
 }
 
-.service-row.EMRCutomizable{
-}
+/*.service-row.EMRCutomizable{
+}*/
+
 /* Image Pill Masking */
 .service-image-wrapper {
     flex: 1;
