@@ -1548,53 +1548,74 @@ body {
 
 /* About Us Styles ----------------------------------*/
 
+/* ==========================================================================
+                           ABOUT US STYLES (RESPONSIVE)
+   ========================================================================== */
 .about-us-parallax {
-    /* Set the height of the section */
-    height: 100vh;
-    min-height: 600px;
+    min-height: 100vh; /* Changed from fixed height to min-height to grow with content */
     background-image: url('./images/commercial.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
-    display: flex;
-    align-items: center;
-    padding-left: 10%; /* Matches your wireframe's left alignment */
+    background-attachment: fixed;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Creates 3 equal columns */
-    gap: 20px;                             /* Spacing between columns */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px; 
+    align-items: center;
+    padding: 60px 10%; /* Replaced hardcoded margins with clean, balanced padding */
+    box-sizing: border-box;
 }
 
-.about-us-bg{
-    position: center;
-    width: 100%;
-    height: 100%;
-    margin-top: 195px;
-    animation-name: slideInRight;
-    animation-duration: 3s;
-    display:flex;
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-
+/* About Us Card Styles */
 .floating-about-box {
     background-color: rgba(0, 0, 0, 0.85); 
     color: #ffffff;
-    padding: 60px;
-    max-width: 500px;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    backdrop-filter: blur(5px); /* Adds a "glass" frost effect */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+}
+
+/* 1. Base State: Hidden initially (No animations attached here!) */
+.about-us-bg {
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    justify-self: center;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 3s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 3s cubic-bezier(0.25, 1, 0.5, 1);
+
+    /* --- ADD THESE LINES TO FADE THE BOTTOM EDGE --- */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+}
+
+/* 2. Target State */
+.about-us-bg.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ==========================================================================
+                           RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 992px) {
+    .about-us-parallax {
+        grid-template-columns: 1fr; /* Switch from 2 columns to a single-column stack */
+        gap: 30px;
+        padding: 80px 5%; /* Give extra breathing room for mobile viewports */
+    }
+
+    .about-us-bg {
+        margin-top: 0; /* Remove massive vertical displacement on small viewports */
+        transform: translateY(30px); /* Switch horizontal slide to a subtle upward lift on mobile */
+    }
+    
+    .about-us-bg.animate {
+        transform: translateY(0);
+    }
 }
 
 .eyebrow {
@@ -1875,6 +1896,13 @@ body {
   z-index: 1;
 }
 
+/* Apply the blur to the main page content */
+.page-blur {
+    filter: blur(8px);
+    transition: filter 0.3s ease;
+    pointer-events: none; /* Prevents clicking on blurred background links */
+}
+
 /* --- About Us Modal --- */
 .about-us-modal-overlay {
     display: none; /* Controlled by JS */
@@ -1957,7 +1985,7 @@ body {
     font-size: 40px;
     font-weight: 300;
     cursor: pointer;
-    color: #fbfaff;
+    color: var(--eurekare-dark);
     -webkit-text-stroke: 1px black; /* Thickness and color of the font border */
     background: none;
     border: none;
@@ -1970,45 +1998,96 @@ body {
     transform: scale(1.1);
 }
 
+/* Two-Column Wrapper */
 .about-us-modal-wrapper {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Gives slightly more structural room to text */
+    gap: 0; /* Let the columns meet seamlessly */
+    min-height: 500px;
+}
+
+/* Main Modal Content Box */
+.about-us-modal-content {
+    background: radial-gradient(circle at 0% 0%, #ffffff 0%, #f4f8fc 100%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(10, 29, 46, 0.25);
+    overflow: hidden; /* Keeps the right-column background inside the border radius */
+    position: relative;
+}
+
+/* Blueprint Tech Grid Background Overlay */
+.about-us-modal-content::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(67, 185, 183, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(67, 185, 183, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .about-us-modal-text {
-    flex: 1.2;
-    text-align: left; 
+    padding: 50px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* Decorative Badge Above Title */
+.about-us-modal-text::before {
+    content: "EUREKARE CORE MODULE";
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--eurekare-teal);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: block;
 }
 
 .about-us-modal-title {
-    font-size: 4rem;
-    color: var(--eurekare-blue);
-    margin-bottom: 30px;
-    font-weight: 800;
-    text-align: left; /* Explicitly left aligned */
+    font-size: 2.2rem;
+    color: var(--eurekare-dark);
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
 .about-us-modal-description p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: justify; /* Justified as requested */
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 .about-us-modal-images {
-    flex: 1.0;
-    display: flex;
-    flex-direction: column;
-    object-fit: cover;
-   /* height: 100vh; */ /* Let the image height be determined by its aspect ratio and container */
+    padding: 40px;
+    display: flex-column;
+    align-items: right;
+    justify-content: right;
+    z-index: 2;
+    margin-right: -100px;
+    
+    /* Elegant blue split background just for the image block */
+    background: linear-gradient(135deg, rgba(0, 85, 164, 0.05) 0%, rgba(10, 29, 46, 0.08) 100%);
+    border-left: 1px solid rgba(0, 85, 164, 0.08); /* Clean interior line separator */
+    position: relative;
 }
 
 .about-us-modal-img {
-    width: 121.9%;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    width: 100%;
+    max-height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(10, 29, 46, 0.15); /* Soft lifting shadow */
+    border: 4px solid #ffffff; /* Clean white frame outline */
+    transition: transform 0.3s ease;
+}
+
+.about-us-modal-img:hover {
+    transform: scale(1.02); /* Delicate interactive hover effect */
 }
 
 /* Split Contact Page Layout */
@@ -2180,30 +2259,22 @@ body {
 
 /* Close Button Mechanics */
 .blog-modal-close-btn {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  color: var(--eurekare-dark);
-  font-size: 32px;
-  line-height: 1;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: all 0.2s ease;
+ font-size: 28px;
+    color: var(--eurekare-steel);
+    background: rgba(155, 169, 181, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
 }
 
 .blog-modal-close-btn:hover {
-  background: var(--eurekare-blue);
-  color: #ffffff;
-  transform: rotate(90deg);
+  color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
 }
 
 /* Main Split View Layout */
@@ -2617,3 +2688,18 @@ body {
 .join-file-label.file-attached i {
     color: #00796b;
 }
+@media (max-width: 768px) {
+    .about-us-modal-wrapper {
+        grid-template-columns: 1fr; /* Stacks vertically on mobile */
+    }
+    .about-us-modal-text {
+        padding: 30px 24px;
+    }
+    .about-us-modal-images {
+        padding: 24px;
+        background: transparent;
+        border-left: none;
+        border-top: 1px solid rgba(0, 85, 164, 0.08);
+    }
+}
+

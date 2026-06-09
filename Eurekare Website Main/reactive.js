@@ -142,9 +142,17 @@ function closeContactUsModal() {
 // About Us Modal Functions
 function openAboutUsModal() {
     const modal = document.getElementById('aboutUsModal');
+    const mainContent = document.querySelector('.fade-in-page'); // Select the background wrapper
+    
     if (modal) {
         modal.style.display = 'block'; // Make it exist
         document.body.style.overflow = 'hidden'; // Lock scrolling
+        
+        // Add the blur class to the background content
+        if (mainContent) {
+            mainContent.classList.add('page-blur');
+        }
+
         setTimeout(() => {
             modal.classList.add('is-visible');
         }, 10);
@@ -153,9 +161,16 @@ function openAboutUsModal() {
 
 function closeAboutUsModal() {
     const modal = document.getElementById('aboutUsModal');
+    const mainContent = document.querySelector('.fade-in-page');
+    
     if (modal) {
         modal.classList.remove('is-visible');
         document.body.style.overflow = ''; // Instantly restore browser default scroll rules
+        
+        // Remove the blur class from the background content
+        if (mainContent) {
+            mainContent.classList.remove('page-blur');
+        }
         
         setTimeout(() => {
             modal.style.display = 'none';
@@ -313,6 +328,20 @@ function openServicesModal(serviceType) {
     const titleEl = document.getElementById('servicesModalTitle');
     const descEl = document.getElementById('servicesModalDescription');
     const imgEl = document.getElementById('servicesModalImage');
+    const mainContent = document.querySelector('.fade-in-page'); // Select the background wrapper
+     if (modal) {
+        modal.style.display = 'block'; // Ensure modal is active
+        document.body.style.overflow = 'hidden'; // Lock background scrolling
+        
+        // Add the blur effect to the background layout
+        if (mainContent) {
+            mainContent.classList.add('page-blur');
+        }
+
+        setTimeout(() => {
+            modal.classList.add('is-visible');
+        }, 10);
+    }    
 
     const serviceData = {
         'e-konsulta': {
@@ -341,7 +370,8 @@ function openServicesModal(serviceType) {
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
             `
-        }
+        },
+
     };
 
     const targetData = serviceData[serviceType] || serviceData['e-konsulta'];
@@ -363,15 +393,49 @@ function openServicesModal(serviceType) {
 
 function closeServicesModal() {
     const modal = document.getElementById('servicesModal');
+    const mainContent = document.querySelector('.fade-in-page');
+
     if (modal) {
         modal.classList.remove('is-visible');
-        document.body.style.overflow = ''; // Restore browser scroll behavior
+        document.body.style.overflow = ''; // Restore standard browser scroll behaviors
+        
+        // Remove the blur effect from the background layout
+        if (mainContent) {
+            mainContent.classList.remove('page-blur');
+        }
+
         setTimeout(() => {
             modal.style.display = 'none';
-        }, 500); // Wait for the stylesheet transitions to complete
+        }, 500); // Wait for stylesheet transition durations to finish safely
     }
 }
 
+/* Reveal Animation for About Us Section (Triggers every time it's viewed) */
+document.addEventListener("DOMContentLoaded", function () {
+    const aboutSection = document.querySelector("#about-us-section");
+    const aboutImage = document.querySelector(".about-us-bg");
+
+    const options = {
+        root: null, 
+        threshold: 0.15 // Triggers when 15% of the section enters/leaves the viewport
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // User scrolled IN: Add class to animate the image into view
+                aboutImage.classList.add("animate");
+            } else {
+                // User scrolled OUT: Remove class to reset the image state
+                aboutImage.classList.remove("animate");
+            }
+        });
+    }, options);
+
+    if (aboutSection && aboutImage) {
+        observer.observe(aboutSection);
+    }
+});
 /* ==========================================================================
                            NAV DROPDOWN (Our Services)
    ========================================================================== */
