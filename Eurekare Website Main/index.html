@@ -14,11 +14,11 @@
 
     <main class="fade-in-page">
         <!-- Introduction Index-->
-        <section class="hero" id="introduction">
+<section class="hero" id="introduction">
             <div class="hero-carousel-wrapper">
                 
                 <div class="hero-slide active">
-                    <video class="hero-video" muted playsinline>
+                    <video class="hero-video" muted playsinline autoplay loop>
                         <source src="./images/Hero_1.mp4" type="video/mp4">
                     </video>
                     <div class="hero-content">
@@ -28,17 +28,15 @@
                 </div>
 
                 <div class="hero-slide">
-                    <video class="hero-video" muted playsinline>
-                        <source src="./images/Simply Eurekare.mp4" type="video/mp4">
+                    <video class="hero-video" muted playsinline autoplay loop>
+                        <source src="./images/Hero_2.mp4" type="video/mp4">
                     </video>
                 </div>
 
                 <div class="hero-slide">
-                    <video class="hero-video" muted playsinline>
+                    <video class="hero-video" muted playsinline autoplay loop>
                         <source src="./images/Hero_3.mp4" type="video/mp4">
                     </video>
-                    <div class="hero-content">
-                    </div>
                 </div>
 
             </div>
@@ -115,10 +113,10 @@
         </section>
         <section class="services-section" id="services">
             <div class="services-container">
-                <div class="service-row SmartCard">
+                <div class="service-row SmartCard" id="services-Card">
                     <div class="service-image-wrapper">
                         <div class="pill-mask">
-                            <img src="./images/About.jpg" alt="E-Konsulta Integration">
+                            <img src="./images/" alt="E-Konsulta Integration">
                         </div>
                     </div>
                     <div class="service-text">
@@ -127,7 +125,7 @@
                         <a href="javascript:void(0)" onclick="openServicesModal('e-konsulta')" class="service-btn">Learn More</a>            </div>
                 </div>
 
-                <div class="service-row YAKAP">
+                <div class="service-row YAKAP" id="services-YAKAP">
                     <div class="service-image-wrapper">
                         <div class="pill-mask">
                             <img src="./images/Diagram-Temporary-Placeholde.png" alt="E-Claims">
@@ -140,7 +138,7 @@
                     </div>
                 </div>
 
-                <div class="service-row EMRCutomizable">
+                <div class="service-row EMRCutomizable" id="services-EMR">
                     <div class="service-image-wrapper">
                         <div class="pill-mask">
                             <img src="./images/Mobile.jpg" alt="Mobile Accessibility">
@@ -294,26 +292,26 @@
             </div>
 
             <!-- Services Modal -->
-            <div id="servicesModal" class="about-us-modal-overlay">
-                <div class="about-us-modal-close-wrapper">
-                    <span class="about-us-modal-close" onclick="closeServicesModal()">&times;</span>
-                </div>
-                
-                <div class="about-us-modal-container">
-                    <div class="about-us-modal-wrapper">
-                        <div class="about-us-modal-text">
-                            <h1 class="about-us-modal-title" id="servicesModalTitle">Service Details</h1>
-                            <div class="about-us-modal-description" id="servicesModalDescription">
-                                </div>
-                        </div>
-                        <div class="about-us-modal-images">
-                            <img src="images/About.jpg" class="about-us-modal-img" id="servicesModalImage" alt="Service Feature">
-                        </div>
+        <div id="servicesModal" class="about-us-modal-overlay">
+            <div class="about-us-modal-close-wrapper">
+                <span class="about-us-modal-close" onclick="closeServicesModal()">&times;</span>
+            </div>
+            
+            <div class="about-us-modal-container">
+                <div class="about-us-modal-wrapper">
+                    <div class="about-us-modal-text">
+                        <h1 class="about-us-modal-title" id="servicesModalTitle">Service Details</h1>
+                        <div class="about-us-modal-description" id="servicesModalDescription">
+                            </div>
+                    </div>
+                    <div class="about-us-modal-images">
+                        <img src="images/About.jpg" class="about-us-modal-img" id="servicesModalImage" alt="Service Feature">
                     </div>
                 </div>
             </div>
+        </div>
 
-            <script src="reactive.js"></script>
+        <script src="reactive.js"></script>
 
     <script>
         fetch('nav.html')
