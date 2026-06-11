@@ -17,16 +17,6 @@ window.addEventListener('load', () => {
 // Partners Track Hover Effect, Pause on Hover
 const partnersTrack = document.querySelector(".partners-track");
 
-if (partnersTrack) {
-    partnersTrack.addEventListener("mouseenter", () => {
-      partnersTrack.style.animationPlayState = "paused";
-    });
-
-    partnersTrack.addEventListener("mouseleave", () => {
-      partnersTrack.style.animationPlayState = "running";
-    });
-}
-
 const moduleData = {
     1: { title: "PhilHealth Integration", desc: "Automated YAKAP & eClaims processing.", img: "p1.png" },
     2: { title: "Mobile App", desc: "Patient access and engagement module.", img: "p2.png" },
