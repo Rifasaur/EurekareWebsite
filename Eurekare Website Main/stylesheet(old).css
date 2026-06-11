@@ -1,26 +1,3 @@
-/* ==========================================================================
-   EUREKARE CORPORATION STYLESHEET
-   Reorganized into clearly labeled sections (table of contents below).
-   Functionality and visual output unchanged from the original file.
-
-   TABLE OF CONTENTS:
-         1.  GLOBAL VARIABLES, RESET & BASE STYLES
-        21.  HEADER, TOP BAR & NAVIGATION (incl. dropdown, mobile nav)
-       355.  CONTACT US & JOIN THE TEAM MODALS (form fields, layout)
-       660.  HERO CAROUSEL & PARTNERS SECTION
-       946.  SERVICES SECTION, INTERACTIVE HUB & MOBILE INFO MODAL
-      1220.  SITE FOOTER (CTA, columns, map, legal bar)
-      1532.  SWIPER OVERRIDES, ABOUT US PARALLAX & DATA PRIVACY PAGE
-      1923.  BLOGS/NEWS CARDS, FEATURES BG, ABOUT US MODAL & CONTACT SPLIT LAYOUT
-      2271.  PARTNER US LAYOUT, BLOG ARTICLE MODAL & FLOATING CONTACT PILL
-      2559.  EMBEDDED HUB MODAL OVERRIDES, CONFIRMATION MODAL & FILE UPLOAD STATES
-   ========================================================================== */
-
-
-/* ==========================================================================
-   GLOBAL VARIABLES, RESET & BASE STYLES
-   ========================================================================== */
-
 :root {
     --eurekare-blue: #0055a4;
     --eurekare-white: #f0f7ff;
@@ -40,11 +17,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f9;
 }
-
-
-/* ==========================================================================
-   HEADER, TOP BAR & NAVIGATION (incl. dropdown, mobile nav)
-   ========================================================================== */
 
 /* Global Page Transition Fade-In */
 .fade-in-container {
@@ -380,11 +352,6 @@ body {
     width: 100%;
 }
 
-
-/* ==========================================================================
-   CONTACT US & JOIN THE TEAM MODALS (form fields, layout)
-   ========================================================================== */
-
 /* ==========================================================================
                             CONTACT US MODAL
    ========================================================================== */
@@ -690,11 +657,6 @@ body {
     box-shadow: 0 6px 12px -2px rgba(2, 38, 88, 0.35) ;
 }
 
-
-/* ==========================================================================
-   HERO CAROUSEL & PARTNERS SECTION
-   ========================================================================== */
-
 /* ==========================================================================
                     INTRODUCTION HERO CAROUSEL 
    ========================================================================== */
@@ -981,11 +943,6 @@ body {
   width: max-content;
 }
 
-
-/* ==========================================================================
-   SERVICES SECTION, INTERACTIVE HUB & MOBILE INFO MODAL
-   ========================================================================== */
-
 /* ==========================================================================
                           SERVICES SECTION 
    ========================================================================== */
@@ -1259,11 +1216,6 @@ body {
     font-size: 24px;
     cursor: pointer;
 }
-
-
-/* ==========================================================================
-   SITE FOOTER (CTA, columns, map, legal bar)
-   ========================================================================== */
 
 /* ==========================================================================
    UPDATED INTEGRATED FOOTER SYSTEM STYLE
@@ -1576,11 +1528,6 @@ body {
         width: 80%;
     }
 }
-
-
-/* ==========================================================================
-   SWIPER OVERRIDES, ABOUT US PARALLAX & DATA PRIVACY PAGE
-   ========================================================================== */
 
 /*Swiper no Swiping------------------------------------*/
 .swiper-slide {
@@ -1973,11 +1920,6 @@ body {
     }
 }
 
-
-/* ==========================================================================
-   BLOGS/NEWS CARDS, FEATURES BG, ABOUT US MODAL & CONTACT SPLIT LAYOUT
-   ========================================================================== */
-
 /* Blogs and News Section ----------------------------------*/
 
 body {
@@ -2326,11 +2268,6 @@ body {
     background-color: var(--eurekare-blue); /* Deep Blue */
 }
 
-
-/* ==========================================================================
-   PARTNER US LAYOUT, BLOG ARTICLE MODAL & FLOATING CONTACT PILL
-   ========================================================================== */
-
 /* ==========================================================================
                           PARTNER US PAGE LAYOUT 
    ========================================================================== */
@@ -2618,11 +2555,6 @@ body {
         font-size: 14px;
     }
 }
-
-
-/* ==========================================================================
-   EMBEDDED HUB MODAL OVERRIDES, CONFIRMATION MODAL & FILE UPLOAD STATES
-   ========================================================================== */
 
 /* ==========================================================================
                       MODAL EMBEDDED CENTRAL HUB LAYOUT CONTROLS 
