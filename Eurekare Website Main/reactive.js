@@ -247,6 +247,37 @@ function startHeroCarouselTimer() {
     }
     heroCarouselTimer = setInterval(nextHeroSlide, heroSlideDuration);
 }
+/* ==========================================================================
+                           RESPONSIVE WINDOW CONTROLLER
+   ========================================================================== */
+
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    // Debounce the window resize updates to ensure efficient browser execution
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        const width = window.innerWidth;
+        
+        // Handle dropdown menus and layout states safely during transitions
+        if (typeof setDropdownOpen === 'function') {
+            const dropdown = document.querySelector('.nav-dropdown');
+            if (dropdown) setDropdownOpen(dropdown, false);
+        }
+        
+        // Dynamically shift hub components to clear UI states across width boundaries
+        const sidebar = document.getElementById('hubSidebar');
+        if (sidebar) {
+            if (width < 768) {
+                sidebar.classList.add('collapsed');
+            } else {
+                // Restore defaults if shifting back to wide layout displays
+                if (typeof closeModal === 'function') closeModal();
+            }
+        }
+        
+        console.log(`Viewport adjusted: ${width}px. Layout parameters synchronized.`);
+    }, 150);
+});
 
 /* ==========================================================================
                         SERVICES SCROLL ANIMATIONS

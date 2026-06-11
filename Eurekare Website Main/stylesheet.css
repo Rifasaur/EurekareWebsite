@@ -169,7 +169,6 @@ body {
     display: flex;
     align-items: center;
 }
-
 /* Mobile (hamburger) navigation */
 .nav-toggle {
     display: none;
@@ -325,8 +324,6 @@ body {
         justify-content: space-between;
     }
 }
-
-
 
 .logo-placeholder {
     line-height: 1.1;
@@ -701,10 +698,7 @@ body {
 
 #introduction {
     position: relative;
-    width: 100%;
     height: calc(92vh + var(--nav-height)); 
-    min-height: 500px;
-    background-color: #011129;
     overflow: hidden;
 }
 
@@ -750,7 +744,7 @@ body {
     max-width: 800px;
     color: #ffffff;
     z-index: 3;
-    transform: translateY(-50%);
+    /* Removed transform: translateY(-50%) to prevent content cutoff on resize/mobile */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -776,7 +770,6 @@ body {
     animation-delay: 0.5s;
 }
 
-
 .hero-indicators-container {
     position: absolute;
     bottom: 40px;
@@ -784,7 +777,7 @@ body {
     transform: translateX(-50%);
     display: flex;
     gap: 15px;
-    z-index: 10; 
+    z-index: 10;
 }
 
 .hero-dot {
@@ -805,36 +798,33 @@ body {
 .hero-dot.active {
     background-color: #ffffff;
     border-color: var(--eurekare-blue);
-    width: 32px; 
+    width: 32px;
     border-radius: 20px;
 }
 
 @media (max-width: 768px) {
-    .hero-content h1 { font-size: 2.5rem; }
-    .hero-content p { font-size: 1.05rem; }
-    .hero-indicators-container { bottom: 30px; }
+    /* Handle responsively sizing the wrapper height for smaller portrait screens */
+    #introduction {
+        height: 60vh;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+        padding: 0 10px;
+    }
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+    .hero-indicators-container {
+        bottom: 20px;
+    }
 }
 
 @keyframes fadeInOut {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    15% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    75% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
+    0% { opacity: 0; transform: translateY(20px); }
+    15% { opacity: 1; transform: translateY(0); }
+    75% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
 }
 
 .hero-video {
@@ -843,11 +833,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Keeps video from stretching */
+    object-fit: cover; /* Keeps video filling container beautifully without distortion */
     z-index: 1;
 }
 
-/* Optional: Add a dark overlay so text is easier to read over video */
+/* Semantically applied dark overlay wrapper over the full viewport container */
 .hero-slide::after {
     content: '';
     position: absolute;
@@ -995,12 +985,13 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 .services-section.h { 
-    background-color: var(--eurekare-dark);
+    background-color: var(--eurekare-blue);
 }
 
 .services-container {
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 100px;
     padding: 40px 40px;
 }
 
@@ -1012,27 +1003,32 @@ body {
 
 .services-header h2 {
     font-size: 2.8rem;
-    color: #0A1D2E; /* Deep Midnight */
+    color:var(--eurekare-white);
     font-weight: 800;
     margin-bottom: 15px;
 }
 
 .services-header p {
-    color: #666;
+    color:var(--eurekare-steel);
     max-width: 600px;
     margin: 0 auto;
 }
 
-/* Row Logic */
+/* Row Logic */ 
 .service-row {
     display: flex;
     align-items: center;
     gap: 80px;
+    margin-top: 100px;
     margin-bottom: 120px;
 }
 
-/*.service-row.SmartCard {
-}*/
+#services-Card, #services-YAKAP, #services-EMR{
+    scroll-margin-top: 150px;
+}
+
+.service-row.SmartCard {
+}
 
 .service-row.YAKAP{
     flex-direction: row-reverse;
@@ -1052,7 +1048,6 @@ body {
     overflow: hidden;
     align-items: center;
     align-content: center;
-    border-radius: 200px 200px 0 200px; 
     background: #f0f7ff; 
 }
 
@@ -1111,7 +1106,7 @@ body {
 
 /* Mobile Fixes */
 @media (max-width: 992px) {
-    .service-row, .service-row.row-reverse {
+    .service-row, .service-row.YAKAP {
         flex-direction: column;
         text-align: center;
         gap: 40px;
