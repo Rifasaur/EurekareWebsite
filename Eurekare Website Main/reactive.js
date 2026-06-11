@@ -8,23 +8,14 @@ function toggleSidebar() {
 
 // Logic to automatically collapse on smaller screens
 window.addEventListener('load', () => {
-    if (window.innerWidth < 768) {
-        document.getElementById('hubSidebar').classList.add('collapsed');
+    const sidebar = document.getElementById('hubSidebar');
+    if (sidebar && window.innerWidth < 768) { 
+        sidebar.classList.add('collapsed');
     }
 });
 
 // Partners Track Hover Effect, Pause on Hover
 const partnersTrack = document.querySelector(".partners-track");
-
-if (partnersTrack) {
-    partnersTrack.addEventListener("mouseenter", () => {
-      partnersTrack.style.animationPlayState = "paused";
-    });
-
-    partnersTrack.addEventListener("mouseleave", () => {
-      partnersTrack.style.animationPlayState = "running";
-    });
-}
 
 const moduleData = {
     1: { title: "PhilHealth Integration", desc: "Automated YAKAP & eClaims processing.", img: "p1.png" },
@@ -540,5 +531,168 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(initNavDropdown, 1000);
 });
 
+/* ==========================================================================
+              TRANSFERRED FROM CONTACT.HTML (CONFIRMATION & LIVE UPLOAD)
+   ========================================================================== */
 
+// ==========================================================================
+//                  CONFIRMATION MODAL ACTIONS & INTERACTION
+// ==========================================================================
+function showConfirmationLoading() {
+    const overlay = document.getElementById('confirmationModalOverlay');
+    document.getElementById('confirmationHeader').style.backgroundColor = 'var(--eurekare-blue)';
+    document.getElementById('confirmationTitle').innerText = "Processing...";
+    document.getElementById('confirmationSubtitle').innerText = "Please wait while we submit your request.";
+    document.getElementById('confirmationIconContainer').innerHTML = '<i class="fa-solid fa-circle-notch fa-spin loading-icon"></i>';
+    document.getElementById('confirmationMessage').innerText = "We are validating your files and routing your message via secure SMTP servers.";
+    document.getElementById('confirmationActions').style.display = 'none';
+    overlay.classList.add('active');
+}
 
+function showConfirmationSuccess(message) {
+    document.getElementById('confirmationHeader').style.backgroundColor = '#00796b';
+    document.getElementById('confirmationTitle').innerText = "Submission Sent!";
+    document.getElementById('confirmationSubtitle').innerText = "Everything went through perfectly.";
+    document.getElementById('confirmationIconContainer').innerHTML = '<i class="fa-solid fa-circle-check success-icon"></i>';
+    document.getElementById('confirmationMessage').innerText = message || "Your details have been registered into our queue system successfully.";
+    document.getElementById('confirmationActions').style.display = 'flex';
+}
+
+function showConfirmationError(message) {
+    document.getElementById('confirmationHeader').style.backgroundColor = '#d32f2f';
+    document.getElementById('confirmationTitle').innerText = "Submission Failed";
+    document.getElementById('confirmationSubtitle').innerText = "An error occurred while dispatching data.";
+    document.getElementById('confirmationIconContainer').innerHTML = '<i class="fa-solid fa-circle-xmark error-icon"></i>';
+    document.getElementById('confirmationMessage').innerText = message || "Please check your network parameters and try running the form sequence again.";
+    document.getElementById('confirmationActions').style.display = 'flex';
+}
+
+function closeConfirmationModal() {
+    document.getElementById('confirmationModalOverlay').classList.remove('active');
+    document.body.style.overflow = ''; 
+}
+
+// Intercept form pipelines after safe DOM assembly
+document.addEventListener('submit', function(e) {
+    // 1. Trap Inquiry Form submissions
+    if (e.target && e.target.id === 'contactInquiryForm') {
+        e.preventDefault();
+        
+        let formData = new FormData(e.target);
+        formData.append('form_type', 'inquiry'); 
+        
+        executeFormAsyncSubmit(formData, e.target, 'contactUsOverlay');
+    }
+    
+    // 2. Trap Career Application Form submissions
+    if (e.target && e.target.id === 'joinTeamForm') {
+        e.preventDefault();
+        
+        let formData = new FormData(e.target);
+        formData.append('form_type', 'application'); 
+        
+        executeFormAsyncSubmit(formData, e.target, 'joinTeamOverlay');
+    }
+});
+
+// Unified implementation pipeline for routing dynamic updates
+function executeFormAsyncSubmit(formData, originalFormElement, originalModalId) {
+    showConfirmationLoading();
+    
+    fetch('send-email.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Server network connection drop fault detected.');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.status === 'success') {
+            showConfirmationSuccess(data.message);
+            originalFormElement.reset(); 
+            
+            // Reset custom file upload tracking text elements on submission success
+            const fileText = document.getElementById('fileUploadText');
+            const fileLabel = document.getElementById('fileUploadLabel');
+            if (fileText) {
+                fileText.innerHTML = 'Choose a file (PDF, DOCX) <span style="color: #718096; font-size: 0.85rem;">(Optional)</span>';
+            }
+            if (fileLabel) {
+                fileLabel.classList.remove('file-attached');
+            }
+            
+            const baseModalOverlay = document.getElementById(originalModalId);
+            if (baseModalOverlay) baseModalOverlay.classList.remove('active');
+        } else {
+            showConfirmationError(data.message);
+        }
+    })
+    .catch(error => {
+        showConfirmationError(error.message);
+    });
+}
+
+// ==========================================================================
+//               MODAL CLOSE ACTIONS AND FORM RESET LOGIC
+// ==========================================================================
+function closeJoinModal() {
+    const joinForm = document.getElementById('joinTeamForm');
+    
+    if (joinForm) {
+        // 1. Flush all standard text fields, emails, phone numbers, and file selections
+        joinForm.reset();
+        
+        // 2. Revert the custom file upload text and remove the green success styling
+        const fileText = document.getElementById('fileUploadText');
+        const fileLabel = document.getElementById('fileUploadLabel');
+        
+        if (fileText) {
+            fileText.innerHTML = 'Choose a file (PDF, DOCX) <span style="color: #718096; font-size: 0.85rem;">(Optional)</span>';
+        }
+        if (fileLabel) {
+            fileLabel.classList.remove('file-attached');
+        }
+    }
+    
+    // 3. Hide the join modal overlay
+    const joinOverlay = document.getElementById('joinTeamOverlay');
+    if (joinOverlay) {
+        joinOverlay.classList.remove('active');
+    }
+}
+
+function closeContactModal() {
+    const contactForm = document.getElementById('contactInquiryForm');
+    if (contactForm) {
+        contactForm.reset();
+    }
+    
+    const contactOverlay = document.getElementById('contactUsOverlay');
+    if (contactOverlay) {
+        contactOverlay.classList.remove('active');
+    }
+}
+
+// ==========================================================================
+//                  LIVE FILE UPLOAD ATTACHMENT INDICATOR 
+// ==========================================================================
+document.addEventListener('change', function(e) {
+    if (e.target && e.target.id === 'joinResumeInput') {
+        const fileInput = e.target;
+        const fileText = document.getElementById('fileUploadText');
+        const fileLabel = document.getElementById('fileUploadLabel');
+        
+        if (fileInput.files && fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            // Clean text layout without added browser anomalies/icons
+            fileText.innerHTML = `Selected: <strong style="color: #0055a4; font-weight: 600;">${fileName}</strong>`;
+            fileLabel.classList.add('file-attached');
+        } else {
+            fileText.innerHTML = 'Choose a file (PDF, DOCX) <span style="color: #718096; font-size: 0.85rem;">(Optional)</span>';
+            fileLabel.classList.remove('file-attached');
+        }
+    }
+});
