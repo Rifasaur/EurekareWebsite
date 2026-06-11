@@ -1,26 +1,3 @@
-/* ==========================================================================
-   EUREKARE CORPORATION STYLESHEET
-   Reorganized into clearly labeled sections (table of contents below).
-   Functionality and visual output unchanged from the original file.
-
-   TABLE OF CONTENTS:
-         1.  GLOBAL VARIABLES, RESET & BASE STYLES
-        21.  HEADER, TOP BAR & NAVIGATION (incl. dropdown, mobile nav)
-       355.  CONTACT US & JOIN THE TEAM MODALS (form fields, layout)
-       660.  HERO CAROUSEL & PARTNERS SECTION
-       946.  SERVICES SECTION, INTERACTIVE HUB & MOBILE INFO MODAL
-      1220.  SITE FOOTER (CTA, columns, map, legal bar)
-      1532.  SWIPER OVERRIDES, ABOUT US PARALLAX & DATA PRIVACY PAGE
-      1923.  BLOGS/NEWS CARDS, FEATURES BG, ABOUT US MODAL & CONTACT SPLIT LAYOUT
-      2271.  PARTNER US LAYOUT, BLOG ARTICLE MODAL & FLOATING CONTACT PILL
-      2559.  EMBEDDED HUB MODAL OVERRIDES, CONFIRMATION MODAL & FILE UPLOAD STATES
-   ========================================================================== */
-
-
-/* ==========================================================================
-   GLOBAL VARIABLES, RESET & BASE STYLES
-   ========================================================================== */
-
 :root {
     --eurekare-blue: #0055a4;
     --eurekare-white: #f0f7ff;
@@ -40,11 +17,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f9;
 }
-
-
-/* ==========================================================================
-   HEADER, TOP BAR & NAVIGATION (incl. dropdown, mobile nav)
-   ========================================================================== */
 
 /* Global Page Transition Fade-In */
 .fade-in-container {
@@ -169,6 +141,7 @@ body {
     display: flex;
     align-items: center;
 }
+
 /* Mobile (hamburger) navigation */
 .nav-toggle {
     display: none;
@@ -325,6 +298,8 @@ body {
     }
 }
 
+
+
 .logo-placeholder {
     line-height: 1.1;
 }
@@ -376,11 +351,6 @@ body {
 .nav-links a:hover::after {
     width: 100%;
 }
-
-
-/* ==========================================================================
-   CONTACT US & JOIN THE TEAM MODALS (form fields, layout)
-   ========================================================================== */
 
 /* ==========================================================================
                             CONTACT US MODAL
@@ -687,18 +657,16 @@ body {
     box-shadow: 0 6px 12px -2px rgba(2, 38, 88, 0.35) ;
 }
 
-
-/* ==========================================================================
-   HERO CAROUSEL & PARTNERS SECTION
-   ========================================================================== */
-
 /* ==========================================================================
                     INTRODUCTION HERO CAROUSEL 
    ========================================================================== */
 
 #introduction {
     position: relative;
+    width: 100%;
     height: calc(92vh + var(--nav-height)); 
+    min-height: 500px;
+    background-color: #011129;
     overflow: hidden;
 }
 
@@ -744,7 +712,7 @@ body {
     max-width: 800px;
     color: #ffffff;
     z-index: 3;
-    /* Removed transform: translateY(-50%) to prevent content cutoff on resize/mobile */
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -770,6 +738,7 @@ body {
     animation-delay: 0.5s;
 }
 
+
 .hero-indicators-container {
     position: absolute;
     bottom: 40px;
@@ -777,7 +746,7 @@ body {
     transform: translateX(-50%);
     display: flex;
     gap: 15px;
-    z-index: 10;
+    z-index: 10; 
 }
 
 .hero-dot {
@@ -798,33 +767,36 @@ body {
 .hero-dot.active {
     background-color: #ffffff;
     border-color: var(--eurekare-blue);
-    width: 32px;
+    width: 32px; 
     border-radius: 20px;
 }
 
 @media (max-width: 768px) {
-    /* Handle responsively sizing the wrapper height for smaller portrait screens */
-    #introduction {
-        height: 60vh;
-    }
-    .hero-content h1 {
-        font-size: 2.2rem;
-        padding: 0 10px;
-    }
-    .hero-content p {
-        font-size: 1rem;
-        padding: 0 15px;
-    }
-    .hero-indicators-container {
-        bottom: 20px;
-    }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1.05rem; }
+    .hero-indicators-container { bottom: 30px; }
 }
 
 @keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(20px); }
-    15% { opacity: 1; transform: translateY(0); }
-    75% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-20px); }
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
 }
 
 .hero-video {
@@ -833,11 +805,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Keeps video filling container beautifully without distortion */
+    object-fit: cover; /* Keeps video from stretching */
     z-index: 1;
 }
 
-/* Semantically applied dark overlay wrapper over the full viewport container */
+/* Optional: Add a dark overlay so text is easier to read over video */
 .hero-slide::after {
     content: '';
     position: absolute;
@@ -971,11 +943,6 @@ body {
   width: max-content;
 }
 
-
-/* ==========================================================================
-   SERVICES SECTION, INTERACTIVE HUB & MOBILE INFO MODAL
-   ========================================================================== */
-
 /* ==========================================================================
                           SERVICES SECTION 
    ========================================================================== */
@@ -985,13 +952,12 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 .services-section.h { 
-    background-color: var(--eurekare-blue);
+    background-color: var(--eurekare-dark);
 }
 
 .services-container {
     max-width: 1200px;
     margin: 0 auto;
-    margin-bottom: 100px;
     padding: 40px 40px;
 }
 
@@ -1003,32 +969,27 @@ body {
 
 .services-header h2 {
     font-size: 2.8rem;
-    color:var(--eurekare-white);
+    color: #0A1D2E; /* Deep Midnight */
     font-weight: 800;
     margin-bottom: 15px;
 }
 
 .services-header p {
-    color:var(--eurekare-steel);
+    color: #666;
     max-width: 600px;
     margin: 0 auto;
 }
 
-/* Row Logic */ 
+/* Row Logic */
 .service-row {
     display: flex;
     align-items: center;
     gap: 80px;
-    margin-top: 100px;
     margin-bottom: 120px;
 }
 
-#services-Card, #services-YAKAP, #services-EMR{
-    scroll-margin-top: 150px;
-}
-
-.service-row.SmartCard {
-}
+/*.service-row.SmartCard {
+}*/
 
 .service-row.YAKAP{
     flex-direction: row-reverse;
@@ -1048,6 +1009,7 @@ body {
     overflow: hidden;
     align-items: center;
     align-content: center;
+    border-radius: 200px 200px 0 200px; 
     background: #f0f7ff; 
 }
 
@@ -1106,7 +1068,7 @@ body {
 
 /* Mobile Fixes */
 @media (max-width: 992px) {
-    .service-row, .service-row.YAKAP {
+    .service-row, .service-row.row-reverse {
         flex-direction: column;
         text-align: center;
         gap: 40px;
@@ -1254,11 +1216,6 @@ body {
     font-size: 24px;
     cursor: pointer;
 }
-
-
-/* ==========================================================================
-   SITE FOOTER (CTA, columns, map, legal bar)
-   ========================================================================== */
 
 /* ==========================================================================
    UPDATED INTEGRATED FOOTER SYSTEM STYLE
@@ -1568,14 +1525,9 @@ body {
     .footer-cta {
         padding: 14px 35px;
         font-size: 0.95rem;
-        width: 80%;
+        width: 100%;
     }
 }
-
-
-/* ==========================================================================
-   SWIPER OVERRIDES, ABOUT US PARALLAX & DATA PRIVACY PAGE
-   ========================================================================== */
 
 /*Swiper no Swiping------------------------------------*/
 .swiper-slide {
@@ -1968,11 +1920,6 @@ body {
     }
 }
 
-
-/* ==========================================================================
-   BLOGS/NEWS CARDS, FEATURES BG, ABOUT US MODAL & CONTACT SPLIT LAYOUT
-   ========================================================================== */
-
 /* Blogs and News Section ----------------------------------*/
 
 body {
@@ -2083,8 +2030,11 @@ body {
     z-index: 99999;
     left: 0;
     top: 0;
-    width: 90%;
+    width: 80%;
     height: 100%;
+    box-sizing: border-box;
+    padding-left: 100px;
+    padding-right: 100px;
     overflow-y: auto;
     background: #ffffff;
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(210,225,240,1) 100%);
@@ -2094,8 +2044,6 @@ body {
     transform: scale(1.05);
     filter: blur(5px);
     transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
-    margin-left: 100px;
-    margin-right: 100px;
 }
 
 .about-us-modal-overlay::-webkit-scrollbar {
@@ -2128,6 +2076,7 @@ body {
 
 /* State when active (Opening) */
 .about-us-modal-overlay.is-visible {
+    display: flex !important;
     opacity: 1;
     transform: scale(1);
     filter: blur(0);
@@ -2140,9 +2089,11 @@ body {
 
 .about-us-modal-container {
     max-width: 1200px;
+    width: 100%;
     margin-bottom: auto;
     margin-top: -20px;
-    padding-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     display: flex;
     justify-content: center;
@@ -2183,6 +2134,7 @@ body {
 
 /* Main Modal Content Box */
 .about-us-modal-content {
+    width: 100%;
     background: radial-gradient(circle at 0% 0%, #ffffff 0%, #f4f8fc 100%);
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 20px;
@@ -2244,7 +2196,6 @@ body {
     align-items: right;
     justify-content: right;
     z-index: 2;
-    margin-right: -100px;
     
     /* Elegant blue split background just for the image block */
     background: linear-gradient(135deg, rgba(0, 85, 164, 0.05) 0%, rgba(10, 29, 46, 0.08) 100%);
@@ -2320,11 +2271,6 @@ body {
 .join-team {
     background-color: var(--eurekare-blue); /* Deep Blue */
 }
-
-
-/* ==========================================================================
-   PARTNER US LAYOUT, BLOG ARTICLE MODAL & FLOATING CONTACT PILL
-   ========================================================================== */
 
 /* ==========================================================================
                           PARTNER US PAGE LAYOUT 
@@ -2614,11 +2560,6 @@ body {
     }
 }
 
-
-/* ==========================================================================
-   EMBEDDED HUB MODAL OVERRIDES, CONFIRMATION MODAL & FILE UPLOAD STATES
-   ========================================================================== */
-
 /* ==========================================================================
                       MODAL EMBEDDED CENTRAL HUB LAYOUT CONTROLS 
    ========================================================================== */
@@ -2889,4 +2830,3 @@ body {
         border-top: 1px solid rgba(0, 85, 164, 0.08);
     }
 }
-
