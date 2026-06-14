@@ -998,21 +998,6 @@ body {
 .service-image-wrapper {
     flex: 1;
 }
-
-.pill-mask {
-    width: 100%;
-    aspect-ratio: 1.1 / 1;
-    overflow: hidden;
-    align-items: center;
-    align-content: center;
-    background: #f0f7ff; 
-}
-
-/* Reverse the radius for even rows */
-.row-reverse .pill-mask {
-    border-radius: 200px 200px 200px 0;
-}
-
 .pill-mask img {
     width: 100%;
     height: 100%;
