@@ -19,7 +19,7 @@
                 
                 <div class="hero-slide active">
                     <video class="hero-video" muted playsinline autoplay loop>
-                        <source src="./images/Hero_1.mp4" type="video/mp4">
+                        <source src="./images/Training_2.jpg" type="png">
                     </video>
                     <div class="hero-content">
                         <h1>Next Steps Toward Better Care</h1>
@@ -103,7 +103,7 @@
             <span class="pill-text">Get in Touch</span>
         </button>
 
-        <section class="services-section h" id="services">
+        <section class="services-divider" id="services">
             <div class="services-container">
                 <div class="services-header">
                     <h2>How We Help You</h2>
@@ -114,9 +114,32 @@
         <section class="services-section" id="services">
             <div class="services-container">
                 <div class="service-row SmartCard" id="services-Card">
-                    <div class="service-image-wrapper">
-                        <div class="pill-mask">
-                            <img src="./images/Ecard.png" alt="E-Konsulta Integration">
+                    <div class="services-visual-wrapper">
+                        <div class="css-shape shape-circle"></div>
+                        <div class="css-shape shape-polygon"></div>
+                        <img src="./images/Ecard.png" class="services-main-img" alt="Services Infrastructure Dashboard">
+
+                        <div class="ecard-interactive-wrapper" onclick="openEcardModal()" role="button" aria-label="Open Digital Health Card View">
+                            <img src="./images/Front-Card.png" class="ecard-asset-img" alt="Eurekare Digital Health Card Graphic">
+                        </div>
+                    </div>
+
+                    <div id="ecardModal" class="ecard-modal-overlay" onclick="closeEcardModal(event)">
+                        <div class="ecard-modal-content" onclick="event.stopPropagation()">
+                            <span class="ecard-modal-close" onclick="closeEcardModal(event)">&times;</span>
+                            <h3>Eurekare Digital Health Card</h3>
+                            <p class="modal-instruction-tip">Click the card below to flip and inspect the card design details</p>
+                            
+                            <div class="modal-flip-container" onclick="toggleModalCardFlip()">
+                                <div class="modal-card-inner" id="modalCardInner">
+                                    <div class="modal-card-side modal-card-front">
+                                        <img src="./images/Front-Card.png" alt="Eurekare Card Front Side">
+                                    </div>
+                                    <div class="modal-card-side modal-card-back">
+                                        <img src="./images/Back-Card.png" alt="Eurekare Card Back Side">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="service-text">
@@ -124,18 +147,38 @@
                         <p>Our expert team provides detailed property valuations and market analysis to help you accurately price your property and understand the local real estate market.</p>
                         <a href="javascript:void(0)" onclick="openServicesModal('e-konsulta')" class="service-btn">Learn More</a>            </div>
                 </div>
-
-                <div class="service-row YAKAP" id="services-YAKAP">
-                    <div class="service-image-wrapper">
-                        <div class="pill-mask">
-                            <img src="./images/Diagram-Temporary-Placeholde.png" alt="E-Claims">
+                <div class="services-container yakap-section" style="position: relative; overflow: hidden;">
+                    
+                    <div class="service-row">
+                        <div class="service-text">
+                            <h3>YAKAP Accredited Service</h3>
+                            <p>We use our extensive network and marketing expertise to list and advertise your property to a wide audience. From professional photography to targeted online and offline advertising.</p>
+                            <a href="javascript:void(0)" onclick="openServicesModal('e-claims')" class="service-btn">Learn More</a>
+                        </div>
+                        <div class="service-image-wrapper">
+                            <img src="./images/yakap.png" alt="YAKAP">
                         </div>
                     </div>
-                    <div class="service-text">
-                        <h3>YAKAP Accredited Service</h3>
-                        <p>We use our extensive network and marketing expertise to list and advertise your property to a wide audience. From professional photography to targeted online and offline advertising.</p>
-                        <a href="javascript:void(0)" onclick="openServicesModal('e-claims')" class="service-btn">Learn More</a>
+
+
+                    <div class="yakap-sidebar-widget" id="yakapSidebarWidget">
+                        <button class="yakap-widget-tab" onclick="toggleYakapWidget(event)" aria-label="Toggle Accreditation Banner">
+                            <i class="fa-solid fa-award"></i>
+                            <span class="tab-text">CREDITED YAKAP SERVICE PROVIDER</span>
+                        </button>
+                        
+                        <a href="https://www.philhealth.gov.ph/partners/csp/" target="_blank" rel="noopener noreferrer" class="yakap-widget-body">
+                            <div class="yakap-widget-content">
+                                <span class="widget-tag">PHILHEALTH PARTNER</span>
+                                <h4>Yakap Kalusugan</h4>
+                                <p>Official Credited Service Provider Ecosystem</p>
+                                <div class="widget-link-action">
+                                    Verify Accreditation <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+
                 </div>
 
                 <div class="service-row EMRCutomizable" id="services-EMR">

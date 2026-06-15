@@ -696,3 +696,60 @@ document.addEventListener('change', function(e) {
         }
     }
 });
+
+/* ==========================================================================
+                    INTERACTIVE ECARD MODAL CONTROLLER 
+   ========================================================================== */
+
+function openEcardModal() {
+    const modal = document.getElementById('ecardModal');
+    if (modal) {
+        modal.classList.add('open');
+        // Prevent body backdrop scrolling behind the display modal window
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeEcardModal(event) {
+    const modal = document.getElementById('ecardModal');
+    const cardInner = document.getElementById('modalCardInner');
+    if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        
+        // Reset the flip status back to the front side after closing with a small delay
+        if (cardInner) {
+            setTimeout(() => {
+                cardInner.classList.remove('flipped');
+            }, 400);
+        }
+    }
+}
+
+function toggleModalCardFlip() {
+    const cardInner = document.getElementById('modalCardInner');
+    if (cardInner) {
+        cardInner.classList.toggle('flipped');
+    }
+}
+
+// Ensure the ESC key cancels or clears open modals 
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeEcardModal();
+    }
+});
+
+/* ==========================================================================
+                    YAKAP SIDEBAR WIDGET INTERACTION CONTROLLER
+   ========================================================================== */
+
+function toggleYakapWidget(event) {
+    // Stop event bubbling so it doesn't conflict with parent structural event layers
+    event.stopPropagation();
+    
+    const widget = document.getElementById('yakapSidebarWidget');
+    if (widget) {
+        widget.classList.toggle('widget-hidden');
+    }
+}
