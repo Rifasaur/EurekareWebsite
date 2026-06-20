@@ -15,7 +15,8 @@ html {
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f9;
+    background-color: #ffffff; 
+    color: #334155;
 }
 
 /* Global Page Transition Fade-In */
@@ -52,7 +53,7 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.container-header {
+/* .container-header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -60,7 +61,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-}
+} */
 
 .container-section {
     position: center;
@@ -362,15 +363,15 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(2, 38, 88, 0.4); /* Subtle transparent tint */
-    backdrop-filter: blur(4px);
+    background-color: rgba(10, 29, 46, 0.45); /* Deepened signature blue-tint overlay */
+    backdrop-filter: blur(8px); /* Modern backdrop blur effect */
     z-index: 99999;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-us-overlay.active {
@@ -379,58 +380,61 @@ body {
 }
 
 .contact-modal-card {
-    background: #ffffff ;
-    border-radius: 16px ;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) ;
+    background: #ffffff;
+    border-radius: 20px; /* Modern corner smoothing */
+    box-shadow: 0 30px 60px rgba(10, 29, 46, 0.18); /* Soft, distributed premium drop shadow */
     overflow: hidden;
-    max-width: 820px ;
-    width: 90% ;
+    max-width: 840px;
+    width: 90%;
     display: flex;
     flex-direction: column;
     max-height: 85vh; 
     box-sizing: border-box;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
+    transform: translateY(24px) scale(0.98);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
 
 .contact-us-overlay.active .contact-modal-card {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
-/* Header UI Elements */
+/* Header UI Elements - Eurekare Brand Blue */
 .contact-modal-header {
-    background-color: var(--eurekare-blue);
-    padding: 24px 32px;
+    background-color: var(--eurekare-blue); /* Exact theme matching */
+    padding: 28px 36px;
     color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .contact-modal-title {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     margin: 0 0 6px 0;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.3px;
 }
 
 .contact-modal-subtitle {
     margin: 0;
-    opacity: 0.85;
+    opacity: 0.88;
     font-size: 0.95rem;
+    font-weight: 400;
 }
 
 /* Internal body content wrapper */
 .contact-modal-body {
-    padding: 32px;
+    padding: 36px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 28px;
     box-sizing: border-box;
+    background-color: #ffffff;
 }
 
 /* Explicit 2-Column Row Formats */
 .contact-modal-columns {
     display: flex;
-    gap: 32px;
+    gap: 36px;
     width: 100%;
 }
 
@@ -438,52 +442,58 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
 }
 
 .contact-form-section-bottom {
     margin-top: 8px;
-    padding-top: 16px;
-    border-top: 1px solid #eef2f5;
+    padding-top: 24px;
+    border-top: 1px solid #f1f5f9;
 }
 
 .form-section-heading {
     font-size: 1.1rem;
     color: var(--eurekare-blue);
-    margin: 0 0 8px 0;
+    margin: 0 0 4px 0;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    letter-spacing: -0.1px;
 }
 
 /* Input Fields styling rules */
 .contact-us-field {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
 .contact-us-label, 
 .contact-us-textarea-label {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 600;
-    color: #4a5568;
+    color: #475569; /* Slate-600 provides modern neutral legibility */
     text-align: left;
 }
 
 .contact-us-input, 
 .contact-us-textarea {
     width: 100%;
-    padding: 11px 14px;
-    border: 1.5px solid #cbd5e1;
-    border-radius: 8px;
+    padding: 12px 16px;
+    border: 1.5px solid #e2e8f0; /* Crisp thin grey borders */
+    border-radius: 10px; /* Smoothed uniform component edges */
     font-family: inherit;
     font-size: 0.95rem;
-    color: #334155;
+    color: var(--eurekare-dark);
     background-color: #f8fafc;
-    transition: all 0.25s ease;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     box-sizing: border-box;
+}
+
+.contact-us-input::placeholder,
+.contact-us-textarea::placeholder {
+    color: #94a3b8;
 }
 
 .contact-us-input:focus, 
@@ -491,122 +501,189 @@ body {
     outline: none;
     border-color: var(--eurekare-blue);
     background-color: #ffffff;
-    box-shadow: 0 0 0 3px rgba(2, 38, 88, 0.15);
+    box-shadow: 0 0 0 4px rgba(0, 85, 164, 0.12); /* Branded blue focus ring glow */
 }
 
 .contact-us-textarea-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .contact-us-textarea {
-    min-height: 80px;
+    min-height: 90px;
     resize: vertical;
 }
 
-/* Balanced Checkbox Containers Alignment */
+/* ==========================================================================
+                        MODERN CUSTOM CHECKBOXES FIX
+   ========================================================================== */
+
+/* Container wrapping the label and checkbox */
 .contact-us-field.option-field {
-    margin-top: 6px;
-    height: 100%;
+    margin-top: auto; /* Pushes checkbox cleanly to bottom align with neighbor row input fields */
+    padding-bottom: 4px;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
 }
 
+/* Label wrapper containing the custom layout */
 .contact-us-checkbox-label {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     cursor: pointer;
     font-size: 0.95rem;
     font-weight: 500;
-    color: #4a5568;
+    color: #475569; /* Matches the slate typography of standard text labels */
     user-select: none;
+    position: relative;
 }
 
+/* Hide the default native browser checkbox completely and build custom UI */
 .contact-us-checkbox {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--eurekare-blue);
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px; /* Increased size for excellent visual balance and click-target contrast */
+    height: 22px;
+    border: 1.5px solid #cbd5e1; /* Perfectly mirrors text input borders */
+    border-radius: 6px; /* Soft modern corners instead of rigid browser squares */
+    background-color: #f8fafc;
     cursor: pointer;
     margin: 0;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
 }
+
+/* Hover State */
+.contact-us-checkbox:hover {
+    border-color: var(--eurekare-blue);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 85, 164, 0.08);
+}
+
+/* Focused State (for accessibility when tabbing) */
+.contact-us-checkbox:focus-visible {
+    outline: none;
+    border-color: var(--eurekare-blue);
+    box-shadow: 0 0 0 4px rgba(0, 85, 164, 0.15);
+}
+
+/* Checked State - Fills seamlessly with Eurekare Blue */
+.contact-us-checkbox:checked {
+    background-color: var(--eurekare-blue);
+    border-color: var(--eurekare-blue);
+}
+
+/* Custom Checkmark (Pure CSS pseudo-element inside the checkbox) */
+.contact-us-checkbox::before {
+    content: "";
+    width: 11px;
+    height: 6px;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(-45deg) scale(0) translateY(-1px); /* Starts hidden */
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+}
+
+/* Reveal checkmark smoothly when state changes */
+.contact-us-checkbox:checked::before {
+    transform: rotate(-45deg) scale(1) translateY(-1px);
+}
+
+/* ==========================================================================
+                        FOOTER ACTIONS & BUTTONS
+   ========================================================================== */
 
 /* Lower Control Action Footer panel */
 .contact-us-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 32px;
+    padding: 24px 36px;
     background-color: #f8fafc;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #f1f5f9;
     box-sizing: border-box;
 }
 
+/* Uniform Back Buttons Width Setup */
 .contact-us-btn-back {
-    background: none ;
-    border: 1.5px solid #cbd5e1 ;
-    color: #64748b ;
-    padding: 10px 20px ;
-    font-size: 0.95rem ;
-    font-weight: 600 ;
-    border-radius: 8px ;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    color: #475569;
+    padding: 12px 0; /* Horizontal padding dropped to rely cleanly on fixed width */
+    width: 110px; /* Fixed sizing weight matching */
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.2s ease ;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    box-sizing: border-box;
 }
 
 .contact-us-btn-back:hover {
-    background-color: #edf2f7 ;
-    color: #334155 ;
-    border-color: #94a3b8 ;
+    background-color: #f1f5f9;
+    color: var(--eurekare-dark);
+    border-color: #94a3b8;
 }
 
+/* Uniform Submit Button Sizes (Inquiry Form) */
 .contact-us-btn-submit {
-    background-color: #009688 ;
-    border: none ;
-    color: #ffffff ;
-    padding: 12px 26px ;
-    font-size: 0.95rem ;
-    font-weight: 600 ;
-    border-radius: 8px ;
+    background-color: var(--eurekare-blue); 
+    border: none;
+    color: #ffffff;
+    padding: 12px 0; /* Horizontal padding safely zeroed out */
+    width: 190px; /* Hard-locked width constraints to completely match sizes */
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0 4px 6px -1px rgba(0, 150, 136, 0.2);
-    transition: all 0.2s ease ;
+    box-shadow: 0 4px 12px rgba(0, 85, 164, 0.2);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    box-sizing: border-box;
 }
 
 .contact-us-btn-submit:hover {
-    background-color: #00796b ;
-    box-shadow: 0 6px 12px -2px rgba(0, 150, 136, 0.35);
+    background-color: #004484; /* Deep premium brand sapphire on hover interactions */
+    box-shadow: 0 6px 18px rgba(0, 85, 164, 0.35);
+    transform: translateY(-1px);
+}
+
+.contact-us-btn-submit:active {
+    transform: translateY(0);
 }
 
 /* Responsiveness adjustments for smaller touch displays */
 @media (max-width: 650px) {
     .contact-modal-columns {
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
     }
-    .contact-modal-body { padding: 20px; }
-    .contact-us-actions { padding: 16px 20px; }
-    .contact-us-field.option-field { justify-content: flex-start; }
+    .contact-modal-card { width: 95%; max-height: 90vh; }
+    .contact-modal-body { padding: 24px; gap: 20px; }
+    .contact-us-actions { padding: 20px 24px; }
+    .contact-us-field.option-field { margin-top: 4px; padding-bottom: 0; }
+    .contact-us-btn-back { width: 95px; padding: 11px 0; font-size: 0.9rem; }
+    .contact-us-btn-submit { width: 165px; padding: 11px 0; font-size: 0.9rem; }
 }
 
 /* ==========================================================================
-                            JOINT THE TEAM MODAL
+                            JOIN THE TEAM MODAL
    ========================================================================== */
 
-/* Header matching the main blue color scheme */
-.join-modal-header {
-    background-color: var(--eurekare-blue) ;
-}
-
-/* File Upload Selector Wrapper */
+/* File Upload Selector Wrapper Design Architecture */
 .join-file-upload-wrapper {
     position: relative;
     width: 100%;
@@ -627,34 +704,61 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
     width: 100%;
-    padding: 11px 14px;
+    padding: 12px 16px;
     background-color: #f8fafc;
     border: 1.5px dashed #cbd5e1;
-    border-radius: 8px;
-    font-size: 0.95rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
     font-weight: 500;
     color: #64748b;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     box-sizing: border-box;
     cursor: pointer;
+    text-align: center;
 }
 
-.join-file-input:hover + .join-file-label {
+.join-file-input:hover + .join-file-label,
+.join-file-input:focus + .join-file-label {
     border-color: var(--eurekare-blue);
-    background-color: #f1f5f9;
+    background-color: rgba(0, 85, 164, 0.03);
     color: var(--eurekare-blue);
 }
 
+/* Uniform Submit Button Sizes (Join the Team Form) */
 .join-btn-submit {
-    background-color: var(--eurekare-blue) ;
-    box-shadow: 0 4px 6px -1px rgba(2, 38, 88, 0.2) ;
+    background-color: var(--eurekare-blue);
+    border: none;
+    color: #ffffff;
+    padding: 12px 0;
+    width: 190px; /* Perfectly synchronized with the submit inquiry button width */
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 85, 164, 0.2);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
 }
 
 .join-btn-submit:hover {
-    background-color: #01193d ;
-    box-shadow: 0 6px 12px -2px rgba(2, 38, 88, 0.35) ;
+    background-color: #004484;
+    box-shadow: 0 6px 18px rgba(0, 85, 164, 0.35);
+    transform: translateY(-1px);
+}
+
+.join-btn-submit:active {
+    transform: translateY(0);
+}
+
+/* Responsiveness alignment for mobile submit application button */
+@media (max-width: 650px) {
+    .join-btn-submit { width: 165px; padding: 11px 0; font-size: 0.9rem; }
 }
 
 /* ==========================================================================
@@ -1008,6 +1112,7 @@ body {
 /* Text Content */
 .service-text {
     flex: 1;
+    z-index: 4;
 }
 
 .service-text h3 {
@@ -1388,7 +1493,7 @@ body {
 }
 
 /* ==========================================================================
-   UPDATED INTEGRATED FOOTER SYSTEM STYLE
+               OVERLAPPING FOOTER CTA BUTTON (RED)
    ========================================================================== */
 
 .main-footer-wrapper {
@@ -1403,61 +1508,67 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* The wrapper handles the exact centering and line-straddling placement */
 .footer-cta-wrapper {
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    text-align: center;
-    z-index: 10;
+    top: 0;             /* Aligns perfectly with the top edge of the footer container */
+    left: 50%;          /* Moves to the horizontal midpoint */
+    transform: translate(-50%, -50%); /* Centers it perfectly on the line line split */
+    z-index: 999;       /* Ensures it floats safely above background boundaries */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;        /* Prevents full-width stretch from breaking alignment */
 }
 
+/* The actual pill-shaped CTA link element */
 .footer-cta {
-    background-color: #7eb8e8; 
-    color: #ffffff ; 
-    text-decoration: none ; 
-    padding: 14px 42px;
-    border-radius: 50px; 
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    /* Layout & Display Alignment */
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    /* box-shadow: 0 4px 15px rgba(67, 185, 183, 0.3); */
-    box-shadow: 0 8px 22px rgba(126, 184, 232, 0.5); 
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    z-index: 15;
-}
-
-.footer-cta i {
-    color: #ffffff ; 
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
-}
-
-.footer-cta:hover {
-    background-color: #7eb8e8; 
+    gap: 12px;          
+    white-space: nowrap; 
+    
+    /* Sizing & Proportions */
+    padding: 16px 44px; 
+    border-radius: 50px; 
+    border: none;        
+    
+    /* Coloring & Clean Typography */
+    background: #c62828; 
     color: #ffffff ;
-    transform: translateY(-3px); 
-    /* box-shadow: 0 4px 15px rgba(67, 185, 183, 0.3); */
-    box-shadow: 0 8px 22px rgba(126, 184, 232, 0.5); 
-    border-color: rgba(255, 255, 255, 0.4);
+    font-size: 0.95rem;
+    font-weight: 700;   
+    text-transform: uppercase;
+    letter-spacing: 1.5px; 
+    text-decoration: none; 
+                
+    /* Animation Performance Tweaks */
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.2s ease, 
+                box-shadow 0.2s ease;
+    will-change: transform;
 }
 
+/* Premium Interaction Hover State */
+.footer-cta:hover {
+    background-color: #b71c1c; 
+    text-decoration: none;
+    transform: translateY(-2px); 
+}
+
+/* Active Pressed Feedback Click State */
 .footer-cta:active {
-    transform: translateY(-1px); 
-    box-shadow: 0 8px 22px rgba(126, 184, 232, 0.5); 
-    /* box-shadow: 0 4px 15px rgba(67, 185, 183, 0.3); */
+    transform: translateY(1px); 
 }
 
-.footer-cta:hover i {
-    transform: scale(1.15); 
+/* FontAwesome Envelope Icon Vertical Balance Alignment */
+.footer-cta i {
+    font-size: 1.05rem;
+    position: relative;
+    top: -0.5px; 
 }
 
 @keyframes ctaIconPulse {
@@ -1919,6 +2030,9 @@ body {
     z-index: 2;
     font-size: 0.9rem;
     color: #0072bc;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .data-privacy-hero-breadcrumb a {
@@ -1930,12 +2044,37 @@ body {
     text-decoration: underline;
 }
 
+.data-privacy-breadcrumb-trail {
+    color: #0072bc;
+}
+
 .data-privacy-content {
     max-width: 900px;
     margin: 60px auto;
     padding: 0 20px;
     margin-bottom: 80px;
 }
+
+/* .data-privacy-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+    padding: 10px 22px;
+    background-color: transparent;
+    color: var(--eurekare-blue);
+    border: 2px solid var(--eurekare-blue);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.data-privacy-back-btn:hover {
+    background-color: var(--eurekare-blue);
+    color: #ffffff;
+} */
 
 .data-privacy-main-title {
     text-align: center;
@@ -2195,23 +2334,22 @@ body {
 
 /* --- About Us Modal --- */
 .about-us-modal-overlay {
-    display: none; /* Controlled by JS */
+    display: none; 
     position: fixed;
     z-index: 99999;
-    left: 0;
+    left: 50%;
     top: 0;
-    width: 80%;
+    transform: translateX(-50%) scale(1.05);
+    width: 85%;
+    max-width: 2200px;
     height: 100%;
     box-sizing: border-box;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 0;
     overflow-y: auto;
     background: #ffffff;
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(210,225,240,1) 100%);
     
-    /* Transition for both opening and closing */
-    opacity: 80%;
-    transform: scale(1.05);
+    opacity: 0;
     filter: blur(5px);
     transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
 }
@@ -2246,9 +2384,9 @@ body {
 
 /* State when active (Opening) */
 .about-us-modal-overlay.is-visible {
-    display: flex !important;
+    display: block !important;
     opacity: 1;
-    transform: scale(1);
+    transform: translateX(-50%) scale(1);
     filter: blur(0);
 }
 
@@ -2297,9 +2435,10 @@ body {
 /* Two-Column Wrapper */
 .about-us-modal-wrapper {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Gives slightly more structural room to text */
-    gap: 0; /* Let the columns meet seamlessly */
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 0;
     min-height: 500px;
+    align-items: start;
 }
 
 /* Main Modal Content Box */
@@ -2327,7 +2466,9 @@ body {
 }
 
 .about-us-modal-text {
-    padding: 50px;
+    padding-top: 100px;
+    padding-right: 50px;
+    padding-bottom: 50px;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -2360,86 +2501,280 @@ body {
 }
 
 .about-us-modal-images {
-    padding: 40px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    align-items: right;
-    justify-content: right;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
     z-index: 2;
-    
-    /* Elegant blue split background just for the image block */
+
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    overflow: hidden;
+
     background: linear-gradient(135deg, rgba(0, 85, 164, 0.05) 0%, rgba(10, 29, 46, 0.08) 100%);
-    border-left: 1px solid rgba(0, 85, 164, 0.08); /* Clean interior line separator */
-    position: relative;
+    border-left: 1px solid rgba(0, 85, 164, 0.08);
 }
 
 .about-us-modal-img {
     width: 100%;
-    max-height: 100%;
+    height: calc(100vh - 60px);
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(10, 29, 46, 0.15); /* Soft lifting shadow */
-    border: 4px solid #ffffff; /* Clean white frame outline */
+    box-shadow: 0 15px 35px rgba(10, 29, 46, 0.15);
+    border: 4px solid #ffffff;
     transition: transform 0.3s ease;
-    display: flex;
 }
 
 .about-us-modal-img:hover {
     transform: scale(1.02); /* Delicate interactive hover effect */
 }
 
-/* Split Contact Page Layout */
+/* ==========================================================================
+          CRITICAL FIX: BRAND-IDENTITY SPLIT SCREEN COLORS
+   ========================================================================== */
+
+/* Main split screen container wrapper */
 .contact-split-container {
     display: flex;
-    min-height: calc(100vh + var(--nav-height)); 
     width: 100%;
-    flex-grow: 1;
+    min-height: calc(100vh - var(--nav-height, 80px));
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: #F4F6F9; /* Off-white fallback */
 }
 
+/* Individual split columns framework */
 .split-side {
     flex: 1;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     padding: 60px 40px;
-    transition: all 0.5s ease;
-    position: relative;
+    box-sizing: border-box;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     overflow: hidden;
+    z-index: 1;
 }
 
-.split-content {
-    max-width: 450px;
+/* Subtle underlying technical grid overlay */
+.split-side::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 32px 32px;
+    opacity: 0.4;
+    pointer-events: none;
     z-index: 2;
-    color: white;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
-    margin: 0 auto; 
+    transition: transform 0.6s ease;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT SIDE: JOIN THE TEAM 
+   -------------------------------------------------------------------------- */
+.split-side.join-team {
+    /* Using the exact crisp blue color sampled from your footer in image_bbb1c2.png */
+    background: #0073C2 ; 
+    background-image: linear-gradient(135deg, #0073C2 0%, #005594 100%) ;
+}
+
+.split-side.join-team::before {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.join-team .split-content {
+    background: rgba(255, 255, 255, 0.08) ;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+.join-team .split-icon {
+    color: #ffffff ;
+}
+
+.join-team h2 {
+    color: #ffffff ;
+}
+
+.join-team p {
+    color: rgba(255, 255, 255, 0.9) ;
+}
+
+.join-team .split-btn {
+    border: 1.5px solid #ffffff ;
+    background: transparent ;
+    color: #ffffff ;
+}
+
+/* Left Button Hover State */
+.join-team .split-btn:hover {
+    background-color: #ffffff ;
+    color: #0073C2 ;
+    transform: translateY(-2px);
+}
+
+
+/* --------------------------------------------------------------------------
+   RIGHT SIDE: PARTNER WITH US 
+   -------------------------------------------------------------------------- */
+.split-side.partner-us {
+    background: #EAEFF4 ; /* Elegant off-white / light slate gray canvas */
+    background-image: linear-gradient(135deg, #F4F6F9 0%, #E2E7EC 100%) ;
+}
+
+.split-side.partner-us::before {
+    background-image: linear-gradient(rgba(0, 115, 194, 0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 115, 194, 0.02) 1px, transparent 1px);
+}
+
+.partner-us .split-content {
+    background: rgba(255, 255, 255, 0.75) ;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 115, 194, 0.15);
+    box-shadow: 0 20px 45px rgba(10, 29, 46, 0.05);
+}
+
+.partner-us .split-icon {
+    color: #0073C2;
+}
+
+.partner-us h2 {
+    color: #0073C2;
+}
+
+.partner-us p {
+    color: #0073C2; 
+}
+
+.partner-us .split-btn {
+    border: 1.5px solid #0073C2 ;
+    background: transparent ;
+    color: #0073C2 ;
+}
+
+/* Right Button Hover State */
+.partner-us .split-btn:hover {
+    background-color: #0073C2 ;
+    color: #ffffff ;
+    transform: translateY(-2px);
+}
+
+
+/* --------------------------------------------------------------------------
+   SHARED MICRO-INTERACTIONS & STRUCTURAL LAYOUT
+   -------------------------------------------------------------------------- */
+.split-content {
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+    padding: 50px 40px;
+    border-radius: 24px;
+    z-index: 3;
+    transform: translateY(0);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .split-icon {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    opacity: 0.9;
+    font-size: 3.5rem ;
+    margin-bottom: 24px;
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .split-side h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
+    
 }
 
 .split-side p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin: 0 0 32px 0;
 }
 
-/* Side Specific Colors */
-.join-team {
-    background-color: var(--eurekare-blue); /* Deep Blue */
+.split-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 180px;
+    padding: 14px 36px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Desktop Hover Compression Effect */
+.split-side:hover {
+    flex: 1.25;
+}
+
+.split-side:hover::before {
+    transform: scale(1.1);
+}
+
+.split-side:hover .split-content {
+    transform: translateY(-8px);
+}
+
+.join-team:hover .split-content {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+.partner-us:hover .split-content {
+    border-color: rgba(0, 115, 194, 0.3);
+    box-shadow: 0 30px 60px rgba(10, 29, 46, 0.1);
+}
+
+.split-side:hover .split-icon {
+    transform: scale(1.12) rotate(-3deg);
+}
+
+/* Responsive Mobile Layout Stack */
+@media (max-width: 900px) {
+    .contact-split-container {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .split-side {
+        width: 100%;
+        min-height: 48vh;
+        padding: 50px 24px;
+    }
+    
+    .split-side:hover {
+        flex: 1; /* Turn off accordion scaling on tap screens */
+    }
+    
+    .split-content {
+        padding: 35px 24px;
+    }
+    
+    .split-side h2 {
+        font-size: 1.8rem;
+    }
 }
 
 /* ==========================================================================
@@ -2691,7 +3026,7 @@ body {
 .floating-pill {
     position: fixed;
     right: 30px;
-    top: -100px; /* Hidden above the screen initially */
+    top: -100px; 
     display: flex;
     align-items: center;
     gap: 10px;
@@ -2715,7 +3050,7 @@ body {
 
 .floating-pill:hover {
     transform: scale(1.05);
-    background-color: var(--eurekare-dark);
+    background-color: var(--eurekare-blue);
 }
 
 .pill-icon {
@@ -2815,7 +3150,7 @@ body {
 }
 
 /* ==========================================================================
-                            CONFIRMATION MODAL 
+                            CONFIRMATION MODAL
    ========================================================================== */
 
 /* 1. Fixed Screen Backdrop Overlay */
@@ -2825,136 +3160,201 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4); /* Darkened tinted backdrop split */
-    backdrop-filter: blur(4px);
+    background-color: rgba(10, 29, 46, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10000;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.3s ease;
 }
 
-/* Visibility Trigger via JavaScript */
 .contact-us-overlay.active {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* 2. Unified Modal Card Structure */
+/* 2. Confirmation Modal Card — clean white card, no colored header block */
 .contact-modal-card.confirmation-modal-card {
     background-color: #ffffff;
     width: 90%;
-    max-width: 440px;
-    border-radius: 18px; 
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    overflow: hidden; 
+    max-width: 420px;
+    border-radius: 20px;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.07),
+        0 20px 50px -8px rgba(10, 29, 46, 0.22);
+    overflow: hidden;
     text-align: center;
     box-sizing: border-box;
-    transform: scale(0.95);
-    transition: transform 0.25s ease-in-out;
+    transform: translateY(16px) scale(0.98);
+    transition: transform 0.35s cubic-bezier(0.34, 1.36, 0.64, 1), opacity 0.3s ease;
+    opacity: 0;
 }
 
 .contact-us-overlay.active .confirmation-modal-card {
-    transform: scale(1);
+    transform: translateY(0) scale(1);
+    opacity: 1;
 }
 
-/* 3. State Header Styling (Padding matching screenshots) */
-.contact-modal-header {
-    padding: 24px 20px;
-    color: #ffffff;
-    transition: background-color 0.2s ease;
-}
 
-/* Dynamic State Color fallbacks for your JS modifiers */
 #confirmationModalOverlay .contact-modal-header {
-    background-color: #0056b3; /* Processing State Blue */
+    padding: 0;
+    height: 5px;
+    background-color: var(--eurekare-blue); 
+    transition: background-color 0.3s ease;
+    overflow: hidden;
 }
 
-.contact-modal-title {
-    font-family: inherit;
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0 0 4px 0;
-    color: #ffffff;
+#confirmationModalOverlay .contact-modal-header .contact-modal-title,
+#confirmationModalOverlay .contact-modal-header .contact-modal-subtitle {
+    display: none;
 }
 
-.contact-modal-subtitle {
-    font-family: inherit;
-    font-size: 13.5px;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* 4. Body Content Layout (More whitespace for icon frames) */
 .confirmation-modal-body {
-    padding: 40px 30px;
+    padding: 44px 36px 28px;
     background-color: #ffffff;
-}
-
-/* Center Status Icons Grid */
-.confirmation-icon-box {
-    font-size: 64px; /* Matches your structural scale */
-    line-height: 1;
-    margin-bottom: 30px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-/* Color assignments matching your custom states */
+.confirmation-icon-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    background-color: rgba(0, 85, 164, 0.08);
+    transition: background-color 0.3s ease;
+}
+
+/* Icon size */
+.confirmation-icon-box i {
+    font-size: 36px;
+    line-height: 1;
+}
+
+/* Loading state — blue spinner */
 .confirmation-icon-box .loading-icon {
-    color: #0056b3; 
+    color: var(--eurekare-blue);
 }
 
+/* Success state — also blue per brief */
 .confirmation-icon-box .success-icon {
-    color: #00796b; /* Soft emerald green circle icon */
+    color: var(--eurekare-blue);
 }
 
+/* Error state — red */
 .confirmation-icon-box .error-icon {
-    color: #d32f2f; /* Dark warning crimson icon */
+    color: #c62828;
 }
 
-/* Text message block formatting */
+#confirmationModalOverlay .confirmation-icon-box:has(.error-icon) {
+    background-color: rgba(198, 40, 40, 0.08);
+}
+
+.confirmation-state-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--eurekare-blue);
+    margin: 0 0 8px 0;
+    transition: color 0.3s ease;
+}
+
+#confirmationModalOverlay .confirmation-modal-body .confirmation-title-text {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #0a1d2e;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.3px;
+}
+
+#confirmationModalOverlay .confirmation-modal-body .confirmation-subtitle-text {
+    font-size: 0.88rem;
+    color: #7a8fa6;
+    margin: 0 0 4px 0;
+    font-weight: 500;
+}
+
 .confirmation-text {
-    font-size: 15px;
+    font-size: 0.93rem;
     color: #4a5568;
-    line-height: 1.5;
+    line-height: 1.65;
     margin: 0;
     word-break: break-word;
+    max-width: 320px;
 }
 
-/* 5. Custom Understood Action Footer (Screenshot Variant) */
 .contact-us-actions.confirmation-actions {
-    padding: 20px 20px 24px 20px;
-    background-color: #f8f9fa; /* Tinted footer block from image */
-    border-top: 1px solid #f1f3f5;
+    padding: 20px 36px 28px;
+    background-color: #ffffff;
+    border-top: 1px solid #f0f4f8;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 12px;
 }
 
-/* The standalone pill submit toggle override */
 .contact-us-btn-submit.join-btn-submit {
-    background-color: #0056b3;
+    background-color: var(--eurekare-blue);
     color: #ffffff;
-    font-size: 14px;
+    font-size: 0.9rem;
     font-weight: 600;
-    padding: 10px 28px; /* Clean inline padding dimensions */
+    padding: 11px 32px;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
-    width: auto; /* Overrides full stretch behavior */
+    width: auto;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: background-color 0.2s ease;
+    box-shadow:
+        0 1px 3px rgba(0, 85, 164, 0.15),
+        0 4px 12px rgba(0, 85, 164, 0.25);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    letter-spacing: 0.2px;
 }
 
 .contact-us-btn-submit.join-btn-submit:hover {
-    background-color: #004085;
+    background-color: #003d7a;
+    box-shadow:
+        0 1px 3px rgba(0, 85, 164, 0.2),
+        0 6px 18px rgba(0, 85, 164, 0.35);
+    transform: translateY(-1px);
+}
+
+.contact-us-btn-submit.join-btn-submit:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 85, 164, 0.15);
+}
+
+/* Back / Try Again button in error state */
+#confirmationModalOverlay .contact-us-btn-back {
+    background: none;
+    border: 1.5px solid #e2e8f0;
+    color: #64748b;
+    padding: 11px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+#confirmationModalOverlay .contact-us-btn-back:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+    color: #334155;
 }
 
 /* ==========================================================================
@@ -2998,5 +3398,9 @@ body {
         background: transparent;
         border-left: none;
         border-top: 1px solid rgba(0, 85, 164, 0.08);
+        position: static;
+        width: 100%;
+        height: auto;
+        max-width: none;
     }
 }

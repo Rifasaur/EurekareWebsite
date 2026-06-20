@@ -62,9 +62,6 @@ function deselectAll() {
     // Reset Sidebar to default text
     document.getElementById('sideTitle').innerText = defaultTitle;
     document.getElementById('sideDesc').innerText = defaultDesc;
-    
-    // Optional: Collapse sidebar on deselect (uncomment if desired)
-    // document.getElementById('hubSidebar').classList.add('collapsed');
 }
 
 function showModal(data) {
@@ -92,27 +89,20 @@ const section = document.querySelector('.hub-section');
 
 if (section && container) {
     section.addEventListener('mousemove', (e) => {
-        // Get the dimensions of the section
         const rect = section.getBoundingClientRect();
-        
-        // Calculate mouse position relative to the center of the section (0 to 1)
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         
         const mouseX = e.clientX - centerX;
         const mouseY = e.clientY - centerY;
-
-        // Movement intensity (Increase for more movement, decrease for subtle)
         const damping = 20; 
         
         const translateX = mouseX / damping;
         const translateY = mouseY / damping;
 
-        // Apply the transformation
         container.style.transform = `translate(${translateX}px, ${translateY}px)`;
     });
 
-    // Reset position when mouse leaves the section
     section.addEventListener('mouseleave', () => {
         container.style.transform = `translate(0px, 0px)`;
     });
@@ -121,7 +111,7 @@ if (section && container) {
 // Contact Us
 function openContactUsModal() {
     document.getElementById('contactUsOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden'; // prevents background scroll
+    document.body.style.overflow = 'hidden'; 
 }
 
 function closeContactUsModal() {
@@ -132,13 +122,12 @@ function closeContactUsModal() {
 // About Us Modal Functions
 function openAboutUsModal() {
     const modal = document.getElementById('aboutUsModal');
-    const mainContent = document.querySelector('.fade-in-page'); // Select the background wrapper
+    const mainContent = document.querySelector('.fade-in-page');
     
     if (modal) {
-        modal.style.display = 'block'; // Make it exist
-        document.body.style.overflow = 'hidden'; // Lock scrolling
+        modal.style.display = 'block'; 
+        document.body.style.overflow = 'hidden'; 
         
-        // Add the blur class to the background content
         if (mainContent) {
             mainContent.classList.add('page-blur');
         }
@@ -155,9 +144,8 @@ function closeAboutUsModal() {
     
     if (modal) {
         modal.classList.remove('is-visible');
-        document.body.style.overflow = ''; // Instantly restore browser default scroll rules
+        document.body.style.overflow = ''; 
         
-        // Remove the blur class from the background content
         if (mainContent) {
             mainContent.classList.remove('page-blur');
         }
@@ -173,23 +161,47 @@ function openJoinModal() {
     const modal = document.getElementById('joinTeamOverlay');
     if (modal) {
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevents background body scrolling
+        document.body.style.overflow = 'hidden'; 
     }
 }
 
 function closeJoinModal() {
-    const modal = document.getElementById('joinTeamOverlay');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restores background window viewport scroll
+    const joinForm = document.getElementById('joinTeamForm');
+    if (joinForm) {
+        joinForm.reset();
+        const fileText = document.getElementById('fileUploadText');
+        const fileLabel = document.getElementById('fileUploadLabel');
+        if (fileText) {
+            fileText.innerHTML = 'Choose a file (PDF, DOCX) <span style="color: #718096; font-size: 0.85rem;">(Optional)</span>';
+        }
+        if (fileLabel) {
+            fileLabel.classList.remove('file-attached');
+        }
     }
+    const joinOverlay = document.getElementById('joinTeamOverlay');
+    if (joinOverlay) {
+        joinOverlay.classList.remove('active');
+    }
+    document.body.style.overflow = '';
+}
+
+function closeContactModal() {
+    const contactForm = document.getElementById('contactInquiryForm');
+    if (contactForm) {
+        contactForm.reset();
+    }
+    const contactOverlay = document.getElementById('contactUsOverlay');
+    if (contactOverlay) {
+        contactOverlay.classList.remove('active');
+    }
+    document.body.style.overflow = '';
 }
 
 /* ==========================================================================
                             INTRO CAROUSEL
    ========================================================================== */
 let heroCarouselTimer = null;
-const heroSlideDuration = 15000; // 15 seconds strict loop timing
+const heroSlideDuration = 15000; 
 
 function switchHeroSlide(targetIndex) {
     const slides = document.querySelectorAll('#introduction .hero-slide');
@@ -201,7 +213,6 @@ function switchHeroSlide(targetIndex) {
         slide.classList.remove('active');
         if (dots[idx]) dots[idx].classList.remove('active');
         
-        // Stop and reset other videos
         const video = slide.querySelector('.hero-video');
         if (video) {
             video.pause();
@@ -209,11 +220,9 @@ function switchHeroSlide(targetIndex) {
         }
     });
 
-    // Activate target slide and indicator dot
     slides[targetIndex].classList.add('active');
     if (dots[targetIndex]) dots[targetIndex].classList.add('active');
 
-    // Play the video in the now-active slide
     const activeVideo = slides[targetIndex].querySelector('.hero-video');
     if (activeVideo) {
         activeVideo.play().catch(err => {
@@ -221,7 +230,6 @@ function switchHeroSlide(targetIndex) {
         });
     }
 
-    // Reset the interval timer upon slide transition (manually or automatically triggered)
     startHeroCarouselTimer();
 }
 
@@ -236,7 +244,6 @@ function nextHeroSlide() {
         }
     });
 
-    // Loop cleanly back to 0 if at the end of the collection
     let nextIndex = (currentActiveIndex + 1) % slides.length;
     switchHeroSlide(nextIndex);
 }
@@ -247,34 +254,29 @@ function startHeroCarouselTimer() {
     }
     heroCarouselTimer = setInterval(nextHeroSlide, heroSlideDuration);
 }
+
 /* ==========================================================================
                            RESPONSIVE WINDOW CONTROLLER
    ========================================================================== */
-
 let resizeTimeout;
 window.addEventListener('resize', () => {
-    // Debounce the window resize updates to ensure efficient browser execution
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
         const width = window.innerWidth;
         
-        // Handle dropdown menus and layout states safely during transitions
         if (typeof setDropdownOpen === 'function') {
             const dropdown = document.querySelector('.nav-dropdown');
             if (dropdown) setDropdownOpen(dropdown, false);
         }
         
-        // Dynamically shift hub components to clear UI states across width boundaries
         const sidebar = document.getElementById('hubSidebar');
         if (sidebar) {
             if (width < 768) {
                 sidebar.classList.add('collapsed');
             } else {
-                // Restore defaults if shifting back to wide layout displays
                 if (typeof closeModal === 'function') closeModal();
             }
         }
-        
         console.log(`Viewport adjusted: ${width}px. Layout parameters synchronized.`);
     }, 150);
 });
@@ -293,38 +295,27 @@ const serviceObserver = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.querySelectorAll('.service-row').forEach(row => {
-    // Set initial hidden state
     row.style.opacity = "0";
     row.style.transform = "translateY(50px)";
     row.style.transition = "all 0.8s ease-out";
-    
-    // Create a visibility class
     serviceObserver.observe(row);
 });
 
-// Update the visibility logic
 document.styleSheets[0].insertRule('.service-row.visible { opacity: 1 !important; transform: translateY(0) !important; }', 0);
 
 /* ==========================================================================
                 INITIALIZATION & FLOATING CONTACT PILL
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Intro Carousel 15s Timer Loop
     const initialVideo = document.querySelector('.hero-slide.active .hero-video');
     if (initialVideo) {
         initialVideo.play().catch(err => console.log("Autoplay context notice:", err));
     }
-    
-    // Spin up the interval loops independent of playback state tracking
     startHeroCarouselTimer();
 
-    // 2. Initialize Floating Contact Pill Observer
     const pill = document.getElementById('floatingContactPill');
     const servicesSection = document.querySelector('.services-section');
-
-    const pillObserverOptions = {
-        threshold: 0.1 
-    };
+    const pillObserverOptions = { threshold: 0.1 };
 
     const pillObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -349,122 +340,77 @@ function openServicesModal(serviceType) {
     const titleEl = document.getElementById('servicesModalTitle');
     const descEl = document.getElementById('servicesModalDescription');
     const imgEl = document.getElementById('servicesModalImage');
-    const mainContent = document.querySelector('.fade-in-page'); // Select the background wrapper
-     if (modal) {
-        modal.style.display = 'block'; // Ensure modal is active
-        document.body.style.overflow = 'hidden'; // Lock background scrolling
-        
-        // Add the blur effect to the background layout
-        if (mainContent) {
-            mainContent.classList.add('page-blur');
-        }
+    const mainContent = document.querySelector('.fade-in-page');
 
-        setTimeout(() => {
-            modal.classList.add('is-visible');
-        }, 10);
+    if (modal) {
+        modal.style.display = 'block'; 
+        document.body.style.overflow = 'hidden'; 
+        if (mainContent) mainContent.classList.add('page-blur');
+        setTimeout(() => modal.classList.add('is-visible'), 10);
     }    
 
     const serviceData = {
         'e-konsulta': {
             title: "E-Konsulta Integration",
             img: "./images/About.jpg",
-            desc: `
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-            `
+            desc: `<p>Lorem ipsum dolor sit amet...</p>`
         },
         'e-claims': {
             title: "E-Claims System",
             img: "./images/Diagram-Temporary-Placeholde.png",
-            desc: `
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-            `
+            desc: `<p>Lorem ipsum dolor sit amet...</p>`
         },
         'mobile': {
             title: "Mobile Accessibility",
             img: "./images/Mobile.jpg",
-            desc: `
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
-            `
-        },
-
+            desc: `<p>Lorem ipsum dolor sit amet...</p>`
+        }
     };
 
     const targetData = serviceData[serviceType] || serviceData['e-konsulta'];
-
     if (titleEl && imgEl && descEl) {
         titleEl.innerText = targetData.title;
         imgEl.src = targetData.img;
         descEl.innerHTML = targetData.desc;
-    }
-
-    if (modal) {
-        modal.style.display = 'block'; 
-        document.body.style.overflow = 'hidden'; // Lock background scrolling
-        setTimeout(() => {
-            modal.classList.add('is-visible');
-        }, 10);
     }
 }
 
 function closeServicesModal() {
     const modal = document.getElementById('servicesModal');
     const mainContent = document.querySelector('.fade-in-page');
-
     if (modal) {
         modal.classList.remove('is-visible');
-        document.body.style.overflow = ''; // Restore standard browser scroll behaviors
-        
-        // Remove the blur effect from the background layout
-        if (mainContent) {
-            mainContent.classList.remove('page-blur');
-        }
-
-        setTimeout(() => {
-            modal.style.display = 'none';
-        }, 500); // Wait for stylesheet transition durations to finish safely
+        document.body.style.overflow = ''; 
+        if (mainContent) mainContent.classList.remove('page-blur');
+        setTimeout(() => { modal.style.display = 'none'; }, 500); 
     }
 }
 
-/* Reveal Animation for About Us Section (Triggers every time it's viewed) */
+/* Reveal Animation for About Us Section */
 document.addEventListener("DOMContentLoaded", function () {
     const aboutSection = document.querySelector("#about-us-section");
     const aboutImage = document.querySelector(".about-us-bg");
-
-    const options = {
-        root: null, 
-        threshold: 0.15 // Triggers when 15% of the section enters/leaves the viewport
-    };
+    const options = { threshold: 0.15 };
 
     const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // User scrolled IN: Add class to animate the image into view
                 aboutImage.classList.add("animate");
             } else {
-                // User scrolled OUT: Remove class to reset the image state
                 aboutImage.classList.remove("animate");
             }
         });
     }, options);
 
-    if (aboutSection && aboutImage) {
-        observer.observe(aboutSection);
-    }
+    if (aboutSection && aboutImage) observer.observe(aboutSection);
 });
+
 /* ==========================================================================
                            NAV DROPDOWN (Our Services)
    ========================================================================== */
-
 function setDropdownOpen(dropdownEl, isOpen) {
     if (!dropdownEl) return;
     dropdownEl.classList.toggle('open', isOpen);
-
     const toggleBtn = dropdownEl.querySelector('.nav-dropdown-toggle');
     if (toggleBtn) toggleBtn.setAttribute('aria-expanded', String(isOpen));
 }
@@ -477,27 +423,20 @@ function initNavDropdown() {
     const menu = dropdown.querySelector('.nav-dropdown-menu');
     if (!toggleBtn || !menu) return;
 
-    // Prevent double-binding on re-init
     if (dropdown.dataset.dropdownBound === 'true') return;
     dropdown.dataset.dropdownBound = 'true';
 
-    // Click to toggle (works on desktop + mobile)
     toggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         const isOpen = dropdown.classList.contains('open');
         setDropdownOpen(dropdown, !isOpen);
     });
 
-    // Prevent outside-click handler from immediately closing on toggle click
-    toggleBtn.addEventListener('mousedown', (e) => {
-        e.stopPropagation();
-    });
+    toggleBtn.addEventListener('mousedown', (e) => e.stopPropagation());
 
-    // Handle dropdown item click => open modal (and close menu)
     menu.addEventListener('click', (e) => {
         const link = e.target.closest('a[data-services-modal]');
         if (!link) return;
-
         const serviceType = link.getAttribute('data-services-modal');
         if (serviceType && typeof openServicesModal === 'function') {
             e.preventDefault();
@@ -506,65 +445,79 @@ function initNavDropdown() {
         }
     });
 
-    // Close when clicking outside
     document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) {
-            setDropdownOpen(dropdown, false);
-        }
-    });
-
-    // Close when resizing to desktop/mobile thresholds
-    window.addEventListener('resize', () => {
-        setDropdownOpen(dropdown, false);
+        if (!dropdown.contains(e.target)) setDropdownOpen(dropdown, false);
     });
 }
 
-// Nav is injected into #header via fetch in each page, so we must init after injection.
-// `DOMContentLoaded` is not enough.
 document.addEventListener('DOMContentLoaded', () => {
-    // Try init right away
     initNavDropdown();
-
-    // Also try again shortly (covers cases where nav injection finishes after DOMContentLoaded)
     setTimeout(initNavDropdown, 50);
     setTimeout(initNavDropdown, 250);
-    setTimeout(initNavDropdown, 1000);
 });
 
 /* ==========================================================================
-              TRANSFERRED FROM CONTACT.HTML (CONFIRMATION & LIVE UPLOAD)
+                  CONFIRMATION MODAL ACTIONS & INTERACTION
    ========================================================================== */
-
-// ==========================================================================
-//                  CONFIRMATION MODAL ACTIONS & INTERACTION
-// ==========================================================================
 function showConfirmationLoading() {
     const overlay = document.getElementById('confirmationModalOverlay');
     document.getElementById('confirmationHeader').style.backgroundColor = 'var(--eurekare-blue)';
-    document.getElementById('confirmationTitle').innerText = "Processing...";
-    document.getElementById('confirmationSubtitle').innerText = "Please wait while we submit your request.";
-    document.getElementById('confirmationIconContainer').innerHTML = '<i class="fa-solid fa-circle-notch fa-spin loading-icon"></i>';
-    document.getElementById('confirmationMessage').innerText = "We are validating your files and routing your message via secure SMTP servers.";
+
+    const iconBox = document.getElementById('confirmationIconContainer');
+    iconBox.style.backgroundColor = 'rgba(0, 85, 164, 0.08)';
+    iconBox.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin loading-icon"></i>';
+
+    document.getElementById('confirmationStateLabel').innerText = 'Processing';
+    document.getElementById('confirmationStateLabel').style.color = 'var(--eurekare-blue)';
+    document.getElementById('confirmationTitleBody').innerText = 'Sending your request\u2026';
+    document.getElementById('confirmationSubtitleBody').innerText = 'Please wait while we submit your request.';
+    document.getElementById('confirmationMessage').innerText = 'We are validating your files and routing your message via secure SMTP servers.';
     document.getElementById('confirmationActions').style.display = 'none';
+
+    document.body.style.overflow = 'hidden';
     overlay.classList.add('active');
 }
 
 function showConfirmationSuccess(message) {
-    document.getElementById('confirmationHeader').style.backgroundColor = '#00796b';
-    document.getElementById('confirmationTitle').innerText = "Submission Sent!";
-    document.getElementById('confirmationSubtitle').innerText = "Everything went through perfectly.";
-    document.getElementById('confirmationIconContainer').innerHTML = '<i class="fa-solid fa-circle-check success-icon"></i>';
-    document.getElementById('confirmationMessage').innerText = message || "Your details have been registered into our queue system successfully.";
-    document.getElementById('confirmationActions').style.display = 'flex';
+    document.getElementById('confirmationHeader').style.backgroundColor = 'var(--eurekare-blue)';
+    const iconBox = document.getElementById('confirmationIconContainer');
+    iconBox.style.backgroundColor = 'rgba(0, 85, 164, 0.08)';
+    iconBox.innerHTML = '<i class="fa-solid fa-circle-check success-icon"></i>';
+
+    document.getElementById('confirmationStateLabel').innerText = 'Success';
+    document.getElementById('confirmationStateLabel').style.color = 'var(--eurekare-blue)';
+    document.getElementById('confirmationTitleBody').innerText = 'Submission Sent!';
+    document.getElementById('confirmationSubtitleBody').innerText = 'Everything went through perfectly.';
+    document.getElementById('confirmationMessage').innerText = message || 'Your details have been registered into our queue system successfully.';
+
+    const actionsEl = document.getElementById('confirmationActions');
+    actionsEl.innerHTML = `
+        <button type="button" class="contact-us-btn-submit join-btn-submit" onclick="closeConfirmationModal()">
+            Understood <i class="fa-solid fa-check"></i>
+        </button>
+    `;
+    actionsEl.style.display = 'flex';
 }
 
 function showConfirmationError(message) {
-    document.getElementById('confirmationHeader').style.backgroundColor = '#d32f2f';
-    document.getElementById('confirmationTitle').innerText = "Submission Failed";
-    document.getElementById('confirmationSubtitle').innerText = "An error occurred while dispatching data.";
-    document.getElementById('confirmationIconContainer').innerHTML = '<i class="fa-solid fa-circle-xmark error-icon"></i>';
-    document.getElementById('confirmationMessage').innerText = message || "Please check your network parameters and try running the form sequence again.";
-    document.getElementById('confirmationActions').style.display = 'flex';
+    document.getElementById('confirmationHeader').style.backgroundColor = '#c62828';
+    const iconBox = document.getElementById('confirmationIconContainer');
+    iconBox.style.backgroundColor = 'rgba(198, 40, 40, 0.08)';
+    iconBox.innerHTML = '<i class="fa-solid fa-circle-xmark error-icon"></i>';
+
+    document.getElementById('confirmationStateLabel').innerText = 'Error';
+    document.getElementById('confirmationStateLabel').style.color = '#c62828';
+    document.getElementById('confirmationTitleBody').innerText = 'Submission Failed';
+    document.getElementById('confirmationSubtitleBody').innerText = 'An error occurred while dispatching data.';
+    document.getElementById('confirmationMessage').innerText = message || 'Please check your network connection and try submitting the form again.';
+
+    const actionsEl = document.getElementById('confirmationActions');
+    actionsEl.innerHTML = `
+        <button type="button" class="contact-us-btn-back" onclick="closeConfirmationModal()">
+            <i class="fa-solid fa-chevron-left"></i> Try Again
+        </button>
+    `;
+    actionsEl.style.display = 'flex';
 }
 
 function closeConfirmationModal() {
@@ -572,30 +525,23 @@ function closeConfirmationModal() {
     document.body.style.overflow = ''; 
 }
 
-// Intercept form pipelines after safe DOM assembly
+// Intercept form submissions securely
 document.addEventListener('submit', function(e) {
-    // 1. Trap Inquiry Form submissions
     if (e.target && e.target.id === 'contactInquiryForm') {
         e.preventDefault();
-        
         let formData = new FormData(e.target);
         formData.append('form_type', 'inquiry'); 
-        
         executeFormAsyncSubmit(formData, e.target, 'contactUsOverlay');
     }
     
-    // 2. Trap Career Application Form submissions
     if (e.target && e.target.id === 'joinTeamForm') {
         e.preventDefault();
-        
         let formData = new FormData(e.target);
-        formData.append('form_type', 'application'); 
-        
+        formData.append('form_type', 'career'); // Matches 'career' flag expected by send-email.php
         executeFormAsyncSubmit(formData, e.target, 'joinTeamOverlay');
     }
 });
 
-// Unified implementation pipeline for routing dynamic updates
 function executeFormAsyncSubmit(formData, originalFormElement, originalModalId) {
     showConfirmationLoading();
     
@@ -604,9 +550,7 @@ function executeFormAsyncSubmit(formData, originalFormElement, originalModalId) 
         body: formData
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Server network connection drop fault detected.');
-        }
+        if (!response.ok) throw new Error('Server network connection drop fault detected.');
         return response.json();
     })
     .then(data => {
@@ -614,15 +558,10 @@ function executeFormAsyncSubmit(formData, originalFormElement, originalModalId) 
             showConfirmationSuccess(data.message);
             originalFormElement.reset(); 
             
-            // Reset custom file upload tracking text elements on submission success
             const fileText = document.getElementById('fileUploadText');
             const fileLabel = document.getElementById('fileUploadLabel');
-            if (fileText) {
-                fileText.innerHTML = 'Choose a file (PDF, DOCX) <span style="color: #718096; font-size: 0.85rem;">(Optional)</span>';
-            }
-            if (fileLabel) {
-                fileLabel.classList.remove('file-attached');
-            }
+            if (fileText) fileText.innerHTML = 'Choose a file (PDF, DOCX) <span style="color: #718096; font-size: 0.85rem;">(Optional)</span>';
+            if (fileLabel) fileLabel.classList.remove('file-attached');
             
             const baseModalOverlay = document.getElementById(originalModalId);
             if (baseModalOverlay) baseModalOverlay.classList.remove('active');
@@ -635,50 +574,9 @@ function executeFormAsyncSubmit(formData, originalFormElement, originalModalId) 
     });
 }
 
-// ==========================================================================
-//               MODAL CLOSE ACTIONS AND FORM RESET LOGIC
-// ==========================================================================
-function closeJoinModal() {
-    const joinForm = document.getElementById('joinTeamForm');
-    
-    if (joinForm) {
-        // 1. Flush all standard text fields, emails, phone numbers, and file selections
-        joinForm.reset();
-        
-        // 2. Revert the custom file upload text and remove the green success styling
-        const fileText = document.getElementById('fileUploadText');
-        const fileLabel = document.getElementById('fileUploadLabel');
-        
-        if (fileText) {
-            fileText.innerHTML = 'Choose a file (PDF, DOCX) <span style="color: #718096; font-size: 0.85rem;">(Optional)</span>';
-        }
-        if (fileLabel) {
-            fileLabel.classList.remove('file-attached');
-        }
-    }
-    
-    // 3. Hide the join modal overlay
-    const joinOverlay = document.getElementById('joinTeamOverlay');
-    if (joinOverlay) {
-        joinOverlay.classList.remove('active');
-    }
-}
-
-function closeContactModal() {
-    const contactForm = document.getElementById('contactInquiryForm');
-    if (contactForm) {
-        contactForm.reset();
-    }
-    
-    const contactOverlay = document.getElementById('contactUsOverlay');
-    if (contactOverlay) {
-        contactOverlay.classList.remove('active');
-    }
-}
-
-// ==========================================================================
-//                  LIVE FILE UPLOAD ATTACHMENT INDICATOR 
-// ==========================================================================
+/* ==========================================================================
+                  LIVE FILE UPLOAD ATTACHMENT INDICATOR 
+   ========================================================================== */
 document.addEventListener('change', function(e) {
     if (e.target && e.target.id === 'joinResumeInput') {
         const fileInput = e.target;
@@ -687,7 +585,6 @@ document.addEventListener('change', function(e) {
         
         if (fileInput.files && fileInput.files.length > 0) {
             const fileName = fileInput.files[0].name;
-            // Clean text layout without added browser anomalies/icons
             fileText.innerHTML = `Selected: <strong style="color: #0055a4; font-weight: 600;">${fileName}</strong>`;
             fileLabel.classList.add('file-attached');
         } else {
@@ -700,12 +597,10 @@ document.addEventListener('change', function(e) {
 /* ==========================================================================
                     INTERACTIVE ECARD MODAL CONTROLLER 
    ========================================================================== */
-
 function openEcardModal() {
     const modal = document.getElementById('ecardModal');
     if (modal) {
         modal.classList.add('open');
-        // Prevent body backdrop scrolling behind the display modal window
         document.body.style.overflow = 'hidden';
     }
 }
@@ -716,40 +611,26 @@ function closeEcardModal(event) {
     if (modal) {
         modal.classList.remove('open');
         document.body.style.overflow = '';
-        
-        // Reset the flip status back to the front side after closing with a small delay
         if (cardInner) {
-            setTimeout(() => {
-                cardInner.classList.remove('flipped');
-            }, 400);
+            setTimeout(() => { cardInner.classList.remove('flipped'); }, 400);
         }
     }
 }
 
 function toggleModalCardFlip() {
     const cardInner = document.getElementById('modalCardInner');
-    if (cardInner) {
-        cardInner.classList.toggle('flipped');
-    }
+    if (cardInner) cardInner.classList.toggle('flipped');
 }
 
-// Ensure the ESC key cancels or clears open modals 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeEcardModal();
-    }
+    if (e.key === 'Escape') closeEcardModal();
 });
 
 /* ==========================================================================
                     YAKAP SIDEBAR WIDGET INTERACTION CONTROLLER
    ========================================================================== */
-
 function toggleYakapWidget(event) {
-    // Stop event bubbling so it doesn't conflict with parent structural event layers
     event.stopPropagation();
-    
     const widget = document.getElementById('yakapSidebarWidget');
-    if (widget) {
-        widget.classList.toggle('widget-hidden');
-    }
+    if (widget) widget.classList.toggle('widget-hidden');
 }
