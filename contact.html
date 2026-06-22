@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurekare Corporation - Contact</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .fade-in-container {
+            animation: fadeInPage 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInPage {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Back Button Styling */
+        .back-to-home-btn {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            z-index: 1010;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #0055a4;
+            padding: 10px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home-btn:hover {
+            background-color: #0055a4;
+            color: #ffffff;
+            transform: translateX(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            border: 1px solid #ffffff;
+        }
+
+        .contact-split-container {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-to-home-btn">
+        <i class="fa-solid fa-chevron-left"></i> Back to Home
+    </a>
+
+    <div class="contact-us-overlay" id="contactUsOverlay"></div>
+    <div class="contact-us-overlay" id="joinTeamOverlay"></div>
+
+    <main class="contact-split-container fade-in-container">
+        <section class="split-side join-team">
+            <div class="split-content">
+                <i class="fa-solid fa-users-gear split-icon"></i>
+                <h2>Join the Team</h2>
+                <p>Build your career with Eurekare. We are looking for passionate individuals to join our growing IT and healthcare support teams.</p>
+                <button class="split-btn" onclick="openJoinModal()">View Openings</button>
+            </div>
+        </section>
+
+        <section class="split-side partner-us">
+            <div class="split-content">
+                <i class="fa-solid fa-handshake split-icon"></i>
+                <h2>Partner with Us</h2>
+                <p>Collaborate with us to provide innovative healthcare solutions. Let's work together to simplify healthcare delivery.</p>
+                <button class="split-btn" onclick="openContactUsModal()">Inquire Now</button>
+            </div>
+        </section>
+    </main>
+
+<footer class="main-footer-wrapper">
+    
+    <div class="footer-cta-wrapper">
+        <a href="mailto:info@eurekarecorp.com?subject=Inquiry%20to%20Eurekare%20Corporation" class="footer-cta" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-envelope"></i> GOT QUESTIONS? CONTACT US
+        </a>
+    </div>
+
+    <div class="footer-grid-container">
+        
+        <div class="footer-grid-col brand-summary-col">
+            <div class="footer-brand-identity">
+                <img src="./images/Logo-White-Transparent.png" class="footer-brand-logo" alt="Eurekare Logo">
+                <span class="footer-brand-tagline">WEB BASED DOCUMENTATION AND REPORTING</span>
+            </div>
+            <p class="brand-description">
+                Eurekare Corp. is a healthcare solution provider that offers innovative and simplified solutions for healthcare providers such as hospitals, clinics, and small town healthcare centers. Committed to delivering on time with a smile.
+            </p>
+        </div>
+
+        <div class="footer-grid-col links-navigation-col">
+            <h4 class="footer-col-title">Information</h4>
+            <ul class="footer-links-list">
+                <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>   
+                <li><a href="data-privacy.html"><i class="fa-solid fa-chevron-right"></i> Data Privacy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-grid-col contact-details-col">
+            <h4 class="footer-col-title">Get In Touch</h4>
+            <ul class="footer-contact-list">
+                <li>
+                    <i class="fa-solid fa-location-dot contact-icon-accent"></i>
+                    <span>Unit 2716 AIC Burgundy Empire Tower, ADB Ave., Ortigas Center, Pasig City. Metro Manila, Philippines</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-envelope contact-icon-accent"></i>
+                    <span>info@eurekarecorp.com</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-grid-col map-preview-col">
+            <h4 class="footer-col-title">Our Location</h4>
+            <a href="https://maps.google.com/?q=AIC+Burgundy+Empire+Tower+Ortigas" target="_blank" rel="noopener noreferrer" class="premium-map-link">
+                <div class="premium-map-viewport">
+                    <iframe 
+                        class="premium-map-frame"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.3323497677465!2d121.05929657593685!3d14.597241877484407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c83f55555555%3A0x2b89b4e3f89bf94b!2sAIC%20Burgundy%20Empire%20Tower!5e0!3m2!1sen!2sph!4v1710000000000" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; pointer-events: none;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="premium-map-overlay-prompt">
+                        <span><i class="fa-solid fa-map-location-dot"></i> Open Directions</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer-legal-bar">
+        <p>Copyright &copy; 2026 Eurekare Corporation. All Rights Reserved.</p>
+    </div>
+
+</footer>
+
+    <!------------------------------------
+                Confirmation Modal
+    ---------------------------------------->
+    <div class="contact-us-overlay" id="confirmationModalOverlay">
+        <div class="contact-modal-card confirmation-modal-card">
+
+            <!-- Accent stripe only — JS sets background-color, text is hidden via CSS -->
+            <div class="contact-modal-header" id="confirmationHeader">
+                <h2 class="contact-modal-title" id="confirmationTitle" style="display:none;"></h2>
+                <p class="contact-modal-subtitle" id="confirmationSubtitle" style="display:none;"></p>
+            </div>
+
+            <div class="contact-modal-body confirmation-modal-body">
+
+                <!-- Glowing icon circle -->
+                <div id="confirmationIconContainer" class="confirmation-icon-box">
+                    <i class="fa-solid fa-circle-notch fa-spin loading-icon"></i>
+                </div>
+
+                <!-- State label (PROCESSING / SUCCESS / ERROR) -->
+                <p id="confirmationStateLabel" class="confirmation-state-label">Processing</p>
+
+                <!-- Main title rendered in body -->
+                <h2 id="confirmationTitleBody" class="confirmation-title-text">Sending your request…</h2>
+
+                <!-- Supporting subtitle -->
+                <p id="confirmationSubtitleBody" class="confirmation-subtitle-text">Please wait while we submit your request.</p>
+
+                <!-- Detail message -->
+                <p id="confirmationMessage" class="confirmation-text">
+                    We are validating your files and routing your message via secure SMTP servers.
+                </p>
+
+            </div>
+
+            <div class="contact-us-actions confirmation-actions" id="confirmationActions" style="display: none;">
+                <button type="button" class="contact-us-btn-submit join-btn-submit" onclick="closeConfirmationModal()">
+                    Understood <i class="fa-solid fa-check"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!--
+        FIX: Load reactive.js first as the single source of truth for ALL modal logic,
+        form submission handling, and confirmation modal functions. The duplicate inline
+        script block that previously redefined these functions has been removed entirely.
+    -->
+    <script src="reactive.js"></script>
+    <script>
+        // Modal asset rendering — load fragment HTML files into their overlay containers.
+        // FIX: Added .catch() handlers so a fetch failure shows an error inside the
+        //      overlay instead of silently leaving it empty and broken.
+        fetch('contact-modal.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Could not load inquiry form.');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('contactUsOverlay').innerHTML = data;
+            })
+            .catch(err => {
+                document.getElementById('contactUsOverlay').innerHTML =
+                    '<div class="contact-modal-card" style="padding:40px;text-align:center;">' +
+                    '<p style="color:#d32f2f;font-weight:600;"><i class="fa-solid fa-triangle-exclamation"></i> ' +
+                    'Failed to load the inquiry form. Please refresh the page and try again.</p>' +
+                    '<button onclick="closeContactUsModal()" class="contact-us-btn-back" style="margin-top:20px;">' +
+                    '<i class="fa-solid fa-chevron-left"></i> Close</button></div>';
+                console.error('contact-modal.html fetch error:', err);
+            });
+
+        fetch('join-modal.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Could not load application form.');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('joinTeamOverlay').innerHTML = data;
+            })
+            .catch(err => {
+                document.getElementById('joinTeamOverlay').innerHTML =
+                    '<div class="contact-modal-card" style="padding:40px;text-align:center;">' +
+                    '<p style="color:#d32f2f;font-weight:600;"><i class="fa-solid fa-triangle-exclamation"></i> ' +
+                    'Failed to load the application form. Please refresh the page and try again.</p>' +
+                    '<button onclick="closeJoinModal()" class="contact-us-btn-back" style="margin-top:20px;">' +
+                    '<i class="fa-solid fa-chevron-left"></i> Close</button></div>';
+                console.error('join-modal.html fetch error:', err);
+            });
+    </script>
+
+</body>
+</html>

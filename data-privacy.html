@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurekare Corporation Website - Data Privacy</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header id="header">
+        <nav class="main-nav">
+            <div class="container-header">
+                <div class="logo">
+                    <div class="logo-placeholder">
+                        <a href="./index.html"><img src="./images/Eurekare_logo_V1.gif" class="img-logo"></a>
+                    </div>
+                </div>
+
+                <button class="nav-toggle" aria-label="Open navigation" type="button">
+                    ☰
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#about-us-section">About Us</a></li>
+                    <li><a href="index.html#ecare-central-hub">Our Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="fade-in-container">
+
+        <section class="data-privacy-hero">
+            <div class="data-privacy-hero-overlay"></div>
+            <div class="data-privacy-hero-image">
+                <img src="images/AIC Burgundy Tower.jpg" alt="Data Privacy Banner">
+            </div>
+            <div class="data-privacy-hero-breadcrumb">
+                <span class="data-privacy-breadcrumb-trail"><a href="index.html">Home</a> » Data Privacy</span>
+            </div>
+        </section>
+
+        <div class="contact-us-overlay" id="contactUsOverlay">
+            <div class="contact-us-modal">
+                <div class="contact-us-fieldset">
+                    <legend class="contact-us-legend">Forms</legend>
+
+                    <div class="contact-us-row">
+                        <div class="contact-us-field">
+                            <label class="contact-us-label">Name of the Facility</label>
+                            <input type="text" class="contact-us-input" placeholder="Enter facility name">
+                        </div>
+                        <div class="contact-us-field">
+                            <label class="contact-us-label">Estimated # of Patient</label>
+                            <input type="text" class="contact-us-input" placeholder="e.g. 100">
+                        </div>
+                        <div class="contact-us-field">
+                            <label class="contact-us-label">Representative:</label>
+                            <input type="text" class="contact-us-input" placeholder="Full name">
+                        </div>
+                        <div class="contact-us-checkbox-group">
+                            <label class="contact-us-checkbox-label">
+                                <input type="checkbox" class="contact-us-checkbox"> Private
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="contact-us-row">
+                        <div class="contact-us-field">
+                            <label class="contact-us-label">PAN (optional)</label>
+                            <input type="text" class="contact-us-input" placeholder="PAN number">
+                        </div>
+                        <div class="contact-us-field">
+                            <label class="contact-us-label">Address:</label>
+                            <input type="text" class="contact-us-input" placeholder="Enter address">
+                        </div>
+                        <div class="contact-us-field">
+                            <label class="contact-us-label">Contact #:</label>
+                            <input type="text" class="contact-us-input" placeholder="e.g. 09171234567">
+                        </div>
+                        <div class="contact-us-checkbox-group">
+                            <label class="contact-us-checkbox-label">
+                                <input type="checkbox" class="contact-us-checkbox"> Public
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="contact-us-textarea-group">
+                        <label class="contact-us-textarea-label">What are the requirements you are looking for an EMR?</label>
+                        <textarea class="contact-us-textarea" placeholder="Describe your requirements here..."></textarea>
+                    </div>
+
+                    <div class="contact-us-actions">
+                        <button class="contact-us-btn-back" onclick="closeContactUsModal()">❮ Back</button>
+                        <button class="contact-us-btn-submit">❮ Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <main class="data-privacy-content">
+            <div class="container" style="max-width: 960px; padding: 0px 20px;">
+
+                <h1 class="data-privacy-main-title" style="margin-bottom: 40px;">
+                    <span class="data-privacy-title-highlight">Eurekare Corporation</span> 
+                    <span class="data-privacy-title-dark">Data Privacy Policy</span>
+                </h1>
+
+                <div class="data-privacy-section" style="margin-bottom: 40px;">
+                    <h2>Data Privacy Statement</h2>
+                    <p style="color: #4a5568; line-height: 1.8; font-size: 1.05rem;">
+                        The eCARE EMR and PhilHealth YAKAP Registration System, developed by Eurekare Corp., is committed to protecting the privacy, confidentiality, 
+                        and security of all personal and health information collected, processed, and stored through its platform. This commitment aligns with the Data 
+                        Privacy Act of 2012 (Republic Act No. 10173), the PhilHealth Data Sharing Guidelines, and applicable Department of Health (DOH) administrative orders.
+                    </p>
+                </div>
+
+                <div class="data-privacy-section" style="margin-bottom: 40px;">
+                    <h2>Scope of Data Collection</h2>
+                    <p style="color: #4a5568; line-height: 1.8; font-size: 1.05rem;">
+                        The system collects and processes the following categories of information solely for legitimate healthcare and governance purposes:
+                    </p>
+                    <ul class="privacy-list-grid">
+                        <li class="privacy-card-item">
+                            <strong>Personal Identification Data</strong>
+                            Name, date of birth, address, contact details, and demographic information.
+                        </li>
+                        <li class="privacy-card-item">
+                            <strong>Health Information</strong>
+                            Medical history, diagnoses, laboratory results, prescriptions, and treatment records.
+                        </li>
+                        <li class="privacy-card-item">
+                            <strong>Registration Data</strong>
+                            YAKAP enrollment details, PhilHealth membership information, and eCARE ID issuance records.
+                        </li>
+                        <li class="privacy-card-item">
+                            <strong>System Access Logs</strong>
+                            User credentials, timestamps, and audit trails for authorized access monitoring.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="data-privacy-section" style="margin-bottom: 40px;">
+                    <h2>Purpose of Data Processing</h2>
+                    <p style="color: #4a5568; line-height: 1.8; font-size: 1.05rem;">
+                        All data collected are used to fulfill specific strategic operations and administrative workflows:
+                    </p>
+                    <ul class="privacy-standard-list">
+                        <li>Facilitate citizen registration and health service access under the YAKAP Program.</li>
+                        <li>Enable PhilHealth eClaims and eKonsulta transactions.</li>
+                        <li>Support LGU health governance and SDG Goal 3 monitoring.</li>
+                        <li>Ensure continuity of care across accredited facilities.</li>
+                        <li>Maintain audit-ready documentation for compliance and accountability.</li>
+                    </ul>
+                </div>
+
+                <div class="data-privacy-section" style="margin-bottom: 40px;">
+                    <h2>Data Protection Measures</h2>
+                    <p style="color: #4a5568; line-height: 1.8; font-size: 1.05rem; margin-bottom: 20px;">
+                        The eCARE EMR System employs strict organizational, physical, and technical safeguards to ensure absolute data integrity and confidentiality:
+                    </p>
+                    <ul class="privacy-standard-list">
+                        <li>Role-based access controls and user authentication.</li>
+                        <li>Encryption of sensitive data in transit and at rest.</li>
+                        <li>Secure servers with continuous monitoring and backup routines.</li>
+                        <li>Regular privacy impact assessments and internal compliance audits.</li>
+                        <li>Continuous staff training on data privacy handling and legal confidentiality obligations.</li>
+                    </ul>
+                </div>
+
+                <div class="data-privacy-section" style="margin-bottom: 40px;">
+                    <h2>Data Sharing and Retention</h2>
+                    <ul class="privacy-standard-list">
+                        <li>Data are shared only with authorized healthcare providers, PhilHealth, and LGU offices for legitimate purposes.</li>
+                        <li>No information is disclosed to external third parties without explicit consent or explicit legal authorization.</li>
+                        <li>Records are retained securely in strict accordance with DOH and PhilHealth retention schedules, after which secure disposal procedures are applied.</li>
+                    </ul>
+                </div>
+
+                <div class="data-privacy-section" style="margin-bottom: 40px;">
+                    <h2>Rights of Data Subjects</h2>
+                    <p style="color: #4a5568; line-height: 1.8; font-size: 1.05rem;">
+                        Under the provisions of the Data Privacy Act, all registered individuals retain the complete entitlement to:
+                    </p>
+                    <ul class="privacy-standard-list">
+                        <li>Access their personal and medical records history seamlessly.</li>
+                        <li>Correct, modify, or update inaccurate or outdated data entry points.</li>
+                        <li>Withdraw consent for data processing, subject to overriding legal framework and operational limitations.</li>
+                        <li>File formal complaints with the National Privacy Commission (NPC) for any verified privacy concerns.</li>
+                    </ul>
+                </div>
+
+                <div class="data-privacy-section" style="margin-bottom: 40px; background: #fafbfc; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                    <h2 style="margin-top: 0;">Acknowledgment & Consent</h2>
+                    <p style="color: #4a5568; line-height: 1.8; font-size: 1.05rem; margin: 0;">
+                        By registering under the eCARE EMR and PhilHealth YAKAP System, users acknowledge that they have read and understood this Data Privacy Statement and consent to the lawful processing of their personal and health information for the specific purposes stated herein.
+                    </p>
+                </div>
+
+                <div class="dpo-infobox">
+                    <div class="dpo-text">
+                        <h3>Contact Data Protection Officer</h3>
+                        <p>For questions, data access requests, or privacy compliance assistance.</p>
+                    </div>
+                    <div class="dpo-contacts">
+                        <a href="mailto:dpoeurekare@gmail.com" class="dpo-link">
+                            <i class="fa-solid fa-envelope"></i> dpoeurekare@gmail.com
+                        </a>
+                        <!-- <span class="dpo-link" style="cursor: default;">
+                            <i class="fa-solid fa-phone"></i> (02) 1234-5678
+                        </span> -->
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="main-footer-wrapper">
+            
+            <div class="footer-cta-wrapper">
+                <a href="mailto:info@eurekarecorp.com?subject=Inquiry%20to%20Eurekare%20Corporation" class="footer-cta" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-envelope"></i> GOT QUESTIONS? CONTACT US
+                </a>
+            </div>
+
+            <div class="footer-grid-container">
+                
+                <div class="footer-grid-col brand-summary-col">
+                    <div class="footer-brand-identity">
+                        <img src="./images/Logo-White-Transparent.png" class="footer-brand-logo" alt="Eurekare Logo">
+                        <span class="footer-brand-tagline">WEB BASED DOCUMENTATION AND REPORTING</span>
+                    </div>
+                    <p class="brand-description">
+                        Eurekare Corp. is a healthcare solution provider that offers innovative and simplified solutions for healthcare providers such as hospitals, clinics, and small town healthcare centers. Committed to delivering on time with a smile.
+                    </p>
+                </div>
+
+                <div class="footer-grid-col links-navigation-col">
+                    <h4 class="footer-col-title">Information</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                        <li><a href="index.html#about-us-section"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>   
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Data Privacy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-grid-col contact-details-col">
+                    <h4 class="footer-col-title">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fa-solid fa-location-dot contact-icon-accent"></i>
+                            <span>Unit 2716 AIC Burgundy Empire Tower, ADB Ave., Ortigas Center, Pasig City. Metro Manila, Philippines</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope contact-icon-accent"></i>
+                            <span>info@eurekarecorp.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-grid-col map-preview-col">
+                    <h4 class="footer-col-title">Our Location</h4>
+                    <a href="https://maps.google.com/?q=AIC+Burgundy+Empire+Tower+Ortigas" target="_blank" rel="noopener noreferrer" class="premium-map-link">
+                        <div class="premium-map-viewport">
+                            <iframe 
+                                class="premium-map-frame"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.3323497677465!2d121.05929657593685!3d14.597241877484407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c83f55555555%3A0x2b89b4e3f89bf94b!2sAIC%20Burgundy%20Empire%20Tower!5e0!3m2!1sen!2sph!4v1710000000000" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0; pointer-events: none;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <div class="premium-map-overlay-prompt">
+                                <span><i class="fa-solid fa-map-location-dot"></i> Open Directions</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-legal-bar">
+                <p>Copyright © 2026 Eurekare Corporation. All Rights Reserved.</p>
+            </div>
+
+        </footer>
+
+    </div> 
+    
+    <script src="reactive.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+</body>
+</html>
