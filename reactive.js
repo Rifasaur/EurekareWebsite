@@ -634,3 +634,13 @@ function toggleYakapWidget(event) {
     const widget = document.getElementById('yakapSidebarWidget');
     if (widget) widget.classList.toggle('widget-hidden');
 }
+
+/* ==========================================================================
+                    SCRIPT FOR FAQ
+   ========================================================================== */
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
