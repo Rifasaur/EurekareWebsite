@@ -1493,6 +1493,245 @@ body {
 }
 
 /* ==========================================================================
+                    MOBILE APPLICATION VIEW SHOWCASE SECTION
+   ========================================================================== */
+
+.mobile-app-section {
+    background-color: #ffffff;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* --- Floating Phone Device Mockup Frame System --- */
+.mobile-app-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.phone-mockup-frame {
+    position: relative;
+    width: 310px;
+    height: 630px;
+    background-color: var(--eurekare-dark);
+    border: 12px solid #2d3748;
+    border-radius: 40px;
+    box-shadow: 0 25px 60px rgba(10, 29, 46, 0.25);
+    overflow: hidden;
+    z-index: 2;
+    animation: phoneFloat 5s infinite ease-in-out; /* Handles the continuous smooth floating mockup behavior */
+}
+
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 25px;
+    background-color: #2d3748;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 10;
+}
+
+.phone-screen-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #f8fafc;
+    display: block;
+}
+
+.phone-home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 4px;
+    background-color: #2d3748;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+/* Ambient glow background orb */
+.app-glow-circle {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(67, 185, 183, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* --- Typographic System --- */
+.app-pre-title {
+    color: var(--eurekare-teal);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.mobile-app-content h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--eurekare-dark);
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.app-main-description {
+    font-size: 1.1rem;
+    color: var(--eurekare-steel);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* --- Feature Cards Grid --- */
+.app-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.app-feature-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 12px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.app-feature-card:hover {
+    transform: translateX(6px);
+    background-color: var(--eurekare-white);
+}
+
+.feature-icon-wrapper {
+    background-color: rgba(0, 85, 164, 0.08);
+    color: var(--eurekare-blue);
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.app-feature-card:hover .feature-icon-wrapper {
+    background-color: var(--eurekare-blue);
+    color: #ffffff;
+}
+
+.feature-text h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--eurekare-dark);
+}
+
+.feature-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--eurekare-steel);
+    line-height: 1.5;
+}
+
+/* --- Marketplace Action Buttons --- */
+.app-action-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.app-download-btn {
+    background-color: var(--eurekare-dark);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.app-download-btn:hover {
+    background-color: #163654;
+    transform: translateY(-2px);
+}
+
+.app-download-btn i {
+    font-size: 1.8rem;
+}
+
+.app-download-btn span {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.app-download-btn small {
+    font-size: 0.68rem;
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+.app-download-btn strong {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+/* --- Floating Animation Module Keyframe --- */
+@keyframes phoneFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* ==========================================================================
+                   RESPONSIVE RESPONSIVENESS ADAPTABILITY
+   ========================================================================== */
+@media (max-width: 992px) {
+    .mobile-app-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .mobile-app-visual {
+        order: 2; /* Drops device under contextual copy blocks during mobile presentation layouts */
+    }
+    .mobile-app-section {
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .mobile-app-content h2 { font-size: 2rem; }
+    .phone-mockup-frame { width: 270px; height: 550px; }
+    .app-action-buttons { flex-direction: column; width: 100%; }
+    .app-download-btn { justify-content: center; width: 100%; }
+}
+
+/* ==========================================================================
                OVERLAPPING FOOTER CTA BUTTON (RED)
    ========================================================================== */
 
