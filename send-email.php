@@ -146,7 +146,6 @@ if ($form_type === 'inquiry') {
         $html_body = "
         <div style='background-color: #f5f7fa; padding: 10px; width: 100% !important; margin: 0;'>
             <div style='{$email_container_styles}'>
-
                 <div style='{$email_header_styles}'>
                     <span style='{$badge_styles}'>Inquiry Entry</span>
                     <h2 style='margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.5px;'>New Partnership Inquiry</h2>
@@ -154,7 +153,6 @@ if ($form_type === 'inquiry') {
                 </div>
 
                 <div style='{$email_body_styles}'>
-
                     <h3 style='{$section_title_styles}'>Facility Profile</h3>
                     <table style='{$table_styles}'>
                         <tr><td style='{$td_label_styles}'>Facility Name</td><td style='{$td_value_styles}'><strong>{$facility_name}</strong></td></tr>
@@ -188,7 +186,6 @@ if ($form_type === 'inquiry') {
 
         $mail->send();
         echo json_encode(['status' => 'success', 'message' => 'Inquiry email sent successfully via SMTP!']);
-
     } catch (Exception $e) {
         echo json_encode(['status' => 'error', 'message' => "Mail could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
     }
@@ -257,7 +254,6 @@ if ($form_type === 'application') {
         $html_body = "
         <div style='background-color: #f5f7fa; padding: 10px; width: 100% !important; margin: 0;'>
             <div style='{$email_container_styles}'>
-
                 <div style='{$email_header_styles}'>
                     <span style='{$badge_styles}'>Candidate Portfolio</span>
                     <h2 style='margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.5px;'>New Employment Application</h2>
@@ -265,12 +261,7 @@ if ($form_type === 'application') {
                 </div>
 
                 <div style='{$email_body_styles}'>
-
-                    <h3 style='{$section_title_styles}'>Candidate Parameters</h3>
                     <table style='{$table_styles}'>
-                        <tr><td style='{$td_label_styles}'>Candidate Name</td><td style='{$td_value_styles}'><strong>{$name}</strong></td></tr>
-                        <tr><td style='{$td_label_styles}'>Target Position</td><td style='{$td_value_styles}'><span style='color: #0055a4; font-weight: 600;'>{$position}</span></td></tr>
-                        <tr><td style='{$td_label_styles}'>Email Address</td><td style='{$td_value_styles}'><a href='mailto:{$email}' style='color: #0055a4; text-decoration: none;'>{$email}</a></td></tr>
                         <tr><td style='{$td_label_styles}'>Contact Number</td><td style='{$td_value_styles}'>{$phone}</td></tr>
                         <tr><td style='{$td_label_styles}'>Resume / CV File</td><td style='{$td_value_styles}'>{$file_status_html}</td></tr>
                     </table>
@@ -296,7 +287,6 @@ if ($form_type === 'application') {
 
         $mail->send();
         echo json_encode(['status' => 'success', 'message' => 'Application email sent successfully via SMTP!']);
-
     } catch (Exception $e) {
         echo json_encode(['status' => 'error', 'message' => "Mail could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
     }
