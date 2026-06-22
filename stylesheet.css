@@ -383,15 +383,24 @@ body {
     background: #ffffff;
     border-radius: 20px; /* Modern corner smoothing */
     box-shadow: 0 30px 60px rgba(10, 29, 46, 0.18); /* Soft, distributed premium drop shadow */
-    overflow: hidden;
     max-width: 840px;
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    max-height: 85vh; 
+    /* Fixed: Changed max-height metric behavior so it dynamically scales when zoomed */
+    max-height: calc(100vh - 40px); 
     box-sizing: border-box;
     transform: translateY(24px) scale(0.98);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.contact-modal-card form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 100%;
+    border-radius: inherit; 
+    overflow: hidden;      
 }
 
 .contact-us-overlay.active .contact-modal-card {
@@ -401,9 +410,10 @@ body {
 /* Header UI Elements - Eurekare Brand Blue */
 .contact-modal-header {
     background-color: var(--eurekare-blue); /* Exact theme matching */
-    padding: 28px 36px;
+    padding: 24px 36px;
     color: #ffffff;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0; /* Prevents header from flattening under zoom strain */
 }
 
 .contact-modal-title {
@@ -423,7 +433,8 @@ body {
 /* Internal body content wrapper */
 .contact-modal-body {
     padding: 36px;
-    overflow-y: auto;
+    overflow-y: auto; /* Scroll indicator surfaces natively when viewport compresses */
+    flex-grow: 1; /* Instructs body to absorb dynamic layout height availability */
     display: flex;
     flex-direction: column;
     gap: 28px;
@@ -434,12 +445,15 @@ body {
 /* Explicit 2-Column Row Formats */
 .contact-modal-columns {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allows columns to drop gracefully if zoomed or on tablets */
     gap: 36px;
     width: 100%;
 }
 
 .contact-modal-col {
     flex: 1;
+    min-width: 280px; /* Fixes layout collapsing into ultra-thin lines on zoom */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -449,12 +463,13 @@ body {
     margin-top: 8px;
     padding-top: 24px;
     border-top: 1px solid #f1f5f9;
+    flex-shrink: 0;
 }
 
 .form-section-heading {
     font-size: 1.1rem;
     color: var(--eurekare-blue);
-    margin: 0 0 4px 0;
+    margin: 0 0 12px 0;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -604,10 +619,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 36px;
+    padding: 20px 36px;
     background-color: #f8fafc;
     border-top: 1px solid #f1f5f9;
     box-sizing: border-box;
+    flex-shrink: 0; /* Keeps actions container visible and locked to base when scroll occurs */
 }
 
 /* Uniform Back Buttons Width Setup */
@@ -615,8 +631,7 @@ body {
     background: #ffffff;
     border: 1.5px solid #cbd5e1;
     color: #475569;
-    padding: 12px 0; /* Horizontal padding dropped to rely cleanly on fixed width */
-    width: 110px; /* Fixed sizing weight matching */
+    padding: 12px 24px;
     font-size: 0.95rem;
     font-weight: 600;
     border-radius: 10px;
@@ -637,11 +652,10 @@ body {
 
 /* Uniform Submit Button Sizes (Inquiry Form) */
 .contact-us-btn-submit {
-    background-color: var(--eurekare-blue); 
+    background-color: var(--eurekare-blue);
     border: none;
     color: #ffffff;
-    padding: 12px 0; /* Horizontal padding safely zeroed out */
-    width: 190px; /* Hard-locked width constraints to completely match sizes */
+    padding: 12px 32px;
     font-size: 0.95rem;
     font-weight: 600;
     border-radius: 10px;
@@ -665,18 +679,20 @@ body {
     transform: translateY(0);
 }
 
-/* Responsiveness adjustments for smaller touch displays */
-@media (max-width: 650px) {
-    .contact-modal-columns {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .contact-modal-card { width: 95%; max-height: 90vh; }
+@media (max-width: 768px) {
+    .contact-modal-columns { flex-direction: column; gap: 20px; }
+    .contact-modal-col { min-width: 100%; }
+    .contact-modal-card { width: 100%; max-height: calc(100vh - 40px); border-radius: 20px; overflow: hidden; }
+    .contact-modal-card form { border-radius: inherit; overflow: hidden; }
     .contact-modal-body { padding: 24px; gap: 20px; }
-    .contact-us-actions { padding: 20px 24px; }
+    .contact-us-actions { padding: 16px 24px; }
     .contact-us-field.option-field { margin-top: 4px; padding-bottom: 0; }
-    .contact-us-btn-back { width: 95px; padding: 11px 0; font-size: 0.9rem; }
-    .contact-us-btn-submit { width: 165px; padding: 11px 0; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    .contact-us-actions { flex-direction: column-reverse; gap: 12px; align-items: stretch; }
+    .contact-us-btn-back { width: 100%; padding: 12px 0; border-radius: 10px; }
+    .contact-us-btn-submit { width: 100%; padding: 12px 0; border-radius: 10px; }
 }
 
 /* ==========================================================================
@@ -2337,21 +2353,21 @@ body {
     display: none; 
     position: fixed;
     z-index: 99999;
-    left: 50%;
+    left: 0;
     top: 0;
-    transform: translateX(-50%) scale(1.05);
-    width: 85%;
-    max-width: 2200px;
+    width: 100%;
     height: 100%;
     box-sizing: border-box;
     padding: 0;
-    overflow-y: auto;
-    background: #ffffff;
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(210,225,240,1) 100%);
-    
+    overflow: hidden;
+
+    /* Blurred website-visible backdrop */
+    background: rgba(10, 29, 46, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
     opacity: 0;
-    filter: blur(5px);
-    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+    transition: opacity 0.45s ease;
 }
 
 .about-us-modal-overlay::-webkit-scrollbar {
@@ -2384,10 +2400,11 @@ body {
 
 /* State when active (Opening) */
 .about-us-modal-overlay.is-visible {
-    display: block !important;
+    display: flex !important;
+    align-items: stretch;
+    justify-content: center;
     opacity: 1;
-    transform: translateX(-50%) scale(1);
-    filter: blur(0);
+    position: fixed;
 }
 
 @keyframes smoothTakeover {
@@ -2396,49 +2413,62 @@ body {
 }
 
 .about-us-modal-container {
-    max-width: 1200px;
-    width: 100%;
-    margin-bottom: auto;
-    margin-top: -20px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 80%;
+    max-width: none;
+    height: 100%;
+    margin: 0 auto;
     position: relative;
     display: flex;
-    justify-content: center;
-
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow: 0 0 60px rgba(10, 29, 46, 0.5);
+    overflow: hidden;
 }
 
 .about-us-modal-close-wrapper {
-    position: fixed; /* Keep X visible even if you scroll the modal */
-    top: 20px;
-    right: 40px;
-    z-index: 100000; /* Highest z-index */
+    /* Overlay is full-screen flex container; container is 80% wide centered.
+       So 10% from right = edge of modal. Add small inset. */
+    position: absolute;
+    top: 18px;
+    right: calc(10% + 14px);
+    z-index: 100001;
 }
 
 .about-us-modal-close {
-    font-size: 40px;
-    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    font-weight: 400;
     cursor: pointer;
     color: var(--eurekare-dark);
-    -webkit-text-stroke: 1px black; /* Thickness and color of the font border */
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
     line-height: 1;
-    margin-right: -20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
 }
 
 .about-us-modal-close:hover {
     color: #ff4d4d;
+    background: #fff;
     transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
 }
 
 /* Two-Column Wrapper */
 .about-us-modal-wrapper {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns: 1fr 420px;
     gap: 0;
-    min-height: 500px;
-    align-items: start;
+    flex: 1;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
 }
 
 /* Main Modal Content Box */
@@ -2466,14 +2496,16 @@ body {
 }
 
 .about-us-modal-text {
-    padding-top: 100px;
-    padding-right: 50px;
-    padding-bottom: 50px;
+    padding: 55px 50px 50px 55px;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
+    overflow-y: auto;
+    min-height: 0;
+    box-sizing: border-box;
+    background: radial-gradient(circle at 0% 0%, #ffffff 0%, #eef4fb 100%);
 }
 
 /* Decorative Badge Above Title */
@@ -2501,36 +2533,38 @@ body {
 }
 
 .about-us-modal-images {
-    padding: 30px;
+    width: 420px;
+    flex-shrink: 0;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(160deg, #c8d4de 0%, #b8c8d4 100%);
+    border-left: 1px solid rgba(0, 85, 164, 0.12);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    z-index: 2;
-
-    position: sticky;
-    top: 0;
-    align-self: start;
-    height: 100vh;
-    overflow: hidden;
-
-    background: linear-gradient(135deg, rgba(0, 85, 164, 0.05) 0%, rgba(10, 29, 46, 0.08) 100%);
-    border-left: 1px solid rgba(0, 85, 164, 0.08);
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 6px;
+    padding: 24px 20px;
+    box-sizing: border-box;
 }
 
 .about-us-modal-img {
     width: 100%;
-    height: calc(100vh - 60px);
+    flex: 1 1 0;          /* each image claims an equal share of the height */
+    min-height: 0;        /* allows flex children to shrink below content size */
     object-fit: cover;
+    object-position: center;
+    display: block;
     border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(10, 29, 46, 0.15);
-    border: 4px solid #ffffff;
-    transition: transform 0.3s ease;
+    box-shadow: 0 8px 28px rgba(10, 29, 46, 0.22);
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.35s ease;
 }
 
 .about-us-modal-img:hover {
-    transform: scale(1.02); /* Delicate interactive hover effect */
+    transform: scale(1.015);
 }
 
 /* ==========================================================================
@@ -3160,16 +3194,17 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(10, 29, 46, 0.55);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background-color: rgba(10, 29, 46, 0.45); /* Deepened signature blue-tint overlay */
+    backdrop-filter: blur(8px); /* Modern backdrop blur effect */
+    z-index: 99999;
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 10000;
+    justify-content: center;
+    padding: 20px; /* Safe cushion area when user zooms in heavily */
+    box-sizing: border-box;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-us-overlay.active {
@@ -3387,20 +3422,41 @@ body {
     color: #00796b;
 }
 @media (max-width: 768px) {
+    .about-us-modal-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
     .about-us-modal-wrapper {
-        grid-template-columns: 1fr; /* Stacks vertically on mobile */
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 280px;
+        height: 100%;
+        overflow-y: auto;
     }
     .about-us-modal-text {
-        padding: 30px 24px;
+        padding: 48px 22px 28px;
+        overflow-y: auto;
+        min-height: 0;
     }
     .about-us-modal-images {
-        padding: 24px;
-        background: transparent;
-        border-left: none;
-        border-top: 1px solid rgba(0, 85, 164, 0.08);
-        position: static;
         width: 100%;
-        height: auto;
-        max-width: none;
+        height: 260px;
+        flex-shrink: 0;
+        flex-direction: row;
+        padding: 16px;
+        gap: 8px;
+        border-left: none;
+        border-top: 1px solid rgba(0, 85, 164, 0.1);
+    }
+    .about-us-modal-img {
+        height: 100%;
+        width: 0;        /* flex: 1 1 0 handles sizing in row direction */
+        flex: 1 1 0;
+        min-width: 0;
+        min-height: 0;
+    }
+    .about-us-modal-close-wrapper {
+        top: 14px;
+        right: 14px;
     }
 }
