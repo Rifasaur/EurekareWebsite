@@ -1,31 +1,78 @@
-<nav class="main-nav">
-    <div class="container-header">
-        <div class="logo">
-            <div class="logo-placeholder">
-                <a href="./index.html"><img src="./images/Eurekare_logo_V1.gif" class="img-logo"></a>
-            </div>
-        </div>
+<nav class="main-nav" id="mainNav">
+  <div class="container-header">
 
-        <button class="nav-toggle" aria-label="Open navigation" type="button">
-            ☰
-        </button>
-
-        <ul class="nav-links">
-            <li><a href="index.html#about-us-section">About Us</a></li>
-
-            <li class="nav-dropdown" id="servicesDropdown">
-                <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
-                    Our Services <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
-                </button>
-                <ul class="nav-dropdown-menu" aria-label="Our Services submenu">
-                    <li><a href="#services-Card">E-Konsulta Integration</a></li>
-                    <li><a href="#services-YAKAP">YAKAP Accredited Service</a></li>
-                    <li><a href="#services-EMR">Mobile Accessibility</a></li>
-                </ul>
-            </li>
-
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-
+    <!-- Logo -->
+    <div class="logo">
+      <div class="logo-placeholder">
+        <a href="./index.html">
+          <img src="./images/Eurekare_logo_V1.gif" class="img-logo" alt="Eurekare Logo">
+        </a>
+      </div>
     </div>
+
+    <!-- Hamburger toggle (mobile only) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" type="button">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <!-- Nav links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#about-us-section">About Us</a></li>
+
+      <li class="nav-dropdown" id="servicesDropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          Our Services <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+        </button>
+        <ul class="nav-dropdown-menu" aria-label="Our Services submenu">
+          <li><a href="index.html#services-Card">E-Konsulta Integration</a></li>
+          <li><a href="index.html#services-YAKAP">YAKAP Accredited Service</a></li>
+          <li><a href="index.html#services-EMR">Mobile Accessibility</a></li>
+        </ul>
+      </li>
+
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+  </div>
 </nav>
+
+<script>
+  // Hamburger toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('nav-open');
+    navToggle.classList.toggle('nav-toggle--open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close menu when a link is clicked (mobile)
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('nav-open');
+      navToggle.classList.remove('nav-toggle--open');
+      navToggle.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // Services dropdown
+  const dropdown = document.getElementById('servicesDropdown');
+  const dropToggle = dropdown.querySelector('.nav-dropdown-toggle');
+
+  dropToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dropdown.classList.toggle('open');
+    dropToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+      dropToggle.setAttribute('aria-expanded', false);
+    }
+  });
+</script>
