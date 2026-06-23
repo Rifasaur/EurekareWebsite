@@ -100,7 +100,7 @@
 
         <button id="floatingContactPill" class="floating-pill" onclick="openContactUsModal()">
             <span class="pill-icon">✉</span>
-            <span class="pill-text">Get in Touch</span>
+            <span class="pill-text">Partner with us</span>
         </button>
 
         <div class="contact-us-overlay" id="contactUsOverlay"></div>
@@ -123,8 +123,8 @@
 
                         <div class="ecard-interactive-wrapper" onclick="openEcardModal()" role="button" aria-label="Open Digital Health Card View">
                             <img src="./images/Front-Card.png" class="ecard-asset-img" alt="Eurekare Digital Health Card Graphic">
-                        </div>
                     </div>
+                </div>
 
                     <div id="ecardModal" class="ecard-modal-overlay" onclick="closeEcardModal(event)">
                         <div class="ecard-modal-content" onclick="event.stopPropagation()">
@@ -150,20 +150,17 @@
                             <p>Our expert team provides detailed property valuations and market analysis to help you accurately price your property and understand the local real estate market.</p>
                             <a href="javascript:void(0)" onclick="openServicesModal('e-konsulta')" class="service-btn">Learn More</a>            </div>
                         </div>
-                        <div class="services-container yakap-section" style="position: relative; overflow: hidden;">
-                        
-                        <div class="service-row">
-                            <div class="service-text">
-                                <h3>YAKAP Accredited Service</h3>
-                                <p>We use our extensive network and marketing expertise to list and advertise your property to a wide audience. From professional photography to targeted online and offline advertising.</p>
-                                <a href="javascript:void(0)" onclick="openServicesModal('e-claims')" class="service-btn">Learn More</a>
-                            </div>
-                            <div class="service-image-wrapper">
-                                <img src="./images/yakap.png" alt="YAKAP">
-                            </div>
+                <div class="services-container yakap-section" style="position: relative; overflow: hidden;">   
+                    <div class="service-row">
+                        <div class="service-text">
+                            <h3>YAKAP Accredited Service</h3>
+                            <p>We use our extensive network and marketing expertise to list and advertise your property to a wide audience. From professional photography to targeted online and offline advertising.</p>
+                            <a href="javascript:void(0)" onclick="openServicesModal('e-claims')" class="service-btn">Learn More</a>
                         </div>
-
-
+                        <div class="service-image-wrapper">
+                            <img src="./images/yakap.png" alt="YAKAP">
+                        </div>
+                    </div>
                     <div class="yakap-sidebar-widget" id="yakapSidebarWidget">
                         <button class="yakap-widget-tab" onclick="toggleYakapWidget(event)" aria-label="Toggle Accreditation Banner">
                             <i class="fa-solid fa-award"></i>
@@ -174,29 +171,86 @@
                             <div class="yakap-widget-content">
                                 <span class="widget-tag">PHILHEALTH PARTNER</span>
                                 <h4>Yakap Kalusugan</h4>
-                                <p>Official Credited Service Provider Ecosystem</p>
+                                <p>Official Credited Service Provider eCARE System</p>
                                 <div class="widget-link-action">
                                     Verify Accreditation <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                 </div>
                             </div>
                         </a>
                     </div>
-
                 </div>
 
-                <div class="service-row EMRCutomizable" id="services-EMR">
-                    <div class="service-image-wrapper">
-                        <div class="pill-mask">
-                            <img src="./images/Mobile.jpg" alt="Mobile Accessibility">
-                            
+                <section class="mobile-app-section" id="mobile-app-showcase">
+                    <div class="mobile-app-container">
+                        
+                        <div class="mobile-app-visual">
+                            <div class="phone-mockup-frame">
+                                <div class="phone-notch"></div>
+                                <img src="images/MobileAppScreen.png" class="phone-screen-content" alt="Eurekare Mobile Application Preview">
+                                <div class="phone-home-indicator"></div>
+                            </div>
+                            <div class="app-glow-circle"></div>
                         </div>
+
+                        <div class="mobile-app-content">
+                            <span class="app-pre-title">EUREKARE MOBILE CONNECT</span>
+                            <h2>Healthcare in the Palm of Your Hand</h2>
+                            <p class="app-main-description">
+                                Empowering patients and providers with immediate synchronization capabilities, real-time diagnostic alerts, and encrypted digital healthcare profile access anywhere, anytime.
+                            </p>
+
+                            <div class="app-features-list">
+                                <div class="app-feature-card">
+                                    <div class="feature-icon-wrapper">
+                                        <i class="fa-solid fa-qrcode"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <h3>Instant QR Verification</h3>
+                                        <p>Generate secure access tokens for instant check-ins and check-outs at authorized medical centers.</p>
+                                    </div>
+                                </div>
+
+                                <div class="app-feature-card">
+                                    <div class="feature-icon-wrapper">
+                                        <i class="fa-solid fa-bell-pulse"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <h3>Real-time Consultation Alerts</h3>
+                                        <p>Receive push notifications regarding vital trends, priority appointments, and critical laboratory releases.</p>
+                                    </div>
+                                </div>
+
+                                <div class="app-feature-card">
+                                    <div class="feature-icon-wrapper">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <h3>Secure Encrypted Ledger</h3>
+                                        <p>Your electronic medical records are protected under end-to-end cloud infrastructure compliances.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="app-action-buttons">
+                                <a href="#" class="app-download-btn">
+                                    <i class="fa-brands fa-google-play"></i>
+                                    <span>
+                                        <small>GET IT ON</small>
+                                        <strong>Google Play</strong>
+                                    </span>
+                                </a>
+                                <a href="#" class="app-download-btn">
+                                    <i class="fa-brands fa-apple"></i>
+                                    <span>
+                                        <small>Download on the</small>
+                                        <strong>App Store</strong>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="service-text">
-                        <h3>Mobile Accessibility</h3>
-                        <p>Our team is available to schedule and conduct property showings for interested buyers. We work with your schedule to ensure showings are convenient for you.</p>
-                        <a href="javascript:void(0)" onclick="openServicesModal('mobile')" class="service-btn">Learn More</a>
-                    </div>
-                </div>
+                </section>
             </div>
         </section>
 
