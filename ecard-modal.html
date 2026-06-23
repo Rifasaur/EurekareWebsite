@@ -1,0 +1,18 @@
+<div id="ecardModal" class="ecard-modal-overlay" onclick="closeEcardModal(event)">
+    <div class="ecard-modal-content" onclick="event.stopPropagation()">
+        <span class="ecard-modal-close" onclick="closeEcardModal(event)">&times;</span>
+        <h3>Eurekare Digital Health Card</h3>
+        <p class="modal-instruction-tip">Click the card below to flip and inspect the card design details</p>
+        
+        <div class="modal-flip-container" onclick="toggleModalCardFlip()">
+            <div class="modal-card-inner" id="modalCardInner">
+                <div class="modal-card-side modal-card-front">
+                    <img src="./images/Front-Card.png" alt="Eurekare Card Front Side">
+                </div>
+                <div class="modal-card-side modal-card-back">
+                    <img src="./images/Back-Card.png" alt="Eurekare Card Back Side">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

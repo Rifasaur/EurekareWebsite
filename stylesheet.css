@@ -2880,6 +2880,7 @@ body {
     color: #4a5568;
     line-height: 1.7;
     font-size: 1rem;
+    text-align: justify;
 }
 
 .about-us-modal-images {
@@ -3090,6 +3091,7 @@ body {
     font-size: 1.05rem;
     line-height: 1.6;
     margin: 0 0 32px 0;
+    text-align: justify;
 }
 
 .split-btn {
