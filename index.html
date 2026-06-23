@@ -257,78 +257,6 @@
                 <img src="images/DoctorPlaceholder.png" alt="About Us Background" class="about-us-bg">
             </div>
         </section>
-
-       <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
-    <div class="container">
-        <h2 class="h2 section-title">Frequently Asked Questions</h2>
-        <p class="section-text">Find answers to the most common questions about Eurekare's services and solutions.</p>
-
-        <div class="faq-list">
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-            What is Eurekare Corporation?
-            <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-            <p>Eurekare Corporation is a Healthcare Information System Service Provider based in the Philippines. We offer cloud-based EMR systems, smartcard technology, and integrated healthcare solutions tailored for hospitals, clinics, and government health programs.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-            What is the eCARE EMR Yakap/Konsulta Project?
-            <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-            <p>The eCARE EMR Yakap/Konsulta Project is an Electronic Medical Record (EMR) system integrated with the Yakap and Konsulta modules. It is designed to meet the requirements of the Universal Healthcare Act and supports patient registration, consultation records, and health data management.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-            Is Eurekare's system compatible with PhilHealth requirements?
-            <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-            <p>Yes. Our system is designed to comply with PhilHealth accreditation standards and reporting requirements, making it easier for healthcare facilities to submit claims and manage patient benefit records accurately.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-            What is the Eurekare Digital Health Card?
-            <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-            <p>The Eurekare Digital Health Card is a smartcard solution that stores a patient's medical and insurance information securely. It allows healthcare providers to quickly access patient records, verify benefits, and streamline the consultation process.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-            How can our hospital or clinic partner with Eurekare?
-            <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-            <p>You may reach out to us through our contact form or email us directly. Our team will schedule a consultation to assess your facility's needs and propose the best-fit solution from our suite of healthcare information services.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-            Does Eurekare offer training and support after implementation?
-            <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-            <p>Absolutely. We provide comprehensive onboarding training for staff and administrators, as well as ongoing technical support to ensure smooth system operation. Our team is available to assist with updates, troubleshooting, and system enhancements.</p>
-            </div>
-        </div>
-
-        </div>
-    </div>
-    </section>
         
         <footer class="main-footer" id="footer-content"></footer>
     </main>
@@ -348,16 +276,17 @@
                 .then(html => { document.getElementById(targetId).innerHTML = html; });
         }
 
-        Promise.all([
+       Promise.all([
             loadFragment('nav.html',           'header'),
             loadFragment('footer.html',        'footer-content'),
             loadFragment('contact-modal.html', 'contactUsOverlay'),
             loadFragment('about-modal.html',   'aboutModalPlaceholder'),
-            loadFragment('service-modal.html','servicesModalPlaceholder2'),
+            loadFragment('service-modal.html', 'servicesModalPlaceholder2'),
             loadFragment('ecard-modal.html',   'ecardModalPlaceholder'),
         ]).then(() => {
             const script = document.createElement('script');
             script.src = 'reactive.js';
+            script.onload = () => initNav();
             document.body.appendChild(script);
         });
     </script>
