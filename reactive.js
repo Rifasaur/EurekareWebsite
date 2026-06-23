@@ -644,3 +644,59 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
 }
+
+fetch('nav.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('header').innerHTML = data;
+
+        const navToggle = document.getElementById('navToggle');
+        const navLinks  = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('nav-open');
+            navToggle.classList.toggle('nav-toggle--open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-open');
+                navToggle.classList.remove('nav-toggle--open');
+                navToggle.setAttribute('aria-expanded', false);
+            });
+        });
+
+        const dropdown = document.getElementById('servicesDropdown');
+        const dropToggle = dropdown.querySelector('.nav-dropdown-toggle');
+
+        dropToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = dropdown.classList.toggle('open');
+            dropToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+                dropToggle.setAttribute('aria-expanded', false);
+            }
+        });
+    });
+
+    // Services dropdown
+    const dropdown = document.getElementById('servicesDropdown');
+    const dropToggle = dropdown.querySelector('.nav-dropdown-toggle');
+
+    dropToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle('open');
+      dropToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+        dropToggle.setAttribute('aria-expanded', false);
+      }
+    });
