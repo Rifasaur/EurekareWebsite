@@ -148,7 +148,7 @@ body {
   border-bottom: 1px solid #e8edf2;
   display: flex;
   align-items: center;
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 1000;
   transition: box-shadow 0.3s ease;
@@ -173,9 +173,11 @@ body {
 .logo-placeholder { line-height: 1.1; }
 
 .img-logo {
-  height: 44px;
+  height: 75px;
+  min-width: 120px;
   width: auto;
   display: block;
+  padding-left: 10px;
 }
 
 /* Nav links (desktop) */
@@ -302,7 +304,6 @@ body {
   position: absolute;
   top: calc(100% + 12px);
   left: 75%;
-  transform: translateX(-50%) translateY(-8px);
   min-width: 240px;
   background: #ffffff;
   border: 1px solid #e8edf2;
@@ -312,7 +313,7 @@ body {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px);
+  transform: translateX(-50%) translateY(-8px);
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
   z-index: 1002;
 }
@@ -348,9 +349,28 @@ body {
    ========================================================================== */
 
 @media (max-width: 800px) {
-  .main-nav { height: auto; min-height: var(--nav-height); }
+  .main-nav {
+    position: relative;
+    height: auto;
+    min-height: var(--nav-height);
+  }
 
-  .nav-toggle { display: flex; }
+  .container-header {
+    position: relative;
+    flex-wrap: nowrap;
+    padding: 0 16px;
+    height: var(--nav-height);
+    align-items: center;
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .nav-toggle {
+    display: flex;
+    margin-left: auto;
+  }
 
   .nav-links {
     display: flex;
@@ -361,18 +381,17 @@ body {
     top: var(--nav-height);
     left: 0;
     right: 0;
+    width: 100%;
     background: #ffffff;
     border-bottom: 1px solid #e8edf2;
-    padding: 12px 16px 20px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    z-index: 1001;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+    z-index: 9999;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.3s ease;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
   }
 
   .nav-links.nav-open {
@@ -383,6 +402,7 @@ body {
   }
 
   .nav-links > li > a {
+    display: block;
     padding: 13px 8px;
     font-size: 14px;
     border-bottom: 1px solid #f1f5f9;
@@ -433,13 +453,6 @@ body {
     font-size: 13.5px;
     padding: 10px 12px;
     color: #475569;
-  }
-
-  .container-header {
-    flex-wrap: nowrap;
-    padding: 0 16px;
-    height: var(--nav-height);
-    align-items: center;
   }
 }
 
