@@ -700,4 +700,3 @@ fetch('nav.html')
         dropToggle.setAttribute('aria-expanded', false);
       }
     });
-  });
