@@ -126,24 +126,7 @@
                     </div>
                 </div>
 
-                    <div id="ecardModal" class="ecard-modal-overlay" onclick="closeEcardModal(event)">
-                        <div class="ecard-modal-content" onclick="event.stopPropagation()">
-                            <span class="ecard-modal-close" onclick="closeEcardModal(event)">&times;</span>
-                            <h3>Eurekare Digital Health Card</h3>
-                            <p class="modal-instruction-tip">Click the card below to flip and inspect the card design details</p>
-                            
-                            <div class="modal-flip-container" onclick="toggleModalCardFlip()">
-                                <div class="modal-card-inner" id="modalCardInner">
-                                    <div class="modal-card-side modal-card-front">
-                                        <img src="./images/Front-Card.png" alt="Eurekare Card Front Side">
-                                    </div>
-                                    <div class="modal-card-side modal-card-back">
-                                        <img src="./images/Back-Card.png" alt="Eurekare Card Back Side">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="ecardModalPlaceholder"></div>
                     
                         <div class="service-text">
                             <h3>SMART CARD</h3>
@@ -254,32 +237,7 @@
             </div>
         </section>
 
-        <!-- Services Modal -->
-        <div id="servicesModalOverlay" class="contact-us-overlay" onclick="closeServicesModal(event)">
-            <div class="contact-modal-card">
-                <div class="contact-modal-header">
-                    <h2 class="contact-modal-title" id="servicesModalTitle">Service Details</h2>
-                    <p class="contact-modal-subtitle">Eurekare Corporation Services Portfolio</p>
-                </div>
-                <div class="contact-modal-body">
-                    <div id="servicesModalContent" style="color: #4a5568; line-height: 1.8; font-size: 1.05rem;">
-                        </div>
-                </div>
-                <div class="contact-us-actions" style="justify-content: flex-end;">
-                    <button type="button" class="contact-us-btn-back" onclick="closeServicesModal(force=true)">
-                        <i class="fa-solid fa-xmark"></i> Close
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Modal -->
-        <div id="mobileModal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeModal()">&times;</span>
-                <div id="modalBody"></div>
-            </div>
-        </div>
+        <div id="servicesModalPlaceholder"></div>
 
         <!-- About us -->
         <section  id="about-us-section"  class="about-us-parallax" >
@@ -375,134 +333,33 @@
         <footer class="main-footer" id="footer-content"></footer>
     </main>
 
-    <script src="reactive.js"></script>
-
       <!-- Swiper scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
-        <div id="aboutUsModal" class="about-us-modal-overlay">
-                <div class="about-us-modal-close-wrapper">
-                    <span class="about-us-modal-close" onclick="closeAboutUsModal()">&times;</span>
-                </div>
-                
-                <div class="about-us-modal-container">
-                    <div class="about-us-modal-wrapper">
-                        <div class="about-us-modal-text">
-                            <h1 class="about-us-modal-title">About Us</h1>
-                            <div class="about-us-modal-description">
-                                <p> As the pioneer in providing Health Care Information Exchange Cloud Platform and Smartcard Technology to the 
-                                    Philippine Healthcare Industry, our vision is to bring IT solutions that can enhance the delivery of healthcare services.</p>
-
-                                <p> Eurekare was established in 2012 at the center of Ortigas Center Business District in Pasig City. We aim to fulfill our 
-                                    vision by increasing our affiliations in the healthcare industry and extend our reach not only within the Philippines but 
-                                    all throughout the world. Through years of serving the healthcare industry, our company has grown and expanded our services 
-                                    to also cater the Smartcard ID/Membership System needs of other member- based organizations. Now, we also offer the first 
-                                    Identification, Loyalty Program, and other Benefit Policy Information Exchange Cloud Platform in the country. </p>
-
-                                <p> Our passion to excel never stops. That is why we make sure that we develop together with our clients and meet the growing 
-                                    demands in the IT market. Our system constantly evolves to offer only the latest technology that will tailor fit to every 
-                                    need of our clients.</p>
-
-
-                                <h1 class="about-us-modal-title">Mission</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat...
-                                    In id cursus mi, pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus 
-                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent
-                                    taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-                                
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat...
-                                    In id cursus mi, pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus
-                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent
-                                    taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-
-                            </div>
-                        </div>
-                        <div class="about-us-modal-images">
-                            <img src="images/AIC Burgundy Tower.jpg" class="about-us-modal-img">
-                            <img src="images/AIC Burgundy Tower.jpg" class="about-us-modal-img">
-                            <img src="images/AIC Burgundy Tower.jpg" class="about-us-modal-img">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Services Modal -->
-        <div id="servicesModal" class="about-us-modal-overlay">
-            <div class="about-us-modal-close-wrapper">
-                <span class="about-us-modal-close" onclick="closeServicesModal()">&times;</span>
-            </div>
-            
-            <div class="about-us-modal-container">
-                <div class="about-us-modal-wrapper">
-                    <div class="about-us-modal-text">
-                        <h1 class="about-us-modal-title" id="servicesModalTitle">Service Details</h1>
-                        <div class="about-us-modal-description" id="servicesModalDescription">
-                            </div>
-                    </div>
-                    <div class="about-us-modal-images">
-                        <img src="images/About.jpg" class="about-us-modal-img" id="servicesModalImage" alt="Service Feature">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script src="reactive.js"></script>
+        <!-- Modal placeholders — each modal lives in its own file and is injected here at load time -->
+        <div id="aboutModalPlaceholder"></div>
+        <div id="servicesModalPlaceholder2"></div>
 
     <script>
-        fetch('nav.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
+        // Fetch a fragment and inject it as innerHTML of the target element
+        function loadFragment(file, targetId) {
+            return fetch(file)
+                .then(r => r.text())
+                .then(html => { document.getElementById(targetId).innerHTML = html; });
+        }
 
-                // Hamburger toggle — runs AFTER nav is injected
-                const navToggle = document.getElementById('navToggle');
-                const navLinks  = document.getElementById('navLinks');
-
-                navToggle.addEventListener('click', () => {
-                    const isOpen = navLinks.classList.toggle('nav-open');
-                    navToggle.classList.toggle('nav-toggle--open', isOpen);
-                    navToggle.setAttribute('aria-expanded', isOpen);
-                });
-
-                // Close menu when a link is clicked (mobile)
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('nav-open');
-                        navToggle.classList.remove('nav-toggle--open');
-                        navToggle.setAttribute('aria-expanded', false);
-                    });
-                });
-
-                // Services dropdown
-                const dropdown = document.getElementById('servicesDropdown');
-                const dropToggle = dropdown.querySelector('.nav-dropdown-toggle');
-
-                dropToggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const isOpen = dropdown.classList.toggle('open');
-                    dropToggle.setAttribute('aria-expanded', isOpen);
-                });
-
-                document.addEventListener('click', (e) => {
-                    if (!dropdown.contains(e.target)) {
-                        dropdown.classList.remove('open');
-                        dropToggle.setAttribute('aria-expanded', false);
-                    }
-                });
-            });
-
-        fetch('contact-modal.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('contactUsOverlay').innerHTML = data;
-            });
-
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-content').innerHTML = data;
-            });
+        Promise.all([
+            loadFragment('nav.html',           'header'),
+            loadFragment('footer.html',        'footer-content'),
+            loadFragment('contact-modal.html', 'contactUsOverlay'),
+            loadFragment('about-modal.html',   'aboutModalPlaceholder'),
+            loadFragment('service-modal.html','servicesModalPlaceholder2'),
+            loadFragment('ecard-modal.html',   'ecardModalPlaceholder'),
+        ]).then(() => {
+            const script = document.createElement('script');
+            script.src = 'reactive.js';
+            document.body.appendChild(script);
+        });
     </script>
 </body>
 </html>

@@ -636,7 +636,7 @@ function toggleYakapWidget(event) {
 }
 
 /* ==========================================================================
-                    SCRIPT FOR FAQ
+                            SCRIPT FOR FAQ
    ========================================================================== */
 function toggleFaq(btn) {
   const item = btn.parentElement;
