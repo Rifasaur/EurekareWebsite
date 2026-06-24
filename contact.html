@@ -112,6 +112,7 @@
                 <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
                 <li><a href="#"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>   
                 <li><a href="data-privacy.html"><i class="fa-solid fa-chevron-right"></i> Data Privacy</a></li>
+                <li><a href="faq.html"><i class="fa-solid fa-chevron-right"></i> FAQ</a></li>
             </ul>
         </div>
 
@@ -164,7 +165,6 @@
     <div class="contact-us-overlay" id="confirmationModalOverlay">
         <div class="contact-modal-card confirmation-modal-card">
 
-            <!-- Accent stripe only — JS sets background-color, text is hidden via CSS -->
             <div class="contact-modal-header" id="confirmationHeader">
                 <h2 class="contact-modal-title" id="confirmationTitle" style="display:none;"></h2>
                 <p class="contact-modal-subtitle" id="confirmationSubtitle" style="display:none;"></p>
@@ -172,21 +172,16 @@
 
             <div class="contact-modal-body confirmation-modal-body">
 
-                <!-- Glowing icon circle -->
                 <div id="confirmationIconContainer" class="confirmation-icon-box">
                     <i class="fa-solid fa-circle-notch fa-spin loading-icon"></i>
                 </div>
 
-                <!-- State label (PROCESSING / SUCCESS / ERROR) -->
                 <p id="confirmationStateLabel" class="confirmation-state-label">Processing</p>
 
-                <!-- Main title rendered in body -->
                 <h2 id="confirmationTitleBody" class="confirmation-title-text">Sending your request…</h2>
 
-                <!-- Supporting subtitle -->
                 <p id="confirmationSubtitleBody" class="confirmation-subtitle-text">Please wait while we submit your request.</p>
 
-                <!-- Detail message -->
                 <p id="confirmationMessage" class="confirmation-text">
                     We are validating your files and routing your message via secure SMTP servers.
                 </p>
@@ -202,16 +197,9 @@
         </div>
     </div>
 
-    <!--
-        FIX: Load reactive.js first as the single source of truth for ALL modal logic,
-        form submission handling, and confirmation modal functions. The duplicate inline
-        script block that previously redefined these functions has been removed entirely.
-    -->
+
     <script src="reactive.js"></script>
     <script>
-        // Modal asset rendering — load fragment HTML files into their overlay containers.
-        // FIX: Added .catch() handlers so a fetch failure shows an error inside the
-        //      overlay instead of silently leaving it empty and broken.
         fetch('contact-modal.html')
             .then(response => {
                 if (!response.ok) throw new Error('Could not load inquiry form.');
