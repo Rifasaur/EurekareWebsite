@@ -64,7 +64,6 @@ body {
 } */
 
 .container-section {
-    position: center;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -142,7 +141,7 @@ body {
 
 .main-nav {
   background: rgba(255, 255, 255, 0.92);
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* While still inside the first section — stays white/transparent */
@@ -188,6 +187,18 @@ body {
 /* Hamburger bars turn white on blue background */
 .main-nav.scrolled .hamburger-bar {
   background-color: #ffffff;
+}
+
+.main-nav.scrolled .logo-placeholder{
+  background-image: url("./images/Logo-White-Transparent.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 1;
+}
+
+.main-nav.scrolled .img-logo {
+    opacity: 0;
+    transition: opacity 0.1s ease-in;
 }
 
 .container-header {
