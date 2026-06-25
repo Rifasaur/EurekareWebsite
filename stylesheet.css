@@ -3992,3 +3992,211 @@ body {
         padding: 7px 13px;
     }
 }
+
+/* ==========================================================================
+                    HERO SLIDE 1 — INTRO PANEL LAYOUT
+   ========================================================================== */
+
+.hero-slide-intro {
+    background: #ffffff !important;
+    text-align: left !important;
+    padding: 0 !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+}
+
+.hero-slide-intro .hero-intro-separator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent 0%, #0055a4 30%, #43B9B7 70%, transparent 100%);
+    z-index: 10;
+}
+
+.hero-slide-intro .hero-intro-bg-wash {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: #f0f7ff;
+    clip-path: ellipse(100% 80% at 100% 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-intro-left {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 56px 60px 72px;
+    width: 54%;
+    box-sizing: border-box;
+    transform: none;
+}
+
+.hero-intro-logo {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: 28px;
+    align-self: flex-start;
+    margin-left: -30px;
+}
+
+.hero-intro-body {
+    font-size: clamp(0.9rem, 1.3vw, 1rem);
+    color: #4a5568;
+    line-height: 1.8;
+    margin: 0 0 32px;
+    max-width: 490px;
+    opacity: 1;
+    animation: none;
+    text-align: justify;
+}
+
+.hero-intro-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-intro-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: #0055a4;
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid #0055a4;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.hero-intro-btn-primary:hover {
+    background: #003d80;
+    border-color: #003d80;
+    transform: translateY(-2px);
+}
+
+.hero-intro-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: transparent;
+    color: #0055a4;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid #0055a4;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.hero-intro-btn-secondary:hover {
+    background: #f0f7ff;
+    transform: translateY(-2px);
+}
+
+.hero-intro-right {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 60px 56px 60px 40px;
+}
+
+.hero-intro-right-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9BA9B5;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-intro-right-label span {
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: #9BA9B5;
+}
+
+.hero-trust-card {
+    background: #ffffff;
+    border: 1px solid #e8f0fb;
+    border-left: 3px solid #0055a4;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: box-shadow 0.2s;
+}
+
+.hero-trust-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 85, 164, 0.08);
+}
+
+.hero-trust-card.teal {
+    border-left-color: #43B9B7;
+}
+
+.hero-trust-card.teal:hover {
+    box-shadow: 0 4px 16px rgba(67, 185, 183, 0.08);
+}
+
+.hero-trust-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e8f1fb, #d0e4f7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hero-trust-icon.teal {
+    background: linear-gradient(135deg, #e0f5f5, #c5eceb);
+}
+
+.hero-trust-icon i {
+    color: #0055a4;
+    font-size: 1rem;
+}
+
+.hero-trust-icon.teal i {
+    color: #43B9B7;
+}
+
+.hero-trust-card-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0A1D2E;
+    letter-spacing: 0.01em;
+}
+
+.hero-trust-card-sub {
+    font-size: 0.76rem;
+    color: #718096;
+    margin-top: 3px;
+}
