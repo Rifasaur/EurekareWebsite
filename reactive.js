@@ -645,22 +645,65 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-// Scroll opacity + color effect
-const firstSection = document.querySelector('main > section:first-child');
+/* ==========================================================================
+                            NAV INITIALIZER
+   ========================================================================== */
+function initNav() {
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    const dropdown  = document.getElementById('servicesDropdown');
 
-window.addEventListener('scroll', () => {
-    const nav = document.getElementById('mainNav');
-    if (!nav) return;
+    if (!navToggle || !navLinks) return;
 
-    const threshold = firstSection ? firstSection.offsetHeight : 100;
+    // Hamburger toggle
+    navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('nav-open');
+        navToggle.classList.toggle('nav-toggle--open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
 
-    if (window.scrollY > threshold) {
-        nav.classList.add('scrolled');
-        nav.classList.remove('at-top');
-    } else if (window.scrollY > 10) {
-        nav.classList.remove('scrolled');
-        nav.classList.add('at-top');
-    } else {
-        nav.classList.remove('scrolled', 'at-top');
+    // Close menu when a nav link is clicked (mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('nav-open');
+            navToggle.classList.remove('nav-toggle--open');
+            navToggle.setAttribute('aria-expanded', false);
+        });
+    });
+
+    // Services dropdown (only if it exists)
+    if (dropdown) {
+        const dropToggle = dropdown.querySelector('.nav-dropdown-toggle');
+
+        dropToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = dropdown.classList.toggle('open');
+            dropToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+                dropToggle.setAttribute('aria-expanded', false);
+            }
+        });
     }
-});
+
+    // Scroll — bg transition past first section
+    const firstSection = document.querySelector('main > section:first-child');
+
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('mainNav');
+        if (!nav) return;
+        const threshold = firstSection ? firstSection.offsetHeight : 100;
+        if (window.scrollY > threshold) {
+            nav.classList.add('scrolled');
+            nav.classList.remove('at-top');
+        } else if (window.scrollY > 10) {
+            nav.classList.remove('scrolled');
+            nav.classList.add('at-top');
+        } else {
+            nav.classList.remove('scrolled', 'at-top');
+        }
+    });
+}

@@ -390,7 +390,7 @@ body {
   .container-header {
     position: relative;
     flex-wrap: nowrap;
-    padding: 0 16px;
+    padding: 0 0;
     height: var(--nav-height);
     align-items: center;
   }
@@ -485,6 +485,16 @@ body {
     font-size: 13.5px;
     padding: 10px 12px;
     color: #475569;
+  }
+
+  .img-logo {
+    height: 36px;
+    width: auto;
+  }
+
+  .logo-placeholder a {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -2217,101 +2227,15 @@ body {
   padding: 10px 20px;
 }
 
-
-/* About Us Styles ----------------------------------*/
-
-/* ==========================================================================
-                           ABOUT US STYLES (RESPONSIVE)
-   ========================================================================== */
-.about-us-parallax {
-    min-height: 100vh; /* Changed from fixed height to min-height to grow with content */
-    background-image: url('./images/commercial.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 40px; 
-    align-items: center;
-    padding: 60px 10%; /* Replaced hardcoded margins with clean, balanced padding */
-    box-sizing: border-box;
-}
-
-/* About Us Card Styles */
-.floating-about-box {
-    background-color: rgba(0, 0, 0, 0.85); 
-    color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    z-index: 2;
-}
-
-/* 1. Base State: Hidden initially (No animations attached here!) */
-.about-us-bg {
-    width: 100%;
-    max-width: 1500px;
-    height: auto;
-    justify-self: center;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 3s cubic-bezier(0.25, 1, 0.5, 1), 
-                transform 3s cubic-bezier(0.25, 1, 0.5, 1);
-
-    /* --- ADD THESE LINES TO FADE THE BOTTOM EDGE --- */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-}
-
-/* 2. Target State */
-.about-us-bg.animate {
-    opacity: 1;
-    transform: translateX(0);
-}
-
 /* ==========================================================================
                            RESPONSIVE MEDIA QUERIES
    ========================================================================== */
-@media (max-width: 992px) {
-    .about-us-parallax {
-        grid-template-columns: 1fr; /* Switch from 2 columns to a single-column stack */
-        gap: 30px;
-        padding: 80px 5%; /* Give extra breathing room for mobile viewports */
-    }
-
-    .about-us-bg {
-        margin-top: 0; /* Remove massive vertical displacement on small viewports */
-        transform: translateY(30px); /* Switch horizontal slide to a subtle upward lift on mobile */
-    }
-    
-    .about-us-bg.animate {
-        transform: translateY(0);
-    }
-}
-
 .eyebrow {
     color: #9BA9B5; /* Tech Silver */
     letter-spacing: 2px;
     font-size: 12px;
     display: block;
     margin-bottom: 20px;
-}
-
-.about-us-paragraph{
-    text-align: justify;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 50px;
-    font-size: 1.05rem;
-    line-height: 1.5; 
-}
-
-.floating-about-box h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    line-height: 1.3;
-    text-align: justify;
 }
 
 .read-more-btn {
@@ -2619,9 +2543,14 @@ body {
     }
 }
 
-/* FAQ Section */
+
+/* ==========================================================================
+                    FAQ PAGE — DATA PRIVACY STYLE MATCH
+   ========================================================================== */
+
+
 .faq-section {
-  padding: 80px 50px;
+  padding: 0px 20px;
   margin-bottom: 50px;
   background-color: #ffffff;
   text-align: center;
@@ -2699,9 +2628,47 @@ body {
 
 .faq-answer p {
   margin: 0;
-  color: #334155;
-  line-height: 1.75;
-  font-size: 0.96rem;
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.faq-page-container {
+    max-width: 960px;
+    padding: 0 20px;
+    margin: 60px auto 80px;
+}
+
+.faq-page-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+}
+
+.faq-page-title-highlight {
+    color: #3587ca;
+    font-weight: 700;
+}
+
+.faq-page-title-main {
+    color: #0055a4;
+    font-weight: 700;
+}
+
+.faq-category-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0055a4;
+    margin: 40px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2eaf4;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.faq-category-heading:first-child {
+    margin-top: 0;
 }
 
 /* Special Features background */
@@ -4199,4 +4166,326 @@ body {
     font-size: 0.76rem;
     color: #718096;
     margin-top: 3px;
+}
+
+/* ==========================================================================
+                            ABOUT PAGE
+   ========================================================================== */
+
+.about-page-section {
+  padding: 80px 24px;
+  background: #ffffff;
+}
+
+.about-page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.about-page-title-highlight {
+  color: #0055a4;
+}
+
+.about-page-title-main {
+  color: #0A1D2E;
+}
+
+.about-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+
+.about-page-text .eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #43B9B7;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.about-page-text h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0A1D2E;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.about-page-text p {
+  color: #475569;
+  line-height: 1.8;
+  font-size: 0.97rem;
+  margin-bottom: 16px;
+}
+
+.about-page-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-highlight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #e8edf2;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.about-highlight-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 85, 164, 0.10);
+  transform: translateY(-2px);
+}
+
+.about-highlight-icon {
+  width: 44px;
+  height: 44px;
+  background: #0055a4;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.about-highlight-text h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0A1D2E;
+  margin-bottom: 4px;
+}
+
+.about-highlight-text p {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Vision & Mission */
+.about-vm-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.about-vm-card {
+  background: linear-gradient(135deg, #0055a4 0%, #0A1D2E 100%);
+  border-radius: 16px;
+  padding: 36px 32px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.about-vm-icon {
+  font-size: 2rem;
+  color: #43B9B7;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.about-vm-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.about-vm-card p {
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .about-page-grid,
+  .about-vm-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-page-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* ==========================================================================
+                            ABOUT PAGE
+   ========================================================================== */
+
+.about-page-section {
+  padding: 80px 24px;
+  background: #ffffff;
+}
+
+.about-page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.about-page-title-highlight {
+  color: #0055a4;
+}
+
+.about-page-title-main {
+  color: #0A1D2E;
+}
+
+.about-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+
+.about-page-text .eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #43B9B7;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.about-page-text h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0A1D2E;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.about-page-text p {
+  color: #475569;
+  line-height: 1.8;
+  font-size: 0.97rem;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.about-page-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-highlight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #e8edf2;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.about-highlight-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 85, 164, 0.10);
+  transform: translateY(-2px);
+}
+
+.about-highlight-icon {
+  width: 44px;
+  height: 44px;
+  background: #0055a4;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.about-highlight-text h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0A1D2E;
+  margin-bottom: 4px;
+}
+
+.about-highlight-text p {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Vision & Mission */
+.about-vm-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.about-vm-card {
+  background: linear-gradient(135deg, #0055a4 0%, #0A1D2E 100%);
+  border-radius: 16px;
+  padding: 36px 32px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.about-vm-icon {
+  font-size: 2rem;
+  color: #43B9B7;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.about-vm-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.about-vm-card p {
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  text-align: justify;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .about-page-grid,
+  .about-vm-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-page-title {
+    font-size: 1.6rem;
+  }
 }

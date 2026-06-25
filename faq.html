@@ -11,79 +11,189 @@
 
   <header id="header" class="header-placeholder"></header>
 
-  <main class="fade-in-page">
+  <div class="fade-in-container">
 
     <!-- FAQ Hero Banner -->
-    <section class="faq-hero">
-      <div class="faq-hero-content">
-        <h1>Frequently Asked Questions</h1>
-        <p>Find answers to the most common questions about Eurekare's services and solutions.</p>
-      </div>
+    <section class="data-privacy-hero">
+        <div class="data-privacy-hero-overlay"></div>
+        <div class="data-privacy-hero-image">
+            <img src="images/AIC Burgundy Tower.jpg" alt="Data Privacy Banner">
+        </div>
+        <div class="data-privacy-hero-breadcrumb">
+            <span class="data-privacy-breadcrumb-trail"><a href="index.html">Home</a> » FAQ</span>
+        </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
-      <div class="container">
+  <section class="faq-section" id="faq">
+      <div class="faq-page-container">
 
-        <div class="faq-list">
+        <h1 class="faq-page-title">
+          <span class="faq-page-title-highlight">eCare EMR</span>
+          <span class="faq-page-title-main"> Frequently Asked Questions</span>
+        </h1>
+
+        <div class="faq-list" style="max-width:100%; margin:0;">
+
+          <h3 class="faq-category-heading">General Information</h3>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              What is Eurekare Corporation?
+              What is eCare EMR?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Eurekare Corporation is a Healthcare Information System Service Provider based in the Philippines. We offer cloud-based EMR systems, smartcard technology, and integrated healthcare solutions tailored for hospitals, clinics, and government health programs.</p>
+              <p>eCare EMR is a PhilHealth-accredited electronic medical records system with an integrated YAKAP benefits module. It streamlines patient records, billing, laboratory/radiology, pharmacy, and mobile health documentation into one secure, audit-ready platform.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              What is the eCARE EMR Yakap/Konsulta Project?
+              Who can use eCare EMR?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>The eCARE EMR Yakap/Konsulta Project is an Electronic Medical Record (EMR) system integrated with the Yakap and Konsulta modules. It is designed to meet the requirements of the Universal Healthcare Act and supports patient registration, consultation records, and health data management.</p>
+              <p>The system is designed for both private hospitals, clinics, and laboratories, as well as public health units, municipal health offices, and provincial hospitals.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              Is Eurekare's system compatible with PhilHealth requirements?
+              Is eCare EMR accredited by PhilHealth?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes. Our system is designed to comply with PhilHealth accreditation standards and reporting requirements, making it easier for healthcare facilities to submit claims and manage patient benefit records accurately.</p>
+              <p>Yes. eCare EMR is fully accredited and compliant with PhilHealth standards, ensuring seamless claims processing and submission.</p>
+            </div>
+          </div>
+
+          <h3 class="faq-category-heading">Features &amp; Benefits</h3>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              What modules are included in eCare EMR?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>eCare EMR includes the following modules: Patient Registry, Laboratory/Radiology, Pharmacy, Billing, Mobile Health Records, and integrated YAKAP benefits.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              What is the Eurekare Digital Health Card?
+              How does eCare EMR improve healthcare delivery?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>The Eurekare Digital Health Card is a smartcard solution that stores a patient's medical and insurance information securely. It allows healthcare providers to quickly access patient records, verify benefits, and streamline the consultation process.</p>
+              <p>It reduces paperwork, accelerates claims submission, ensures audit-ready documentation, and provides a unified digital health record accessible across facilities.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              How can our hospital or clinic partner with Eurekare?
+              Can eCare EMR be customized for our facility's needs?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>You may reach out to us through our contact form or email us directly. Our team will schedule a consultation to assess your facility's needs and propose the best-fit solution from our suite of healthcare information services.</p>
+              <p>Yes. The system is modular and can be tailored to the workflows of private clinics, hospitals, or public health units.</p>
+            </div>
+          </div>
+
+          <h3 class="faq-category-heading">Compliance &amp; Security</h3>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Is patient data secure in eCare EMR?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely. The system follows strict data privacy and security standards, ensuring compliance with national regulations and international best practices.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              Does Eurekare offer training and support after implementation?
+              Does eCare EMR support audit and compliance requirements?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Absolutely. We provide comprehensive onboarding training for staff and administrators, as well as ongoing technical support to ensure smooth system operation. Our team is available to assist with updates, troubleshooting, and system enhancements.</p>
+              <p>Yes. All records are structured to be audit-ready, supporting both internal reviews and external compliance checks.</p>
+            </div>
+          </div>
+
+          <h3 class="faq-category-heading">Implementation &amp; Support</h3>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              How long does it take to implement eCare EMR?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Implementation timelines vary depending on facility size and scope, but phased rollout options are available for smooth adoption.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              What training is provided?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Eurekare Corp. offers a comprehensive training program for administrators, medical staff, and IT teams to ensure effective use of the system.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Is technical support available?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Dedicated support teams provide assistance for onboarding, troubleshooting, and system updates.</p>
+            </div>
+          </div>
+
+          <h3 class="faq-category-heading">Integration &amp; Accessibility</h3>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Can eCare EMR integrate with existing hospital systems?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. It supports interoperability with laboratory/radiology, pharmacy, and billing systems, as well as national health registries.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Is eCare EMR accessible remotely?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. With mobile health records and secure cloud hosting, authorized users can access patient data anytime, anywhere.</p>
+            </div>
+          </div>
+
+          <h3 class="faq-category-heading">Cost &amp; Licensing</h3>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              What is the pricing model for eCare EMR?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Pricing depends on facility type, size, and chosen modules. Flexible licensing options are available for both private and public institutions.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Are there subscription or maintenance fees?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Annual subscription and maintenance packages ensure continuous updates, compliance, and technical support.</p>
             </div>
           </div>
 
@@ -91,23 +201,23 @@
       </div>
     </section>
 
-  </main>
+  </div>
 
   <div id="footer-content"></div>
 
   <script src="reactive.js"></script>
-        <script>
-            function loadFragment(file, targetId) {
-                return fetch(file)
-                    .then(r => r.text())
-                    .then(html => { document.getElementById(targetId).innerHTML = html; });
-            }
+  <script>
+    function loadFragment(file, targetId) {
+      return fetch(file)
+        .then(r => r.text())
+        .then(html => { document.getElementById(targetId).innerHTML = html; });
+    }
 
-            Promise.all([
-                loadFragment('nav.html',    'header'),
-                loadFragment('footer.html', 'footer-content'),
-            ]).then(() => initNav());
-        </script>
+    Promise.all([
+      loadFragment('nav.html',    'header'),
+      loadFragment('footer.html', 'footer-content'),
+    ]).then(() => initNav());
+  </script>
 
 </body>
 </html>
