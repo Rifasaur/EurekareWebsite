@@ -141,42 +141,72 @@ body {
    ========================================================================== */
 
 .main-nav {
-  background: rgba(255, 255, 255, 0.92);
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+ background-color: linear-gradient(135deg, #0055a4 0%, #0A1D2E 100%);
+ transition: background-color 0.5s ease, box-shadow 0.5s ease;
+ opacity: 1;
 }
 
-/* While still inside the first section — stays white/transparent */
-.main-nav.at-top {
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: none;
+.main-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0055a4 0%, #0A1D2E 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
 }
 
-/* Past the first section — turns blue */
+.main-nav.scrolled::before {
+  opacity: 0;
+}
+
 .main-nav.scrolled {
   background: #0055a4;
   box-shadow: 0 4px 20px rgba(0, 85, 164, 0.30);
 }
 
-/* Flip nav link text to white when blue background is active */
+/* Make sure nav content sits above the pseudo-element */
+.main-nav .container-header {
+  position: relative;
+  z-index: 1;
+}
+
+/* Links — white on gradient, dark on white */
+.main-nav .nav-links > li > a,
+.main-nav .nav-dropdown-toggle {
+  color: #ffffff;
+  transition: color 0.5s ease;
+}
+
+.main-nav .nav-links > li > a:hover,
+.main-nav .nav-dropdown-toggle:hover {
+    color: #ffffff;
+  transition: color 0.5s ease;
+}
+
+.main-nav .nav-links > li > a::after {
+  background-color: #efefef;
+}
+
 .main-nav.scrolled .nav-links > li > a,
 .main-nav.scrolled .nav-dropdown-toggle {
-  color: #ffffff;
+  color: #334155;
 }
 
 .main-nav.scrolled .nav-links > li > a:hover,
 .main-nav.scrolled .nav-dropdown-toggle:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--eurekare-blue);
 }
 
 .main-nav.scrolled .nav-links > li > a::after {
-  background-color: #ffffff;
+  background-color: var(--eurekare-blue);
 }
 
 .main-nav.scrolled .nav-dropdown-caret {
-  color: #ffffff;
+  color: #334155;
 }
 
-/* Dropdown menu stays white even when nav is blue */
+/* Dropdown menu */
 .main-nav.scrolled .nav-dropdown-menu {
   background: #ffffff;
 }
@@ -185,9 +215,53 @@ body {
   color: #334155;
 }
 
-/* Hamburger bars turn white on blue background */
-.main-nav.scrolled .hamburger-bar {
+/* Hamburger bars */
+.main-nav .hamburger-bar {
   background-color: #ffffff;
+  transition: background-color 0.5s ease;
+}
+
+.main-nav.scrolled .hamburger-bar {
+  background-color: #334155;
+}
+
+/* Logo transition */
+.logo-placeholder a {
+  position: relative;
+  display: inline-block;
+}
+
+.img-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+/* White logo — visible by default (on gradient bg) */
+.logo-white {
+  opacity: 1;
+  position: relative;
+}
+
+/* Color logo — hidden by default, stacked on top */
+.logo-color {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%); /* vertically centers it */
+  height: 44px;
+  width: 44px;
+}
+
+/* On scroll — swap logos */
+.main-nav.scrolled .logo-white {
+  opacity: 0;
+}
+
+.main-nav.scrolled .logo-color {
+  opacity: 1;
 }
 
 .container-header {
