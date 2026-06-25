@@ -64,7 +64,6 @@ body {
 } */
 
 .container-section {
-    position: center;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -142,41 +141,70 @@ body {
 
 .main-nav {
   background: rgba(255, 255, 255, 0.92);
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* While still inside the first section — stays white/transparent */
-.main-nav.at-top {
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: none;
+.main-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0055a4 0%, #0A1D2E 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
 }
 
-/* Past the first section — turns blue */
+.main-nav.scrolled::before {
+  opacity: 0;
+}
+
 .main-nav.scrolled {
   background: #0055a4;
   box-shadow: 0 4px 20px rgba(0, 85, 164, 0.30);
 }
 
-/* Flip nav link text to white when blue background is active */
+/* Make sure nav content sits above the pseudo-element */
+.main-nav .container-header {
+  position: relative;
+  z-index: 1;
+}
+
+/* Links — white on gradient, dark on white */
+.main-nav .nav-links > li > a,
+.main-nav .nav-dropdown-toggle {
+  color: #ffffff;
+  transition: color 0.5s ease;
+}
+
+.main-nav .nav-links > li > a:hover,
+.main-nav .nav-dropdown-toggle:hover {
+    color: #ffffff;
+  transition: color 0.5s ease;
+}
+
+.main-nav .nav-links > li > a::after {
+  background-color: #efefef;
+}
+
 .main-nav.scrolled .nav-links > li > a,
 .main-nav.scrolled .nav-dropdown-toggle {
-  color: #ffffff;
+  color: #334155;
 }
 
 .main-nav.scrolled .nav-links > li > a:hover,
 .main-nav.scrolled .nav-dropdown-toggle:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--eurekare-blue);
 }
 
 .main-nav.scrolled .nav-links > li > a::after {
-  background-color: #ffffff;
+  background-color: var(--eurekare-blue);
 }
 
 .main-nav.scrolled .nav-dropdown-caret {
-  color: #ffffff;
+  color: #334155;
 }
 
-/* Dropdown menu stays white even when nav is blue */
+/* Dropdown menu */
 .main-nav.scrolled .nav-dropdown-menu {
   background: #ffffff;
 }
@@ -185,9 +213,65 @@ body {
   color: #334155;
 }
 
-/* Hamburger bars turn white on blue background */
-.main-nav.scrolled .hamburger-bar {
+/* Hamburger bars */
+.main-nav .hamburger-bar {
   background-color: #ffffff;
+  transition: background-color 0.5s ease;
+}
+
+.main-nav.scrolled .hamburger-bar {
+  background-color: #334155;
+}
+
+/* Logo transition */
+.logo-placeholder a {
+  position: relative;
+  display: inline-block;
+}
+
+.img-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+/* White logo — visible by default (on gradient bg) */
+.logo-white {
+  opacity: 1;
+  position: relative;
+}
+
+/* Color logo — hidden by default, stacked on top */
+.logo-color {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%); /* vertically centers it */
+  height: 44px;
+  width: 44px;
+}
+
+/* On scroll — swap logos */
+.main-nav.scrolled .logo-white {
+  opacity: 0;
+}
+
+.main-nav.scrolled .logo-color {
+  opacity: 1;
+}
+
+.main-nav.scrolled .logo-placeholder{
+  background-image: url("./images/Logo-White-Transparent.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 1;
+}
+
+.main-nav.scrolled .img-logo {
+    opacity: 0;
+    transition: opacity 0.1s ease-in;
 }
 
 .container-header {
@@ -390,7 +474,7 @@ body {
   .container-header {
     position: relative;
     flex-wrap: nowrap;
-    padding: 0 16px;
+    padding: 0 0;
     height: var(--nav-height);
     align-items: center;
   }
@@ -485,6 +569,16 @@ body {
     font-size: 13.5px;
     padding: 10px 12px;
     color: #475569;
+  }
+
+  .img-logo {
+    height: 36px;
+    width: auto;
+  }
+
+  .logo-placeholder a {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -2217,101 +2311,15 @@ body {
   padding: 10px 20px;
 }
 
-
-/* About Us Styles ----------------------------------*/
-
-/* ==========================================================================
-                           ABOUT US STYLES (RESPONSIVE)
-   ========================================================================== */
-.about-us-parallax {
-    min-height: 100vh; /* Changed from fixed height to min-height to grow with content */
-    background-image: url('./images/commercial.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 40px; 
-    align-items: center;
-    padding: 60px 10%; /* Replaced hardcoded margins with clean, balanced padding */
-    box-sizing: border-box;
-}
-
-/* About Us Card Styles */
-.floating-about-box {
-    background-color: rgba(0, 0, 0, 0.85); 
-    color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    z-index: 2;
-}
-
-/* 1. Base State: Hidden initially (No animations attached here!) */
-.about-us-bg {
-    width: 100%;
-    max-width: 1500px;
-    height: auto;
-    justify-self: center;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 3s cubic-bezier(0.25, 1, 0.5, 1), 
-                transform 3s cubic-bezier(0.25, 1, 0.5, 1);
-
-    /* --- ADD THESE LINES TO FADE THE BOTTOM EDGE --- */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-}
-
-/* 2. Target State */
-.about-us-bg.animate {
-    opacity: 1;
-    transform: translateX(0);
-}
-
 /* ==========================================================================
                            RESPONSIVE MEDIA QUERIES
    ========================================================================== */
-@media (max-width: 992px) {
-    .about-us-parallax {
-        grid-template-columns: 1fr; /* Switch from 2 columns to a single-column stack */
-        gap: 30px;
-        padding: 80px 5%; /* Give extra breathing room for mobile viewports */
-    }
-
-    .about-us-bg {
-        margin-top: 0; /* Remove massive vertical displacement on small viewports */
-        transform: translateY(30px); /* Switch horizontal slide to a subtle upward lift on mobile */
-    }
-    
-    .about-us-bg.animate {
-        transform: translateY(0);
-    }
-}
-
 .eyebrow {
     color: #9BA9B5; /* Tech Silver */
     letter-spacing: 2px;
     font-size: 12px;
     display: block;
     margin-bottom: 20px;
-}
-
-.about-us-paragraph{
-    text-align: justify;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 50px;
-    font-size: 1.05rem;
-    line-height: 1.5; 
-}
-
-.floating-about-box h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    line-height: 1.3;
-    text-align: justify;
 }
 
 .read-more-btn {
