@@ -590,6 +590,18 @@ img.logo-color {
   .main-nav.scrolled .nav-dropdown-toggle {
     color: #334155;
   }
+
+  .container-header {
+    padding: 0 20px;
+  }
+
+  .logo {
+    padding-left: 50px;
+  }
+
+  .nav-toggle {
+    padding-right: 50px;
+  }
 }
 
 /* ==========================================================================
