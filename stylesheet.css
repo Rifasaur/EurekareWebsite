@@ -194,7 +194,7 @@ body {
 
 .main-nav.scrolled .nav-links > li > a,
 .main-nav.scrolled .nav-dropdown-toggle {
-  color: #334155;
+  color: #efefef;
 }
 
 .main-nav.scrolled .nav-links > li > a:hover,
@@ -515,6 +515,7 @@ img.logo-color {
     pointer-events: auto;
     padding: 12px 16px 20px;
   }
+  
 
   .nav-links > li > a {
     display: block;
