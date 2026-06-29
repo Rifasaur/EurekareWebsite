@@ -194,12 +194,12 @@ body {
 
 .main-nav.scrolled .nav-links > li > a,
 .main-nav.scrolled .nav-dropdown-toggle {
-  color: #334155;
+  color: #efefef;
 }
 
 .main-nav.scrolled .nav-links > li > a:hover,
 .main-nav.scrolled .nav-dropdown-toggle:hover {
-  color: #efefef;
+  color: #334155;
 }
 
 .main-nav.scrolled .nav-dropdown-caret {
