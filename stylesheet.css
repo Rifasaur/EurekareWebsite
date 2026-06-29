@@ -14,7 +14,7 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #ffffff; 
     color: #334155;
 }
@@ -172,32 +172,34 @@ body {
 /* Links — white on gradient, dark on white */
 .main-nav .nav-links > li > a,
 .main-nav .nav-dropdown-toggle {
-  color: #ffffff;
+  color: #334155;
   transition: color 0.5s ease;
 }
 
 .main-nav .nav-links > li > a:hover,
 .main-nav .nav-dropdown-toggle:hover {
-    color: #ffffff;
+    color: #334155;
   transition: color 0.5s ease;
 }
 
-.main-nav .nav-links > li > a::after {
+/* Underline on blue background — white */
+.main-nav:not(.scrolled) .nav-links > li > a::after {
+  background-color: #334155;
+}
+
+/* Underline on white/light background — blue */
+.main-nav.scrolled .nav-links > li > a::after {
   background-color: #efefef;
 }
 
 .main-nav.scrolled .nav-links > li > a,
 .main-nav.scrolled .nav-dropdown-toggle {
-  color: #efefef;
+  color: #334155;
 }
 
 .main-nav.scrolled .nav-links > li > a:hover,
 .main-nav.scrolled .nav-dropdown-toggle:hover {
-  color: var(--eurekare-blue);
-}
-
-.main-nav.scrolled .nav-links > li > a::after {
-  background-color: var(--eurekare-blue);
+  color: #334155;
 }
 
 .main-nav.scrolled .nav-dropdown-caret {
@@ -206,21 +208,17 @@ body {
 
 /* Dropdown menu */
 .main-nav.scrolled .nav-dropdown-menu {
-  background: #ffffff;
-}
-
-.main-nav.scrolled .nav-dropdown-menu li a {
-  color: #334155;
+  background: #334155;
 }
 
 /* Hamburger bars */
 .main-nav .hamburger-bar {
-  background-color: #ffffff;
+  background-color: #334155;
   transition: background-color 0.5s ease;
 }
 
 .main-nav.scrolled .hamburger-bar {
-  background-color: #334155;
+  background-color: #efefef;
 }
 
 /* Logo transition */
@@ -230,27 +228,28 @@ body {
 }
 
 .img-logo {
-  height: 44px;
-  width: auto;
+
   display: block;
   transition: opacity 0.5s ease;
 }
 
 /* White logo — visible by default (on gradient bg) */
-.logo-white {
-  opacity: 1;
+img.logo-white {
+  opacity: 0;
   position: relative;
+  height: 78px;
+  width: auto;
 }
 
 /* Color logo — hidden by default, stacked on top */
-.logo-color {
-  opacity: 0;
+img.logo-color {
+  opacity: 1;
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%); /* vertically centers it */
-  height: 44px;
-  width: 44px;
+  height: 105px;
+  width: auto;
 }
 
 /* On scroll — swap logos */
@@ -516,7 +515,6 @@ body {
     pointer-events: auto;
     padding: 12px 16px 20px;
   }
-  
 
   .nav-links > li > a {
     display: block;
@@ -4294,7 +4292,11 @@ body {
    ========================================================================== */
 
 .about-page-section {
-  padding: 80px 24px;
+  /* padding: 80px 24px; */
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 80px;
+  padding-top: 30px;
   background: #ffffff;
 }
 
@@ -4311,11 +4313,13 @@ body {
 }
 
 .about-page-title-highlight {
-  color: #0055a4;
+  color: #3587ca;
+  font-weight: 700px;
 }
 
 .about-page-title-main {
-  color: #0A1D2E;
+  color: var(--eurekare-blue);
+  font-weight: 700px;
 }
 
 .about-page-grid {
@@ -4326,7 +4330,7 @@ body {
   margin-bottom: 64px;
 }
 
-.about-page-text .eyebrow {
+/* .about-page-text .eyebrow {
   display: block;
   font-size: 12px;
   font-weight: 700;
@@ -4334,7 +4338,7 @@ body {
   color: #43B9B7;
   margin-bottom: 12px;
   text-transform: uppercase;
-}
+} */
 
 .about-page-text h2 {
   font-size: 1.6rem;
@@ -4409,7 +4413,8 @@ body {
 }
 
 .about-vm-card {
-  background: linear-gradient(135deg, #0055a4 0%, #0A1D2E 100%);
+  /* background: linear-gradient(135deg, #0055a4 0%, #0A1D2E 100%); */
+  background: var(--eurekare-blue);
   border-radius: 16px;
   padding: 36px 32px;
   color: #ffffff;
@@ -4418,7 +4423,7 @@ body {
 
 .about-vm-icon {
   font-size: 2rem;
-  color: #43B9B7;
+  color: #ffffff;
   margin-bottom: 16px;
   display: block;
 }
@@ -4431,7 +4436,7 @@ body {
 }
 
 .about-vm-card p {
-  font-size: 0.93rem;
+  font-size: 0.97rem;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.82);
   margin: 0;
@@ -4449,4 +4454,37 @@ body {
   .about-page-title {
     font-size: 1.6rem;
   }
+}
+
+/* Hero intro logo */
+.hero-intro-logo {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: 28px;
+    align-self: flex-start;
+    margin-left: -30px;
+}
+
+/* Secondary CTA button */
+.hero-intro-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: transparent;
+    color: #0055a4;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid #0055a4;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.hero-intro-btn-secondary:hover {
+    background: #f0f7ff;
+    transform: translateY(-2px);
 }
