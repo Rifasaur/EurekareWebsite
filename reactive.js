@@ -406,57 +406,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* ==========================================================================
-                           NAV DROPDOWN (Our Services)
-   ========================================================================== */
-function setDropdownOpen(dropdownEl, isOpen) {
-    if (!dropdownEl) return;
-    dropdownEl.classList.toggle('open', isOpen);
-    const toggleBtn = dropdownEl.querySelector('.nav-dropdown-toggle');
-    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', String(isOpen));
-}
-
-function initNavDropdown() {
-    const dropdown = document.getElementById('servicesDropdown');
-    if (!dropdown) return;
-
-    const toggleBtn = dropdown.querySelector('.nav-dropdown-toggle');
-    const menu = dropdown.querySelector('.nav-dropdown-menu');
-    if (!toggleBtn || !menu) return;
-
-    if (dropdown.dataset.dropdownBound === 'true') return;
-    dropdown.dataset.dropdownBound = 'true';
-
-    toggleBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = dropdown.classList.contains('open');
-        setDropdownOpen(dropdown, !isOpen);
-    });
-
-    toggleBtn.addEventListener('mousedown', (e) => e.stopPropagation());
-
-    menu.addEventListener('click', (e) => {
-        const link = e.target.closest('a[data-services-modal]');
-        if (!link) return;
-        const serviceType = link.getAttribute('data-services-modal');
-        if (serviceType && typeof openServicesModal === 'function') {
-            e.preventDefault();
-            setDropdownOpen(dropdown, false);
-            openServicesModal(serviceType);
-        }
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) setDropdownOpen(dropdown, false);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    initNavDropdown();
-    setTimeout(initNavDropdown, 50);
-    setTimeout(initNavDropdown, 250);
-});
-
-/* ==========================================================================
                   CONFIRMATION MODAL ACTIONS & INTERACTION
    ========================================================================== */
 function showConfirmationLoading() {
@@ -670,24 +619,6 @@ function initNav() {
             navToggle.setAttribute('aria-expanded', false);
         });
     });
-
-    // Services dropdown (only if it exists)
-    if (dropdown) {
-        const dropToggle = dropdown.querySelector('.nav-dropdown-toggle');
-
-        dropToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isOpen = dropdown.classList.toggle('open');
-            dropToggle.setAttribute('aria-expanded', isOpen);
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('open');
-                dropToggle.setAttribute('aria-expanded', false);
-            }
-        });
-    }
 
     // Scroll — bg transition past first section
     const firstSection = document.querySelector('main > section:first-child');
