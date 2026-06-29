@@ -11,7 +11,7 @@
 
     <header id="header" class="header-placeholder"></header>
 
-    <main class="fade-in-page">
+    <div class="fade-in-container"> 
 
         <!-- Hero -->
         <section class="faq-hero">
@@ -120,19 +120,28 @@
         </section>
 
         <!-- ── 5. Healthcare Card ── -->
-        <section class="service-detail-section" id="healthcare-card">
+        <section class="service-detail-section SmartCard" id="healthcare-card">
             <div class="service-detail-inner">
-                <div class="service-detail-icon-col">
-                    <i class="fa-solid fa-id-card"></i>
+
+                <!-- SmartCard Visual -->
+                <div class="services-visual-wrapper" style="flex: 1; max-width: 500px;">
+                    <div class="css-shape shape-circle"></div>
+                    <div class="css-shape shape-polygon"></div>
+                    <img src="./images/Ecard.png" class="services-main-img" alt="Services Infrastructure Dashboard">
+
+                    <div class="ecard-interactive-wrapper" onclick="openEcardModal()" role="button" aria-label="Open Digital Health Card View">
+                        <img src="./images/Front-Card.png" class="ecard-asset-img" alt="Eurekare Digital Health Card Graphic">
+                    </div>
                 </div>
-                <div class="service-detail-body">
+
+                <!-- Text Presentation Area -->
+                <div class="service-detail-body" style="flex: 1;">
                     <span class="service-tag">Access &amp; Identity</span>
                     <h2>Healthcare Card</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. 
-                        In id cursus mi, pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla 
-                        lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel 
-                        class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+                    <p>Our expert team provides detailed property valuations and market analysis to help you accurately price your property and understand the local real estate market.</p>
+                    <a href="javascript:void(0)" onclick="openServicesModal('e-konsulta')" class="service-btn" style="margin-top: 20px;">Learn More</a>
                 </div>
+
             </div>
         </section>
 
@@ -170,9 +179,15 @@
             </div>
         </section>
 
-    </main>
+    </div> 
 
     <div id="footer-content"></div>
+
+    <!-- [FIX] All modal placeholders live outside <main> so they are never
+         children of a blurred or relatively-positioned container.
+         This ensures position:fixed modals centre correctly in the viewport. -->
+    <div id="servicesModalPlaceholder"></div>
+    <div id="ecardModalPlaceholder"></div>
 
     <script>
         function loadFragment(file, targetId) {
@@ -182,11 +197,17 @@
         }
 
         Promise.all([
-            loadFragment('nav.html',    'header'),
-            loadFragment('footer.html', 'footer-content'),
-        ]).then(() => initNav());
+            loadFragment('nav.html',           'header'),
+            loadFragment('footer.html',        'footer-content'),
+            loadFragment('ecard-modal.html',   'ecardModalPlaceholder'),
+            loadFragment('service-modal.html', 'servicesModalPlaceholder'),
+        ]).then(() => {
+            const script = document.createElement('script');
+            script.src = 'reactive.js';
+            script.onload = () => initNav();
+            document.body.appendChild(script);
+        });
 
-        // Highlight the active pill as the user scrolls
         const sections = document.querySelectorAll('.service-detail-section');
         const pills    = document.querySelectorAll('.services-pill-btn');
 

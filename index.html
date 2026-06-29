@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header id="header" class="header-placeholder"></header>
 
-    <main class="fade-in-page">
+    <div class="fade-in-container"> 
         <!-- Introduction Index-->
         <section class="hero" id="introduction">
             <div class="hero-carousel-wrapper">       
@@ -23,9 +24,10 @@
 
                     <!-- Left content -->
                     <div class="hero-intro-left">
-                        <img src="./images/eurekare-logo.png"
-                             alt="Eurekare Corporation — We Care"
-                             class="hero-intro-logo">
+                        <div class="hero-intro-wordmark">
+                            <span class="hero-intro-wordmark-name">Eurekare</span>
+                            <span class="hero-intro-wordmark-slogan">We Care...</span>
+                        </div>
 
                         <p class="hero-intro-body">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. 
@@ -35,12 +37,10 @@
 
                         <div class="hero-intro-actions">
                             <a href="javascript:void(0);" class="hero-intro-btn-primary">
-                                Let's Work Together
+                                Learn More
                                 <i class="fa-solid fa-arrow-right" style="font-size:0.8rem;"></i>
                             </a>
-                            <a href="javascript:void(0);" class="hero-intro-btn-secondary">
-                                See Our Services
-                            </a>
+
                         </div>
                     </div>
 
@@ -139,11 +139,10 @@
         </section>
 
         <footer class="main-footer" id="footer-content"></footer>
-    </main>
+    </div>
 
 <!-- <div id="ecardModalPlaceholder"></div> -->
     <script>
-        // Fetch a fragment and inject it as innerHTML of the target element
         function loadFragment(file, targetId) {
             return fetch(file)
                 .then(r => r.text())

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Eurekare Corporation</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <header id="header" class="header-placeholder"></header>
+
+    <div class="fade-in-container">
+
+    <!-- Hero Banner (same style as FAQ) -->
+    <section class="data-privacy-hero">
+      <div class="data-privacy-hero-overlay"></div>
+      <div class="data-privacy-hero-image">
+            <img src="images/AIC Burgundy Tower.jpg" alt="Data Privacy Banner">
+      </div>
+      <div class="data-privacy-hero-breadcrumb">
+        <span class="data-privacy-breadcrumb-trail">
+          <a href="index.html">Home</a> » About Us
+        </span>
+      </div>
+    </section>
+
+    <!-- About Us Content -->
+    <section class="about-page-section">
+      <div class="about-page-container">
+
+        <h1 class="about-page-title">
+          <span class="about-page-title-highlight">Eurekare</span>
+          <span class="about-page-title-main"> Corporation</span>
+        </h1>
+
+        <div class="about-page-grid">
+
+          <!-- Main description -->
+          <div class="about-page-text">
+            <span class="eyebrow">WHO WE ARE</span>
+            <h2>Innovative E-care, simplified for you.</h2>
+            <p>
+              EUREKARE CORP. is a Healthcare Information System Service Provider based in the Philippines 
+              with investors from Taiwan and the Philippines. We bring to the table the eCARE EMR 
+              Yakap/Konsulta Project, which provides an Electronic Medical Record (EMR) System integrated 
+              with the Yakap/Konsulta Module in accordance with the requirements of the Universal Healthcare 
+              Act — offered as an UNSOLICITED PROPOSAL with minimum initial investment from the government.
+            </p>
+            <p>
+              Our mission is to modernize healthcare delivery by bridging the gap between patients, providers, 
+              and government health programs through innovative, accessible, and secure digital health solutions.
+            </p>
+          </div>
+
+          <!-- Stats / highlights -->
+          <div class="about-page-highlights">
+
+            <div class="about-highlight-card">
+              <div class="about-highlight-icon">
+                <i class="fa-solid fa-hospital"></i>
+              </div>
+              <div class="about-highlight-text">
+                <h3>Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+
+            <div class="about-highlight-card">
+              <div class="about-highlight-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="about-highlight-text">
+                <h3>Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+
+            <div class="about-highlight-card">
+              <div class="about-highlight-icon">
+                <i class="fa-solid fa-globe"></i>
+              </div>
+              <div class="about-highlight-text">
+                <h3>Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+
+            <div class="about-highlight-card">
+              <div class="about-highlight-icon">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <div class="about-highlight-text">
+                <h3>Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Vision & Mission -->
+        <div class="about-vm-row">
+          <div class="about-vm-card">
+            <i class="fa-solid fa-eye about-vm-icon"></i>
+            <h3>Our Vision</h3>
+            <p>To be the leading provider of integrated digital healthcare solutions in Southeast Asia, empowering every patient and provider with accessible, intelligent, and secure health information systems.</p>
+          </div>
+          <div class="about-vm-card">
+            <i class="fa-solid fa-bullseye about-vm-icon"></i>
+            <h3>Our Mission</h3>
+            <p>To deliver innovative, affordable, and compliant healthcare IT solutions that improve patient outcomes, streamline provider operations, and support universal health coverage across the Philippines.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+</div>
+
+  <div id="footer-content"></div>
+
+  <script src="reactive.js"></script>
+  <script>
+    function loadFragment(file, targetId) {
+      return fetch(file)
+        .then(r => r.text())
+        .then(html => { document.getElementById(targetId).innerHTML = html; });
+    }
+
+    Promise.all([
+      loadFragment('nav.html',    'header'),
+      loadFragment('footer.html', 'footer-content'),
+    ]).then(() => initNav());
+  </script>
+
+</body>
+</html>
