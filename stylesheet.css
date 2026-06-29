@@ -194,12 +194,7 @@ body {
 
 .main-nav.scrolled .nav-links > li > a,
 .main-nav.scrolled .nav-dropdown-toggle {
-  color: #334155;
-}
-
-.main-nav.scrolled .nav-links > li > a:hover,
-.main-nav.scrolled .nav-dropdown-toggle:hover {
-  color: #334155;
+  color: #efefef;
 }
 
 .main-nav.scrolled .nav-dropdown-caret {
@@ -578,6 +573,22 @@ img.logo-color {
   .logo-placeholder a {
     display: flex;
     align-items: center;
+  }
+
+  .main-nav.scrolled .nav-links.nav-open {
+    background: #ffffff;
+  }
+
+  .main-nav.scrolled .nav-links > li > a {
+    color: #334155;
+  }
+
+  .main-nav.scrolled .nav-links > li > a:hover {
+    color: #0055a4;
+  }
+
+  .main-nav.scrolled .nav-dropdown-toggle {
+    color: #334155;
   }
 }
 
