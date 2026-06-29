@@ -307,15 +307,22 @@ document.styleSheets[0].insertRule('.service-row.visible { opacity: 1 !important
                 INITIALIZATION & FLOATING CONTACT PILL
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-    const initialVideo = document.querySelector('.hero-slide.active .hero-video');
-    if (initialVideo) {
-        initialVideo.play().catch(err => console.log("Autoplay context notice:", err));
-    }
-    startHeroCarouselTimer();
+    const slides = document.querySelectorAll('#introduction .hero-slide');
 
+    // Only auto-start if slides exist — if not, index.html's onload handles it
+    if (slides.length > 0) {
+        const initialVideo = document.querySelector('.hero-slide.active .hero-video');
+        if (initialVideo) {
+            initialVideo.play().catch(err => console.log("Autoplay context notice:", err));
+        }
+        startHeroCarouselTimer();
+    }
+    
     const pill = document.getElementById('floatingContactPill');
     const servicesSection = document.querySelector('.services-section');
     const pillObserverOptions = { threshold: 0.1 };
+    // ... rest of your existing pill observer code stays unchanged
+});
 
     const pillObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -330,7 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (servicesSection && pill) {
         pillObserver.observe(servicesSection);
     }
-});
 
 /* ==========================================================================
                             SERVICES MODAL

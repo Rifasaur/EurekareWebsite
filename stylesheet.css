@@ -194,35 +194,31 @@ body {
 
 .main-nav.scrolled .nav-links > li > a,
 .main-nav.scrolled .nav-dropdown-toggle {
-  color: #efefef;
+  color: #334155;
 }
 
 .main-nav.scrolled .nav-links > li > a:hover,
 .main-nav.scrolled .nav-dropdown-toggle:hover {
-  color: #efefef;
+  color: #334155;
 }
 
 .main-nav.scrolled .nav-dropdown-caret {
-  color: #efefef;
+  color: #334155;
 }
 
 /* Dropdown menu */
 .main-nav.scrolled .nav-dropdown-menu {
-  background: #ffffff;
-}
-
-.main-nav.scrolled .nav-dropdown-menu li a {
-  color: #efefef;
+  background: #334155;
 }
 
 /* Hamburger bars */
 .main-nav .hamburger-bar {
-  background-color: #ffffff;
+  background-color: #334155;
   transition: background-color 0.5s ease;
 }
 
 .main-nav.scrolled .hamburger-bar {
-  background-color: #334155;
+  background-color: #efefef;
 }
 
 /* Logo transition */
@@ -232,16 +228,17 @@ body {
 }
 
 .img-logo {
-  height: 44px;
-  width: auto;
+
   display: block;
   transition: opacity 0.5s ease;
 }
 
 /* White logo — visible by default (on gradient bg) */
-.logo-white {
+img.logo-white {
   opacity: 0;
   position: relative;
+  height: 78px;
+  width: auto;
 }
 
 /* Color logo — hidden by default, stacked on top */
@@ -4457,4 +4454,37 @@ img.logo-color {
   .about-page-title {
     font-size: 1.6rem;
   }
+}
+
+/* Hero intro logo */
+.hero-intro-logo {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: 28px;
+    align-self: flex-start;
+    margin-left: -30px;
+}
+
+/* Secondary CTA button */
+.hero-intro-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: transparent;
+    color: #0055a4;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid #0055a4;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.hero-intro-btn-secondary:hover {
+    background: #f0f7ff;
+    transform: translateY(-2px);
 }
