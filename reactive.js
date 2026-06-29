@@ -307,22 +307,15 @@ document.styleSheets[0].insertRule('.service-row.visible { opacity: 1 !important
                 INITIALIZATION & FLOATING CONTACT PILL
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('#introduction .hero-slide');
-
-    // Only auto-start if slides exist — if not, index.html's onload handles it
-    if (slides.length > 0) {
-        const initialVideo = document.querySelector('.hero-slide.active .hero-video');
-        if (initialVideo) {
-            initialVideo.play().catch(err => console.log("Autoplay context notice:", err));
-        }
-        startHeroCarouselTimer();
+    const initialVideo = document.querySelector('.hero-slide.active .hero-video');
+    if (initialVideo) {
+        initialVideo.play().catch(err => console.log("Autoplay context notice:", err));
     }
-    
+    startHeroCarouselTimer();
+
     const pill = document.getElementById('floatingContactPill');
     const servicesSection = document.querySelector('.services-section');
     const pillObserverOptions = { threshold: 0.1 };
-    // ... rest of your existing pill observer code stays unchanged
-});
 
     const pillObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -337,6 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (servicesSection && pill) {
         pillObserver.observe(servicesSection);
     }
+});
 
 /* ==========================================================================
                             SERVICES MODAL
@@ -409,6 +403,57 @@ document.addEventListener("DOMContentLoaded", function () {
     }, options);
 
     if (aboutSection && aboutImage) observer.observe(aboutSection);
+});
+
+/* ==========================================================================
+                           NAV DROPDOWN (Our Services)
+   ========================================================================== */
+function setDropdownOpen(dropdownEl, isOpen) {
+    if (!dropdownEl) return;
+    dropdownEl.classList.toggle('open', isOpen);
+    const toggleBtn = dropdownEl.querySelector('.nav-dropdown-toggle');
+    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', String(isOpen));
+}
+
+function initNavDropdown() {
+    const dropdown = document.getElementById('servicesDropdown');
+    if (!dropdown) return;
+
+    const toggleBtn = dropdown.querySelector('.nav-dropdown-toggle');
+    const menu = dropdown.querySelector('.nav-dropdown-menu');
+    if (!toggleBtn || !menu) return;
+
+    if (dropdown.dataset.dropdownBound === 'true') return;
+    dropdown.dataset.dropdownBound = 'true';
+
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.contains('open');
+        setDropdownOpen(dropdown, !isOpen);
+    });
+
+    toggleBtn.addEventListener('mousedown', (e) => e.stopPropagation());
+
+    menu.addEventListener('click', (e) => {
+        const link = e.target.closest('a[data-services-modal]');
+        if (!link) return;
+        const serviceType = link.getAttribute('data-services-modal');
+        if (serviceType && typeof openServicesModal === 'function') {
+            e.preventDefault();
+            setDropdownOpen(dropdown, false);
+            openServicesModal(serviceType);
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) setDropdownOpen(dropdown, false);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initNavDropdown();
+    setTimeout(initNavDropdown, 50);
+    setTimeout(initNavDropdown, 250);
 });
 
 /* ==========================================================================
@@ -625,6 +670,24 @@ function initNav() {
             navToggle.setAttribute('aria-expanded', false);
         });
     });
+
+    // Services dropdown (only if it exists)
+    if (dropdown) {
+        const dropToggle = dropdown.querySelector('.nav-dropdown-toggle');
+
+        dropToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = dropdown.classList.toggle('open');
+            dropToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+                dropToggle.setAttribute('aria-expanded', false);
+            }
+        });
+    }
 
     // Scroll — bg transition past first section
     const firstSection = document.querySelector('main > section:first-child');

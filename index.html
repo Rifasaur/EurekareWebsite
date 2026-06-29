@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
 
     <header id="header" class="header-placeholder"></header>
 
-    <main class="fade-in-page"> 
+    <div class="fade-in-container"> 
         <!-- Introduction Index-->
         <section class="hero" id="introduction">
-            <div class="hero-carousel-wrapper">  
+            <div class="hero-carousel-wrapper">       
             <div class="hero-slide hero-slide-intro active">
 
                     <div class="hero-intro-separator"></div>
@@ -38,12 +37,10 @@
 
                         <div class="hero-intro-actions">
                             <a href="javascript:void(0);" class="hero-intro-btn-primary">
-                                Let's Work Together
+                                Learn More
                                 <i class="fa-solid fa-arrow-right" style="font-size:0.8rem;"></i>
                             </a>
-                            <a href="javascript:void(0);" class="hero-intro-btn-secondary">
-                                See Our Services
-                            </a>
+
                         </div>
                     </div>
 
@@ -120,13 +117,14 @@
                 <span class="hero-dot" onclick="switchHeroSlide(2)" aria-label="Go to slide 3"></span>
             </div>
         </section>
+        
         <button id="floatingContactPill" class="floating-pill" onclick="openContactUsModal()">
             <span class="pill-icon">✉</span>
             <span class="pill-text">Contact us</span>
         </button>
 
         <div class="contact-us-overlay" id="contactUsOverlay"></div>
-        
+
         <section class="services-divider" id="services">
             <div class="services-container">
                 <div class="services-header">
@@ -140,57 +138,10 @@
             </div>
         </section>
 
-        <!-- Trusted Health Partners-->
-        <section class="partners-section">
-        <h2 class="h2 section-title">Our Trusted Health Partners</h2>
-
-        <div class="partners-slider">
-
-            <div class="partners-track">
-
-            <div class="partner-card active">
-                <img src="images/Philhealth-logo.png" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/images (3).jpg" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/FortuneLife.png" alt="DOH">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/Foongtone.png" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/Philhealth-logo.png" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/images (3).jpg" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/FortuneLife.png" alt="DOH">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/Foongtone.png" alt="PhilHealth">
-            </div>
-        </div>
-        </section>
-        
         <footer class="main-footer" id="footer-content"></footer>
-    </main>
+    </div>
 
-      <!-- Swiper scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
-        <div id="aboutModalPlaceholder"></div>
-        <div id="servicesModalPlaceholder2"></div>
-
+<!-- <div id="ecardModalPlaceholder"></div> -->
     <script>
         function loadFragment(file, targetId) {
             return fetch(file)
@@ -202,20 +153,11 @@
             loadFragment('nav.html',           'header'),
             loadFragment('footer.html',        'footer-content'),
             loadFragment('contact-modal.html', 'contactUsOverlay'),
-       ]).then(() => {
+            // loadFragment('ecard-modal.html',   'ecardModalPlaceholder'),
+        ]).then(() => {
             const script = document.createElement('script');
             script.src = 'reactive.js';
-            script.onload = () => {
-                initNav();
-
-                setTimeout(() => {
-                    const initialVideo = document.querySelector('.hero-slide.active .hero-video');
-                    if (initialVideo) {
-                        initialVideo.play().catch(err => console.log("Autoplay blocked:", err));
-                    }
-                    startHeroCarouselTimer();
-                }, 100);
-            };
+            script.onload = () => initNav();
             document.body.appendChild(script);
         });
     </script>

@@ -14,7 +14,7 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     background-color: #ffffff; 
     color: #334155;
 }
@@ -172,23 +172,17 @@ body {
 /* Links — white on gradient, dark on white */
 .main-nav .nav-links > li > a,
 .main-nav .nav-dropdown-toggle {
-  color: #334155;
+  color: #ffffff;
   transition: color 0.5s ease;
 }
 
 .main-nav .nav-links > li > a:hover,
 .main-nav .nav-dropdown-toggle:hover {
-    color: #334155;
+    color: #ffffff;
   transition: color 0.5s ease;
 }
 
-/* Underline on blue background — white */
-.main-nav:not(.scrolled) .nav-links > li > a::after {
-  background-color: #334155;
-}
-
-/* Underline on white/light background — blue */
-.main-nav.scrolled .nav-links > li > a::after {
+.main-nav .nav-links > li > a::after {
   background-color: #efefef;
 }
 
@@ -203,17 +197,21 @@ body {
 
 /* Dropdown menu */
 .main-nav.scrolled .nav-dropdown-menu {
-  background: #334155;
+  background: #ffffff;
+}
+
+.main-nav.scrolled .nav-dropdown-menu li a {
+  color: #334155;
 }
 
 /* Hamburger bars */
 .main-nav .hamburger-bar {
-  background-color: #334155;
+  background-color: #ffffff;
   transition: background-color 0.5s ease;
 }
 
 .main-nav.scrolled .hamburger-bar {
-  background-color: #efefef;
+  background-color: #334155;
 }
 
 /* Logo transition */
@@ -223,28 +221,27 @@ body {
 }
 
 .img-logo {
-
+  height: 44px;
+  width: auto;
   display: block;
   transition: opacity 0.5s ease;
 }
 
 /* White logo — visible by default (on gradient bg) */
-img.logo-white {
-  opacity: 0;
+.logo-white {
+  opacity: 1;
   position: relative;
-  height: 78px;
-  width: auto;
 }
 
 /* Color logo — hidden by default, stacked on top */
-img.logo-color {
-  opacity: 1;
+.logo-color {
+  opacity: 0;
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%); /* vertically centers it */
-  height: 105px;
-  width: auto;
+  height: 44px;
+  width: 44px;
 }
 
 /* On scroll — swap logos */
@@ -4266,11 +4263,7 @@ img.logo-color {
    ========================================================================== */
 
 .about-page-section {
-  /* padding: 80px 24px; */
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-bottom: 80px;
-  padding-top: 30px;
+  padding: 80px 24px;
   background: #ffffff;
 }
 
@@ -4287,13 +4280,11 @@ img.logo-color {
 }
 
 .about-page-title-highlight {
-  color: #3587ca;
-  font-weight: 700px;
+  color: #0055a4;
 }
 
 .about-page-title-main {
-  color: var(--eurekare-blue);
-  font-weight: 700px;
+  color: #0A1D2E;
 }
 
 .about-page-grid {
@@ -4304,7 +4295,7 @@ img.logo-color {
   margin-bottom: 64px;
 }
 
-/* .about-page-text .eyebrow {
+.about-page-text .eyebrow {
   display: block;
   font-size: 12px;
   font-weight: 700;
@@ -4312,7 +4303,7 @@ img.logo-color {
   color: #43B9B7;
   margin-bottom: 12px;
   text-transform: uppercase;
-} */
+}
 
 .about-page-text h2 {
   font-size: 1.6rem;
@@ -4387,8 +4378,7 @@ img.logo-color {
 }
 
 .about-vm-card {
-  /* background: linear-gradient(135deg, #0055a4 0%, #0A1D2E 100%); */
-  background: var(--eurekare-blue);
+  background: linear-gradient(135deg, #0055a4 0%, #0A1D2E 100%);
   border-radius: 16px;
   padding: 36px 32px;
   color: #ffffff;
@@ -4397,7 +4387,7 @@ img.logo-color {
 
 .about-vm-icon {
   font-size: 2rem;
-  color: #ffffff;
+  color: #43B9B7;
   margin-bottom: 16px;
   display: block;
 }
@@ -4410,7 +4400,7 @@ img.logo-color {
 }
 
 .about-vm-card p {
-  font-size: 0.97rem;
+  font-size: 0.93rem;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.82);
   margin: 0;
@@ -4428,37 +4418,4 @@ img.logo-color {
   .about-page-title {
     font-size: 1.6rem;
   }
-}
-
-/* Hero intro logo */
-.hero-intro-logo {
-    height: 200px;
-    width: auto;
-    object-fit: contain;
-    object-position: left;
-    margin-bottom: 28px;
-    align-self: flex-start;
-    margin-left: -30px;
-}
-
-/* Secondary CTA button */
-.hero-intro-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    background: transparent;
-    color: #0055a4;
-    font-size: 0.92rem;
-    font-weight: 600;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    border: 2px solid #0055a4;
-    transition: all 0.2s;
-    cursor: pointer;
-}
-
-.hero-intro-btn-secondary:hover {
-    background: #f0f7ff;
-    transform: translateY(-2px);
 }
