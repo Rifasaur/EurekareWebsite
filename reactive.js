@@ -647,7 +647,9 @@ function toggleFaq(btn) {
 
 // Scroll opacity + color effect
 const firstSection = document.querySelector('main > section:first-child');
-
+/* ==========================================================================
+                            NAV INITIALIZER
+   ========================================================================== */
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('mainNav');
     if (!nav) return;
