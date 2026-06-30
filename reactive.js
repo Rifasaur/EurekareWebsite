@@ -201,7 +201,7 @@ function closeContactModal() {
                             INTRO CAROUSEL
    ========================================================================== */
 let heroCarouselTimer = null;
-const heroSlideDuration = 60000; 
+const heroSlideDuration = 999999999; 
 
 function switchHeroSlide(targetIndex) {
     const slides = document.querySelectorAll('#introduction .hero-slide');
