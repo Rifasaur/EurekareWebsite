@@ -17,10 +17,8 @@
     <main class="fade-in-page"> 
         <!-- Introduction Index-->
         <section class="hero" id="introduction">
-            <div class="hero-carousel-wrapper">  
-            <div class="hero-slide hero-slide-intro active">
-
-                    <div class="hero-intro-separator"></div>
+            <div class="hero-carousel-wrapper">
+                <div class="hero-slide hero-slide-intro active">
                     <div class="hero-intro-bg-wash"></div>
 
                     <!-- Left content -->
@@ -46,70 +44,15 @@
                             </a>
                         </div>
                     </div>
-
                     <!-- Right: trust indicators -->
                     <div class="hero-intro-right">
-
-                        <p class="hero-intro-right-label">
-                            <span></span>
-                            Trusted by Healthcare Providers
-                            <span></span>
-                        </p>
-
-                        <div class="hero-trust-card">
-                            <div class="hero-trust-icon">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <div>
-                                <div class="hero-trust-card-title">PhilHealth Accredited</div>
-                                <div class="hero-trust-card-sub">Official YAKAP & eClaims Service Provider</div>
-                            </div>
-                        </div>
-
-                        <div class="hero-trust-card">
-                            <div class="hero-trust-icon">
-                                <i class="fa-solid fa-cloud"></i>
-                            </div>
-                            <div>
-                                <div class="hero-trust-card-title">Lorem ipsum dolor</div>
-                                <div class="hero-trust-card-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                            </div>
-                        </div>
-
-                        <div class="hero-trust-card">
-                            <div class="hero-trust-icon">
-                                <i class="fa-solid fa-id-card"></i>
-                            </div>
-                            <div>
-                                <div class="hero-trust-card-title">Lorem ipsum dolor</div>
-                                <div class="hero-trust-card-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                            </div>
-                        </div>
-
-                        <div class="hero-trust-card teal">
-                            <div class="hero-trust-icon teal">
-                                <i class="fa-solid fa-building"></i>
-                            </div>
-                            <div>
-                                <div class="hero-trust-card-title">Est. 2012</div>
-                                <div class="hero-trust-card-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                            </div>
-                        </div>
-
                     </div>
-
                 </div>
 
                 <div class="hero-slide">
-                    <video class="hero-video" muted playsinline autoplay loop>
-                        <source src="./images/Hero_2.mp4" type="video/mp4">
-                    </video>
                 </div>
 
                 <div class="hero-slide">
-                    <video class="hero-video" muted playsinline autoplay loop>
-                        <source src="./images/Hero_3.mp4" type="video/mp4">
-                    </video>
                 </div>
 
             </div>
@@ -138,48 +81,6 @@
         <section class="services-section" id="services">
             <div class="services-container">
             </div>
-        </section>
-
-        <!-- Trusted Health Partners-->
-        <section class="partners-section">
-        <h2 class="h2 section-title">Our Trusted Health Partners</h2>
-
-        <div class="partners-slider">
-
-            <div class="partners-track">
-
-            <div class="partner-card active">
-                <img src="images/Philhealth-logo.png" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/images (3).jpg" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/FortuneLife.png" alt="DOH">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/Foongtone.png" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/Philhealth-logo.png" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/images (3).jpg" alt="PhilHealth">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/FortuneLife.png" alt="DOH">
-            </div>
-
-            <div class="partner-card">
-                <img src="images/Foongtone.png" alt="PhilHealth">
-            </div>
-        </div>
         </section>
         
         <footer class="main-footer" id="footer-content"></footer>
@@ -218,6 +119,22 @@
             };
             document.body.appendChild(script);
         });
+    </script>
+        <script>
+    (() => {
+    const modelViewer = document.querySelector('#orbit-view');
+    const orbitCycle = [
+        '30deg 70deg',
+        '-60deg 100deg',
+        modelViewer.cameraOrbit
+    ];
+
+    setInterval(() => {
+        const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+        modelViewer.cameraOrbit =
+            orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+    }, 6000);
+    })();
     </script>
 </body>
 </html>

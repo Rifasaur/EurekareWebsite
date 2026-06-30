@@ -1023,7 +1023,7 @@ img.logo-color {
 #introduction {
     position: relative;
     width: 100%;
-    height: calc(92vh + var(--nav-height)); 
+    height: calc(80vh + var(--nav-height)); 
     min-height: 500px;
     background-color: #011129;
     overflow: hidden;
@@ -1037,7 +1037,7 @@ img.logo-color {
 
 .hero-slide {
     position: absolute;
-    top: 0;
+    padding: var(--nav-height);
     left: 0;
     width: 100%;
     height: 100%;
@@ -1047,18 +1047,11 @@ img.logo-color {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
     box-sizing: border-box;
     transition: opacity 0.8s ease, visibility 0.8s ease;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-.hero-slide:nth-child(1),
-.hero-slide:nth-child(2),
-.hero-slide:nth-child(3) { 
-    background-image: linear-gradient(135deg, #009688 0%, var(--eurekare-blue) 100%); 
 }
 
 .hero-slide.active {
@@ -1177,6 +1170,240 @@ img.logo-color {
     width: 100%;
     height: 100%;
     z-index: 2;
+}
+
+#orbit-view{
+    height: 100%;
+    width: 100%;
+}
+
+/* ==========================================================================
+                    HERO SLIDE 1 — INTRO PANEL LAYOUT
+   ========================================================================== */
+
+.hero-slide-intro {
+    text-align: left !important;
+    padding: 0 !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+}
+
+.hero-slide-intro .hero-intro-separator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.hero-slide-intro .hero-intro-bg-wash {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: #f0f7ff;
+    clip-path: path('M0 0 H100% C96% 10% 102% 18% 96% 24% C104% 30% 94% 38% 100% 46% C94% 54% 104% 62% 96% 68% C102% 74% 96% 84% 100% 100% H0 Z');
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-intro-left {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 56px 60px 72px;
+    width: 54%;
+    box-sizing: border-box;
+    transform: none;
+}
+
+.hero-intro-body {
+    font-size: clamp(0.9rem, 1.3rem, 1rem);
+    color: #4a5568;
+    line-height: 1.8;
+    margin: 0 0 32px;
+    max-width: 490px;
+    opacity: 1;
+    animation: none;
+    text-align: justify;
+}
+
+.hero-intro-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-intro-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: #0055a4;
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid #0055a4;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.hero-intro-btn-primary:hover {
+    background: #003d80;
+    border-color: #003d80;
+    transform: translateY(-2px);
+}
+
+.hero-intro-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: transparent;
+    color: #0055a4;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid #0055a4;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.hero-intro-btn-secondary:hover {
+    background: #f0f7ff;
+    transform: translateY(-2px);
+}
+
+.hero-intro-right {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.hero-intro-right-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9BA9B5;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-intro-right-label span {
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: #9BA9B5;
+}
+
+.hero-trust-card {
+    background: #ffffff;
+    border: 1px solid #e8f0fb;
+    border-left: 3px solid #0055a4;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: box-shadow 0.2s;
+}
+
+.hero-trust-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 85, 164, 0.08);
+}
+
+.hero-trust-card.teal {
+    border-left-color: #43B9B7;
+}
+
+.hero-trust-card.teal:hover {
+    box-shadow: 0 4px 16px rgba(67, 185, 183, 0.08);
+}
+
+.hero-trust-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e8f1fb, #d0e4f7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hero-trust-icon.teal {
+    background: linear-gradient(135deg, #e0f5f5, #c5eceb);
+}
+
+.hero-trust-icon i {
+    color: #0055a4;
+    font-size: 1rem;
+}
+
+.hero-trust-icon.teal i {
+    color: #43B9B7;
+}
+
+.hero-trust-card-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0A1D2E;
+    letter-spacing: 0.01em;
+}
+
+.hero-trust-card-sub {
+    font-size: 0.76rem;
+    color: #718096;
+    margin-top: 3px;
+}
+
+.hero-intro-wordmark {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    line-height: 1;
+    /* This ensures the container matches the width of its largest text element securely */
+    width: max-content; 
+}
+
+.hero-intro-wordmark-name {
+    font-size: 3rem;                     /* Slightly larger to capture the logo's presence */
+    font-weight: 900;                    /* Ultra-bold/Black weight to match the thick logo letters */
+    color: #0055a4;
+    text-transform: uppercase;           /* Forces ALL CAPS like the logo */
+    letter-spacing: 0.06em;              /* Widens the spacing to mimic the extended layout */
+    
+    /* Using a precise font stack for wide, geometric, high-tech structures */
+    font-family: "Montserrat", "Arial Black", "Gadget", sans-serif;
+    font-stretch: expanded;              /* Instructs the browser to use wider letter profiles if available */
+}
+
+.hero-intro-wordmark-slogan {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #c0392b;                      /* Matches the clean red logo tone */
+    font-style: italic;
+    margin-top: 6px;                     /* Balanced spacing underneath the main brand name */
+    letter-spacing: 0.02em;
+    align-self: flex-end;                /* Pins "We Care..." perfectly to the right edge of "EUREKARE" */
+    
+    /* Using a classic serif font stack to reproduce the fluid, elegant script look */
+    font-family: "Playfair Display", "Georgia", "Times New Roman", serif;
 }
 
 /* ==========================================================================
@@ -4055,248 +4282,6 @@ img.logo-color {
     }
 }
 
-/* ==========================================================================
-                    HERO SLIDE 1 — INTRO PANEL LAYOUT
-   ========================================================================== */
-
-.hero-slide-intro {
-    background: #ffffff !important;
-    text-align: left !important;
-    padding: 0 !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-}
-
-.hero-slide-intro .hero-intro-separator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent 0%, #0055a4 30%, #43B9B7 70%, transparent 100%);
-    z-index: 10;
-}
-
-.hero-slide-intro .hero-intro-bg-wash {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45%;
-    height: 100%;
-    background: #f0f7ff;
-    clip-path: ellipse(100% 80% at 100% 50%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.hero-intro-left {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 60px 56px 60px 72px;
-    width: 54%;
-    box-sizing: border-box;
-    transform: none;
-}
-
-/* .hero-intro-logo {
-    height: 200px;
-    width: auto;
-    object-fit: contain;
-    object-position: left;
-    margin-bottom: 28px;
-    align-self: flex-start;
-    margin-left: -30px;
-} */
-
-.hero-intro-body {
-    font-size: clamp(0.9rem, 1.3vw, 1rem);
-    color: #4a5568;
-    line-height: 1.8;
-    margin: 0 0 32px;
-    max-width: 490px;
-    opacity: 1;
-    animation: none;
-    text-align: justify;
-}
-
-.hero-intro-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.hero-intro-btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    background: #0055a4;
-    color: #ffffff;
-    font-size: 0.92rem;
-    font-weight: 700;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    border: 2px solid #0055a4;
-    transition: all 0.2s;
-    cursor: pointer;
-}
-
-.hero-intro-btn-primary:hover {
-    background: #003d80;
-    border-color: #003d80;
-    transform: translateY(-2px);
-}
-
-.hero-intro-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    background: transparent;
-    color: #0055a4;
-    font-size: 0.92rem;
-    font-weight: 600;
-    padding: 14px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    border: 2px solid #0055a4;
-    transition: all 0.2s;
-    cursor: pointer;
-}
-
-.hero-intro-btn-secondary:hover {
-    background: #f0f7ff;
-    transform: translateY(-2px);
-}
-
-.hero-intro-right {
-    position: relative;
-    z-index: 2;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    padding: 60px 56px 60px 40px;
-}
-
-.hero-intro-right-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #9BA9B5;
-    margin: 0 0 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.hero-intro-right-label span {
-    display: inline-block;
-    width: 20px;
-    height: 1px;
-    background: #9BA9B5;
-}
-
-.hero-trust-card {
-    background: #ffffff;
-    border: 1px solid #e8f0fb;
-    border-left: 3px solid #0055a4;
-    border-radius: 12px;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    transition: box-shadow 0.2s;
-}
-
-.hero-trust-card:hover {
-    box-shadow: 0 4px 16px rgba(0, 85, 164, 0.08);
-}
-
-.hero-trust-card.teal {
-    border-left-color: #43B9B7;
-}
-
-.hero-trust-card.teal:hover {
-    box-shadow: 0 4px 16px rgba(67, 185, 183, 0.08);
-}
-
-.hero-trust-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #e8f1fb, #d0e4f7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.hero-trust-icon.teal {
-    background: linear-gradient(135deg, #e0f5f5, #c5eceb);
-}
-
-.hero-trust-icon i {
-    color: #0055a4;
-    font-size: 1rem;
-}
-
-.hero-trust-icon.teal i {
-    color: #43B9B7;
-}
-
-.hero-trust-card-title {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: #0A1D2E;
-    letter-spacing: 0.01em;
-}
-
-.hero-trust-card-sub {
-    font-size: 0.76rem;
-    color: #718096;
-    margin-top: 3px;
-}
-
-.hero-intro-wordmark {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 28px;
-    line-height: 1;
-    /* This ensures the container matches the width of its largest text element securely */
-    width: max-content; 
-}
-
-.hero-intro-wordmark-name {
-    font-size: 3rem;                     /* Slightly larger to capture the logo's presence */
-    font-weight: 900;                    /* Ultra-bold/Black weight to match the thick logo letters */
-    color: #0055a4;
-    text-transform: uppercase;           /* Forces ALL CAPS like the logo */
-    letter-spacing: 0.06em;              /* Widens the spacing to mimic the extended layout */
-    
-    /* Using a precise font stack for wide, geometric, high-tech structures */
-    font-family: "Montserrat", "Arial Black", "Gadget", sans-serif;
-    font-stretch: expanded;              /* Instructs the browser to use wider letter profiles if available */
-}
-
-.hero-intro-wordmark-slogan {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #c0392b;                      /* Matches the clean red logo tone */
-    font-style: italic;
-    margin-top: 6px;                     /* Balanced spacing underneath the main brand name */
-    letter-spacing: 0.02em;
-    align-self: flex-end;                /* Pins "We Care..." perfectly to the right edge of "EUREKARE" */
-    
-    /* Using a classic serif font stack to reproduce the fluid, elegant script look */
-    font-family: "Playfair Display", "Georgia", "Times New Roman", serif;
-}
 
 /* ==========================================================================
                             ABOUT PAGE
@@ -4340,16 +4325,6 @@ img.logo-color {
   align-items: start;
   margin-bottom: 64px;
 }
-
-/* .about-page-text .eyebrow {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #43B9B7;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-} */
 
 .about-page-text h2 {
   font-size: 1.6rem;
