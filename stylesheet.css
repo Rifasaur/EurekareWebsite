@@ -1035,7 +1035,7 @@ img.logo-color {
 #introduction {
     position: relative;
     width: 100%;
-    height: calc(80vh + var(--nav-height)); 
+    height: calc(70vh + var(--nav-height)); 
     min-height: 500px;
     overflow: hidden;
 }
@@ -1562,14 +1562,10 @@ img.logo-color {
 /* ==========================================================================
                           SERVICES SECTION 
    ========================================================================== */
-
-.services-section { 
-    background-color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-}
 .services-divider { 
     background-color: var(--eurekare-blue);
     z-index: 5;
+    height: 40px;
 }
 
 .services-container {
