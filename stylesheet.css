@@ -1212,6 +1212,19 @@ img.logo-color {
     animation: floatInWater 4s ease-in-out infinite;
 }
 
+.diagram-image {
+    position: absolute;
+    /* PLACEMENT CONTROLS: Adjust these to make the image pop out or align */
+    top: -40%;                     /* Negative values let it spill outside the top border */
+    right: 20%;                      /* Adjusts horizontal placement inside/outside */
+    width: 120%;                    /* Control the scale/size of the image */
+    height: auto;                  /* Keeps image aspect ratio intact */
+    
+    pointer-events: none;          /* Keeps the image from blocking mouse clicks */
+    transition: all 0.3s ease;     /* Smooth transitions if you choose to animate it later */
+    animation: floatInWater 4s ease-in-out infinite;
+}
+
 .hero-slide-intro .hero-intro-bg-wash {
     position: absolute;
     top: 0;
