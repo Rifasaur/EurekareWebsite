@@ -4,6 +4,7 @@
     --eurekare-dark: #0A1D2E;
     --eurekare-steel: #9BA9B5;
     --eurekare-teal: #43B9B7;
+    --eurekare-red: #C62828;
     --nav-height: 80px;
 }
 
@@ -159,7 +160,7 @@ body {
 }
 
 .main-nav.scrolled {
-  background: #0055a4;
+  background: var(--eurekare-blue);
   box-shadow: 0 4px 20px rgba(0, 85, 164, 0.30);
 }
 
@@ -323,13 +324,13 @@ img.logo-color {
   height: 2px;
   bottom: 0;
   left: 10px;
-  background-color: #0055a4;
+  background-color: var(--eurekare-blue);
   transition: width 0.25s ease;
   border-radius: 2px;
 }
 
 .nav-links > li > a:hover {
-  color: #0055a4;
+  color: var(--eurekare-blue);
 }
 
 .nav-links > li > a:hover::after {
@@ -441,7 +442,7 @@ img.logo-color {
 
 .nav-dropdown-menu li a:hover {
   background: rgba(0, 85, 164, 0.07);
-  color: #0055a4;
+  color: var(--eurekare-blue);
 }
 
 .nav-dropdown.open .nav-dropdown-menu {
@@ -584,7 +585,7 @@ img.logo-color {
   }
 
   .main-nav.scrolled .nav-links > li > a:hover {
-    color: #0055a4;
+    color: var(--eurekare-blue);
   }
 
   .main-nav.scrolled .nav-dropdown-toggle {
@@ -1254,14 +1255,14 @@ img.logo-color {
     display: inline-flex;
     align-items: center;
     gap: 9px;
-    background: #0055a4;
+    background: var(--eurekare-blue);
     color: #ffffff;
     font-size: 0.92rem;
     font-weight: 700;
     padding: 14px 28px;
     border-radius: 50px;
     text-decoration: none;
-    border: 2px solid #0055a4;
+    border: 2px solid var(--eurekare-blue);
     transition: all 0.2s;
     cursor: pointer;
 }
@@ -1277,13 +1278,13 @@ img.logo-color {
     align-items: center;
     gap: 9px;
     background: transparent;
-    color: #0055a4;
+    color: var(--eurekare-blue);
     font-size: 0.92rem;
     font-weight: 600;
     padding: 14px 28px;
     border-radius: 50px;
     text-decoration: none;
-    border: 2px solid #0055a4;
+    border: 2px solid var(--eurekare-blue);
     transition: all 0.2s;
     cursor: pointer;
 }
@@ -1325,7 +1326,7 @@ img.logo-color {
 .hero-trust-card {
     background: #ffffff;
     border: 1px solid #e8f0fb;
-    border-left: 3px solid #0055a4;
+    border-left: 3px solid var(--eurekare-blue);
     border-radius: 12px;
     padding: 16px 20px;
     display: flex;
@@ -1362,7 +1363,7 @@ img.logo-color {
 }
 
 .hero-trust-icon i {
-    color: #0055a4;
+    color: var(--eurekare-blue);
     font-size: 1rem;
 }
 
@@ -1396,7 +1397,7 @@ img.logo-color {
 .hero-intro-wordmark-name {
     font-size: 3rem;                     /* Slightly larger to capture the logo's presence */
     font-weight: 900;                    /* Ultra-bold/Black weight to match the thick logo letters */
-    color: #0055a4;
+    color: var(--eurekare-blue);
     text-transform: uppercase;           /* Forces ALL CAPS like the logo */
     letter-spacing: 0.06em;              /* Widens the spacing to mimic the extended layout */
     
@@ -1611,7 +1612,7 @@ img.logo-color {
 
 .service-text h3 {
     font-size: 1.85rem;
-    color: #0055A4; /* Primary Eurekare Blue */
+    color: var(--eurekare-blue); /* Primary Eurekare Blue */
     margin-bottom: 20px;
     line-height: 1.3;
 }
@@ -2269,7 +2270,7 @@ img.logo-color {
     border: none;        
     
     /* Coloring & Clean Typography */
-    background: #c62828; 
+    background: var(--eurekare-red); 
     color: #ffffff ;
     font-size: 0.95rem;
     font-weight: 700;   
@@ -2927,13 +2928,13 @@ img.logo-color {
 }
 
 .faq-question:hover {
-  color: #0055a4;
+  color: var(--eurekare-blue);
 }
 
 .faq-icon {
   font-size: 1.4rem;
   font-weight: 300;
-  color: #0055a4;
+  color: var(--eurekare-blue);
   flex-shrink: 0;
   transition: transform 0.3s ease;
   line-height: 1;
@@ -2944,7 +2945,7 @@ img.logo-color {
 }
 
 .faq-item.open .faq-question {
-  color: #0055a4;
+  color: var(--eurekare-blue);
 }
 
 .faq-answer {
@@ -2985,14 +2986,14 @@ img.logo-color {
 }
 
 .faq-page-title-main {
-    color: #0055a4;
+    color: var(--eurekare-blue);
     font-weight: 700;
 }
 
 .faq-category-heading {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #0055a4;
+    color: var(--eurekare-blue);
     margin: 40px 0 15px;
     padding-bottom: 10px;
     border-bottom: 2px solid #e2eaf4;
@@ -3983,7 +3984,7 @@ img.logo-color {
 
 /* Error state — red */
 .confirmation-icon-box .error-icon {
-    color: #c62828;
+    color: var(--eurekare-red);
 }
 
 #confirmationModalOverlay .confirmation-icon-box:has(.error-icon) {
@@ -4202,7 +4203,7 @@ img.logo-color {
     align-items: center;
     gap: 7px;
     background: #f0f5fb;
-    color: #0055a4;
+    color: var(--eurekare-blue);
     border: 1.5px solid #c8daf0;
     border-radius: 999px;
     padding: 8px 18px;
@@ -4216,9 +4217,9 @@ img.logo-color {
 
 .services-pill-btn:hover,
 .services-pill-btn.active {
-    background: #0055a4;
+    background: var(--eurekare-blue);
     color: #ffffff;
-    border-color: #0055a4;
+    border-color: var(--eurekare-blue);
     box-shadow: 0 4px 12px rgba(0, 85, 164, 0.25);
 }
 
@@ -4267,7 +4268,7 @@ img.logo-color {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #0055a4;
+    color: var(--eurekare-blue);
     background: #e0eaf8;
     border-radius: 4px;
     padding: 3px 10px;
@@ -4379,7 +4380,7 @@ img.logo-color {
 .about-highlight-icon {
   width: 44px;
   height: 44px;
-  background: #0055a4;
+  background: var(--eurekare-blue);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -4471,13 +4472,13 @@ img.logo-color {
     align-items: center;
     gap: 9px;
     background: transparent;
-    color: #0055a4;
+    color: var(--eurekare-blue);
     font-size: 0.92rem;
     font-weight: 600;
     padding: 14px 28px;
     border-radius: 50px;
     text-decoration: none;
-    border: 2px solid #0055a4;
+    border: 2px solid var(--eurekare-blue);
     transition: all 0.2s;
     cursor: pointer;
 }
@@ -4528,7 +4529,7 @@ img.logo-color {
 }
 
 .offer-divider-accent {
-    background: #f59e0b !important;
+    background: var(--eurekare-red) !important;
     width: 48px !important;
 }
 
@@ -4783,10 +4784,10 @@ img.logo-color {
 /* ── Right text ── */
 .why-us-eyebrow {
     display: block;
-    font-size: 0.8rem;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #f59e0b;
+    color: var(--eurekare-blue);
     text-transform: uppercase;
     margin-bottom: 14px;
 }
@@ -4822,7 +4823,7 @@ img.logo-color {
 }
 
 .why-us-divider-accent {
-    background: #f59e0b !important;
+    background: var(--eurekare-red) !important;
     width: 40px !important;
 }
 
