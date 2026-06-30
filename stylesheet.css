@@ -4898,3 +4898,30 @@ img.logo-color {
     .why-us-section { padding: 60px 20px; }
     .offer-section  { padding: 60px 20px 72px; }
 }
+
+.hero-image {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Looping animation for slide 2's image — moves left to right */
+@keyframes heroSlide2PanX {
+    0% {
+        transform: scale(1.1) translateX(-3%);
+    }
+    50% {
+        transform: scale(1.1) translateX(3%);
+    }
+    100% {
+        transform: scale(1.1) translateX(-3%);
+    }
+}
+
+.hero-slide:nth-child(2).active .hero-image {
+    animation: heroSlide2PanX 15s ease-in-out infinite;
+}
