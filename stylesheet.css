@@ -1036,9 +1036,8 @@ img.logo-color {
 #introduction {
     position: relative;
     width: 100%;
-    height: calc(80vh + var(--nav-height)); 
+    height: calc(70vh + var(--nav-height)); 
     min-height: 500px;
-    background-color: #011129;
     overflow: hidden;
 }
 
@@ -1084,25 +1083,6 @@ img.logo-color {
     justify-content: center;
     position: relative; 
 }
-
-.hero-content h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    margin: 0;
-    opacity: 0;
-    letter-spacing: 1px;
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-    animation: fadeInOut 15s infinite;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    opacity: 0;
-    animation: fadeInOut 15s infinite;
-    animation-delay: 0.5s;
-}
-
 
 .hero-indicators-container {
     position: absolute;
@@ -1164,16 +1144,6 @@ img.logo-color {
     }
 }
 
-.hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Keeps video from stretching */
-    z-index: 1;
-}
-
 /* Optional: Add a dark overlay so text is easier to read over video */
 .hero-slide::after {
     content: '';
@@ -1185,28 +1155,75 @@ img.logo-color {
     z-index: 2;
 }
 
-#orbit-view{
-    height: 100%;
-    width: 100%;
-}
-
 /* ==========================================================================
                     HERO SLIDE 1 — INTRO PANEL LAYOUT
    ========================================================================== */
 
 .hero-slide-intro {
-    text-align: left !important;
-    padding: 0 !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
+    text-align: left;
+    padding: 0;
+    align-items: stretch;
+    justify-content: flex-start;
 }
 
-.hero-slide-intro .hero-intro-separator {
+/* Container for the transparent rounded rectangle (Monitor Frame) */
+.monitor-screen {
+    position: relative;
+    width: 550px;                   /* Adjust width of the monitor frame */
+    height: 350px;                  /* Adjust height of the monitor frame */
+    background: rgba(255, 255, 255, 0.1); /* Transparent glass-like filling */
+    border: 2px solid rgba(255, 255, 255, 0.25); /* Frame border */
+    border-radius: 20px;            /* Gives it a rounded rectangle / monitor look */
+    backdrop-filter: blur(8px);     /* Optional: blurs whatever passes behind it */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    
+    /* POSITIONING THE MONITOR: Adjust these to move the monitor screen layout-wise */
+    margin-left: auto;              /* Pushes it toward the right side */
+    margin-right: 120px;             /* Distance from the right viewport edge */
+    top: 0px;                       /* Tweak this (e.g., -20px or 20px) to shift up/down */
+}
+
+@keyframes floatInWater {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px); /* Moves the image up by 12 pixels */
+    }
+    100% {
+        transform: translateY(0);   /* Brings it back down to its starting position */
+    }
+}
+
+/* The custom image interacting in and around the monitor frame */
+.monitor-image {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
+    
+    /* PLACEMENT CONTROLS: Adjust these to make the image pop out or align */
+    top: -10%;                     /* Negative values let it spill outside the top border */
+    left: 5%;                      /* Adjusts horizontal placement inside/outside */
+    width: 90%;                    /* Control the scale/size of the image */
+    height: auto;                  /* Keeps image aspect ratio intact */
+    /* If you want the image strictly contained inside the rounded borders, 
+       uncomment the line below. If you want it popping 'around' it, leave it commented. */
+    /* object-fit: cover; */
+    
+    pointer-events: none;          /* Keeps the image from blocking mouse clicks */
+    transition: all 0.3s ease;     /* Smooth transitions if you choose to animate it later */
+    animation: floatInWater 4s ease-in-out infinite;
+}
+
+.diagram-image {
+    position: absolute;
+    /* PLACEMENT CONTROLS: Adjust these to make the image pop out or align */
+    top: -40%;                     /* Negative values let it spill outside the top border */
+    right: 20%;                      /* Adjusts horizontal placement inside/outside */
+    width: 120%;                    /* Control the scale/size of the image */
+    height: auto;                  /* Keeps image aspect ratio intact */
+
+    pointer-events: none;          /* Keeps the image from blocking mouse clicks */
+    transition: all 0.3s ease;     /* Smooth transitions if you choose to animate it later */
+    animation: floatInWater 4s ease-in-out infinite;
 }
 
 .hero-slide-intro .hero-intro-bg-wash {
@@ -1215,20 +1232,21 @@ img.logo-color {
     right: 0;
     width: 45%;
     height: 100%;
-    background: #f0f7ff;
-    clip-path: path('M0 0 H100% C96% 10% 102% 18% 96% 24% C104% 30% 94% 38% 100% 46% C94% 54% 104% 62% 96% 68% C102% 74% 96% 84% 100% 100% H0 Z');
+    clip-path: polygon(13.03% 36.24%, 0% 25.22%, 0% 10.85%, 13.28% 0%, 100% 0%, 100% 100%, 0% 100%, 5.39% 73.62%, 25.29% 68.51%);
+    background: var(--eurekare-blue);
+    padding-right: 10%;
     pointer-events: none;
     z-index: 1;
 }
 
 .hero-intro-left {
+    
     position: relative;
-    z-index: 3;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 56px 60px 72px;
-    width: 54%;
+    padding-left: 5%;
+    width: 70%;
     box-sizing: border-box;
     transform: none;
 }
@@ -1545,14 +1563,10 @@ img.logo-color {
 /* ==========================================================================
                           SERVICES SECTION 
    ========================================================================== */
-
-.services-section { 
-    background-color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-}
 .services-divider { 
     background-color: var(--eurekare-blue);
     z-index: 5;
+    height: 40px;
 }
 
 .services-container {
@@ -4898,4 +4912,41 @@ img.logo-color {
 @media (max-width: 480px) {
     .why-us-section { padding: 60px 20px; }
     .offer-section  { padding: 60px 20px 72px; }
+}
+
+.hero-image {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Looping animation for slide 2's image — moves left to right */
+@keyframes heroSlide2PanX {
+    0% {
+        transform: scale(1.1) translateX(-3%);
+    }
+    50% {
+        transform: scale(1.1) translateX(3%);
+    }
+    100% {
+        transform: scale(1.1) translateX(-3%);
+    }
+}
+
+.hero-slide:nth-child(2).active .hero-image {
+    animation: heroSlide2PanX 15s ease-in-out infinite;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
